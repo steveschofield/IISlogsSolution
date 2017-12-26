@@ -36,11 +36,12 @@ Xceed - compression files.  License key located in IISLogs DLL
 
 Enjoy,
 
-Steve Schofield
-Microsoft ASP/ASP.NET & IIS MVP from 2002 - 2014
-http://iislogs.com/help (contains help files and how-to's')
+#Steve Schofield
+#Microsoft ASP/ASP.NET & IIS MVP from 2002 - 2014
+#http://iislogs.com/help (contains help files and how-to's')
 
-Here is a welcome aboard message included when a purchase was made. 
+Here is a welcome aboard message included when a purchase was made
+------------------------------------------------------------------
 
 For IISLogs 2.0 deployments, you might need to create the 'license' folder under the 'logs' directory.  
 We recommend you review these articles, they will help get the program setup and configured.
