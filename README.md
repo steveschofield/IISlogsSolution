@@ -4,7 +4,7 @@
 
 Welcome to IISLogs Visual Studio solution.   
 
-IISLogs was originally written in 2004 to help manage Microsoft IIS log files. There was nothing available to help manage logs at the time. Several revisions later, tis is the latest code base.  
+IISLogs was originally written in 2004 to help manage Microsoft IIS log files. There was nothing available to help manage logs at the time. Several revisions later, this is the latest code base, .NET 4.x
 
 I was able to download Visual Studio 2017 community edition and get the files to compile.  
 https://www.visualstudio.com/vs/community/
