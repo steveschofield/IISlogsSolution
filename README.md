@@ -4,9 +4,17 @@
 
 Welcome to IISLogs Visual Studio solution.   
 
-IISLogs was originally written in 2004 to help manage Microsoft IIS log files. There was nothing available to help manage logs at the time. Several revisions later, 
-this is the latest code base.  I was able to download Visual Studio 2017 community edition and get the files to compile.  
-The main solution is located in the IISLogs.  The design the IISLogs solution creates an DLL and IISLogsEXE And IISLogsSVC solutions consume the DLL
+IISLogs was originally written in 2004 to help manage Microsoft IIS log files. There was nothing available to help manage logs at the time. Several revisions later, tis is the latest code base.  
+
+I was able to download Visual Studio 2017 community edition and get the files to compile.  
+https://www.visualstudio.com/vs/community/
+
+*I needed to download additional components the VS installer took care of*
+
+The main VS solution is located in IISLogs.  IISLogs solution creates an DLL & IISLogsEXE, IISLogsSVC solutions consume the DLL
+
+Brief descriptions of each solution
+-----------------------------------
 
 AppConfigReadWriteClass is a helper utility class
 
