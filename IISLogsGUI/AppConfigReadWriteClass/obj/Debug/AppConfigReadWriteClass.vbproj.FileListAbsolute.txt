@@ -1,0 +1,9 @@
+E:\Projects\IISLogs\IISLogsGUI\IISLogsGUI\AppConfigReadWriteClass\bin\AppConfigReadWriteClass.dll
+E:\Projects\IISLogs\IISLogsGUI\IISLogsGUI\AppConfigReadWriteClass\bin\AppConfigReadWriteClass.pdb
+E:\Projects\IISLogs\IISLogsGUI\IISLogsGUI\AppConfigReadWriteClass\bin\AppConfigReadWriteClass.xml
+E:\Projects\IISLogs\IISLogsGUI\IISLogsGUI\AppConfigReadWriteClass\obj\Debug\ResolveAssemblyReference.cache
+E:\Projects\IISLogs\IISLogsGUI\IISLogsGUI\AppConfigReadWriteClass\obj\Debug\AppConfigReadWriteClass.ReadWrite.resources
+E:\Projects\IISLogs\IISLogsGUI\IISLogsGUI\AppConfigReadWriteClass\obj\Debug\AppConfigReadWriteClass.vbproj.GenerateResource.Cache
+E:\Projects\IISLogs\IISLogsGUI\IISLogsGUI\AppConfigReadWriteClass\obj\Debug\AppConfigReadWriteClass.dll
+E:\Projects\IISLogs\IISLogsGUI\IISLogsGUI\AppConfigReadWriteClass\obj\Debug\AppConfigReadWriteClass.xml
+E:\Projects\IISLogs\IISLogsGUI\IISLogsGUI\AppConfigReadWriteClass\obj\Debug\AppConfigReadWriteClass.pdb

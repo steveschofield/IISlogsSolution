@@ -1,0 +1,17 @@
+obj\Release\ResolveAssemblyReference.cache
+obj\Release\IISLogsEXE.exe
+obj\Release\IISLogsEXE.xml
+bin\IISLogsd.dll
+bin\IISLogsd.xml
+obj\Debug\ResolveAssemblyReference.cache
+bin\IISLogsEXE.exe.config
+bin\IISLogsEXE.exe
+bin\IISLogsEXE.xml
+bin\AppConfigReadWriteClass.dll
+bin\IISLogsQuickZip.dll
+bin\OpenSmtp.dll
+bin\AppConfigReadWriteClass.xml
+bin\IISLogsQuickZip.xml
+obj\Debug\IISLogsEXE.exe
+obj\Debug\IISLogsEXE.xml
+obj\Debug\IISLogsEXE.pdb

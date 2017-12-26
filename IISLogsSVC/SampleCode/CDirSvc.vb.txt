@@ -1,0 +1,358 @@
+Imports System.IO
+Imports System.Text
+
+Public Interface IDirSvc
+	'*=========================================================================================
+	'* Namespace: Meijer.Ent
+	'* Interface: IDirSvc
+	'* Author: Nicholas J. McCollum
+	'* Date: June 2002
+	'* Copyright: Meijer 2002
+	'*=========================================================================================
+	'* Description: Define an interface that all directory service objects must support.
+	'*=========================================================================================
+	'* Modification History
+	'*
+	'* Name:
+	'* Date:
+	'* Reason:
+  '*=========================================================================================
+  '* Name: Nicholas J. McCollum
+  '* Date: 9/30/2003
+  '* Reason: Removed GetApplicationList method.  Application information is no longer stored
+  '*         in the LDAP directory.
+  '*=========================================================================================
+  Function GetUserInfo(ByVal v_strUserID As String) As SUserInfo
+
+  Function IsUserInRole(ByVal v_strUserID As String, ByVal v_strRoleID As String) As Boolean
+
+  Function GetUserRoles(ByVal v_strUserID As String) As ArrayList
+
+  Function GetRoleMembers(ByVal v_strRoleID As String) As ArrayList
+End Interface
+
+Public Structure SUserInfo
+  '*=========================================================================================
+  '* Namespace: Meijer.Ent
+  '* Structure: SUserInfo
+  '* Author: Nicholas J. McCollum
+  '* Date: June 2002
+  '* Copyright: Meijer 2002
+  '*=========================================================================================
+  '* Description: Define a structure for storing user information returned by a directory
+  '* service object.
+  '*=========================================================================================
+  '* Modification History
+  '*
+  '* Name:
+  '* Date:
+  '* Reason:
+  '*=========================================================================================
+  Public UserID As String
+  Public FirstName As String
+  Public LastName As String
+  Public FullName As String
+  Public Locations As Integer()
+
+  Public Function ToXML() As String
+    '*=======================================================================================
+    '* Name: ToXML
+    '* Purpose: Convert the user information structure to an XML string.
+    '* Input: None.
+    '* Output: None.
+    '* Returns: User Information (String - XML)
+    '*=======================================================================================
+    Dim strXML As New StringBuilder
+    Dim intLocation As Integer
+
+    With strXML
+      .Append("<User><UserID>")
+      .Append(UserID)
+      .Append("</UserID><FirstName>")
+      .Append(FirstName)
+      .Append("</FirstName><LastName>")
+      .Append(LastName)
+      .Append("</LastName><FullName>")
+      .Append(FullName)
+      .Append("</FullName>")
+
+      Try
+        For Each intLocation In Locations
+          .Append("<Location>")
+          .Append(intLocation.ToString)
+          .Append("</Location>")
+        Next
+      Catch X As Exception
+      End Try
+      .Append("</User>")
+    End With
+
+    Return strXML.ToString
+  End Function
+End Structure
+
+Public Structure SApplicationInfo
+  '*=========================================================================================
+  '* Namespace: Meijer.Ent
+  '* Structure: SApplicationInfo
+  '* Author: Nicholas J. McCollum
+  '* Date: March 2003
+  '* Copyright: Meijer 2003
+  '*=========================================================================================
+  '* Description: Define a structure for storing application information returned by a directory
+  '* service object.
+  '*=========================================================================================
+  '* Modification History
+  '*
+  '* Name:
+  '* Date:
+  '* Reason:
+  '*=========================================================================================
+  Private m_strTitle As String
+  Private m_strURL As String
+  Private m_strDescription As String
+  Private m_strPlatform As String
+
+  Public Property Title() As String
+    Get
+      Return m_strTitle
+    End Get
+    Set(ByVal Value As String)
+      m_strTitle = Value
+    End Set
+  End Property
+
+  Public Property URL() As String
+    Get
+      Return m_strURL
+    End Get
+    Set(ByVal Value As String)
+      m_strURL = Value
+    End Set
+  End Property
+
+  Public Property Description() As String
+    Get
+      Return m_strDescription
+    End Get
+    Set(ByVal Value As String)
+      m_strDescription = Value
+    End Set
+  End Property
+
+  Public Property Platform() As String
+    Get
+      Return m_strPlatform
+    End Get
+    Set(ByVal Value As String)
+      m_strPlatform = Value
+    End Set
+  End Property
+
+  Public Function ToXML() As String
+    '*=======================================================================================
+    '* Name: ToXML
+    '* Purpose: Convert the application information structure to an XML string.
+    '* Input: None.
+    '* Output: None.
+    '* Returns: Application Information (String - XML)
+    '*=======================================================================================
+    Dim strXML As New StringBuilder
+
+    With strXML
+      .Append("<Application><Title>")
+      .Append(Title)
+      .Append("</Title><URL>")
+      .Append(URL)
+      .Append("</URL><Description>")
+      .Append(Description)
+      .Append("</Description><Platform>")
+      .Append(Platform)
+      .Append("</Platform>")
+      .Append("</Application>")
+    End With
+
+    Return strXML.ToString
+  End Function
+
+End Structure
+
+Public Class CDirSvc
+  '*=========================================================================================
+  '* Namespace: Meijer.Ent
+  '* Class: CDirSvc
+  '* Author: Nicholas J. McCollum
+  '* Date: June 2002
+  '* Copyright: Meijer 2002
+  '*=========================================================================================
+  '* Description: Public class that provides application access to user and group information
+  '* stored in a directory service.
+  '*=========================================================================================
+  '* Modification History
+  '*
+  '* Name:
+  '* Date:
+  '* Reason:
+  '*=========================================================================================
+  '* Name: Nicholas J. McCollum
+  '* Date: 8/1/2003
+  '* Reason: Modified CreateDirSvc method to retrieve the default role container and default 
+  '*         role from the Meijer.Ent.Config file if the directory service is NDS.
+  '*=========================================================================================
+  '* Name: Nicholas J. McCollum
+  '* Date: 9/30/2003
+  '* Reason: Removed GetApplicationList method.  Application information is no longer stored
+  '*         in the LDAP directory.
+  '*=========================================================================================
+  Inherits CMeijerObject
+  Implements IDirSvc
+  Private m_objDirSvc As IDirSvc
+
+  Private Sub CreateDirSvc()
+    '*=======================================================================================
+    '* Name: CreateDirSvc
+    '* Purpose: Create an instance of the appropriate directory service class.
+    '* Input: None.
+    '* Output: None.
+    '* Returns: None.
+    '*=======================================================================================
+    Dim strConfigFile As String
+    Dim dsConfig As New DataSet
+    Dim drDirectory As DataRow
+
+    ' Determine the path to the Meijer.Ent XML configuration file
+    strConfigFile = System.Environment.SystemDirectory & Path.DirectorySeparatorChar
+    strConfigFile = Path.Combine(Path.GetDirectoryName(strConfigFile), "meijer.ent.config")
+
+    ' Read the XML configuration file into a dataset
+    Try
+      dsConfig.ReadXml(strConfigFile)
+    Catch X As Exception
+      Throw X
+    End Try
+
+    ' Get the directory service configuration information
+    Try
+      drDirectory = dsConfig.Tables("directoryservice").Rows(0)
+    Catch X As Exception
+      Throw X
+    End Try
+
+    ' Create an instance of the appropriate directory service class
+    Select Case drDirectory.Item("directory")
+      Case "winnt"
+        m_objDirSvc = New CDirSvcNT(CType(drDirectory.Item("domain"), String), CType(drDirectory.Item("userid"), String), CType(drDirectory.Item("password"), String))
+      Case "nds4nt"
+        m_objDirSvc = New CDirSvcNDS4NT(CType(drDirectory.Item("domain"), String), CType(drDirectory.Item("userid"), String), CType(drDirectory.Item("password"), String))
+			Case "ad"
+				Select Case Me.Environment
+					Case MeijerEnvironmentEnum.DEVELOPMENT
+						m_objDirSvc = New CDirSvcAD(CType(drDirectory.Item("devserver"), String), CType(drDirectory.Item("devdomain"), String), CType(drDirectory.Item("usercontainer"), String), CType(drDirectory.Item("rolecontainer"), String), CType(drDirectory.Item("defaultrole"), String), CType(drDirectory.Item("devuserid"), String), CType(drDirectory.Item("devpassword"), String))
+					Case MeijerEnvironmentEnum.INTEGRATION
+						m_objDirSvc = New CDirSvcAD(CType(drDirectory.Item("intserver"), String), CType(drDirectory.Item("intdomain"), String), CType(drDirectory.Item("usercontainer"), String), CType(drDirectory.Item("rolecontainer"), String), CType(drDirectory.Item("defaultrole"), String), CType(drDirectory.Item("intuserid"), String), CType(drDirectory.Item("intpassword"), String))
+					Case MeijerEnvironmentEnum.CERTIFICATION
+						m_objDirSvc = New CDirSvcAD(CType(drDirectory.Item("certserver"), String), CType(drDirectory.Item("certdomain"), String), CType(drDirectory.Item("usercontainer"), String), CType(drDirectory.Item("rolecontainer"), String), CType(drDirectory.Item("defaultrole"), String), CType(drDirectory.Item("certuserid"), String), CType(drDirectory.Item("certpassword"), String))
+					Case Else
+						m_objDirSvc = New CDirSvcAD(CType(drDirectory.Item("server"), String), CType(drDirectory.Item("domain"), String), CType(drDirectory.Item("usercontainer"), String), CType(drDirectory.Item("rolecontainer"), String), CType(drDirectory.Item("defaultrole"), String), CType(drDirectory.Item("userid"), String), CType(drDirectory.Item("password"), String))
+				End Select
+			Case "nds"
+				Select Case Me.Environment
+					Case MeijerEnvironmentEnum.DEVELOPMENT
+						m_objDirSvc = New CDirSvcNDS(CType(drDirectory.Item("devserver"), String), CType(drDirectory.Item("usercontainer"), String), CType(drDirectory.Item("rolecontainer"), String), CType(drDirectory.Item("defaultrole"), String))
+					Case MeijerEnvironmentEnum.INTEGRATION
+						m_objDirSvc = New CDirSvcNDS(CType(drDirectory.Item("intserver"), String), CType(drDirectory.Item("usercontainer"), String), CType(drDirectory.Item("rolecontainer"), String), CType(drDirectory.Item("defaultrole"), String))
+					Case MeijerEnvironmentEnum.CERTIFICATION
+						m_objDirSvc = New CDirSvcNDS(CType(drDirectory.Item("certserver"), String), CType(drDirectory.Item("usercontainer"), String), CType(drDirectory.Item("rolecontainer"), String), CType(drDirectory.Item("defaultrole"), String))
+					Case Else
+						m_objDirSvc = New CDirSvcNDS(CType(drDirectory.Item("server"), String), CType(drDirectory.Item("usercontainer"), String), CType(drDirectory.Item("rolecontainer"), String), CType(drDirectory.Item("defaultrole"), String))
+				End Select
+			Case Else
+				Throw New System.Exception("Unknown directory service - please check the Meijer.Ent.Config file in the system directory.")
+		End Select
+  End Sub
+
+  Public Sub New()
+    '*=======================================================================================
+    '* Name: New (Constructor)
+    '* Purpose: Create an instance of the appropriate directory service class.
+    '* Input: None.
+    '* Output: None.
+    '* Returns: None.
+    '*=======================================================================================
+    CreateDirSvc()
+  End Sub
+
+  Public Sub New(ByVal v_intEnvironment As MeijerEnvironmentEnum)
+    '*=======================================================================================
+    '* Name: New (Constructor)
+    '* Purpose: Set the execution environment property and create an instance of the appropriate directory service class.
+    '* Input: Environment (MeijerEnvironmentEnum)
+    '* Output: None.
+    '* Returns: None.
+    '*=======================================================================================
+    Me.Environment = v_intEnvironment
+    CreateDirSvc()
+  End Sub
+
+  Public Overrides Function IsAlive() As Boolean
+    '*=======================================================================================
+    '* Name: IsAlive
+    '* Purpose: Notify diagnostic tools that this class is executing properly.
+    '* Input: None.
+    '* Output: None.
+    '* Returns: Boolean.
+    '* - True (class is okay)
+    '* - False (execution issues)
+    '*=======================================================================================
+    Return CType(m_objDirSvc, CMeijerObject).IsAlive()
+  End Function
+
+  Public Function GetUserInfo(ByVal v_strUserID As String) As SUserInfo Implements IDirSvc.GetUserInfo
+    '*=======================================================================================
+    '* Name: GetUserInfo
+    '* Purpose: Call the GetUserInfo method of the surrogate directory service.
+    '* Input:
+    '* -  User ID (String)
+    '* Output: None.
+    '* Returns: User Information (SUserInfo)
+    '*=======================================================================================
+    Return m_objDirSvc.GetUserInfo(v_strUserID)
+  End Function
+
+  Public Function IsUserInRole(ByVal v_strUserID As String, ByVal v_strRoleID As String) As Boolean Implements IDirSvc.IsUserInRole
+    '*=======================================================================================
+    '* Name: IsUserInRole
+    '* Purpose: Call the IsUserInRole method of the surrogate directory service.
+    '* Input:
+    '* - User ID (String)
+    '* - Role ID (String)
+    '* Output: None.
+    '* Returns: Boolean.
+    '* - True (User is a member of the role)
+    '* - False (User is not a member of the role)
+    '*=======================================================================================
+    Return m_objDirSvc.IsUserInRole(v_strUserID, v_strRoleID)
+  End Function
+
+  Public Function GetUserRoles(ByVal v_strUserID As String) As ArrayList Implements IDirSvc.GetUserRoles
+    '*=======================================================================================
+    '* Name: GetUserRoles
+    '* Purpose: Call the GetUserRoles method of the surrogate directory service.
+    '* Input: User ID (String)
+    '* Output: None.
+    '* Returns: List of roles (ArrayList)
+    '*=======================================================================================
+    Return m_objDirSvc.GetUserRoles(v_strUserID)
+  End Function
+
+  Public Function GetRoleMembers(ByVal v_strRoleID As String) As ArrayList Implements IDirSvc.GetRoleMembers
+    '*=======================================================================================
+    '* Name: GetRoleMembers
+    '* Purpose: Call the GetRoleMembers method of the surrogate directory service.
+    '* Input: Role ID (String)
+    '* Output: None.
+    '* Returns: List of users (ArrayList)
+    '*=======================================================================================
+    Return m_objDirSvc.GetRoleMembers(v_strRoleID)
+  End Function
+End Class

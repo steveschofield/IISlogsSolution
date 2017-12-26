@@ -1,0 +1,30 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table1>
+    <DirectoryName>c:\temp\</DirectoryName>
+    <ZipFile>false</ZipFile>
+    <ZipRetentionPeriod>0</ZipRetentionPeriod>
+    <DeleteOriginalFile>false</DeleteOriginalFile>
+    <DeleteFile>false</DeleteFile>
+    <DeleteRetentionPeriod>0</DeleteRetentionPeriod>
+    <Recursive>false</Recursive>
+    <ProcessRootFolderRecursive>false</ProcessRootFolderRecursive>
+    <ZipFilePath>local</ZipFilePath>
+    <IncludeComputerName>false</IncludeComputerName>
+    <ProcessUnknownExtensions>false</ProcessUnknownExtensions>
+    <ProcessTXT>false</ProcessTXT>
+    <ProcessBAK>false</ProcessBAK>
+    <ProcessDAT>false</ProcessDAT>
+    <ProcessXML>false</ProcessXML>
+    <NamingConvention>Default</NamingConvention>
+    <Delimiter>!</Delimiter>
+    <ProcessEXE>false</ProcessEXE>
+    <ProcessMSP>false</ProcessMSP>
+    <ProcessDLL>false</ProcessDLL>
+    <ProcessINI>false</ProcessINI>
+    <ProcessCFG>false</ProcessCFG>
+    <ProcessTMP>false</ProcessTMP>
+    <LogsDWM>1</LogsDWM>
+    <PreserveDirPath>true</PreserveDirPath>
+  </Table1>
+</NewDataSet>

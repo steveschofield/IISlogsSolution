@@ -1,0 +1,46 @@
+C:\Users\Administrator\Documents\Visual Studio 2005\Projects\IISLogs20\IISLogsSVC\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Administrator\Documents\Visual Studio 2005\Projects\IISLogs20\IISLogsSVC\obj\Debug\IISLogsSVC.Installer1.resources
+C:\Users\Administrator\Documents\Visual Studio 2005\Projects\IISLogs20\IISLogsSVC\obj\Debug\IISLogsSVC.IISLogsSVC.resources
+C:\Users\Administrator\Documents\Visual Studio 2005\Projects\IISLogs20\IISLogsSVC\obj\Debug\IISLogsSVC.vbproj.GenerateResource.Cache
+C:\Users\Administrator\Documents\Visual Studio 2005\Projects\IISLogs20\IISLogsSVC\obj\Debug\IISLogsSVC.exe
+C:\Users\Administrator\Documents\Visual Studio 2005\Projects\IISLogs20\IISLogsSVC\obj\Debug\IISLogsSVC.xml
+C:\Users\Administrator\Documents\Visual Studio 2005\Projects\IISLogs20\IISLogsSVC\obj\Debug\IISLogsSVC.pdb
+C:\Users\Administrator\Documents\Visual Studio 2005\Projects\IISLogs20\IISLogsSVC\bin\IISLogsSVC.exe.config
+C:\Users\Administrator\Documents\Visual Studio 2005\Projects\IISLogs20\IISLogsSVC\bin\IISLogsSVC.exe
+C:\Users\Administrator\Documents\Visual Studio 2005\Projects\IISLogs20\IISLogsSVC\bin\IISLogsSVC.xml
+C:\Users\Administrator\Documents\Visual Studio 2005\Projects\IISLogs20\IISLogsSVC\bin\IISLogsd.dll
+C:\Users\Administrator\Documents\Visual Studio 2005\Projects\IISLogs20\IISLogsSVC\bin\OpenSmtp.dll
+C:\Users\Administrator\Documents\Visual Studio 2005\Projects\IISLogs20\IISLogsSVC\bin\IISLogsQuickZip.dll
+C:\Users\Administrator\Documents\Visual Studio 2005\Projects\IISLogs20\IISLogsSVC\bin\AppConfigReadWriteClass.dll
+C:\Users\Administrator\Documents\Visual Studio 2005\Projects\IISLogs20\IISLogsSVC\bin\IISLogsQuickZip.xml
+C:\Users\Administrator\Documents\Visual Studio 2005\Projects\IISLogs20\IISLogsSVC\bin\IISLogsd.xml
+C:\Users\Administrator\Documents\Visual Studio 2005\Projects\IISLogs20\IISLogsSVC\bin\AppConfigReadWriteClass.xml
+C:\Users\Administrator\Documents\Visual Studio 2005\Projects\IISLogs20\IISLogsSVC\obj\Release\ResolveAssemblyReference.cache
+C:\Users\Administrator\Documents\Visual Studio 2005\Projects\IISLogs20\IISLogsSVC\obj\Release\IISLogsSVC.Installer1.resources
+C:\Users\Administrator\Documents\Visual Studio 2005\Projects\IISLogs20\IISLogsSVC\obj\Release\IISLogsSVC.IISLogsSVC.resources
+C:\Users\Administrator\Documents\Visual Studio 2005\Projects\IISLogs20\IISLogsSVC\obj\Release\IISLogsSVC.vbproj.GenerateResource.Cache
+C:\Users\Administrator\Documents\Visual Studio 2005\Projects\IISLogs20\IISLogsSVC\obj\Release\IISLogsSVC.exe
+C:\Users\Administrator\Documents\Visual Studio 2005\Projects\IISLogs20\IISLogsSVC\obj\Release\IISLogsSVC.xml
+C:\Documents and Settings\scs\My Documents\Visual Studio 2005\Projects\IISLogs20\IISLogsSVC\obj\Release\ResolveAssemblyReference.cache
+C:\Documents and Settings\scs\My Documents\Visual Studio 2005\Projects\IISLogs20\IISLogsSVC\obj\Release\IISLogsSVC.Installer1.resources
+C:\Documents and Settings\scs\My Documents\Visual Studio 2005\Projects\IISLogs20\IISLogsSVC\obj\Release\IISLogsSVC.IISLogsSVC.resources
+C:\Documents and Settings\scs\My Documents\Visual Studio 2005\Projects\IISLogs20\IISLogsSVC\obj\Release\IISLogsSVC.vbproj.GenerateResource.Cache
+C:\Documents and Settings\scs\My Documents\Visual Studio 2005\Projects\IISLogs20\IISLogsSVC\obj\Release\IISLogsSVC.exe
+C:\Documents and Settings\scs\My Documents\Visual Studio 2005\Projects\IISLogs20\IISLogsSVC\obj\Release\IISLogsSVC.xml
+C:\Documents and Settings\scs\My Documents\Visual Studio 2005\Projects\IISLogs20\IISLogsSVC\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\scs\My Documents\Visual Studio 2005\Projects\IISLogs20\IISLogsSVC\obj\Debug\IISLogsSVC.Installer1.resources
+C:\Documents and Settings\scs\My Documents\Visual Studio 2005\Projects\IISLogs20\IISLogsSVC\obj\Debug\IISLogsSVC.IISLogsSVC.resources
+C:\Documents and Settings\scs\My Documents\Visual Studio 2005\Projects\IISLogs20\IISLogsSVC\obj\Debug\IISLogsSVC.vbproj.GenerateResource.Cache
+C:\Documents and Settings\scs\My Documents\Visual Studio 2005\Projects\IISLogs20\IISLogsSVC\bin\IISLogsSVC.exe.config
+C:\Documents and Settings\scs\My Documents\Visual Studio 2005\Projects\IISLogs20\IISLogsSVC\bin\IISLogsSVC.exe
+C:\Documents and Settings\scs\My Documents\Visual Studio 2005\Projects\IISLogs20\IISLogsSVC\bin\IISLogsSVC.xml
+C:\Documents and Settings\scs\My Documents\Visual Studio 2005\Projects\IISLogs20\IISLogsSVC\bin\IISLogsd.dll
+C:\Documents and Settings\scs\My Documents\Visual Studio 2005\Projects\IISLogs20\IISLogsSVC\bin\OpenSmtp.dll
+C:\Documents and Settings\scs\My Documents\Visual Studio 2005\Projects\IISLogs20\IISLogsSVC\bin\IISLogsQuickZip.dll
+C:\Documents and Settings\scs\My Documents\Visual Studio 2005\Projects\IISLogs20\IISLogsSVC\bin\AppConfigReadWriteClass.dll
+C:\Documents and Settings\scs\My Documents\Visual Studio 2005\Projects\IISLogs20\IISLogsSVC\bin\IISLogsQuickZip.xml
+C:\Documents and Settings\scs\My Documents\Visual Studio 2005\Projects\IISLogs20\IISLogsSVC\bin\IISLogsd.xml
+C:\Documents and Settings\scs\My Documents\Visual Studio 2005\Projects\IISLogs20\IISLogsSVC\bin\AppConfigReadWriteClass.xml
+C:\Documents and Settings\scs\My Documents\Visual Studio 2005\Projects\IISLogs20\IISLogsSVC\obj\Debug\IISLogsSVC.exe
+C:\Documents and Settings\scs\My Documents\Visual Studio 2005\Projects\IISLogs20\IISLogsSVC\obj\Debug\IISLogsSVC.xml
+C:\Documents and Settings\scs\My Documents\Visual Studio 2005\Projects\IISLogs20\IISLogsSVC\obj\Debug\IISLogsSVC.pdb

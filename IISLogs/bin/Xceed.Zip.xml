@@ -1,0 +1,1699 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>Xceed.Zip</name>
+  </assembly>
+  <members>
+    <member name="T:Xceed.Zip.ZipException">
+      <summary> Exception that is thrown when an error occurs in the Xceed.Zip namespace. </summary>
+    </member>
+    <member name="M:Xceed.Zip.ZipException.#ctor(System.String)">
+      <summary> Initializes a new instance of the ZipException class with the specified message text. </summary>
+      <param name="message">The error message that explains the reason for the exception.</param>
+    </member>
+    <member name="M:Xceed.Zip.ZipException.#ctor(System.String,Xceed.FileSystem.AbstractFile)">
+      <summary> Initializes a new instance of the ZipException class with the specified message text and <see cref="T:Xceed.FileSystem.AbstractFile"></see> object. </summary>
+      <param name="message">The error message that explains the reason for the exception.</param>
+      <param name="zipFile">The <see cref="T:Xceed.FileSystem.AbstractFile"></see> object that caused the current exception.</param>
+    </member>
+    <member name="M:Xceed.Zip.ZipException.#ctor(System.String,Xceed.FileSystem.AbstractFile,System.Exception)">
+      <summary> Initializes a new instance of the ZipException class with the specified message text, <see cref="T:Xceed.FileSystem.AbstractFile"></see> object and inner exception. </summary>
+      <param name="message">The error message that explains the reason for the exception.</param>
+      <param name="zipFile">The <see cref="T:Xceed.FileSystem.AbstractFile"></see> object that caused the current exception.</param>
+      <param name="inner">The exception that initially caused the current exception to be thrown.</param>
+    </member>
+    <member name="M:Xceed.Zip.ZipException.#ctor(System.String,Xceed.FileSystem.AbstractFile,Xceed.FileSystem.FileSystemItem)">
+      <summary> Initializes a new instance of the ZipException class with the specified message text, <see cref="T:Xceed.FileSystem.AbstractFile"></see> and <see cref="T:Xceed.FileSystem.FileSystemItem"></see> objects. </summary>
+      <param name="message">The error message that explains the reason for the exception.</param>
+      <param name="zipFile">The <see cref="T:Xceed.FileSystem.AbstractFile"></see> object that caused the current exception.</param>
+      <param name="item">The <see cref="N:Xceed.FileSystem"></see> object that caused the exception.</param>
+    </member>
+    <member name="M:Xceed.Zip.ZipException.#ctor(System.String,Xceed.FileSystem.AbstractFile,Xceed.FileSystem.FileSystemItem,System.Exception)">
+      <summary> Initializes a new instance of the ZipException class with the specified message text, <see cref="T:Xceed.FileSystem.AbstractFile"></see> and <see cref="T:Xceed.FileSystem.FileSystemItem"></see> objects and inner exception. </summary>
+      <param name="message">The error message that explains the reason for the exception.</param>
+      <param name="zipFile">The <see cref="T:Xceed.FileSystem.AbstractFile"></see> object that caused the current exception.</param>
+      <param name="item">The <see cref="N:Xceed.FileSystem"></see> object that caused the exception.</param>
+      <param name="inner">The exception that initially caused the current exception to be thrown.</param>
+    </member>
+    <member name="P:Xceed.Zip.ZipException.Message">
+      <summary> Gets a message that describes the current exception. </summary>
+    </member>
+    <member name="P:Xceed.Zip.ZipException.ZipFile">
+      <summary> Gets or sets an <see cref="T:Xceed.FileSystem.AbstractFile"></see> object representing the zip file in which the current exception occurred. </summary>
+    </member>
+    <member name="T:Xceed.Zip.InvalidDecryptionPasswordException">
+      <summary> Exception that is thrown when the data could not be decrypted with the supplied decryption password. </summary>
+    </member>
+    <member name="M:Xceed.Zip.InvalidDecryptionPasswordException.#ctor">
+      <summary> Initializes a new instance of the InvalidDecryptionPasswordException class. </summary>
+    </member>
+    <member name="M:Xceed.Zip.InvalidDecryptionPasswordException.#ctor(System.String)">
+      <summary> Initializes a new instance of the InvalidDecryptionPasswordException class with the specified message text. </summary>
+      <param name="message">The error message that explains the reason for the exception.</param>
+    </member>
+    <member name="M:Xceed.Zip.InvalidDecryptionPasswordException.#ctor(Xceed.FileSystem.AbstractFile)">
+      <summary> Initializes a new instance of the InvalidDecryptionPasswordException class with the specified <see cref="T:Xceed.FileSystem.AbstractFile"></see> object. </summary>
+      <param name="zipFile">The <see cref="T:Xceed.FileSystem.AbstractFile"></see> object that caused the current exception.</param>
+    </member>
+    <member name="M:Xceed.Zip.InvalidDecryptionPasswordException.#ctor(System.String,Xceed.FileSystem.AbstractFile)">
+      <summary> Initializes a new instance of the InvalidDecryptionPasswordException class with the specified message text and <see cref="T:Xceed.FileSystem.AbstractFile"></see> object. </summary>
+      <param name="message">The error message that explains the reason for the exception.</param>
+      <param name="zipFile">The <see cref="T:Xceed.FileSystem.AbstractFile"></see> object that caused the current exception.</param>
+    </member>
+    <member name="M:Xceed.Zip.InvalidDecryptionPasswordException.#ctor(Xceed.FileSystem.AbstractFile,System.Exception)">
+      <summary> Initializes a new instance of the InvalidDecryptionPasswordException class with the specified <see cref="T:Xceed.FileSystem.AbstractFile"></see> object and inner exception. </summary>
+      <param name="zipFile">The <see cref="T:Xceed.FileSystem.AbstractFile"></see> object that caused the current exception.</param>
+      <param name="inner">The exception that initially caused the current exception to be thrown.</param>
+    </member>
+    <member name="M:Xceed.Zip.InvalidDecryptionPasswordException.#ctor(System.String,Xceed.FileSystem.AbstractFile,System.Exception)">
+      <summary> Initializes a new instance of the InvalidDecryptionPasswordException class with the specified message text, <see cref="T:Xceed.FileSystem.AbstractFile"></see> object and inner exception. </summary>
+      <param name="message">The error message that explains the reason for the exception.</param>
+      <param name="zipFile">The <see cref="T:Xceed.FileSystem.AbstractFile"></see> object that caused the current exception.</param>
+      <param name="inner">The exception that initially caused the current exception to be thrown.</param>
+    </member>
+    <member name="T:Xceed.Zip.InvalidZipStructureException">
+      <summary> Exception that is thrown when the internal structure of a ZIP file is invalid. </summary>
+    </member>
+    <member name="M:Xceed.Zip.InvalidZipStructureException.#ctor">
+      <summary> Initializes a new instance of the InvalidZipStructureException class. </summary>
+    </member>
+    <member name="M:Xceed.Zip.InvalidZipStructureException.#ctor(System.String)">
+      <summary> Initializes a new instance of the InvalidZipStructureException class with the specified message text. </summary>
+      <param name="message">The error message that explains the reason for the exception.</param>
+    </member>
+    <member name="M:Xceed.Zip.InvalidZipStructureException.#ctor(Xceed.FileSystem.AbstractFile)">
+      <summary> Initializes a new instance of the InvalidZipStructureException class with the specified <see cref="T:Xceed.FileSystem.AbstractFile"></see> object. </summary>
+      <param name="zipFile">The <see cref="T:Xceed.FileSystem.AbstractFile"></see> object that caused the current exception.</param>
+    </member>
+    <member name="M:Xceed.Zip.InvalidZipStructureException.#ctor(System.String,Xceed.FileSystem.AbstractFile)">
+      <summary> Initializes a new instance of the InvalidZipStructureException class with the specified message text and <see cref="T:Xceed.FileSystem.AbstractFile"></see> object. </summary>
+      <param name="message">The error message that explains the reason for the exception.</param>
+      <param name="zipFile">The <see cref="T:Xceed.FileSystem.AbstractFile"></see> object that caused the current exception.</param>
+    </member>
+    <member name="M:Xceed.Zip.InvalidZipStructureException.#ctor(Xceed.FileSystem.AbstractFile,System.Exception)">
+      <summary> Initializes a new instance of the InvalidZipStructureException class with the specified <see cref="T:Xceed.FileSystem.AbstractFile"></see> object and inner exception. </summary>
+      <param name="zipFile">The <see cref="T:Xceed.FileSystem.AbstractFile"></see> object that caused the current exception.</param>
+      <param name="inner">The exception that initially caused the current exception to be thrown.</param>
+    </member>
+    <member name="M:Xceed.Zip.InvalidZipStructureException.#ctor(System.String,Xceed.FileSystem.AbstractFile,System.Exception)">
+      <summary> Initializes a new instance of the InvalidZipStructureException class with the specified message text, <see cref="T:Xceed.FileSystem.AbstractFile"></see> object and inner exception. </summary>
+      <param name="message">The error message that explains the reason for the exception.</param>
+      <param name="zipFile">The <see cref="T:Xceed.FileSystem.AbstractFile"></see> object that caused the current exception.</param>
+      <param name="inner">The exception that initially caused the current exception to be thrown.</param>
+    </member>
+    <member name="T:Xceed.Zip.QuickZipException">
+      <summary> Exception that is thrown when an error occurs in a method of the <see cref="T:Xceed.Zip.QuickZip"></see> class. </summary>
+    </member>
+    <member name="M:Xceed.Zip.QuickZipException.#ctor(System.String)">
+      <summary> Initializes a new instance of the QuickZipException class with the specified message text. </summary>
+      <param name="message">The error message that explains the reason for the exception.</param>
+    </member>
+    <member name="M:Xceed.Zip.QuickZipException.#ctor(System.String,System.Exception)">
+      <summary> Initializes a new instance of the QuickZipException class with specified message text and inner exception. </summary>
+      <param name="message">The error message that explains the reason for the exception.</param>
+      <param name="inner">The exception that initially caused the current exception to be thrown.</param>
+    </member>
+    <member name="T:Xceed.Zip.ZipIOException">
+      <summary> Exception that is thrown when an IO exception occurs while reading from or writing to the ZIP file. </summary>
+    </member>
+    <member name="M:Xceed.Zip.ZipIOException.#ctor">
+      <summary> Initializes a new instance of the ZipIOException class. </summary>
+    </member>
+    <member name="M:Xceed.Zip.ZipIOException.#ctor(System.String)">
+      <summary> Initializes a new instance of the ZipIOException class with the specified message text. </summary>
+      <param name="message">The error message that explains the reason for the exception.</param>
+    </member>
+    <member name="M:Xceed.Zip.ZipIOException.#ctor(Xceed.FileSystem.AbstractFile)">
+      <summary> Initializes a new instance of the ZipIOException class with the specified <see cref="T:Xceed.FileSystem.AbstractFile"></see> object. </summary>
+      <param name="zipFile">The <see cref="T:Xceed.FileSystem.AbstractFile"></see> object that caused the current exception.</param>
+    </member>
+    <member name="M:Xceed.Zip.ZipIOException.#ctor(System.String,Xceed.FileSystem.AbstractFile)">
+      <summary> Initializes a new instance of the ZipIOException class with the specified message text and <see cref="T:Xceed.FileSystem.AbstractFile"></see> object. </summary>
+      <param name="message">The error message that explains the reason for the exception.</param>
+      <param name="zipFile">The <see cref="T:Xceed.FileSystem.AbstractFile"></see> object that caused the current exception.</param>
+    </member>
+    <member name="M:Xceed.Zip.ZipIOException.#ctor(Xceed.FileSystem.AbstractFile,System.Exception)">
+      <summary> Initializes a new instance of the ZipIOException class with the specified <see cref="T:Xceed.FileSystem.AbstractFile"></see> object and inner exception. </summary>
+      <param name="zipFile">The <see cref="T:Xceed.FileSystem.AbstractFile"></see> object that caused the current exception.</param>
+      <param name="inner">The exception that initially caused the current exception to be thrown.</param>
+    </member>
+    <member name="M:Xceed.Zip.ZipIOException.#ctor(System.String,Xceed.FileSystem.AbstractFile,System.Exception)">
+      <summary> Initializes a new instance of the ZipIOException class with the specified message text, <see cref="T:Xceed.FileSystem.AbstractFile"></see> object and inner exception. </summary>
+      <param name="message">The error message that explains the reason for the exception.</param>
+      <param name="zipFile">The <see cref="T:Xceed.FileSystem.AbstractFile"></see> object that caused the current exception.</param>
+      <param name="inner">The exception that initially caused the current exception to be thrown.</param>
+    </member>
+    <member name="T:Xceed.Zip.Licenser">
+      <summary> Class which is used to register the classes located in the Xceed.Zip namespace. </summary>
+    </member>
+    <member name="M:Xceed.Zip.Licenser.#ctor">
+      <summary>Initializes a new instance of the Licenser class.</summary>
+    </member>
+    <member name="P:Xceed.Zip.Licenser.LicenseKey">
+      <summary> Gets or sets the license key used to license this product. </summary>
+    </member>
+    <member name="T:Xceed.Zip.QuickZipItem">
+      <summary> Represents an item located within a zip file and exposes properties that get information in regards to the item. </summary>
+    </member>
+    <member name="P:Xceed.Zip.QuickZipItem.Name">
+      <summary> Gets the short name of the file. </summary>
+    </member>
+    <member name="P:Xceed.Zip.QuickZipItem.FullName">
+      <summary> Gets the full name of the file. </summary>
+    </member>
+    <member name="P:Xceed.Zip.QuickZipItem.Attributes">
+      <summary> Gets the attributes of the file. </summary>
+    </member>
+    <member name="P:Xceed.Zip.QuickZipItem.LastWriteDateTime">
+      <summary> Gets the modification date and time of the file. </summary>
+    </member>
+    <member name="P:Xceed.Zip.QuickZipItem.LastAccessDateTime">
+      <summary> Gets the last access date and time of the file. </summary>
+    </member>
+    <member name="P:Xceed.Zip.QuickZipItem.CreationDateTime">
+      <summary> Gets the creation date and time of the file. </summary>
+    </member>
+    <member name="P:Xceed.Zip.QuickZipItem.Size">
+      <summary> Gets the uncompressed size of the file in bytes. </summary>
+    </member>
+    <member name="P:Xceed.Zip.QuickZipItem.CompressedSize">
+      <summary> Gets the compressed size of the file in bytes. </summary>
+    </member>
+    <member name="P:Xceed.Zip.QuickZipItem.CompressionRatio">
+      <summary> Gets the compression ratio of the file. </summary>
+    </member>
+    <member name="P:Xceed.Zip.QuickZipItem.Crc32">
+      <summary> Gets the checksum of the file. </summary>
+    </member>
+    <member name="P:Xceed.Zip.QuickZipItem.CompressionMethod">
+      <summary> Gets the <see cref="P:Xceed.Zip.QuickZipItem.CompressionMethod" nolink="true"></see> used to compress the file. </summary>
+    </member>
+    <member name="P:Xceed.Zip.QuickZipItem.Encrypted">
+      <summary> Gets a value indicating if the file is encrypted. </summary>
+    </member>
+    <member name="P:Xceed.Zip.QuickZipItem.Comment">
+      <summary> Gets the comment of the file. </summary>
+    </member>
+    <member name="T:Xceed.Zip.QuickZip">
+      <summary> Exposes static methods that allow basic zip file operations. </summary>
+    </member>
+    <member name="M:Xceed.Zip.QuickZip.GetZipContents(System.String,System.String[])">
+      <summary> Gets the content of a zip file. </summary>
+      <param name="zipFileName">The fully-qualified path and name of the zip file.</param>
+      <param name="fileMasks">The string masks that are used to filter the files.</param>
+    </member>
+    <member name="M:Xceed.Zip.QuickZip.Zip(System.String,System.String[])">
+      <summary> Adds files to a zip file overwriting existing files and preserving the directory structure. </summary>
+      <param name="zipFileName">The fully-qualified path and name of the zip file.</param>
+      <param name="filesToZip">The files to add to <paramref name="zipFilename"></paramref>. Cannot be <see langword="null"></see>.</param>
+    </member>
+    <member name="M:Xceed.Zip.QuickZip.Zip(System.String,System.Boolean,System.Boolean,System.Boolean,System.String[])">
+      <summary> Adds files to a zip file specifying whether existing files will be overwritten and if the directory structure will be preserved. </summary>
+      <param name="zipFileName">The fully-qualified path and name of the zip file.</param>
+      <param name="replaceExistingFiles">Boolean value indicating if existing files should be overwritten.</param>
+      <param name="recursive">Boolean value indicating if files contained within sub-folders should be added to the zip file.</param>
+      <param name="preservePaths">Boolean value indicating if the directory structure should be preserved in the zip file.</param>
+      <param name="filesToZip">The files to add to <paramref name="zipFilename"></paramref>. Cannot be <see langword="null"></see>.</param>
+    </member>
+    <member name="M:Xceed.Zip.QuickZip.Zip(System.String,System.String,System.Boolean,System.Boolean,System.Boolean,System.String[])">
+      <summary> Adds files to a zip file using an encryption password and specifying whether existing files will be overwritten and if the directory structure will be preserved. </summary>
+      <param name="zipFileName">The fully-qualified path and name of the zip file.</param>
+      <param name="encryptionPassword">The password that will be used to encrypt the files.</param>
+      <param name="replaceExistingFiles">Boolean value indicating if existing files should be overwritten.</param>
+      <param name="recursive">Boolean value indicating if files contained within sub-folders should be added to the zip file.</param>
+      <param name="preservePaths">Boolean value indicating if the directory structure should be preserved in the zip file.</param>
+      <param name="filesToZip">The files to add to <paramref name="zipFilename"></paramref>. Cannot be <see langword="null"></see>.</param>
+    </member>
+    <member name="M:Xceed.Zip.QuickZip.Zip(System.String,System.String,System.Boolean,System.Boolean,System.Boolean,System.Int64,Xceed.Zip.SplitNameFormat,System.String[])">
+      <summary> Adds files to a multi-part zip file using the specified split name format, the specified split size, an encryption password and specifying whether existing files will be overwritten and if the directory structure will be preserved. </summary>
+      <param name="zipFileName">The fully-qualified path and name of the zip file.</param>
+      <param name="encryptionPassword">The password that will be used to encrypt the files.</param>
+      <param name="replaceExistingFiles">Boolean value indicating if existing files should be overwritten.</param>
+      <param name="recursive">Boolean value indicating if files contained within sub-folders should be added to the zip file.</param>
+      <param name="preservePaths">Boolean value indicating if the directory structure should be preserved in the zip file.</param>
+      <param name="splitSize">The size, in bytes, of each split zip file part that will be created.</param>
+      <param name="splitNameFormat">The naming convention the split zip file parts will follow.</param>
+      <param name="filesToZip">The files to add to <paramref name="zipFilename"></paramref>. Cannot be <see langword="null"></see>.</param>
+    </member>
+    <member name="M:Xceed.Zip.QuickZip.Zip(System.String,System.String,System.Boolean,System.Boolean,System.Boolean,Xceed.Zip.QuickZip.DiskRequiredCallback,System.Object,System.String[])">
+      <summary> Adds files to a spanned zip file specifying the callback method called when requesting a new disk, using an encryption password and specifying whether existing files will be overwritten and if the directory structure will be preserved. </summary>
+      <param name="zipFileName">The fully-qualified path and name of the zip file.</param>
+      <param name="encryptionPassword">The password that will be used to encrypt the files.</param>
+      <param name="replaceExistingFiles">Boolean value indicating if existing files should be overwritten.</param>
+      <param name="recursive">Boolean value indicating if files contained within sub-folders should be added to the zip file.</param>
+      <param name="preservePaths">Boolean value indicating if the directory structure should be preserved in the zip file.</param>
+      <param name="diskRequiredCallback">The callback method called whenever the DiskRequired event is triggered.</param>
+      <param name="userParams">Opaque data which will be passed back to the callback method.</param>
+      <param name="filesToZip">The files to add to <paramref name="zipFilename"></paramref>. Cannot be <see langword="null"></see>.</param>
+    </member>
+    <member name="M:Xceed.Zip.QuickZip.Zip(System.String,System.String,System.Boolean,System.Boolean,System.Boolean,Xceed.Zip.Sfx.XceedSfxPrefix,System.String[])">
+      <summary> Adds files to a self-extracting zip file specifying an XceedSfxPrefix which will be used as the source module, using an encryption password and specifying whether existing files will be overwritten and if the directory structure will be preserved. </summary>
+      <param name="zipFileName">The fully-qualified path and name of the zip file.</param>
+      <param name="encryptionPassword">The password that will be used to encrypt the files.</param>
+      <param name="replaceExistingFiles">Boolean value indicating if existing files should be overwritten.</param>
+      <param name="recursive">Boolean value indicating if files contained within sub-folders should be added to the zip file.</param>
+      <param name="preservePaths">Boolean value indicating if the directory structure should be preserved in the zip file.</param>
+      <param name="sfx">The XceedSfxPrefix used to create the self-extracting zip file.</param>
+      <param name="filesToZip">The files to add to <paramref name="zipFilename"></paramref>. Cannot be <see langword="null"></see>.</param>
+    </member>
+    <member name="M:Xceed.Zip.QuickZip.Zip(System.String,System.String,System.Boolean,System.Boolean,System.Boolean,Xceed.Zip.Sfx.XceedSfxPrefix,Xceed.Zip.QuickZip.DiskRequiredCallback,System.Object,System.String[])">
+      <summary> Adds files to a self-extracting spanned zip file specifying an XceedSfxPrefix which will be used as the source module, the callback method called when requesting a new disk, using an encryption password and specifying whether existing files will be overwritten and if the directory structure will be preserved. </summary>
+      <param name="zipFileName">The fully-qualified path and name of the zip file.</param>
+      <param name="encryptionPassword">The password that will be used to encrypt the files.</param>
+      <param name="replaceExistingFiles">Boolean value indicating if existing files should be overwritten.</param>
+      <param name="recursive">Boolean value indicating if files contained within sub-folders should be added to the zip file.</param>
+      <param name="preservePaths">Boolean value indicating if the directory structure should be preserved in the zip file.</param>
+      <param name="sfx">The XceedSfxPrefix used to create the self-extracting zip file.</param>
+      <param name="diskRequiredCallback">The callback method called whenever the DiskRequired event is triggered.</param>
+      <param name="userParams">Opaque data which will be passed back to the callback method.</param>
+      <param name="filesToZip">The files to add to <paramref name="zipFilename"></paramref>. Cannot be <see langword="null"></see>.</param>
+    </member>
+    <member name="M:Xceed.Zip.QuickZip.Unzip(System.String,System.String,System.String[])">
+      <summary> Extracts files from a zip file overwriting existing files and restoring the directory structure. </summary>
+      <param name="zipFileName">The fully-qualified path and name of the zip file.</param>
+      <param name="destinationFolder">The destination folder to where the files will be extracted.</param>
+      <param name="filesToUnzip">The files to extract from <paramref name="zipFilename"></paramref>. Cannot be <see langword="null"></see>.</param>
+    </member>
+    <member name="M:Xceed.Zip.QuickZip.Unzip(System.String,System.String,System.Boolean,System.Boolean,System.Boolean,System.String[])">
+      <summary> Extracts files from a zip file specifying whether existing files will be overwritten and if the directory structure will be restored. </summary>
+      <param name="zipFileName">The fully-qualified path and name of the zip file.</param>
+      <param name="destinationFolder">The destination folder to where the files will be extracted.</param>
+      <param name="replaceExistingFiles">Boolean value indicating if existing files should be overwritten.</param>
+      <param name="recursive">Boolean value indicating if files contained within sub-folders should be extracted from the zip file.</param>
+      <param name="preservePaths">Boolean value indicating if the directory structure should be preserved in the destination folder.</param>
+      <param name="filesToUnzip">The files to extract from <paramref name="zipFilename"></paramref>. Cannot be <see langword="null"></see>.</param>
+    </member>
+    <member name="M:Xceed.Zip.QuickZip.Unzip(System.String,System.String,System.String,System.Boolean,System.Boolean,System.Boolean,System.String[])">
+      <summary> Extracts files from a zip file providing a decryption password and specifying whether existing files will be overwritten and if the directory structure will be restored. </summary>
+      <param name="zipFileName">The fully-qualified path and name of the zip file.</param>
+      <param name="destinationFolder">The destination folder to where the files will be extracted.</param>
+      <param name="decryptionPassword">The password that will be used to decrypt the files.</param>
+      <param name="replaceExistingFiles">Boolean value indicating if existing files should be overwritten.</param>
+      <param name="recursive">Boolean value indicating if files contained within sub-folders should be extracted from the zip file.</param>
+      <param name="preservePaths">Boolean value indicating if the directory structure should be preserved in the destination folder.</param>
+      <param name="filesToUnzip">The files to extract from <paramref name="zipFilename"></paramref>. Cannot be <see langword="null"></see>.</param>
+    </member>
+    <member name="M:Xceed.Zip.QuickZip.Unzip(System.String,System.String,System.String,System.Boolean,System.Boolean,System.Boolean,Xceed.Zip.QuickZip.DiskRequiredCallback,System.Object,System.String[])">
+      <summary> Extracts files from a spanned zip file specifying the callback method called when requesting a new disk, providing a decryption password and specifying whether existing files will be overwritten and if the directory structure will be restored. </summary>
+      <param name="zipFileName">The fully-qualified path and name of the zip file.</param>
+      <param name="destinationFolder">The destination folder to where the files will be extracted.</param>
+      <param name="decryptionPassword">The password that will be used to decrypt the files.</param>
+      <param name="replaceExistingFiles">Boolean value indicating if existing files should be overwritten.</param>
+      <param name="recursive">Boolean value indicating if files contained within sub-folders should be extracted from the zip file.</param>
+      <param name="preservePaths">Boolean value indicating if the directory structure should be preserved in the destination folder.</param>
+      <param name="diskRequiredCallback">The callback method called whenever the DiskRequired event is triggered.</param>
+      <param name="userParams">Opaque data which will be passed back to the callback method.</param>
+      <param name="filesToUnzip">The files to extract from <paramref name="zipFilename"></paramref>. Cannot be <see langword="null"></see>.</param>
+    </member>
+    <member name="M:Xceed.Zip.QuickZip.Remove(System.String,System.String[])">
+      <summary> Removes files from a zip file. </summary>
+      <param name="zipFileName">The fully-qualified path and name of the zip file.</param>
+      <param name="filesToRemove">The files to remove from <paramref name="zipFilename"></paramref>. Cannot be <see langword="null"></see>.</param>
+    </member>
+    <member name="M:Xceed.Zip.QuickZip.Remove(System.String,System.Boolean,System.String[])">
+      <summary> Removes files from a zip file specifying if files contained within sub-folders will also be removed. </summary>
+      <param name="zipFileName">The fully-qualified path and name of the zip file.</param>
+      <param name="recursive">Boolean value indicating if files contained within sub-folders should be removed from the zip file.</param>
+      <param name="filesToRemove">The files to remove from <paramref name="zipFilename"></paramref>. Cannot be <see langword="null"></see>.</param>
+    </member>
+    <member name="T:Xceed.Zip.ZippedFolder">
+      <summary> Specialization of the <see cref="T:Xceed.FileSystem.AbstractFolder"></see> class that implements access to a folder stored in a ZIP file. </summary>
+    </member>
+    <member name="M:Xceed.Zip.ZippedFolder.#ctor(Xceed.FileSystem.AbstractFile,System.String)">
+      <summary> Initializes a new instance of the <see cref="T:Xceed.Zip.ZippedFolder"></see> class. </summary>
+      <param name="zipFile">
+        <see cref="T:Xceed.FileSystem.AbstractFile">
+        </see> object that represents the ZIP file to access.</param>
+      <param name="folderName">Fully-qualified name of the folder stored in the ZIP file. This folder may or may not exist in the ZIP file.</param>
+    </member>
+    <member name="M:Xceed.Zip.ZippedFolder.#ctor(Xceed.FileSystem.FileSystemEvents,System.Object,Xceed.FileSystem.AbstractFile,System.String)">
+      <summary> Initializes a new instance of the <see cref="T:Xceed.Zip.ZippedFolder"></see> class enabling event notifications while the object is being created. </summary>
+      <param name="events">A <see cref="T:Xceed.FileSystem.FileSystemEvents"></see> object that will be used to raise events. Cannot be <see langword="null"></see>.</param>
+      <param name="userData">Opaque data that will be passed back to the event handler when an event is raised.</param>
+      <param name="zipFile">
+        <see cref="T:Xceed.FileSystem.AbstractFile">
+        </see> object that represents the ZIP file to access.</param>
+      <param name="folderName">Fully-qualified name of the folder stored in the ZIP file. This folder may or may not exist in the ZIP file.</param>
+    </member>
+    <member name="P:Xceed.Zip.ZippedFolder.Comment">
+      <summary> Gets or sets the folder's comment. </summary>
+    </member>
+    <member name="P:Xceed.Zip.ZippedFolder.DiskNumber">
+      <summary> Gets a value indicating on which disk or in which split zip file part the folder is located. </summary>
+    </member>
+    <member name="P:Xceed.Zip.ZippedFolder.ExtraHeaders">
+      <summary> Gets or sets the folder's extra headers. </summary>
+    </member>
+    <member name="P:Xceed.Zip.ZippedFolder.DoName">
+      <summary> Gets or sets the short name of the item. </summary>
+    </member>
+    <member name="P:Xceed.Zip.ZippedFolder.DoFullName">
+      <summary> Gets the full name of the item. </summary>
+    </member>
+    <member name="P:Xceed.Zip.ZippedFolder.DoAttributes">
+      <summary> Gets or sets the attributes of the item. </summary>
+    </member>
+    <member name="P:Xceed.Zip.ZippedFolder.DoHasCreationDateTime">
+      <summary> Gets a boolean value indicating if the folder supports having a creation date and time. </summary>
+    </member>
+    <member name="P:Xceed.Zip.ZippedFolder.DoCreationDateTime">
+      <summary> Gets or sets the creation date and time of the item. </summary>
+    </member>
+    <member name="P:Xceed.Zip.ZippedFolder.DoLastWriteDateTime">
+      <summary> Gets or sets the modification date and time of the item. </summary>
+    </member>
+    <member name="P:Xceed.Zip.ZippedFolder.DoHasLastAccessDateTime">
+      <summary> Gets a boolean value indicating if the folder supports having a last access date and time. </summary>
+    </member>
+    <member name="P:Xceed.Zip.ZippedFolder.DoLastAccessDateTime">
+      <summary> Gets or sets the last access date and time of the folder. </summary>
+    </member>
+    <member name="P:Xceed.Zip.ZippedFolder.DoParentFolder">
+      <summary> Gets a reference to the parent folder of this item. </summary>
+    </member>
+    <member name="P:Xceed.Zip.ZippedFolder.DoRootFolder">
+      <summary> Gets a reference to the root folder of this item. </summary>
+    </member>
+    <member name="P:Xceed.Zip.ZippedFolder.DoExists">
+      <summary> Gets a boolean value indicating if the item physically exists. </summary>
+    </member>
+    <member name="M:Xceed.Zip.ZippedFolder.DoGetFolder(Xceed.FileSystem.FileSystemEventsSession,System.String)">
+      <summary> Retrieves a reference to an <see cref="T:Xceed.FileSystem.AbstractFolder"></see> object contained within the zipped folder. </summary>
+      <param name="session">A reference to a <see cref="T:Xceed.FileSystem.FileSystemEventsSession"></see> object which is responsible for raising all events that occur during the process.</param>
+      <param name="folderName">The name of the folder to retrieve.</param>
+    </member>
+    <member name="M:Xceed.Zip.ZippedFolder.DoGetFile(Xceed.FileSystem.FileSystemEventsSession,System.String)">
+      <summary> Retrieves a reference to an <see cref="T:Xceed.FileSystem.AbstractFile"></see> object contained within the zipped folder. </summary>
+      <param name="session">A reference to a <see cref="T:Xceed.FileSystem.FileSystemEventsSession"></see> object which is responsible for raising all events that occur during the process.</param>
+      <param name="fileName">The name of the file to retrieve.</param>
+    </member>
+    <member name="M:Xceed.Zip.ZippedFolder.DoGetChildItems(Xceed.FileSystem.FileSystemEventsSession)">
+      <summary> Retrieves an array of <see cref="T:Xceed.FileSystem.FileSystemItem"></see> objects contained within the zipped folder. </summary>
+      <param name="session">A reference to a <see cref="T:Xceed.FileSystem.FileSystemEventsSession"></see> object which is responsible for raising all events that occur during the process.</param>
+    </member>
+    <member name="M:Xceed.Zip.ZippedFolder.IsPathRooted(System.String)">
+      <summary> Returns a boolean value indicating if the path passed is rooted. </summary>
+      <param name="path">The path to verify.</param>
+    </member>
+    <member name="M:Xceed.Zip.ZippedFolder.IsSameAs(Xceed.FileSystem.FileSystemItem)">
+      <summary> Returns a boolean value indicating if the source and target items are the same. </summary>
+      <param name="target">A <see cref="T:Xceed.FileSystem.FileSystemItem"></see> object representing the destination item.</param>
+    </member>
+    <member name="M:Xceed.Zip.ZippedFolder.DoApplyPropertiesTo(Xceed.FileSystem.FileSystemEventsSession,Xceed.FileSystem.FileSystemItem)">
+      <summary> Copies the zipped folder's properties to another item. </summary>
+      <param name="session">A reference to a <see cref="T:Xceed.FileSystem.FileSystemEventsSession"></see> object which is responsible for raising all events that occur during the process.</param>
+      <param name="targetItem">A <see cref="T:Xceed.FileSystem.FileSystemItem"></see> object to which the current zipped folder's properties must be copied. Cannot be <see langword="null"></see>.</param>
+    </member>
+    <member name="M:Xceed.Zip.ZippedFolder.DoDelete(Xceed.FileSystem.FileSystemEventsSession)">
+      <summary> Permanently deletes the physical zipped folder. </summary>
+      <param name="session">A reference to a <see cref="T:Xceed.FileSystem.FileSystemEventsSession"></see> object which is responsible for raising all events that occur during the process.</param>
+    </member>
+    <member name="M:Xceed.Zip.ZippedFolder.EnsureDateIsValid(System.DateTime)">
+      <summary> Ensures that the <see cref="T:System.DateTime"></see> value is valid. </summary>
+      <param name="value">The <see cref="T:System.DateTime"></see> value to validate.</param>
+    </member>
+    <member name="M:Xceed.Zip.ZippedFolder.DoCreate(Xceed.FileSystem.FileSystemEventsSession)">
+      <summary> Creates the physical zipped folder. </summary>
+      <param name="session">A reference to a <see cref="T:Xceed.FileSystem.FileSystemEventsSession"></see> object which is responsible for raising all events that occur during the process.</param>
+    </member>
+    <member name="M:Xceed.Zip.ZippedFolder.DoRefresh(Xceed.FileSystem.FileSystemEventsSession)">
+      <summary> Re-reads the information from the physical item. </summary>
+      <param name="session">A reference to a <see cref="T:Xceed.FileSystem.FileSystemEventsSession"></see> object which is responsible for raising all events that occur during the process.</param>
+    </member>
+    <member name="M:Xceed.Zip.ZippedFolder.ListCopyTo(Xceed.FileSystem.FileSystemEventsSession,System.Boolean)">
+      <summary> Copies each item in the <see cref="T:Xceed.FileSystem.FileSystemEventsSession"></see> object's list to each item's destination. </summary>
+      <param name="session">A reference to a <see cref="T:Xceed.FileSystem.FileSystemEventsSession"></see> object which is responsible for raising all events that occur during the process.</param>
+      <param name="replaceExistingFiles">
+        <see langword="true">
+        </see> if existing items in the destination should be replaced; <see langword="false"></see> otherwise.</param>
+    </member>
+    <member name="M:Xceed.Zip.ZippedFolder.Finalize">
+      <summary> Allows the ZippedFolder object to attempt to free resources and perform other cleanup operations before it is reclaimed by garbage collection. </summary>
+    </member>
+    <member name="T:Xceed.Zip.ZipArchive">
+      <summary> Specialization of the <see cref="T:Xceed.Zip.ZippedFolder"></see> class that represents the root folder in a ZIP file, i.e. the ZIP file itself. </summary>
+    </member>
+    <member name="M:Xceed.Zip.ZipArchive.#ctor(Xceed.FileSystem.AbstractFile)">
+      <summary> Initializes a new instance of the <see cref="T:Xceed.Zip.ZipArchive"></see> class. </summary>
+      <param name="zipFile">An <see cref="T:Xceed.FileSystem.AbstractFile"></see> object that represents the ZIP file to access. For example, to access/create a zip file in memory use a <see cref="T:Xceed.FileSystem.MemoryFile"></see>. If the zip file is on disk, then use a <see cref="T:Xceed.FileSystem.DiskFile"></see> and so on.</param>
+    </member>
+    <member name="M:Xceed.Zip.ZipArchive.#ctor(Xceed.FileSystem.FileSystemEvents,System.Object,Xceed.FileSystem.AbstractFile)">
+      <summary> Initializes a new instance of the <see cref="T:Xceed.Zip.ZipArchive"></see> class enabling event notifications while the object is being created. </summary>
+      <param name="events">A <see cref="T:Xceed.FileSystem.FileSystemEvents"></see> object that will be used to raise events. Cannot be <see langword="null"></see>.</param>
+      <param name="userData">Opaque data that will be passed back to the event handler when an event is raised.</param>
+      <param name="zipFile">An <see cref="T:Xceed.FileSystem.AbstractFile"></see> object that represents the ZIP file to access. For example, to access/create a zip file in memory use a <see cref="T:Xceed.FileSystem.MemoryFile"></see>. If the zip file is on disk, then use a <see cref="T:Xceed.FileSystem.DiskFile"></see> and so on.</param>
+    </member>
+    <member name="P:Xceed.Zip.ZipArchive.Comment">
+      <summary> Gets or sets the zip file's comment. </summary>
+    </member>
+    <member name="P:Xceed.Zip.ZipArchive.DefaultDecryptionPassword">
+      <summary> Gets or sets the default decryption password to use when decompressing files. </summary>
+    </member>
+    <member name="P:Xceed.Zip.ZipArchive.DefaultEncryptionPassword">
+      <summary> Gets or sets the default encryption password that will be used to encrypt the file(s) that are added to the zip file. </summary>
+    </member>
+    <member name="P:Xceed.Zip.ZipArchive.DefaultCompressionMethod">
+      <summary> Gets or sets the default <see cref="T:Xceed.Compression.CompressionMethod"></see> that will be applied to the file(s) that are added to the zip file. </summary>
+    </member>
+    <member name="P:Xceed.Zip.ZipArchive.DefaultCompressionLevel">
+      <summary> Gets or sets the default <see cref="T:Xceed.Compression.CompressionLevel"></see> that will be applied to the file(s) that are added to the zip file. </summary>
+    </member>
+    <member name="P:Xceed.Zip.ZipArchive.ZipFile">
+      <summary> Gets a reference to the zip file around which the <see cref="T:Xceed.Zip.ZipArchive"></see> object is created. </summary>
+    </member>
+    <member name="P:Xceed.Zip.ZipArchive.SfxPrefix">
+      <summary> Gets or sets the SFX data that will be prefixed to the begining of the zip file. </summary>
+    </member>
+    <member name="P:Xceed.Zip.ZipArchive.SplitSize">
+      <summary> Gets or sets the size, in bytes, that each split zip file part will have when the zip file is created or the next time it is updated. </summary>
+    </member>
+    <member name="P:Xceed.Zip.ZipArchive.SplitNameFormat">
+      <summary> Gets or sets the naming convention the split zip file parts will follow when the zip file is created or the next time it is updated. </summary>
+    </member>
+    <member name="P:Xceed.Zip.ZipArchive.AllowSpanning">
+      <summary> Gets or sets a boolean value indicating if the zip file is allowed to span disks. </summary>
+    </member>
+    <member name="P:Xceed.Zip.ZipArchive.DefaultTempFolder">
+      <summary> Gets or sets the folder that will be used, by default, as the temporary folder. </summary>
+    </member>
+    <member name="P:Xceed.Zip.ZipArchive.TempFolder">
+      <summary> Gets or sets the folder where the temporary zip file will be created. </summary>
+    </member>
+    <member name="P:Xceed.Zip.ZipArchive.DefaultExtraHeaders">
+      <summary> Gets or sets the default extra headers of the items that are added to the zip file. </summary>
+    </member>
+    <member name="M:Xceed.Zip.ZipArchive.EndUpdate(Xceed.FileSystem.FileSystemEvents,System.Object)">
+      <summary> Informs a <see cref="T:Xceed.Zip.ZipArchive"></see> object to apply to its underlying physical store all the modifications that have been made since the call to <see cref="M:Xceed.Zip.ZipArchive.BeginUpdate"></see> and raises events during the process. </summary>
+      <param name="events">A <see cref="T:Xceed.FileSystem.FileSystemEvents"></see> object that will be used to raise events. Cannot be <see langword="null"></see>.</param>
+      <param name="userData">Opaque data that will be passed back to the event handler when an event is raised.</param>
+    </member>
+    <member name="M:Xceed.Zip.ZipArchive.EndUpdate">
+      <summary> Informs a <see cref="T:Xceed.Zip.ZipArchive"></see> object to apply to its underlying physical store all the modifications that have been made since the call to <see cref="M:Xceed.Zip.ZipArchive.BeginUpdate"></see></summary>
+    </member>
+    <member name="M:Xceed.Zip.ZipArchive.BeginUpdate(Xceed.FileSystem.FileSystemEvents,System.Object)">
+      <summary> Prevents a <see cref="T:Xceed.Zip.ZipArchive"></see> object from modifying its underlying physical store until the <see cref="M:Xceed.Zip.ZipArchive.EndUpdate"></see> method is called and raises events during the process. </summary>
+      <param name="events">A <see cref="T:Xceed.FileSystem.FileSystemEvents"></see> object that will be used to raise events. Cannot be <see langword="null"></see>.</param>
+      <param name="userData">Opaque data that will be passed back to the event handler when an event is raised.</param>
+    </member>
+    <member name="M:Xceed.Zip.ZipArchive.BeginUpdate">
+      <summary> Prevents a <see cref="T:Xceed.Zip.ZipArchive"></see> object from modifying its underlying physical store until the <see cref="M:Xceed.Zip.ZipArchive.EndUpdate"></see> method is called. </summary>
+    </member>
+    <member name="T:Xceed.Zip.DiskRequiredEventArgs">
+      <summary> Provides information regarding the zip file that is being spanned or split. </summary>
+    </member>
+    <member name="P:Xceed.Zip.DiskRequiredEventArgs.Reason">
+      <summary> Gets a <see cref="T:Xceed.Zip.DiskRequiredReason"></see> value indicating the reason why a new disk is required. </summary>
+    </member>
+    <member name="P:Xceed.Zip.DiskRequiredEventArgs.ZipFile">
+      <summary> Gets or sets the next zip file to write to or read from. </summary>
+    </member>
+    <member name="P:Xceed.Zip.DiskRequiredEventArgs.DiskNumber">
+      <summary> Gets the number of the next required disk. </summary>
+    </member>
+    <member name="P:Xceed.Zip.DiskRequiredEventArgs.SplitSize">
+      <summary> Gets or sets a value representing the size, in bytes, of the next split part to be created in the case where the zip file is being split (not necessarily spanned). </summary>
+    </member>
+    <member name="P:Xceed.Zip.DiskRequiredEventArgs.Action">
+      <summary> Gets or sets a value indicating if the current operation should be aborted or if it should attempt to continue. </summary>
+    </member>
+    <member name="T:Xceed.Zip.ZipEvents">
+      <summary> Class that dispatches events associated with zip operations performed on <see cref="T:Xceed.Zip.ZippedFile"></see>, <see cref="T:Xceed.Zip.ZippedFolder"></see> or <see cref="T:Xceed.Zip.ZipArchive"></see> objects. </summary>
+    </member>
+    <member name="M:Xceed.Zip.ZipEvents.#ctor">
+      <summary>Initializes a new instance of the ZipEvents class.</summary>
+    </member>
+    <member name="P:Xceed.Zip.ZipEvents.WantsReadingZipItemProgression">
+      <summary> Gets a boolean value indicating if the <see cref="T:Xceed.Zip.ZipEvents"></see> object has subscribed to the <see cref="E:Xceed.Zip.ZipEvents.ReadingZipItemProgression"></see> event. </summary>
+    </member>
+    <member name="P:Xceed.Zip.ZipEvents.WantsBuildingZipItemProgression">
+      <summary> Gets a boolean value indicating if the <see cref="T:Xceed.Zip.ZipEvents"></see> object has subscribed to the <see cref="E:Xceed.Zip.ZipEvents.BuildingZipItemProgression"></see> event. </summary>
+    </member>
+    <member name="P:Xceed.Zip.ZipEvents.WantsBuildingZipByteProgression">
+      <summary> Gets a boolean value indicating if the <see cref="T:Xceed.Zip.ZipEvents"></see> object has subscribed to the <see cref="E:Xceed.Zip.ZipEvents.BuildingZipByteProgression"></see> event. </summary>
+    </member>
+    <member name="P:Xceed.Zip.ZipEvents.WantsCopyingZipByteProgression">
+      <summary> Gets a boolean value indicating if the <see cref="T:Xceed.Zip.ZipEvents"></see> object has subscribed to the <see cref="E:Xceed.Zip.ZipEvents.CopyingZipByteProgression"></see> event. </summary>
+    </member>
+    <member name="P:Xceed.Zip.ZipEvents.WantsGatheringZipContentByteProgression">
+      <summary> Gets a boolean value indicating if the <see cref="T:Xceed.Zip.ZipEvents"></see> object has subscribed to the <see cref="E:Xceed.Zip.ZipEvents.GatheringZipContentByteProgression"></see> event. </summary>
+    </member>
+    <member name="P:Xceed.Zip.ZipEvents.WantsDiskRequired">
+      <summary> Gets a boolean value indicating if the <see cref="T:Xceed.Zip.ZipEvents"></see> object has subscribed to the <see cref="E:Xceed.Zip.ZipEvents.DiskRequired"></see> event. </summary>
+    </member>
+    <member name="M:Xceed.Zip.ZipEvents.OnDiskRequired(System.Object,Xceed.Zip.DiskRequiredEventArgs)">
+      <summary> Raises the <see cref="E:Xceed.Zip.ZipEvents.DiskRequired"></see> event. </summary>
+      <param name="sender">The object on which the method was called.</param>
+      <param name="e">A <see cref="T:Xceed.Zip.DiskRequiredEventArgs"></see> that contains the event data.</param>
+    </member>
+    <member name="M:Xceed.Zip.ZipEvents.OnGatheringZipContentByteProgression(System.Object,Xceed.FileSystem.ByteProgressionEventArgs)">
+      <summary> Raises the <see cref="E:Xceed.Zip.ZipEvents.GatheringZipContentByteProgression"></see> event. </summary>
+      <param name="sender">The object on which the method was called.</param>
+      <param name="e">A <see cref="T:Xceed.FileSystem.ByteProgressionEventArgs"></see> that contains the event data.</param>
+    </member>
+    <member name="M:Xceed.Zip.ZipEvents.OnCopyingZipByteProgression(System.Object,Xceed.FileSystem.ByteProgressionEventArgs)">
+      <summary>
+        <b>OBSOLETE : This method should no longer be called. You can override <see cref="M:Xceed.Zip.ZipEvents.OnGatheringZipContentByteProgression(System.Object,Xceed.FileSystem.ByteProgressionEventArgs)"></see> to get status on the step preceding the creation of the zip file.</b> Raises the <see cref="E:Xceed.Zip.ZipEvents.CopyingZipByteProgression"></see> event. </summary>
+      <param name="sender">The object on which the method was called.</param>
+      <param name="e">A <see cref="T:Xceed.FileSystem.ByteProgressionEventArgs"></see> that contains the event data.</param>
+    </member>
+    <member name="M:Xceed.Zip.ZipEvents.OnBuildingZipByteProgression(System.Object,Xceed.FileSystem.ByteProgressionEventArgs)">
+      <summary> Raises the <see cref="E:Xceed.Zip.ZipEvents.BuildingZipByteProgression"></see> event. </summary>
+      <param name="sender">The object on which the method was called.</param>
+      <param name="e">A <see cref="T:Xceed.FileSystem.ByteProgressionEventArgs"></see> that contains the event data.</param>
+    </member>
+    <member name="M:Xceed.Zip.ZipEvents.OnBuildingZipItemProgression(System.Object,Xceed.FileSystem.ItemProgressionEventArgs)">
+      <summary> Raises the <see cref="E:Xceed.Zip.ZipEvents.BuildingZipItemProgression"></see> event. </summary>
+      <param name="sender">The object on which the method was called.</param>
+      <param name="e">An <see cref="T:Xceed.FileSystem.ItemProgressionEventArgs"></see> that contains the event data.</param>
+    </member>
+    <member name="M:Xceed.Zip.ZipEvents.OnReadingZipItemProgression(System.Object,Xceed.FileSystem.ItemProgressionEventArgs)">
+      <summary> Raises the <see cref="E:Xceed.Zip.ZipEvents.ReadingZipItemProgression"></see> event. </summary>
+      <param name="sender">The object on which the method was called.</param>
+      <param name="e">An <see cref="T:Xceed.FileSystem.ItemProgressionEventArgs"></see> that contains the event data.</param>
+    </member>
+    <member name="M:Xceed.Zip.ZipEvents.CreateSession(System.Object,System.Object)">
+      <summary> Creates a new session from a <see cref="T:Xceed.Zip.ZipEvents"></see> object. </summary>
+      <param name="sender">The <see cref="T:Xceed.FileSystem.FileSystemItem"></see> object from which the session is created.</param>
+      <param name="userData">Opaque data that is sent back to the event handler when an event is raised.</param>
+    </member>
+    <member name="E:Xceed.Zip.ZipEvents.ReadingZipItemProgression">
+      <summary> Raised every time a zip file is being read for the first time or being refreshed, providing progression information to the event handler. </summary>
+    </member>
+    <member name="E:Xceed.Zip.ZipEvents.BuildingZipItemProgression">
+      <summary> Raised every time a target zip file is being built, providing item progression information to the event handler. </summary>
+    </member>
+    <member name="E:Xceed.Zip.ZipEvents.BuildingZipByteProgression">
+      <summary> Raised every time a target zip file is being built, providing byte progression information to the event handler. </summary>
+    </member>
+    <member name="E:Xceed.Zip.ZipEvents.CopyingZipByteProgression">
+      <summary>
+        <b>OBSOLETE : This event is no longer raised. You can use the <see cref="E:Xceed.Zip.ZipEvents.GatheringZipContentByteProgression"></see> event to retrieve progress information during the step preceding the creation of the actual zip file.</b> Raised every time the temporary zip file replaces the existing zip file, providing byte progression information to the event handler. </summary>
+    </member>
+    <member name="E:Xceed.Zip.ZipEvents.GatheringZipContentByteProgression">
+      <summary> Raised during the step preceding the actual creation of the target zip file, where files to keep from the original zip file (the ones that were not modified) are gathered to a temporary location before overwriting the zip file. </summary>
+    </member>
+    <member name="E:Xceed.Zip.ZipEvents.DiskRequired">
+      <summary> Raised when a new disk or split part is required. </summary>
+    </member>
+    <member name="T:Xceed.Zip.ZipEventsSession">
+      <summary> Class which derives from the <see cref="T:Xceed.FileSystem.FileSystemEventsSession"></see> class and holds information about the session which is responsible for raising all events that occur during the process. </summary>
+    </member>
+    <member name="M:Xceed.Zip.ZipEventsSession.#ctor(Xceed.Zip.ZipEvents,System.Object,System.Object)">
+      <summary> Initializes a new instance of the <see cref="T:Xceed.Zip.ZipEventsSession"></see> class. </summary>
+      <param name="events">The <see cref="T:Xceed.Zip.ZipEvents"></see> object from which we created the session.</param>
+      <param name="sender">The <see cref="T:Xceed.FileSystem.FileSystemItem"></see> object on which the process was called.</param>
+      <param name="userData">Opaque data that is sent back to the event handler when an event is raised.</param>
+    </member>
+    <member name="F:Xceed.Zip.ZipEventsSession.m_readingZipItemProgressionArgs">
+      <summary> An instance of the <see cref="T:Xceed.FileSystem.ItemProgressionEventArgs"></see> class that provides item progression information for the current session. </summary>
+    </member>
+    <member name="F:Xceed.Zip.ZipEventsSession.m_buildingZipByteProgressionArgs">
+      <summary> An instance of the <see cref="T:Xceed.FileSystem.ByteProgressionEventArgs"></see> class that provides byte progression information for the current session. </summary>
+    </member>
+    <member name="F:Xceed.Zip.ZipEventsSession.m_buildingZipItemProgressionArgs">
+      <summary> An instance of the <see cref="T:Xceed.FileSystem.ItemProgressionEventArgs"></see> class that provides item progression information for the current session. </summary>
+    </member>
+    <member name="F:Xceed.Zip.ZipEventsSession.m_copyingZipByteProgressionArgs">
+      <summary> An instance of the <see cref="T:Xceed.FileSystem.ByteProgressionEventArgs"></see> class that provides byte progression information for the current session. </summary>
+    </member>
+    <member name="F:Xceed.Zip.ZipEventsSession.m_gatheringZipContentByteProgressionArgs">
+      <summary> An instance of the <see cref="T:Xceed.FileSystem.ByteProgressionEventArgs"></see> class that provides byte progression information for the current session. </summary>
+    </member>
+    <member name="F:Xceed.Zip.ZipEventsSession.m_zipEvents">
+      <summary> An instance of the <see cref="T:Xceed.Zip.ZipEvents"></see> class representing the original <see cref="T:Xceed.Zip.ZipEvents" nolink="true"></see> object from which we created the session. </summary>
+    </member>
+    <member name="F:Xceed.Zip.ZipEventsSession.m_zipCurrentFileBytes">
+      <summary> An instance of the ProgressionInfo class representing the byte count information in regards to the current item being processed for the current session. </summary>
+    </member>
+    <member name="F:Xceed.Zip.ZipEventsSession.m_zipAllFilesBytes">
+      <summary> An instance of the ProgressionInfo class representing the byte count information in regards to all the items to be processed for the current session. </summary>
+    </member>
+    <member name="F:Xceed.Zip.ZipEventsSession.m_zipAllItems">
+      <summary> An instance of the ProgressionInfo class representing the item count information for the current session. </summary>
+    </member>
+    <member name="P:Xceed.Zip.ZipEventsSession.Events">
+      <summary> Gets the original <see cref="T:Xceed.Zip.ZipEvents"></see> object used to create the session. </summary>
+    </member>
+    <member name="M:Xceed.Zip.ZipEventsSession.InitializeTotalItems(System.Int64)">
+      <summary> Initializes the total amount of zip items to be processed. </summary>
+      <param name="totalItems">The total amount of zip items to be processed.</param>
+    </member>
+    <member name="M:Xceed.Zip.ZipEventsSession.InitializeTotalBytes(System.Int64)">
+      <summary> Initializes the total amount of bytes for all zip items to be processed. </summary>
+      <param name="totalBytes">The total amount of bytes for all zip items to be processed.</param>
+    </member>
+    <member name="M:Xceed.Zip.ZipEventsSession.InitializeCurrentTotalBytes(System.Int64)">
+      <summary> Initializes the total amount of bytes for the current zip item to be processed. </summary>
+      <param name="totalBytes">The total amount of bytes for the current zip item to be processed.</param>
+    </member>
+    <member name="M:Xceed.Zip.ZipEventsSession.OnReadingZipItemProgression(Xceed.FileSystem.FileSystemItem)">
+      <summary> Raises the <see cref="E:Xceed.Zip.ZipEvents.ReadingZipItemProgression"></see> event. </summary>
+      <param name="currentItem">The item currently being processed.</param>
+    </member>
+    <member name="M:Xceed.Zip.ZipEventsSession.OnBuildingZipItemProgression(Xceed.FileSystem.FileSystemItem)">
+      <summary> Raises the <see cref="E:Xceed.Zip.ZipEvents.BuildingZipItemProgression"></see> event. </summary>
+      <param name="currentItem">The item currently being processed.</param>
+    </member>
+    <member name="M:Xceed.Zip.ZipEventsSession.OnBuildingZipByteProgression(System.Int64)">
+      <summary> Raises the <see cref="E:Xceed.Zip.ZipEvents.BuildingZipByteProgression"></see> event. </summary>
+      <param name="increment">The amount of bytes to be added to the total amount of bytes processed so far.</param>
+    </member>
+    <member name="M:Xceed.Zip.ZipEventsSession.OnCopyingZipByteProgression(System.Int64)">
+      <summary>
+        <b>OBSOLETE : This method should no longer be called. You can override <see cref="M:Xceed.Zip.ZipEventsSession.OnGatheringZipContentByteProgression(System.Int64)"></see> to get status on the step preceding the creation of the zip file.</b> Raises the <see cref="E:Xceed.Zip.ZipEvents.CopyingZipByteProgression"></see> event. </summary>
+      <param name="increment">The amount of bytes to be added to the total amount of bytes processed so far.</param>
+    </member>
+    <member name="M:Xceed.Zip.ZipEventsSession.OnGatheringZipContentByteProgression(System.Int64)">
+      <summary> Raises the <see cref="E:Xceed.Zip.ZipEvents.GatheringZipContentByteProgression"></see> event. </summary>
+      <param name="increment">The amount of bytes to be added to the total amount of bytes processed so far.</param>
+    </member>
+    <member name="M:Xceed.Zip.ZipEventsSession.OnBuildingZipItemCompletion">
+      <summary> The last <see cref="E:Xceed.Zip.ZipEvents.BuildingZipItemProgression"></see> event raised once processing is completed. </summary>
+    </member>
+    <member name="M:Xceed.Zip.ZipEventsSession.OnReadingZipItemCompletion">
+      <summary> The last <see cref="E:Xceed.Zip.ZipEvents.ReadingZipItemProgression"></see> event raised once processing is completed. </summary>
+    </member>
+    <member name="M:Xceed.Zip.ZipEventsSession.OnCopyingZipByteCompletion">
+      <summary>
+        <b>OBSOLETE : You can override <see cref="M:Xceed.Zip.ZipEventsSession.OnGatheringZipContentByteCompletion"></see> to get status on the step preceding the creation of the zip file.</b> The last <see cref="E:Xceed.Zip.ZipEvents.CopyingZipByteProgression"></see> event raised once processing for a zip file is completed. </summary>
+    </member>
+    <member name="M:Xceed.Zip.ZipEventsSession.OnGatheringZipContentByteCompletion">
+      <summary> The last <see cref="E:Xceed.Zip.ZipEvents.GatheringZipContentByteProgression"></see> event raised once processing is completed. </summary>
+    </member>
+    <member name="M:Xceed.Zip.ZipEventsSession.OnBuildingZipByteCompletion">
+      <summary> The last <see cref="E:Xceed.Zip.ZipEvents.BuildingZipByteProgression"></see> event raised once processing of a zip item is completed. </summary>
+    </member>
+    <member name="M:Xceed.Zip.ZipEventsSession.OnDiskRequired(Xceed.Zip.DiskRequiredEventArgs)">
+      <summary> Raises the <see cref="E:Xceed.Zip.ZipEvents.DiskRequired"></see> event. </summary>
+      <param name="e">A <see cref="T:Xceed.Zip.DiskRequiredEventArgs"></see> that contains the event data.</param>
+    </member>
+    <member name="T:Xceed.Zip.ZippedFile">
+      <summary> Specialization of the <see cref="T:Xceed.FileSystem.AbstractFile"></see> class that implements access to a file stored within a ZIP file. </summary>
+    </member>
+    <member name="M:Xceed.Zip.ZippedFile.#ctor(Xceed.FileSystem.AbstractFile,System.String)">
+      <summary> Initializes a new instance of the <see cref="T:Xceed.Zip.ZippedFile"></see> class. </summary>
+      <param name="zipFile">
+        <see cref="T:Xceed.FileSystem.AbstractFile">
+        </see> object that represents the ZIP file to access.</param>
+      <param name="fileName">Fully-qualified name of the file stored within the ZIP file. This file may or may not exist in the ZIP file.</param>
+    </member>
+    <member name="M:Xceed.Zip.ZippedFile.#ctor(Xceed.FileSystem.FileSystemEvents,System.Object,Xceed.FileSystem.AbstractFile,System.String)">
+      <summary> Initializes a new instance of the <see cref="T:Xceed.Zip.ZippedFile"></see> class enabling event notifications while the object is being created. </summary>
+      <param name="events">A <see cref="T:Xceed.FileSystem.FileSystemEvents"></see> object that will be used to raise events. Cannot be <see langword="null"></see>.</param>
+      <param name="userData">Opaque data that will be passed back to the event handler when an event is raised.</param>
+      <param name="zipFile">
+        <see cref="T:Xceed.FileSystem.AbstractFile">
+        </see> object that represents the ZIP file to access.</param>
+      <param name="fileName">Fully-qualified name of the file stored within the ZIP file. This file may or may not exist within the ZIP file.</param>
+    </member>
+    <member name="P:Xceed.Zip.ZippedFile.CompressionLevel">
+      <summary> Gets the <see cref="P:Xceed.Zip.ZippedFile.CompressionLevel" nolink="true"></see> level that was used to compress the file. </summary>
+    </member>
+    <member name="P:Xceed.Zip.ZippedFile.CompressionMethod">
+      <summary> Gets the <see cref="P:Xceed.Zip.ZippedFile.CompressionMethod" nolink="true"></see> that was used to compress the file. </summary>
+    </member>
+    <member name="P:Xceed.Zip.ZippedFile.Crc32">
+      <summary> Gets the file's uncompressed data CRC checksum. </summary>
+    </member>
+    <member name="P:Xceed.Zip.ZippedFile.CompressedSize">
+      <summary> Gets the file's compressed size in bytes. </summary>
+    </member>
+    <member name="P:Xceed.Zip.ZippedFile.Comment">
+      <summary> Gets or sets the file's comment. </summary>
+    </member>
+    <member name="P:Xceed.Zip.ZippedFile.Encrypted">
+      <summary> Gets a boolean value indicating if the file has been encrypted. </summary>
+    </member>
+    <member name="P:Xceed.Zip.ZippedFile.DiskNumber">
+      <summary> Gets a value indicating on which disk or in which split zip file part the file is located. </summary>
+    </member>
+    <member name="P:Xceed.Zip.ZippedFile.ExtraHeaders">
+      <summary> Gets or sets the file's extra headers. </summary>
+    </member>
+    <member name="P:Xceed.Zip.ZippedFile.DoName">
+      <summary> Gets or sets the short name of the item. </summary>
+    </member>
+    <member name="P:Xceed.Zip.ZippedFile.DoFullName">
+      <summary> Gets the full name of the item. </summary>
+    </member>
+    <member name="P:Xceed.Zip.ZippedFile.DoAttributes">
+      <summary> Gets or sets the attributes of the item. </summary>
+    </member>
+    <member name="P:Xceed.Zip.ZippedFile.DoHasCreationDateTime">
+      <summary> Gets a boolean value indicating if the file supports having a creation date and time. </summary>
+    </member>
+    <member name="P:Xceed.Zip.ZippedFile.DoCreationDateTime">
+      <summary> Gets or sets the creation date and time of the item. </summary>
+    </member>
+    <member name="P:Xceed.Zip.ZippedFile.DoLastWriteDateTime">
+      <summary> Gets or sets the modification date and time of the item. </summary>
+    </member>
+    <member name="P:Xceed.Zip.ZippedFile.DoHasLastAccessDateTime">
+      <summary> Gets a boolean value indicating if the file supports having a last access date and time. </summary>
+    </member>
+    <member name="P:Xceed.Zip.ZippedFile.DoLastAccessDateTime">
+      <summary> Gets or sets the last access date and time of the file. </summary>
+    </member>
+    <member name="P:Xceed.Zip.ZippedFile.DoParentFolder">
+      <summary> Gets a reference to the parent folder of this item. </summary>
+    </member>
+    <member name="P:Xceed.Zip.ZippedFile.DoRootFolder">
+      <summary> Gets a reference to the root folder of this item. </summary>
+    </member>
+    <member name="P:Xceed.Zip.ZippedFile.DoExists">
+      <summary> Gets a boolean value indicating if the item physically exists. </summary>
+    </member>
+    <member name="P:Xceed.Zip.ZippedFile.DoSize">
+      <summary> Gets the size of the file in bytes. </summary>
+    </member>
+    <member name="M:Xceed.Zip.ZippedFile.DoOpenWrite(Xceed.FileSystem.FileSystemEventsSession,System.Boolean,System.IO.FileShare,Xceed.Compression.CompressionMethod,Xceed.Compression.CompressionLevel,System.String)">
+      <summary> Opens the file for writing with the specified <see cref="T:System.IO.FileShare"></see> constant and password. </summary>
+      <param name="session">A reference to a <see cref="T:Xceed.FileSystem.FileSystemEventsSession"></see> object which is responsible for raising all events that occur during the process.</param>
+      <param name="overwrite">
+        <see langword="true">
+        </see> if existing data for the file should be replaced; <see langword="false"></see> if existing data should be preserved, appending new data at the end.</param>
+      <param name="share">A <see cref="T:System.IO.FileShare"></see> constant that determines how the file will be shared by different processes.</param>
+      <param name="compressionMethod">The <see cref="P:Xceed.Zip.ZippedFile.CompressionMethod"></see> that will be used to compress the file.</param>
+      <param name="compressionLevel">The <see cref="P:Xceed.Zip.ZippedFile.CompressionLevel"></see> that will be used when compressing the file.</param>
+      <param name="encryptionPassword">The password that will be used to encrypt the file.</param>
+    </member>
+    <member name="M:Xceed.Zip.ZippedFile.DoOpenRead(Xceed.FileSystem.FileSystemEventsSession,System.IO.FileShare,System.String)">
+      <summary> Opens the file for reading with the specified <see cref="T:System.IO.FileShare"></see> constant and password. </summary>
+      <param name="session">A reference to a <see cref="T:Xceed.FileSystem.FileSystemEventsSession"></see> object which is responsible for raising all events that occur during the process.</param>
+      <param name="share">A <see cref="T:System.IO.FileShare"></see> constant that determines how the file will be shared by different processes.</param>
+      <param name="decryptionPassword">The password to use to decrypt the file.</param>
+    </member>
+    <member name="M:Xceed.Zip.ZippedFile.DoOpenWrite(Xceed.FileSystem.FileSystemEventsSession,System.Boolean,System.IO.FileShare)">
+      <summary> Opens the file for writing with the specified <see cref="T:System.IO.FileShare"></see> constant </summary>
+      <param name="session">A reference to a <see cref="T:Xceed.FileSystem.FileSystemEventsSession"></see> object which is responsible for raising all events that occur during the process.</param>
+      <param name="overwrite">
+        <see langword="true">
+        </see> if existing data for the file should be replaced; <see langword="false"></see> if existing data should be preserved, appending new data at the end.</param>
+      <param name="share">A <see cref="T:System.IO.FileShare"></see> constant that determines how the file will be shared by different processes.</param>
+    </member>
+    <member name="M:Xceed.Zip.ZippedFile.DoOpenRead(Xceed.FileSystem.FileSystemEventsSession,System.IO.FileShare)">
+      <summary> Opens the file for reading with the specified <see cref="T:System.IO.FileShare"></see> constant. </summary>
+      <param name="session">A reference to a <see cref="T:Xceed.FileSystem.FileSystemEventsSession"></see> object which is responsible for raising all events that occur during the process.</param>
+      <param name="share">A <see cref="T:System.IO.FileShare"></see> constant that determines how the file will be shared by different processes.</param>
+    </member>
+    <member name="M:Xceed.Zip.ZippedFile.IsPathRooted(System.String)">
+      <summary> Returns a boolean value indicating if the path passed is rooted. </summary>
+      <param name="path">The path to verify.</param>
+    </member>
+    <member name="M:Xceed.Zip.ZippedFile.IsSameAs(Xceed.FileSystem.FileSystemItem)">
+      <summary> Gets a boolean value indicating if the source and target file are the same. </summary>
+      <param name="target">A <see cref="T:Xceed.FileSystem.FileSystemItem"></see> object representing the destination file.</param>
+    </member>
+    <member name="M:Xceed.Zip.ZippedFile.DoApplyPropertiesTo(Xceed.FileSystem.FileSystemEventsSession,Xceed.FileSystem.FileSystemItem)">
+      <summary> Copies the files properties to another item. </summary>
+      <param name="session">A reference to a <see cref="T:Xceed.FileSystem.FileSystemEventsSession"></see> object which is responsible for raising all events that occur during the process.</param>
+      <param name="targetItem">A <see cref="T:Xceed.FileSystem.FileSystemItem"></see> object to which the current file's properties must be copied. Cannot not be <see langword="null"></see>.</param>
+    </member>
+    <member name="M:Xceed.Zip.ZippedFile.DoDelete(Xceed.FileSystem.FileSystemEventsSession)">
+      <summary> Permanently deletes the file within the zip file. </summary>
+      <param name="session">A reference to a <see cref="T:Xceed.FileSystem.FileSystemEventsSession"></see> object which is responsible for raising all events that occur during the process.</param>
+    </member>
+    <member name="M:Xceed.Zip.ZippedFile.EnsureDateIsValid(System.DateTime)">
+      <summary> Ensures that the <see cref="T:System.DateTime"></see> value is valid. </summary>
+      <param name="value">The <see cref="T:System.DateTime"></see> value to validate.</param>
+    </member>
+    <member name="M:Xceed.Zip.ZippedFile.DoCreate(Xceed.FileSystem.FileSystemEventsSession)">
+      <summary> Creates the physical file in the zip file. </summary>
+      <param name="session">A reference to a <see cref="T:Xceed.FileSystem.FileSystemEventsSession"></see> object which is responsible for raising all events that occur during the process.</param>
+    </member>
+    <member name="M:Xceed.Zip.ZippedFile.DoRefresh(Xceed.FileSystem.FileSystemEventsSession)">
+      <summary> Re-reads the information from the physical item. </summary>
+      <param name="session">A reference to a <see cref="T:Xceed.FileSystem.FileSystemEventsSession"></see> object which is responsible for raising all events that occur during the process.</param>
+    </member>
+    <member name="M:Xceed.Zip.ZippedFile.Finalize">
+      <summary> Allows the ZippedFile object to attempt to free resources and perform other cleanup operations before it is reclaimed by garbage collection. </summary>
+    </member>
+    <member name="M:Xceed.Zip.ZippedFile.OpenRead(System.String)">
+      <summary> Opens the file for reading specifying a decryption password. </summary>
+      <param name="decryptionPassword">The password that will be used to decrypt the file.</param>
+    </member>
+    <member name="M:Xceed.Zip.ZippedFile.OpenRead(System.IO.FileShare,System.String)">
+      <summary> Opens the file for reading with the specified file sharing mode and decryption password. </summary>
+      <param name="share">A <see cref="T:System.IO.FileShare"></see> constant that determines how the file will be shared by different processes.</param>
+      <param name="decryptionPassword">The password that will be used to decrypt the file.</param>
+    </member>
+    <member name="M:Xceed.Zip.ZippedFile.OpenRead(Xceed.FileSystem.FileSystemEvents,System.Object,System.String)">
+      <summary> Opens the file for reading with the specified decryption password and raises events during the process. </summary>
+      <param name="events">A <see cref="T:Xceed.FileSystem.FileSystemEvents"></see> object that will be used to raise events. Cannot be <see langword="null"></see>.</param>
+      <param name="userData">Opaque data that will be passed back to the event handler when an event is raised.</param>
+      <param name="decryptionPassword">The password that will be used to decrypt the file.</param>
+    </member>
+    <member name="M:Xceed.Zip.ZippedFile.OpenRead(Xceed.FileSystem.FileSystemEvents,System.Object,System.IO.FileShare,System.String)">
+      <summary> Opens the file for reading with the specified file sharing mode and decryption password, and raises events during the process. </summary>
+      <param name="events">A <see cref="T:Xceed.FileSystem.FileSystemEvents"></see> object that will be used to raise events. Cannot be <see langword="null"></see>.</param>
+      <param name="userData">Opaque data that will be passed back to the event handler when an event is raised.</param>
+      <param name="share">A <see cref="T:System.IO.FileShare"></see> constant that determines how the file will be shared by different processes.</param>
+      <param name="decryptionPassword">The password that will be used to decrypt the file.</param>
+    </member>
+    <member name="M:Xceed.Zip.ZippedFile.OpenWrite(System.Boolean,Xceed.Compression.CompressionMethod,Xceed.Compression.CompressionLevel,System.String)">
+      <summary> Opens the file for writing providing an encryption password and specifying if existing data should be replaced. </summary>
+      <param name="overwrite">
+        <see langword="true">
+        </see> if existing data for the item should be replaced; <see langword="false"></see> if existing data should be preserved, appending new data at the end.</param>
+      <param name="compressionMethod">The <see cref="P:Xceed.Zip.ZippedFile.CompressionMethod"></see> that will be used to compress the file.</param>
+      <param name="compressionLevel">The <see cref="P:Xceed.Zip.ZippedFile.CompressionLevel"></see> that will be used when compressing the file.</param>
+      <param name="encryptionPassword">The password that will be used to encrypt the file.</param>
+    </member>
+    <member name="M:Xceed.Zip.ZippedFile.OpenWrite(System.Boolean,System.IO.FileShare,Xceed.Compression.CompressionMethod,Xceed.Compression.CompressionLevel,System.String)">
+      <summary> Opens the file for writing providing an encryption password and file sharing mode as well as specifying if existing data should be replaced. </summary>
+      <param name="overwrite">
+        <see langword="true">
+        </see> if existing data for the item should be replaced; <see langword="false"></see> if existing data should be preserved, appending new data at the end.</param>
+      <param name="share">A <see cref="T:System.IO.FileShare"></see> constant that determines how the file will be shared by different processes.</param>
+      <param name="compressionMethod">The <see cref="P:Xceed.Zip.ZippedFile.CompressionMethod"></see> that will be used to compress the file.</param>
+      <param name="compressionLevel">The <see cref="P:Xceed.Zip.ZippedFile.CompressionLevel"></see> that will be used when compressing the file.</param>
+      <param name="encryptionPassword">The password that will be used to encrypt the file.</param>
+    </member>
+    <member name="M:Xceed.Zip.ZippedFile.OpenWrite(Xceed.FileSystem.FileSystemEvents,System.Object,System.Boolean,Xceed.Compression.CompressionMethod,Xceed.Compression.CompressionLevel,System.String)">
+      <summary> Opens the file for writing providing an encryption password and specifying if existing data should be replaced. Events will be raised during the process. </summary>
+      <param name="events">A <see cref="T:Xceed.FileSystem.FileSystemEvents"></see> object that will be used to raise events. Cannot be <see langword="null"></see>.</param>
+      <param name="userData">Opaque data that will be passed back to the event handler when an event is raised.</param>
+      <param name="overwrite">
+        <see langword="true">
+        </see> if existing data for the item should be replaced; <see langword="false"></see> if existing data should be preserved, appending new data at the end.</param>
+      <param name="compressionMethod">The <see cref="P:Xceed.Zip.ZippedFile.CompressionMethod"></see> that will be used to compress the file.</param>
+      <param name="compressionLevel">The <see cref="P:Xceed.Zip.ZippedFile.CompressionLevel"></see> that will be used when compressing the file.</param>
+      <param name="encryptionPassword">The password that will be used to encrypt the file.</param>
+    </member>
+    <member name="M:Xceed.Zip.ZippedFile.OpenWrite(Xceed.FileSystem.FileSystemEvents,System.Object,System.Boolean,System.IO.FileShare,Xceed.Compression.CompressionMethod,Xceed.Compression.CompressionLevel,System.String)">
+      <summary> Opens the file for writing providing an encryption password and file sharing mode as well as specifying if existing data should be replaced. Events will be raised during the process. </summary>
+      <param name="events">A <see cref="T:Xceed.FileSystem.FileSystemEvents"></see> object that will be used to raise events. Cannot be <see langword="null"></see>.</param>
+      <param name="userData">Opaque data that will be passed back to the event handler when an event is raised.</param>
+      <param name="overwrite">
+        <see langword="true">
+        </see> if existing data for the item should be replaced; <see langword="false"></see> if existing data should be preserved, appending new data at the end.</param>
+      <param name="share">A <see cref="T:System.IO.FileShare"></see> constant that determines how the file will be shared by different processes.</param>
+      <param name="compressionMethod">The <see cref="P:Xceed.Zip.ZippedFile.CompressionMethod"></see> that will be used to compress the file.</param>
+      <param name="compressionLevel">The <see cref="P:Xceed.Zip.ZippedFile.CompressionLevel"></see> that will be used when compressing the file.</param>
+      <param name="encryptionPassword">The password that will be used to encrypt the file.</param>
+    </member>
+    <member name="T:Xceed.Zip.QuickZip.DiskRequiredCallback">
+      <summary>Represents the method that is mapped to DiskRequiredCallback.</summary>
+      <param name="zipFileName">The full path and name of the zip file.</param>
+      <param name="diskNumber">A value representing the required disk number.</param>
+      <param name="userParams">Opaque data that is sent back to the event handler when the event is raised.</param>
+    </member>
+    <member name="T:Xceed.Zip.ReadingZipItemProgressionEventHandler">
+      <summary> Represents the method that will handle the <see cref="E:Xceed.Zip.ZipEvents.ReadingZipItemProgression"></see> event. </summary>
+      <param name="sender">The object on which the method was called.</param>
+      <param name="e">An <see cref="T:Xceed.FileSystem.ItemProgressionEventArgs"></see> the contains the event data.</param>
+    </member>
+    <member name="T:Xceed.Zip.BuildingZipItemProgressionEventHandler">
+      <summary> Represents the method that will handle the <see cref="E:Xceed.Zip.ZipEvents.BuildingZipItemProgression"></see> event. </summary>
+      <param name="sender">The object on which the method was called.</param>
+      <param name="e">An <see cref="T:Xceed.FileSystem.ItemProgressionEventArgs"></see> the contains the event data.</param>
+    </member>
+    <member name="T:Xceed.Zip.BuildingZipByteProgressionEventHandler">
+      <summary> Represents the method that will handle the <see cref="E:Xceed.Zip.ZipEvents.BuildingZipByteProgression"></see> event. </summary>
+      <param name="sender">The object on which the method was called.</param>
+      <param name="e">A <see cref="T:Xceed.FileSystem.ByteProgressionEventArgs"></see> the contains the event data.</param>
+    </member>
+    <member name="T:Xceed.Zip.CopyingZipByteProgressionEventHandler">
+      <summary>
+        <b>OBSOLETE : The CopyZipByteProgressionEvent is no longer raised. Use the <see cref="E:Xceed.Zip.ZipEvents.GatheringZipContentByteProgression"></see> event instead.</b> Represents the method that will handle the <see cref="E:Xceed.Zip.ZipEvents.CopyingZipByteProgression"></see> event. </summary>
+      <param name="sender">The object on which the method was called.</param>
+      <param name="e">A <see cref="T:Xceed.FileSystem.ByteProgressionEventArgs"></see> that contains the event data.</param>
+    </member>
+    <member name="T:Xceed.Zip.GatheringZipContentByteProgressionEventHandler">
+      <summary> Represents the method that will handle the <see cref="E:Xceed.Zip.ZipEvents.GatheringZipContentByteProgression"></see> event. </summary>
+      <param name="sender">The object on which the method was called.</param>
+      <param name="e">A <see cref="T:Xceed.FileSystem.ByteProgressionEventArgs"></see> that contains the event data.</param>
+    </member>
+    <member name="T:Xceed.Zip.DiskRequiredEventHandler">
+      <summary> Represents the method that will handle the <see cref="E:Xceed.Zip.ZipEvents.DiskRequired"></see> event. </summary>
+      <param name="sender">The object on which the method was called.</param>
+      <param name="e">A <see cref="T:Xceed.Zip.DiskRequiredEventArgs"></see> that contains the event data.</param>
+    </member>
+    <member name="T:Xceed.Zip.ExtraHeaders">
+      <summary> Value representing the supplemental file information that is read from and written to a zip file. </summary>
+    </member>
+    <member name="F:Xceed.Zip.ExtraHeaders.None">
+      <summary>No extra headers will be read or written.</summary>
+    </member>
+    <member name="F:Xceed.Zip.ExtraHeaders.Unicode">
+      <summary>The UNICODE filename header will be read and/or written.</summary>
+    </member>
+    <member name="F:Xceed.Zip.ExtraHeaders.FileTimes">
+      <summary>The extended time-stamp information about a file using a header format defined by PKWARE®. Time-stamp information is stored in Windows NT format and includes the last modification, last accessed, and creation dates and times.</summary>
+    </member>
+    <member name="F:Xceed.Zip.ExtraHeaders.ExtendedTimeStamp">
+      <summary> The extended time-stamp information about a file using a header format defined by the Info-Zip group. Time-stamp information is stored in UNIX format and includes the last modification, last accessed, and creation dates and times. This extra header stores the three dates in the local header only, therefore you don't get the actual LastAccessed nor Creation dates and times until a ZippedFile is read. The date and time preserved by the ExtendedTimeStamp is limited to 2 seconds. Though the ExtendedTimeStamp is supported, we do not encourage its use.</summary>
+    </member>
+    <member name="T:Xceed.Zip.SplitNameFormat">
+      <summary> Value representing the naming convention the split zip file parts will follow. </summary>
+    </member>
+    <member name="F:Xceed.Zip.SplitNameFormat.None">
+      <summary>The split zip parts will all carry the same name. This is the name passed at the construction of the <see cref="T:Xceed.Zip.ZipArchive"></see>. If the <see cref="P:Xceed.Zip.ZipArchive.SplitSize"></see> property is greater than 0, the <see cref="E:Xceed.Zip.ZipEvents.DiskRequired"></see> event must be handled to provided names for each split part of the zip file. This is the value to use when creating <b>spanned</b> zip files. </summary>
+    </member>
+    <member name="F:Xceed.Zip.SplitNameFormat.XceedZipActiveX">
+      <summary>The split zip file parts will use the same naming convention as the ActiveX version of Xceed Zip. The first split part will have the .zip extension. Subsequent parts will be named .z02, .z03, .z04 ... .z100, .z101, etc. This convention is not compatible with PkZip or WinZip since they require that the last part have the .zip extension and not the first.</summary>
+    </member>
+    <member name="F:Xceed.Zip.SplitNameFormat.PkZip">
+      <summary>The split zip file parts will use the PkZip naming convention. The last split part will end with the .zip extension. The first will be named .zip.z01, .zip.z02 ... .zip.100, .zip.101, etc. When dealing with more than 99 split zip file parts, this convention is only compatible with PkZip.</summary>
+    </member>
+    <member name="F:Xceed.Zip.SplitNameFormat.WinZip">
+      <summary>The split zip file parts will use the WinZip naming convention. The last split part will end with the .zip extension. The first will be named .z01, .z02 ... .z100, .z101, etc. This convention is compatible with both WinZip and PkZip.</summary>
+    </member>
+    <member name="T:Xceed.Zip.DiskRequiredReason">
+      <summary> Value representing the reason why a new disk or split part is required. </summary>
+    </member>
+    <member name="F:Xceed.Zip.DiskRequiredReason.Reading">
+      <summary>The end of the current disk has been reached and another is required to continue extracting the contents of zip file.</summary>
+    </member>
+    <member name="F:Xceed.Zip.DiskRequiredReason.Updating">
+      <summary>A spanned or split zip file is being updated and the first disk or file part is required to start updating the zip file.</summary>
+    </member>
+    <member name="F:Xceed.Zip.DiskRequiredReason.DiskFull">
+      <summary>The current disk is full and another is required to continue writing the zip file.</summary>
+    </member>
+    <member name="F:Xceed.Zip.DiskRequiredReason.SplitSizeReached">
+      <summary>The split size has been reached and another file part is required to continue writing the zip file.</summary>
+    </member>
+    <member name="F:Xceed.Zip.DiskRequiredReason.Deleting">
+      <summary> The new spanned or split zip file contains less parts than before and the extra parts are being deleted. This only occurs when updating a spanned or split zip file. </summary>
+    </member>
+    <member name="T:Xceed.Zip.DiskRequiredAction">
+      <summary> Value representing the action to take once a new disk has been provided. </summary>
+    </member>
+    <member name="F:Xceed.Zip.DiskRequiredAction.Fail">
+      <summary>Abort the current operation.</summary>
+    </member>
+    <member name="F:Xceed.Zip.DiskRequiredAction.Continue">
+      <summary>Continue or retry the current operation with the new disk.</summary>
+    </member>
+    <member name="T:Xceed.Zip.Sfx.InvalidSfxModuleException">
+      <summary> Exception that is thrown when an invalid SFX binary is provided. </summary>
+    </member>
+    <member name="M:Xceed.Zip.Sfx.InvalidSfxModuleException.#ctor">
+      <summary> Initializes a new instance of the InvalidSfxModuleException execption using the default message text. </summary>
+    </member>
+    <member name="M:Xceed.Zip.Sfx.InvalidSfxModuleException.#ctor(System.String)">
+      <summary> Initializes a new instance of the InvalidSfxModuleException execption using the specified message text. </summary>
+      <param name="message">The message that explains the reason for the exception.</param>
+    </member>
+    <member name="T:Xceed.Zip.Sfx.NotifyListBase">
+      <summary> Represents a list that provides notification when one if its items changes. </summary>
+    </member>
+    <member name="M:Xceed.Zip.Sfx.NotifyListBase.OnSetComplete(System.Int32,System.Object,System.Object)">
+      <summary> Performs additional custom processes after setting a value in the list. </summary>
+      <param name="index">The zero-based index at which <paramref name="oldValue"></paramref> can be found.</param>
+      <param name="oldValue">The value to replace with <paramref name="newValue"></paramref>.</param>
+      <param name="newValue">The new value of the element at <paramref name="index"></paramref>.</param>
+    </member>
+    <member name="M:Xceed.Zip.Sfx.NotifyListBase.OnClear(System.Boolean@)">
+      <summary> Performs additional custom processes when clearing the contents of the list. </summary>
+      <param name="cancel">
+        <see langword="true">
+        </see> to cancel the operation; <see langword="false"></see> otherwise. </param>
+    </member>
+    <member name="M:Xceed.Zip.Sfx.NotifyListBase.OnRemoveComplete(System.Int32,System.Object)">
+      <summary> Performs additional custom processes after removing an element from the list. </summary>
+      <param name="index">The zero-based index at which <paramref name="value"></paramref> can be found.</param>
+      <param name="value">The value of the element to remove from <paramref name="index"></paramref>.</param>
+    </member>
+    <member name="M:Xceed.Zip.Sfx.NotifyListBase.OnInsertComplete(System.Int32,System.Object)">
+      <summary> Performs additional custom processes after inserting a new element into the list. </summary>
+      <param name="index">The zero-based index at which to insert <paramref name="value"></paramref>.</param>
+      <param name="value">The new value of the element at <paramref name="index"></paramref>.</param>
+    </member>
+    <member name="T:Xceed.Zip.Sfx.ButtonCaptionList">
+      <summary> Contains a list of button captions used by the <see cref="T:Xceed.Zip.Sfx.XceedSfxPrefix"></see> class. </summary>
+    </member>
+    <member name="P:Xceed.Zip.Sfx.ButtonCaptionList.Item(Xceed.Zip.Sfx.Buttons)">
+      <summary> Gets or sets the caption for the specified button. </summary>
+      <param name="index">A <see cref="T:Xceed.Zip.Sfx.Buttons"></see> value representing the button whose caption is to be retrieved or set.</param>
+    </member>
+    <member name="P:Xceed.Zip.Sfx.ButtonCaptionList.IsFixedSize">
+      <summary> Gets a boolean value indicating if the <see cref="T:Xceed.Zip.Sfx.ButtonCaptionList"></see> has a fixed size. </summary>
+    </member>
+    <member name="P:Xceed.Zip.Sfx.ButtonCaptionList.IsReadOnly">
+      <summary> Gets a boolean value indicating if the <see cref="T:Xceed.Zip.Sfx.ButtonCaptionList"></see> is readonly. </summary>
+    </member>
+    <member name="M:Xceed.Zip.Sfx.ButtonCaptionList.OnValidate(System.Object)">
+      <summary> Performs additional custom processes when validating a value. </summary>
+      <param name="value">The object to validate.</param>
+    </member>
+    <member name="M:Xceed.Zip.Sfx.ButtonCaptionList.Contains(System.String)">
+      <summary> Retrieves a boolean value indicating if a specific caption exists in the list. </summary>
+      <param name="value">The caption to locate.</param>
+    </member>
+    <member name="M:Xceed.Zip.Sfx.ButtonCaptionList.IndexOf(System.String)">
+      <summary> Searches for the specified caption and returns the zero-based index of the first occurrence within the list. </summary>
+      <param name="value">The caption to locate.</param>
+    </member>
+    <member name="M:Xceed.Zip.Sfx.ButtonCaptionList.Clear">
+      <summary> Removes all the captions from the list. </summary>
+    </member>
+    <member name="T:Xceed.Zip.Sfx.DialogMessageList">
+      <summary> Contains a list of dialog messages used by the <see cref="T:Xceed.Zip.Sfx.XceedSfxPrefix"></see> class. </summary>
+    </member>
+    <member name="P:Xceed.Zip.Sfx.DialogMessageList.Item(Xceed.Zip.Sfx.DialogMessages)">
+      <summary> Gets or sets the specified dialog message. </summary>
+      <param name="index">A <see cref="T:Xceed.Zip.Sfx.DialogMessages"></see> value representing the dialog message to be retrieved or set.</param>
+    </member>
+    <member name="P:Xceed.Zip.Sfx.DialogMessageList.IsFixedSize">
+      <summary> Gets a boolean value indicating if the <see cref="T:Xceed.Zip.Sfx.DialogMessageList"></see> has a fixed size. </summary>
+    </member>
+    <member name="P:Xceed.Zip.Sfx.DialogMessageList.IsReadOnly">
+      <summary> Gets a boolean value indicating if the <see cref="T:Xceed.Zip.Sfx.DialogMessageList"></see> is readonly. </summary>
+    </member>
+    <member name="M:Xceed.Zip.Sfx.DialogMessageList.OnValidate(System.Object)">
+      <summary> Performs additional custom processes when validating a value. </summary>
+      <param name="value">The object to validate.</param>
+    </member>
+    <member name="M:Xceed.Zip.Sfx.DialogMessageList.Contains(System.String)">
+      <summary> Retrieves a boolean value indicating if a specific dialog message exists in the list. </summary>
+      <param name="value">The dialog message to locate.</param>
+    </member>
+    <member name="M:Xceed.Zip.Sfx.DialogMessageList.IndexOf(System.String)">
+      <summary> Searches for the specified dialog message and returns the zero-based index of the first occurrence within the list. </summary>
+      <param name="value">The dialog message to locate.</param>
+    </member>
+    <member name="M:Xceed.Zip.Sfx.DialogMessageList.Clear">
+      <summary> Removes all the dialog messages from the list. </summary>
+    </member>
+    <member name="T:Xceed.Zip.Sfx.DialogStringList">
+      <summary> Contains a list of dialog strings used by the <see cref="T:Xceed.Zip.Sfx.XceedSfxPrefix"></see> class. </summary>
+    </member>
+    <member name="P:Xceed.Zip.Sfx.DialogStringList.Item(Xceed.Zip.Sfx.DialogStrings)">
+      <summary> Gets or sets the specified dialog string. </summary>
+      <param name="index">A <see cref="T:Xceed.Zip.Sfx.DialogStrings"></see> value representing the dialog string to be retrieved or set.</param>
+    </member>
+    <member name="P:Xceed.Zip.Sfx.DialogStringList.IsFixedSize">
+      <summary> Gets a boolean value indicating if the <see cref="T:Xceed.Zip.Sfx.DialogStringList"></see> has a fixed size. </summary>
+    </member>
+    <member name="P:Xceed.Zip.Sfx.DialogStringList.IsReadOnly">
+      <summary> Gets a boolean value indicating if the <see cref="T:Xceed.Zip.Sfx.DialogStringList"></see> is readonly. </summary>
+    </member>
+    <member name="M:Xceed.Zip.Sfx.DialogStringList.OnValidate(System.Object)">
+      <summary> Performs additional custom processes when validating a value. </summary>
+      <param name="value">The object to validate.</param>
+    </member>
+    <member name="M:Xceed.Zip.Sfx.DialogStringList.Contains(System.String)">
+      <summary> Retrieves a boolean value indicating if a specific dialog string exists in the list. </summary>
+      <param name="value">The dialog string to locate.</param>
+    </member>
+    <member name="M:Xceed.Zip.Sfx.DialogStringList.IndexOf(System.String)">
+      <summary> Searches for the specified dialog string and returns the zero-based index of the first occurrence within the list. </summary>
+      <param name="value">The dialog string to locate.</param>
+    </member>
+    <member name="M:Xceed.Zip.Sfx.DialogStringList.Clear">
+      <summary> Removes all the dialog strings from the list. </summary>
+    </member>
+    <member name="T:Xceed.Zip.Sfx.ExtensionAssociation">
+      <summary> Represents a file extension association that the self-extractor will register with Windows </summary>
+    </member>
+    <member name="M:Xceed.Zip.Sfx.ExtensionAssociation.#ctor(System.String,System.String,System.String)">
+      <summary> Initializes a new instance of the ExtensionAssociation class specifying the extension, its description as well as the application to which it will be associated. </summary>
+      <param name="extension">The extension to associate.</param>
+      <param name="application">The application to which the <paramref name="extension"></paramref> is associated</param>
+      <param name="description">The description of the extension association.</param>
+    </member>
+    <member name="P:Xceed.Zip.Sfx.ExtensionAssociation.Extension">
+      <summary> Gets or sets the file extension to associate. </summary>
+    </member>
+    <member name="P:Xceed.Zip.Sfx.ExtensionAssociation.Application">
+      <summary> Gets or sets the application to which the <see cref="P:Xceed.Zip.Sfx.ExtensionAssociation.Extension"></see> is associated. </summary>
+    </member>
+    <member name="P:Xceed.Zip.Sfx.ExtensionAssociation.Description">
+      <summary> Gets or sets the description of the extension association. </summary>
+    </member>
+    <member name="T:Xceed.Zip.Sfx.ExtensionAssociationList">
+      <summary> Contains a list of extension associations. </summary>
+    </member>
+    <member name="P:Xceed.Zip.Sfx.ExtensionAssociationList.Item(System.Int32)">
+      <summary> Gets the extension association at the specified index. </summary>
+      <param name="index">The zero-based index at which to get the extension association.</param>
+    </member>
+    <member name="P:Xceed.Zip.Sfx.ExtensionAssociationList.IsFixedSize">
+      <summary> Gets a boolean value indicating if the ExtensionAssociationList has a fixed size. </summary>
+    </member>
+    <member name="P:Xceed.Zip.Sfx.ExtensionAssociationList.IsReadOnly">
+      <summary> Gets a boolean value indicating if the ExtensionAssociationList is readonly. </summary>
+    </member>
+    <member name="M:Xceed.Zip.Sfx.ExtensionAssociationList.OnValidate(System.Object)">
+      <summary> Performs additional custom processes when validating a value. </summary>
+      <param name="value">The object to validate.</param>
+    </member>
+    <member name="M:Xceed.Zip.Sfx.ExtensionAssociationList.Contains(Xceed.Zip.Sfx.ExtensionAssociation)">
+      <summary> Retrieves a boolean value indicating if a specific extension association exists in the list. </summary>
+      <param name="value">A reference to the <see cref="T:Xceed.Zip.Sfx.ExtensionAssociation"></see> object to locate.</param>
+    </member>
+    <member name="M:Xceed.Zip.Sfx.ExtensionAssociationList.IndexOf(Xceed.Zip.Sfx.ExtensionAssociation)">
+      <summary> Searches for the specified extension association and returns the zero-based index of the first occurrence within the list. </summary>
+      <param name="value">A reference to the <see cref="T:Xceed.Zip.Sfx.ExtensionAssociation"></see> object to locate.</param>
+    </member>
+    <member name="M:Xceed.Zip.Sfx.ExtensionAssociationList.RemoveAt(System.Int32)">
+      <summary> Removes the extension association from the list at the specified index. </summary>
+      <param name="index">The zero-based index at which to remove the extension association.</param>
+    </member>
+    <member name="M:Xceed.Zip.Sfx.ExtensionAssociationList.Insert(System.Int32,Xceed.Zip.Sfx.ExtensionAssociation)">
+      <summary> Inserts an extension association into the list at the specified index </summary>
+      <param name="index">The zero-based index at which to insert the extension association.</param>
+      <param name="value">A reference to the <see cref="T:Xceed.Zip.Sfx.ExtensionAssociation"></see> object to insert.</param>
+    </member>
+    <member name="M:Xceed.Zip.Sfx.ExtensionAssociationList.Remove(Xceed.Zip.Sfx.ExtensionAssociation)">
+      <summary> Removes the extension association from the list. </summary>
+      <param name="value">A reference to the <see cref="T:Xceed.Zip.Sfx.ExtensionAssociation"></see> object to remove.</param>
+    </member>
+    <member name="M:Xceed.Zip.Sfx.ExtensionAssociationList.Clear">
+      <summary> Removes all extension associations from the list. </summary>
+    </member>
+    <member name="M:Xceed.Zip.Sfx.ExtensionAssociationList.Add(Xceed.Zip.Sfx.ExtensionAssociation)">
+      <summary> Adds an extension association to the list. </summary>
+      <param name="value">A reference to the <see cref="T:Xceed.Zip.Sfx.ExtensionAssociation"></see> object to add to the list.</param>
+    </member>
+    <member name="M:Xceed.Zip.Sfx.ExtensionAssociationList.Add(System.String,System.String,System.String)">
+      <summary> Adds an extension association to the list specifying to which application to associate the specified extension. </summary>
+      <param name="extension">The extension to associate.</param>
+      <param name="application">The application to associate the extension with.</param>
+      <param name="description">The description of the extension association.</param>
+    </member>
+    <member name="M:Xceed.Zip.Sfx.ExtensionAssociationList.AddRange(Xceed.Zip.Sfx.ExtensionAssociation[])">
+      <summary> Adds the elements of an extension associations array to the end of the ExtensionAssociationList collection. </summary>
+      <param name="values">An array of <see cref="T:Xceed.Zip.Sfx.ExtensionAssociation"></see> objects representing the extension associations to add to the end of the ExtensionAssociationList collection</param>
+    </member>
+    <member name="T:Xceed.Zip.Sfx.FileCopy">
+      <summary> Represents a file that is to be copied from one location to another. </summary>
+    </member>
+    <member name="M:Xceed.Zip.Sfx.FileCopy.#ctor(System.String,System.String)">
+      <summary> Initializes a new instance of the FileCopy class specifying the path and name of both the file to copy and the destitination file. </summary>
+      <param name="sourceFileName">The path and name of the file to copy.</param>
+      <param name="destinationFileName">The path and name of the destination file.</param>
+    </member>
+    <member name="P:Xceed.Zip.Sfx.FileCopy.SourceFileName">
+      <summary> Gets or sets the path and name of the file to copy. </summary>
+    </member>
+    <member name="P:Xceed.Zip.Sfx.FileCopy.DestinationFileName">
+      <summary> Gets or sets the path and name of the destination file. </summary>
+    </member>
+    <member name="T:Xceed.Zip.Sfx.FileCopyList">
+      <summary> Contains a list of files to copy. </summary>
+    </member>
+    <member name="P:Xceed.Zip.Sfx.FileCopyList.Item(System.Int32)">
+      <summary> Gets the file at the specified index. </summary>
+      <param name="index">The zero-based index at which to get the file.</param>
+    </member>
+    <member name="P:Xceed.Zip.Sfx.FileCopyList.IsFixedSize">
+      <summary> Gets a boolean value indicating if the FileCopyList has a fixed size. </summary>
+    </member>
+    <member name="P:Xceed.Zip.Sfx.FileCopyList.IsReadOnly">
+      <summary> Gets a boolean value indicating if the FileCopyList is readonly. </summary>
+    </member>
+    <member name="M:Xceed.Zip.Sfx.FileCopyList.OnValidate(System.Object)">
+      <summary> Performs additional custom processes when validating a value. </summary>
+      <param name="value">The object to validate.</param>
+    </member>
+    <member name="M:Xceed.Zip.Sfx.FileCopyList.Contains(Xceed.Zip.Sfx.FileCopy)">
+      <summary> Retrieves a boolean value indicating if a specific file exists in the list. </summary>
+      <param name="value">A reference to the <see cref="T:Xceed.Zip.Sfx.FileCopy"></see> object to locate.</param>
+    </member>
+    <member name="M:Xceed.Zip.Sfx.FileCopyList.IndexOf(Xceed.Zip.Sfx.FileCopy)">
+      <summary> Searches for the specified file and returns the zero-based index of the first occurrence within the list. </summary>
+      <param name="value">A reference to the <see cref="T:Xceed.Zip.Sfx.FileCopy"></see> object to locate.</param>
+    </member>
+    <member name="M:Xceed.Zip.Sfx.FileCopyList.RemoveAt(System.Int32)">
+      <summary> Removes the file from the list at the specified index. </summary>
+      <param name="index">The zero-based index at which to remove the file.</param>
+    </member>
+    <member name="M:Xceed.Zip.Sfx.FileCopyList.Insert(System.Int32,Xceed.Zip.Sfx.FileCopy)">
+      <summary> Inserts a file into the list at the specified index </summary>
+      <param name="index">The zero-based index at which to insert the file.</param>
+      <param name="value">A reference to the <see cref="T:Xceed.Zip.Sfx.FileCopy"></see> object to insert.</param>
+    </member>
+    <member name="M:Xceed.Zip.Sfx.FileCopyList.Remove(Xceed.Zip.Sfx.FileCopy)">
+      <summary> Removes the file from the list. </summary>
+      <param name="value">A reference to the <see cref="T:Xceed.Zip.Sfx.FileCopy"></see> object to remove.</param>
+    </member>
+    <member name="M:Xceed.Zip.Sfx.FileCopyList.Clear">
+      <summary> Removes all files from the list. </summary>
+    </member>
+    <member name="M:Xceed.Zip.Sfx.FileCopyList.Add(Xceed.Zip.Sfx.FileCopy)">
+      <summary> Adds a file to the list. </summary>
+      <param name="value">A reference to the <see cref="T:Xceed.Zip.Sfx.FileCopy"></see> object to add to the list.</param>
+    </member>
+    <member name="M:Xceed.Zip.Sfx.FileCopyList.Add(System.String,System.String)">
+      <summary> Adds a file to the list specifying the path and name of both the file to copy and the destitination file. </summary>
+      <param name="sourceFileName">The path and name of the file to copy.</param>
+      <param name="destinationFileName">The path and name of the destination file.</param>
+    </member>
+    <member name="M:Xceed.Zip.Sfx.FileCopyList.AddRange(Xceed.Zip.Sfx.FileCopy[])">
+      <summary> Adds the elements of an <see cref="T:Xceed.Zip.Sfx.FileCopy"></see> array to the end of the FileCopyList collection. </summary>
+      <param name="values">An array of <see cref="T:Xceed.Zip.Sfx.FileCopy"></see> objects representing the files to add to the end of the FileCopyList collection</param>
+    </member>
+    <member name="T:Xceed.Zip.Sfx.ProgramGroup">
+      <summary> Represents a program group that can be created by self-extracting zip files. </summary>
+    </member>
+    <member name="M:Xceed.Zip.Sfx.ProgramGroup.#ctor(System.String)">
+      <summary> Initializes a new program group specifying its title. </summary>
+      <param name="title">The title of the program group.</param>
+    </member>
+    <member name="P:Xceed.Zip.Sfx.ProgramGroup.Title">
+      <summary> Gets or sets the title of the program group. </summary>
+    </member>
+    <member name="P:Xceed.Zip.Sfx.ProgramGroup.Items">
+      <summary> Gets a list of the program group items contained within the program group. </summary>
+    </member>
+    <member name="T:Xceed.Zip.Sfx.ProgramGroupItem">
+      <summary> Represents an item contained within a <see cref="T:Xceed.Zip.Sfx.ProgramGroup"></see>. </summary>
+    </member>
+    <member name="M:Xceed.Zip.Sfx.ProgramGroupItem.#ctor(System.String,System.String)">
+      <summary> Initializes a new instance of the ProgramGroupItem class specifying its description and the file which it opens. </summary>
+      <param name="description">The description of the program group item.</param>
+      <param name="fileToOpen">The path and name of the file to open when selected.</param>
+    </member>
+    <member name="P:Xceed.Zip.Sfx.ProgramGroupItem.Description">
+      <summary> Gets or sets the description of the program group item. </summary>
+    </member>
+    <member name="P:Xceed.Zip.Sfx.ProgramGroupItem.FileToOpen">
+      <summary> Gets or sets the path and name of the file the program group item will open when selected. </summary>
+    </member>
+    <member name="T:Xceed.Zip.Sfx.ProgramGroupItemList">
+      <summary> Contains a list of program group items. </summary>
+    </member>
+    <member name="P:Xceed.Zip.Sfx.ProgramGroupItemList.Item(System.Int32)">
+      <summary> Gets the program group item at the specified index. </summary>
+      <param name="index">The zero-based index at which to get the program group item.</param>
+    </member>
+    <member name="P:Xceed.Zip.Sfx.ProgramGroupItemList.IsFixedSize">
+      <summary> Gets a boolean value indicating if the ProgramGroupItemList has a fixed size. </summary>
+    </member>
+    <member name="P:Xceed.Zip.Sfx.ProgramGroupItemList.IsReadOnly">
+      <summary> Gets a boolean value indicating if the ProgramGroupItemList is readonly. </summary>
+    </member>
+    <member name="M:Xceed.Zip.Sfx.ProgramGroupItemList.OnValidate(System.Object)">
+      <summary> Performs additional custom processes when validating a value. </summary>
+      <param name="value">The object to validate.</param>
+    </member>
+    <member name="M:Xceed.Zip.Sfx.ProgramGroupItemList.Contains(Xceed.Zip.Sfx.ProgramGroupItem)">
+      <summary> Retrieves a boolean value indicating if a specific program group item exists in the list. </summary>
+      <param name="value">A reference to the <see cref="T:Xceed.Zip.Sfx.ProgramGroupItem"></see> object to locate.</param>
+    </member>
+    <member name="M:Xceed.Zip.Sfx.ProgramGroupItemList.IndexOf(Xceed.Zip.Sfx.ProgramGroupItem)">
+      <summary> Searches for the specified program group item and returns the zero-based index of the first occurrence within the list. </summary>
+      <param name="value">A reference to the <see cref="T:Xceed.Zip.Sfx.ProgramGroupItem"></see> object to locate.</param>
+    </member>
+    <member name="M:Xceed.Zip.Sfx.ProgramGroupItemList.RemoveAt(System.Int32)">
+      <summary> Removes the program group item from the list at the specified index. </summary>
+      <param name="index">The zero-based index at which to remove the program group item.</param>
+    </member>
+    <member name="M:Xceed.Zip.Sfx.ProgramGroupItemList.Insert(System.Int32,Xceed.Zip.Sfx.ProgramGroupItem)">
+      <summary> Inserts an program group item into the list at the specified index </summary>
+      <param name="index">The zero-based index at which to insert the program group item.</param>
+      <param name="value">A reference to the <see cref="T:Xceed.Zip.Sfx.ProgramGroupItem"></see> object to insert.</param>
+    </member>
+    <member name="M:Xceed.Zip.Sfx.ProgramGroupItemList.Remove(Xceed.Zip.Sfx.ProgramGroupItem)">
+      <summary> Removes the program group item from the list. </summary>
+      <param name="value">A reference to the <see cref="T:Xceed.Zip.Sfx.ProgramGroupItem"></see> object to remove.</param>
+    </member>
+    <member name="M:Xceed.Zip.Sfx.ProgramGroupItemList.Clear">
+      <summary> Removes all program group items from the list. </summary>
+    </member>
+    <member name="M:Xceed.Zip.Sfx.ProgramGroupItemList.Add(Xceed.Zip.Sfx.ProgramGroupItem)">
+      <summary> Adds a program group item to the list. </summary>
+      <param name="value">A reference to the <see cref="T:Xceed.Zip.Sfx.ProgramGroupItem"></see> object to add to the list.</param>
+    </member>
+    <member name="M:Xceed.Zip.Sfx.ProgramGroupItemList.Add(System.String,System.String)">
+      <summary> Adds a program group item to the list specifying its description and the file which it opens. </summary>
+      <param name="description">The description of the program group item.</param>
+      <param name="fileToOpen">The path and name of the file to open when selected.</param>
+    </member>
+    <member name="M:Xceed.Zip.Sfx.ProgramGroupItemList.AddRange(Xceed.Zip.Sfx.ProgramGroupItem[])">
+      <summary> Adds the elements of an program group items array to the end of the ProgramGroupItemList collection. </summary>
+      <param name="values">An array of <see cref="T:Xceed.Zip.Sfx.ProgramGroupItem"></see> objects representing the program group items to add to the end of the ProgramGroupItemList collection</param>
+    </member>
+    <member name="T:Xceed.Zip.Sfx.RegistryKey">
+      <summary> Contains a list of registry keys. </summary>
+    </member>
+    <member name="M:Xceed.Zip.Sfx.RegistryKey.#ctor(System.String,System.String,System.Object)">
+      <summary> Initializes a new instance of the RegistryKey class specifying the registry key name, the value name and the value. </summary>
+      <param name="keyName">Represents the registry key to add a value to. It can begin with HKCR, HKCU, HKLM, HKU, HKPD, HKDD or HKCC, or by the long version of each registry key root: HKEY_CLASSES_ROOT, HKEY_CURRENT_USER, etc. The 16-bit self-extractor binary only supports HKCR and HKEY_CLASSES_ROOT.</param>
+      <param name="valueName">Represents the name of the value to add. If left empty, then the "(default)" value will be added/changed.</param>
+      <param name="value">Represents the value to set. If a number is specified, then the value will be set to number of type REG_DWORD. If a string is specified, the value will be set to a string of type REG_SZ. For any other type of object, ToString is called on the object, and the value will be set to a string of type REG_SZ.</param>
+    </member>
+    <member name="P:Xceed.Zip.Sfx.RegistryKey.KeyName">
+      <summary> Gets or sets the name of the registry key. </summary>
+    </member>
+    <member name="P:Xceed.Zip.Sfx.RegistryKey.ValueName">
+      <summary> Gets or sets the name of the value to add. </summary>
+    </member>
+    <member name="P:Xceed.Zip.Sfx.RegistryKey.Value">
+      <summary> Gets or sets the value of the registry key. </summary>
+    </member>
+    <member name="T:Xceed.Zip.Sfx.RegistryKeyList">
+      <summary> Contains a list of registry keys. </summary>
+    </member>
+    <member name="P:Xceed.Zip.Sfx.RegistryKeyList.Item(System.Int32)">
+      <summary> Gets the registry key at the specified index. </summary>
+      <param name="index">The zero-based index at which to get the registry key</param>
+    </member>
+    <member name="P:Xceed.Zip.Sfx.RegistryKeyList.IsFixedSize">
+      <summary> Gets a boolean value indicating if the RegistryKeyList has a fixed size. </summary>
+    </member>
+    <member name="P:Xceed.Zip.Sfx.RegistryKeyList.IsReadOnly">
+      <summary> Gets a boolean value indicating if the RegistryKeyList is readonly. </summary>
+    </member>
+    <member name="M:Xceed.Zip.Sfx.RegistryKeyList.OnValidate(System.Object)">
+      <summary> Performs additional custom processes when validating a value. </summary>
+      <param name="value">The object to validate.</param>
+    </member>
+    <member name="M:Xceed.Zip.Sfx.RegistryKeyList.Contains(Xceed.Zip.Sfx.RegistryKey)">
+      <summary> Retrieves a boolean value indicating if a specific registry key exists in the list. </summary>
+      <param name="value">A reference to the <see cref="T:Xceed.Zip.Sfx.RegistryKey"></see> object to locate.</param>
+    </member>
+    <member name="M:Xceed.Zip.Sfx.RegistryKeyList.IndexOf(Xceed.Zip.Sfx.RegistryKey)">
+      <summary> Searches for the specified registry key and returns the zero-based index of the first occurrence within the list. </summary>
+      <param name="value">A reference to the <see cref="T:Xceed.Zip.Sfx.RegistryKey"></see> object to locate.</param>
+    </member>
+    <member name="M:Xceed.Zip.Sfx.RegistryKeyList.RemoveAt(System.Int32)">
+      <summary> Removes the registry key from the list at the specified index. </summary>
+      <param name="index">The zero-based index at which to remove the registry key.</param>
+    </member>
+    <member name="M:Xceed.Zip.Sfx.RegistryKeyList.Insert(System.Int32,Xceed.Zip.Sfx.RegistryKey)">
+      <summary> Inserts a registry key into the list at the specified index </summary>
+      <param name="index">The zero-based index at which to insert the registry key.</param>
+      <param name="value">A reference to the <see cref="T:Xceed.Zip.Sfx.RegistryKey"></see> object to insert.</param>
+    </member>
+    <member name="M:Xceed.Zip.Sfx.RegistryKeyList.Remove(Xceed.Zip.Sfx.RegistryKey)">
+      <summary> Removes the registry key from the list. </summary>
+      <param name="value">A reference to the <see cref="T:Xceed.Zip.Sfx.RegistryKey"></see> object to remove.</param>
+    </member>
+    <member name="M:Xceed.Zip.Sfx.RegistryKeyList.Clear">
+      <summary> Removes all registry keys from the list. </summary>
+    </member>
+    <member name="M:Xceed.Zip.Sfx.RegistryKeyList.Add(Xceed.Zip.Sfx.RegistryKey)">
+      <summary> Adds a registry key to the list. </summary>
+      <param name="value">A reference to the <see cref="T:Xceed.Zip.Sfx.RegistryKey"></see> object to add to the list.</param>
+    </member>
+    <member name="M:Xceed.Zip.Sfx.RegistryKeyList.Add(System.String,System.String,System.Object)">
+      <summary> Adds a registry key to the list specifying the key name and value. </summary>
+      <param name="keyName">The name of the registry key.</param>
+      <param name="valueName">The name of the registry key value.</param>
+      <param name="value">The value of the registry key. If a number is specified, then the value will be set to number of type REG_DWORD. If a string is specified, the value will be set to a string of type REG_SZ. For any other type of object, ToString is called on the object, and the value will be set to a string of type REG_SZ.</param>
+    </member>
+    <member name="M:Xceed.Zip.Sfx.RegistryKeyList.AddRange(Xceed.Zip.Sfx.RegistryKey[])">
+      <summary> Adds the elements of a registry key array to the end of the RegistryKeyList collection. </summary>
+      <param name="values">An array of <see cref="T:Xceed.Zip.Sfx.RegistryKey"></see> objects representing the registry keys to add to the end of the RegistryKeyList collection.</param>
+    </member>
+    <member name="T:Xceed.Zip.Sfx.SfxPrefix">
+      <summary> Represents a generic zip file SFX prefix and exposes properties and methods that allow the SFX prefix to be read and written. </summary>
+    </member>
+    <member name="M:Xceed.Zip.Sfx.SfxPrefix.#ctor">
+      <summary> Initializes a new instance of the SfxPrefix class. </summary>
+    </member>
+    <member name="M:Xceed.Zip.Sfx.SfxPrefix.#ctor(Xceed.FileSystem.AbstractFile)">
+      <summary> Initializes a new instance of the SfxPrefix class specifying the SFX source binary to use as the zip file's prefix. </summary>
+      <param name="sfxModule">A reference to an <see cref="T:Xceed.FileSystem.AbstractFile"></see> object representing the SFX binary that will be used as the zip file's prefix.</param>
+    </member>
+    <member name="P:Xceed.Zip.Sfx.SfxPrefix.SourceModuleSize">
+      <summary> Gets the size of the SFX source binary. </summary>
+    </member>
+    <member name="M:Xceed.Zip.Sfx.SfxPrefix.OnChanged">
+      <summary> Notifies the zip file that its SFX prefix has changed. </summary>
+    </member>
+    <member name="M:Xceed.Zip.Sfx.SfxPrefix.WriteSfxPrefix(System.IO.Stream)">
+      <summary> Writes the contents of the SFX source binary to the zip file's prefix. </summary>
+      <param name="stream">The <see cref="T:System.IO.Stream"></see> to which to write the SFX source binary's data.</param>
+    </member>
+    <member name="M:Xceed.Zip.Sfx.SfxPrefix.SetInternalSourceModule(Xceed.FileSystem.MemoryFile)">
+      <summary> Sets a reference to the SFX source binary. </summary>
+      <param name="storageFile">A reference to a <see cref="T:Xceed.FileSystem.MemoryFile"></see> object used as the zip file SFX prefix's storage.</param>
+    </member>
+    <member name="M:Xceed.Zip.Sfx.SfxPrefix.SetSourceModule(Xceed.FileSystem.AbstractFile)">
+      <summary> Sets the SFX source binary that will be used as the zip file's prefix. </summary>
+      <param name="sfxModule">A reference to an <see cref="T:Xceed.FileSystem.AbstractFile"></see> object representing the SFX binary that will be used as the zip file's prefix.</param>
+    </member>
+    <member name="T:Xceed.Zip.Sfx.StringList">
+      <summary> Contains a list of strings used by the <see cref="T:Xceed.Zip.Sfx.XceedSfxPrefix"></see> class to represent the messages and strings contained in the dialogs. </summary>
+    </member>
+    <member name="P:Xceed.Zip.Sfx.StringList.Item(System.Int32)">
+      <summary> Gets or sets the string at the specified index. </summary>
+      <param name="index">The zero-based index at which to get the string.</param>
+    </member>
+    <member name="P:Xceed.Zip.Sfx.StringList.IsFixedSize">
+      <summary> Gets a value indicating whether the StringList has a fixed size. </summary>
+    </member>
+    <member name="P:Xceed.Zip.Sfx.StringList.IsReadOnly">
+      <summary> Gets a boolean value indicating if the StringList is readonly. </summary>
+    </member>
+    <member name="M:Xceed.Zip.Sfx.StringList.OnValidate(System.Object)">
+      <summary> Performs additional custom processes when validating a value. </summary>
+      <param name="value">The object to validate.</param>
+    </member>
+    <member name="M:Xceed.Zip.Sfx.StringList.Contains(System.String)">
+      <summary> Retrieves a boolean value indicating if a specific string exists in the list. </summary>
+      <param name="value">The string to locate.</param>
+    </member>
+    <member name="M:Xceed.Zip.Sfx.StringList.IndexOf(System.String)">
+      <summary> Searches for the specified string and returns the zero-based index of the first occurrence within the list. </summary>
+      <param name="value">The string to locate.</param>
+    </member>
+    <member name="M:Xceed.Zip.Sfx.StringList.RemoveAt(System.Int32)">
+      <summary> Removes the string from the list at the specified index. </summary>
+      <param name="index">The zero-based index at which to remove the string.</param>
+    </member>
+    <member name="M:Xceed.Zip.Sfx.StringList.Insert(System.Int32,System.String)">
+      <summary> Inserts a string into the list at the specified index </summary>
+      <param name="index">The zero-based index at which to insert the string.</param>
+      <param name="value">The string to insert.</param>
+    </member>
+    <member name="M:Xceed.Zip.Sfx.StringList.Remove(System.String)">
+      <summary> Removes the string from the list. </summary>
+      <param name="value">The string to remove.</param>
+    </member>
+    <member name="M:Xceed.Zip.Sfx.StringList.Clear">
+      <summary> Removes all strings from the list. </summary>
+    </member>
+    <member name="M:Xceed.Zip.Sfx.StringList.Add(System.String)">
+      <summary> Adds a string to the list. </summary>
+      <param name="value">The string to add.</param>
+    </member>
+    <member name="M:Xceed.Zip.Sfx.StringList.AddRange(System.String[])">
+      <summary> Adds the elements of a string array to the end of the StringList collection. </summary>
+      <param name="values">An array of strings representing the strings to add to the end of the StringList collection</param>
+    </member>
+    <member name="T:Xceed.Zip.Sfx.Variables">
+      <summary> Contains variables which are used by various properties of the Self-Extractor binary to dynamically provide paths and filenames. </summary>
+    </member>
+    <member name="M:Xceed.Zip.Sfx.Variables.#ctor">
+      <summary>Initializes a new instance of the Variables class.</summary>
+    </member>
+    <member name="F:Xceed.Zip.Sfx.Variables.ErrorNumber">
+      <summary> The error code that caused the failure. Used only by the <see cref="F:Xceed.Zip.Sfx.DialogMessages.Error"></see> dialog. </summary>
+    </member>
+    <member name="F:Xceed.Zip.Sfx.Variables.DiskNumber">
+      <summary> The number of the requested disk. Used only by the <see cref="F:Xceed.Zip.Sfx.DialogMessages.InsertDisk"></see> dialog. </summary>
+    </member>
+    <member name="F:Xceed.Zip.Sfx.Variables.DestinationFile">
+      <summary> The path and filename of the file to overwrite. Used only by the <see cref="F:Xceed.Zip.Sfx.DialogMessages.Overwrite"></see> dialog. </summary>
+    </member>
+    <member name="F:Xceed.Zip.Sfx.Variables.DestinationFolder">
+      <summary>The unzipping folder or the user-selected folder where files were unzipped to.</summary>
+    </member>
+    <member name="F:Xceed.Zip.Sfx.Variables.SfxFolder">
+      <summary>The folder where the self-extracting zip file is being run from.</summary>
+    </member>
+    <member name="F:Xceed.Zip.Sfx.Variables.WindowsFolder">
+      <summary>The location of the Windows folder.</summary>
+    </member>
+    <member name="F:Xceed.Zip.Sfx.Variables.SystemFolder">
+      <summary>The location of the Windows System folder.</summary>
+    </member>
+    <member name="F:Xceed.Zip.Sfx.Variables.TempFolder">
+      <summary>The location of the system's temporary folder.</summary>
+    </member>
+    <member name="F:Xceed.Zip.Sfx.Variables.RandomFolder">
+      <summary>Random folder name that doesn't already exist. (the format of the random name is: _SFXxxx, where xxx is a random number)</summary>
+    </member>
+    <member name="F:Xceed.Zip.Sfx.Variables.ProgramFilesFolder">
+      <summary>The location of the Program Files folder.</summary>
+    </member>
+    <member name="F:Xceed.Zip.Sfx.Variables.SystemDrive">
+      <summary>The main system hard disk.</summary>
+    </member>
+    <member name="T:Xceed.Zip.Sfx.XceedSfxPrefix">
+      <summary> Specialization of the <see cref="T:Xceed.Zip.Sfx.SfxPrefix"></see> class which creates self-extracting zip files. </summary>
+    </member>
+    <member name="M:Xceed.Zip.Sfx.XceedSfxPrefix.#ctor(Xceed.FileSystem.AbstractFile)">
+      <summary> Initializes a new instance of the XceedSfxPrefix class specifying the source self-extractor binary. </summary>
+      <param name="sourceModule">A reference to an <see cref="T:Xceed.FileSystem.AbstractFile"></see> object representing the Xceed self-extractor binary that will be used to create self-extracting zip files.</param>
+    </member>
+    <member name="P:Xceed.Zip.Sfx.XceedSfxPrefix.DefaultPassword">
+      <summary> Gets or sets the password that the self-extracting zip file will use whenever it tries to unzip an encrypted file. </summary>
+    </member>
+    <member name="P:Xceed.Zip.Sfx.XceedSfxPrefix.DefaultDestinationFolder">
+      <summary> Gets or sets the path where the self-extracting zip file extracts files to by default. </summary>
+    </member>
+    <member name="P:Xceed.Zip.Sfx.XceedSfxPrefix.ExecuteAfter">
+      <summary> Gets the path and filenames of one or more external programs or executables that the self-extracting zip file will run upon successfully extracting its files. </summary>
+    </member>
+    <member name="P:Xceed.Zip.Sfx.XceedSfxPrefix.ExistingFileBehavior">
+      <summary> Gets or sets a value representing the overwrite behavior exhibited by self-extracting zip files whenever files are being extracted that already exist in the destination folder. </summary>
+    </member>
+    <member name="P:Xceed.Zip.Sfx.XceedSfxPrefix.ExtensionsToAssociate">
+      <summary> Gets a list of file extensions that the self-extractor will register with Windows. </summary>
+    </member>
+    <member name="P:Xceed.Zip.Sfx.XceedSfxPrefix.FilesToCopy">
+      <summary> Gets a list of files to copy to a different folder than the desination unzip folder once the files are unzipped. </summary>
+    </member>
+    <member name="P:Xceed.Zip.Sfx.XceedSfxPrefix.DllsToRegister">
+      <summary> Gets a list of DLLs to register using the regsvr32 executable available on 32-bit Windows operating systems once the files are unzipped. </summary>
+    </member>
+    <member name="P:Xceed.Zip.Sfx.XceedSfxPrefix.Icon">
+      <summary> Gets or sets the icon used by the self-extracting zip file. <b>This property is not supported by Xceed Zip for .NET Compact Framework.</b></summary>
+    </member>
+    <member name="P:Xceed.Zip.Sfx.XceedSfxPrefix.DeleteUnzippedFiles">
+      <summary> Gets or sets a boolean value indicating if the extracted files should be deleted once all the external programs or executables run by the self-extracting zip file (as a result of specifying programs to run in the <see cref="P:Xceed.Zip.Sfx.XceedSfxPrefix.ExecuteAfter"></see> property) have terminated </summary>
+    </member>
+    <member name="P:Xceed.Zip.Sfx.XceedSfxPrefix.ProgramGroup">
+      <summary> Gets the program group that the self-extracting zip file will create after successfully unzipping its files. </summary>
+    </member>
+    <member name="P:Xceed.Zip.Sfx.XceedSfxPrefix.RegistryKeys">
+      <summary> Gets a list of registry keys that the self-extracting zip file will add or change in the system registry. </summary>
+    </member>
+    <member name="P:Xceed.Zip.Sfx.XceedSfxPrefix.ButtonCaptions">
+      <summary> Gets a list containing the captions of all the buttons that are shown by self-extracting zip files created with the Xceed Zip Self-Extractor binary. </summary>
+    </member>
+    <member name="P:Xceed.Zip.Sfx.XceedSfxPrefix.DialogMessages">
+      <summary> Gets a list containing the texts that are displayed by the various dialog boxes shown by the self-extracting zip file. </summary>
+    </member>
+    <member name="P:Xceed.Zip.Sfx.XceedSfxPrefix.DialogStrings">
+      <summary> Gets a list containing the label captions and other miscellaneous texts that are found inside the various dialog boxes displayed by the self-extracting zip file. </summary>
+    </member>
+    <member name="M:Xceed.Zip.Sfx.XceedSfxPrefix.OnChanged">
+      <summary> Notifies the zip file that its prefix has changed. </summary>
+    </member>
+    <member name="M:Xceed.Zip.Sfx.XceedSfxPrefix.WriteSfxPrefix(System.IO.Stream)">
+      <summary> Writes the contents of the SFX source binary to the zip file's prefix. </summary>
+      <param name="stream">The <see cref="T:System.IO.Stream"></see> to which to write the SFX source binary's data.</param>
+    </member>
+    <member name="M:Xceed.Zip.Sfx.XceedSfxPrefix.SetInternalSourceModule(Xceed.FileSystem.MemoryFile)">
+      <summary> Sets a reference to the source binary and reads the SFX configuration if one is available. </summary>
+      <param name="sourceModule">A reference to an <see cref="T:Xceed.FileSystem.MemoryFile"></see> object representing the self-extractor binary that will be used to create self-extracting zip files.</param>
+    </member>
+    <member name="M:Xceed.Zip.Sfx.XceedSfxPrefix.Finalize">
+      <summary> Allows the XceedSfxPrefix object to attempt to free resources and perform other cleanup operations before it is reclaimed by garbage collection. </summary>
+    </member>
+    <member name="T:Xceed.Zip.Sfx.ConfigurationChangedEventsHandler">
+      <summary> Represents the method that will handle the ChangedStorage event. </summary>
+      <param name="sender">The object on which the method was called</param>
+      <param name="e">An <see cref="T:System.EventArgs"></see> that contains the event data.</param>
+    </member>
+    <member name="T:Xceed.Zip.Sfx.Buttons">
+      <summary> Value representing the captions for all the buttons that are shown by self-extracting zip files created with the Xceed Zip Self-Extractor binary. </summary>
+    </member>
+    <member name="F:Xceed.Zip.Sfx.Buttons.Ok">
+      <summary>Caption for the OK buttons. The default value is "&amp;OK".</summary>
+    </member>
+    <member name="F:Xceed.Zip.Sfx.Buttons.Cancel">
+      <summary>Caption for the Cancel button that is displayed on the folder browser and can only be changed when using the 16-bit self-extractor. The 32-bit self-extractor uses the system's folder browser and cannot be customized by Xceed Zip. The default value is "&amp;Cancel".</summary>
+    </member>
+    <member name="F:Xceed.Zip.Sfx.Buttons.Abort">
+      <summary>Caption for the Abort button that is displayed on the <see cref="F:Xceed.Zip.Sfx.DialogMessages.Progress"></see> dialog during extraction. The default value is "&amp;Abort".</summary>
+    </member>
+    <member name="F:Xceed.Zip.Sfx.Buttons.Skip">
+      <summary>Caption for the Skip button that is displayed on the <see cref="F:Xceed.Zip.Sfx.DialogMessages.Password"></see> dialog. The default value is "&amp;Skip File".</summary>
+    </member>
+    <member name="F:Xceed.Zip.Sfx.Buttons.AlwaysSkip">
+      <summary>Caption for the Always Skip button that is displayed on the <see cref="F:Xceed.Zip.Sfx.DialogMessages.Password"></see> dialog and provides the option to always skip files that cannot be decrypted, without any further prompting. The default value is "&amp;Always Skip".</summary>
+    </member>
+    <member name="F:Xceed.Zip.Sfx.Buttons.Yes">
+      <summary>Caption for Yes buttons. The default value is "&amp;Yes".</summary>
+    </member>
+    <member name="F:Xceed.Zip.Sfx.Buttons.No">
+      <summary>Caption for No buttons. The default value is "&amp;No".</summary>
+    </member>
+    <member name="F:Xceed.Zip.Sfx.Buttons.OverwriteAll">
+      <summary>Caption for the Overwite All button that is displayed on the <see cref="F:Xceed.Zip.Sfx.DialogMessages.Overwrite"></see> dialog and provides the option to always overwrite files that already exist, without any further prompting. The default value is "&amp;All".</summary>
+    </member>
+    <member name="F:Xceed.Zip.Sfx.Buttons.OverwriteNone">
+      <summary>Caption for the Overwite None button that is displayed on the <see cref="F:Xceed.Zip.Sfx.DialogMessages.Overwrite"></see> dialog and provides the option to never overwrite files that already exist, without any further prompting. The default value is "N&amp;one"..</summary>
+    </member>
+    <member name="F:Xceed.Zip.Sfx.Buttons.Continue">
+      <summary>Caption for the Continue button that is displayed on the <see cref="F:Xceed.Zip.Sfx.DialogMessages.Introduction"></see> dialog and provides the option to continue, as opposed to exiting, if the user clicks on the Exit button. The default value is "&amp;Continue".</summary>
+    </member>
+    <member name="F:Xceed.Zip.Sfx.Buttons.Exit">
+      <summary>Caption for the Exit button that is displayed on the <see cref="F:Xceed.Zip.Sfx.DialogMessages.Introduction"></see> dialog and the <see cref="F:Xceed.Zip.Sfx.DialogMessages.DestinationFolder"></see> dialog. It provides the option to exit the self-extractor without extracting any files. The default value is "&amp;Exit".</summary>
+    </member>
+    <member name="F:Xceed.Zip.Sfx.Buttons.Agree">
+      <summary>Caption for the Agree button that is displayed on the <see cref="F:Xceed.Zip.Sfx.DialogMessages.License"></see> dialog. This button usually indicates that the user accepts the terms of the license agreement and can proceed with the self-extraction process. The default value is "&amp;Agree".</summary>
+    </member>
+    <member name="F:Xceed.Zip.Sfx.Buttons.Refuse">
+      <summary>Caption for the Refuse button that is displayed on the <see cref="F:Xceed.Zip.Sfx.DialogMessages.License"></see> dialog. This button usually indicates that the user does not accept the terms of the license agreement and can not proceed with the self-extraction process. The default value is "&amp;Refuse".</summary>
+    </member>
+    <member name="T:Xceed.Zip.Sfx.DialogMessages">
+      <summary> Value representing the texts that are displayed by the various dialog boxes shown by self-extracting zip files. </summary>
+    </member>
+    <member name="F:Xceed.Zip.Sfx.DialogMessages.Success">
+      <summary>Message that is displayed in the Success dialog box upon successful extraction of all the files in the archive. The default value is "All files were successfully unzipped." <see cref="T:Xceed.Zip.Sfx.Variables"></see> cannot be used in the success dialog box.</summary>
+    </member>
+    <member name="F:Xceed.Zip.Sfx.DialogMessages.Error">
+      <summary>Message that is displayed in the Error dialog box if an error occurs during the extraction process. The default value is "An error occurred while unzipping. One or more files were not successfully unzipped. The error code is &lt;SfxFolder&gt;." Only the &lt;ErrorNumber&gt; variable is supported.</summary>
+    </member>
+    <member name="F:Xceed.Zip.Sfx.DialogMessages.ErrorCreatingFolder">
+      <summary> Message that is displayed in the Error Creating Folder dialog box. The default value is "Unable to create folder &lt;DestinationFolder&gt;." Only the &lt;DestinationFolder&gt; variable is supported. </summary>
+    </member>
+    <member name="F:Xceed.Zip.Sfx.DialogMessages.Introduction">
+      <summary>Message that is displayed in the Introduction dialog box. The default value is "Welcome to the Xceed Zip Self-Extractor. This program will unzip some files onto your system." <see cref="T:Xceed.Zip.Sfx.Variables"></see> cannot be used in the introduction dialog box. </summary>
+    </member>
+    <member name="F:Xceed.Zip.Sfx.DialogMessages.License">
+      <summary>Message that is displayed in the License agreement dialog box. The license agreement dialog box allows you to display a license agreement and to force the user to either accept or reject the terms of the agreement. If the terms are rejected, the self-extractor will terminate and no files will be extracted. <see cref="T:Xceed.Zip.Sfx.Variables"></see> cannot be used in the License agreement dialog box.</summary>
+    </member>
+    <member name="F:Xceed.Zip.Sfx.DialogMessages.DestinationFolder">
+      <summary>Prompt that is displayed in the Destination Folder dialog box. The prompt asks the user to select the path where the files will be extracted to. The default value is "Select the folder where you want to unzip the files to." <see cref="T:Xceed.Zip.Sfx.Variables"></see> cannot be used in the Destination Folder dialog box. </summary>
+    </member>
+    <member name="F:Xceed.Zip.Sfx.DialogMessages.Password">
+      <summary>Prompt which asks the user to enter a password for a given file. The default value is "A password is required for file:" <see cref="T:Xceed.Zip.Sfx.Variables"></see> cannot be used in the password prompt.</summary>
+    </member>
+    <member name="F:Xceed.Zip.Sfx.DialogMessages.InsertLastDisk">
+      <summary>Prompt which asks the user to insert the last disk of the set of disks containing the self-extracting zip file. This prompt is used when the self-extracting zip file spans multiple disks and the last disk is required. The default value is "This self-extracting zip file is part of a multidisk zip file. Please insert the last disk of the set.". <see cref="T:Xceed.Zip.Sfx.Variables"></see> cannot be used in the insert last disk prompt.</summary>
+    </member>
+    <member name="F:Xceed.Zip.Sfx.DialogMessages.InsertDisk">
+      <summary>Prompt which asks the user to insert a specific disk from the set of disks containing the self-extracting zip file. This prompt is used when the self-extracting zip file spans multiple disks, and a specific disk is required. The default value is "Please insert disk #&lt;DiskNumber&gt;." Only the &lt;DiskNumber&gt; variable is supported.</summary>
+    </member>
+    <member name="F:Xceed.Zip.Sfx.DialogMessages.AbortUnzip">
+      <summary>Prompt which asks the user if they really wish to abort the self-extracting process, after having clicked on the Abort button. The default value is "Are you sure you want to abort the unzipping process?" <see cref="T:Xceed.Zip.Sfx.Variables"></see> cannot be used in the abort prompt.</summary>
+    </member>
+    <member name="F:Xceed.Zip.Sfx.DialogMessages.CreateFolder">
+      <summary>Message that is displayed in the Create Folder dialog. The text informs the user that the folder where files will be unzipped to does not exist and asks the user if they wish to create the folder. The default value is "Folder &lt;DestinationFolder&gt; does not exist. Do you want to create it?". Only the &lt;DestinationFolder&gt; variable is supported.</summary>
+    </member>
+    <member name="F:Xceed.Zip.Sfx.DialogMessages.Overwrite">
+      <summary>Prompt which asks the user if they wish to overwrite a file that already exists. The default value is "The file &lt;DestinationFile&gt; already exists. Do you want to overwrite it?" Only the &lt;DestinationFile&gt; variable is supported. </summary>
+    </member>
+    <member name="F:Xceed.Zip.Sfx.DialogMessages.Progress">
+      <summary>String used in the Progress dialog box to indicate which file is currently being extracted. The default value is "Unzipping file:" <see cref="T:Xceed.Zip.Sfx.Variables"></see> cannot be used in the Progress dialog box.</summary>
+    </member>
+    <member name="T:Xceed.Zip.Sfx.DialogStrings">
+      <summary> Value representing label captions and other miscellaneous texts that are found inside the various dialog boxes displayed by self-extracting zip files. The maximum string length allowed for each entry in this property is 255 characters, except for the Title entry, which can only be 100 characters long. </summary>
+    </member>
+    <member name="F:Xceed.Zip.Sfx.DialogStrings.ProgressBar">
+      <summary>String which is used to explain the purpose of the progress gauge that shows the overall progress of the unzip operation. The default value is "Overall progress:" </summary>
+    </member>
+    <member name="F:Xceed.Zip.Sfx.DialogStrings.Title">
+      <summary>String that appears in the title bar of every message box and dialog box displayed by the Xceed Zip self-extractor. The default value is "The Xceed Zip Self-Extractor" </summary>
+    </member>
+    <member name="F:Xceed.Zip.Sfx.DialogStrings.CurrentFolder">
+      <summary>String that is used in the folder browser to indicate the user-selected folder where the files will be unzipped to. The default value is "Current destination folder:" </summary>
+    </member>
+    <member name="T:Xceed.Zip.Sfx.ExistingFileBehavior">
+      <summary> Value which lets you determine the overwrite behavior exhibited by self-extracting zip files whenever files being extracted already exist in the destination folder. </summary>
+    </member>
+    <member name="F:Xceed.Zip.Sfx.ExistingFileBehavior.Prompt">
+      <summary> Prompt the user to confirm how to proceed with the <see cref="F:Xceed.Zip.Sfx.DialogMessages.Overwrite"></see> dialog. The user can select the <see cref="F:Xceed.Zip.Sfx.Buttons.Yes"></see> button to overwrite the file, the <see cref="F:Xceed.Zip.Sfx.Buttons.No"></see> button to skip the file, the <see cref="F:Xceed.Zip.Sfx.Buttons.OverwriteAll"></see> button to overwrite the file and any subsequent files that already exist, and finally the <see cref="F:Xceed.Zip.Sfx.Buttons.OverwriteNone"></see> button to skip the file and any other files that already exist. </summary>
+    </member>
+    <member name="F:Xceed.Zip.Sfx.ExistingFileBehavior.SkipAlways">
+      <summary>Never overwrite existing files.</summary>
+    </member>
+    <member name="F:Xceed.Zip.Sfx.ExistingFileBehavior.OverwriteAlways">
+      <summary>Always overwrite existing files.</summary>
+    </member>
+    <member name="F:Xceed.Zip.Sfx.ExistingFileBehavior.OverwriteOlderOnly">
+      <summary>Overwrite existing older files only.</summary>
+    </member>
+  </members>
+</doc>

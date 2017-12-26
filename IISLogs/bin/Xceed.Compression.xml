@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>Xceed.Compression</name>
+  </assembly>
+  <members>
+    <member name="T:Xceed.Compression.CompressedStream">
+      <summary> Pass-through stream that applies compression and decompression to an inner stream. </summary>
+    </member>
+    <member name="M:Xceed.Compression.CompressedStream.#ctor(System.IO.Stream)">
+      <summary> Initializes a <see langword="CompressedStream"></see> using the default compressor and decompressor classes. </summary>
+      <param name="inner">Inner stream.</param>
+    </member>
+    <member name="M:Xceed.Compression.CompressedStream.#ctor(System.IO.Stream,Xceed.Compression.CompressionMethod,Xceed.Compression.CompressionLevel)">
+      <summary> Initializes a <see langword="CompressedStream"></see> using the provided compression method and level. </summary>
+      <param name="inner">Inner stream.</param>
+      <param name="method">Compression method to use.</param>
+      <param name="level">Compression level to use.</param>
+    </member>
+    <member name="M:Xceed.Compression.CompressedStream.#ctor(System.IO.Stream,Xceed.Compression.Compressor)">
+      <summary> Initializes a compress-only <see langword="CompressedStream"></see> using the provided compressor class. </summary>
+      <param name="inner">Inner stream.</param>
+      <param name="compressor">Compressor class used to perform data compression.</param>
+    </member>
+    <member name="M:Xceed.Compression.CompressedStream.#ctor(System.IO.Stream,Xceed.Compression.Decompressor)">
+      <summary> Initializes a decompress-only <see langword="CompressedStream"></see> using the provided decompressor class. </summary>
+      <param name="inner">Inner stream.</param>
+      <param name="decompressor">Decompressor class used to perform data decompression.</param>
+    </member>
+    <member name="M:Xceed.Compression.CompressedStream.#ctor(System.IO.Stream,Xceed.Compression.Compressor,Xceed.Compression.Decompressor)">
+      <summary> Initializes a <see langword="CompressedStream"></see> using the provided compressor and decompressor classes. </summary>
+      <param name="inner">Inner stream.</param>
+      <param name="compressor">Compressor class used to perform data compression.</param>
+      <param name="decompressor">Decompressor class used to perform data decompression.</param>
+    </member>
+    <member name="P:Xceed.Compression.CompressedStream.CanRead">
+      <summary> Determines whether the inner stream supports reading AND the compressed stream supports data decompression. </summary>
+    </member>
+    <member name="P:Xceed.Compression.CompressedStream.CanSeek">
+      <summary> Determines whether the inner stream supports seeking. </summary>
+    </member>
+    <member name="P:Xceed.Compression.CompressedStream.CanWrite">
+      <summary> Determines whether the inner stream supports writing AND the compressed stream supports data compression. </summary>
+    </member>
+    <member name="P:Xceed.Compression.CompressedStream.Length">
+      <summary> Returns the length, in bytes, of the inner stream. </summary>
+    </member>
+    <member name="P:Xceed.Compression.CompressedStream.Position">
+      <summary> Gets the current position of the inner stream, or sets the current position of this stream to the given value. </summary>
+    </member>
+    <member name="P:Xceed.Compression.CompressedStream.Transient">
+      <summary> Gets or sets a boolean value indicating if the stream is responsible for closing its inner stream. </summary>
+    </member>
+    <member name="M:Xceed.Compression.CompressedStream.Dispose(System.Boolean)">
+      <summary> Provides correct cleanup of resources in the base class and its derived classes. </summary>
+      <param name="disposing">true if this method was called by another method such as Close or Dispose; false if it was called by the finalizer.</param>
+    </member>
+    <member name="M:Xceed.Compression.CompressedStream.Write(System.Byte[],System.Int32,System.Int32)">
+      <summary> Compresses and writes a sequence of bytes to the inner stream. </summary>
+      <param name="buffer"> An array of bytes. A maximum of <paramref name="count"></paramref> bytes are taken from this array and compressed into the inner stream. </param>
+      <param name="offset"> The byte offset in <paramref name="buffer"></paramref> at which to begin taking the data. </param>
+      <param name="count"> The maximum number of bytes to be taken from <paramref name="buffer"></paramref>. </param>
+    </member>
+    <member name="M:Xceed.Compression.CompressedStream.Read(System.Byte[],System.Int32,System.Int32)">
+      <summary> Reads and decompresses a sequence of bytes from the inner stream. </summary>
+      <param name="buffer"> An array of bytes. A maximum of <paramref name="count"></paramref> bytes are stored in this array. </param>
+      <param name="offset"> The byte offset in <paramref name="buffer"></paramref> at which to begin storing the data decompressed from the inner stream. </param>
+      <param name="count"> The maximum number of bytes to be stored in <paramref name="buffer"></paramref>. </param>
+    </member>
+    <member name="M:Xceed.Compression.CompressedStream.SetLength(System.Int64)">
+      <summary> Sets the length of the inner stream. </summary>
+      <param name="value"> An integer indicating the desired length of the inner stream in bytes. </param>
+    </member>
+    <member name="M:Xceed.Compression.CompressedStream.Seek(System.Int64,System.IO.SeekOrigin)">
+      <summary> Sets the current position of the inner stream. </summary>
+      <param name="offset"> Byte offset relative to <paramref name="origin"></paramref>. </param>
+      <param name="origin"> A field of <see cref="T:System.IO.SeekOrigin"></see> indicating the reference point from which the new position is to be obtained. </param>
+    </member>
+    <member name="M:Xceed.Compression.CompressedStream.Flush">
+      <summary> Causes all pending compressed data to be written to the inner stream, and updates the underlying data source or repository of the inner stream with the current state of the buffer. </summary>
+    </member>
+    <member name="M:Xceed.Compression.CompressedStream.Close">
+      <summary> Closes the stream, and releases any resources associated with it. </summary>
+    </member>
+    <member name="M:Xceed.Compression.CompressedStream.Finalize">
+      <summary> Allows the CompressedStream object to attempt to free resources and perform other cleanup operations before it is reclaimed by garbage collection. </summary>
+    </member>
+    <member name="M:Xceed.Compression.CompressedStream.GetRemainingStream">
+      <summary> Retrieves a stream which starts immediately after the last byte of compressed data. </summary>
+    </member>
+    <member name="T:Xceed.Compression.CompressionException">
+      <summary> Exception that is thrown when there is a problem compressing or decompressing data. </summary>
+    </member>
+    <member name="M:Xceed.Compression.CompressionException.#ctor(System.String)">
+      <summary> Initializes a new instance of the exception with the specified message text. </summary>
+      <param name="message">The error message that explains the reason for the exception.</param>
+    </member>
+    <member name="M:Xceed.Compression.CompressionException.#ctor(System.String,System.Exception)">
+      <summary> Initializes a new instance of the exception with the specified message text and inner exception. </summary>
+      <param name="message">The error message that explains the reason for the exception.</param>
+      <param name="inner">The exception that initially caused the current exception to be thrown.</param>
+    </member>
+    <member name="T:Xceed.Compression.CompressionInternalException">
+      <summary> Exception that is thrown when something unexpected occurs while compressing or decompressing data. </summary>
+    </member>
+    <member name="M:Xceed.Compression.CompressionInternalException.#ctor">
+      <summary> Initializes a new instance of the exception. </summary>
+    </member>
+    <member name="M:Xceed.Compression.CompressionInternalException.#ctor(System.Exception)">
+      <summary> Initializes a new instance of the exception with the specified inner exception. </summary>
+      <param name="inner">The exception that initially caused the current exception to be thrown.</param>
+    </member>
+    <member name="M:Xceed.Compression.CompressionInternalException.#ctor(System.String)">
+      <summary> Initializes a new instance of the exception with the specified message test. </summary>
+      <param name="message">The error message that explains the reason for the exception.</param>
+    </member>
+    <member name="M:Xceed.Compression.CompressionInternalException.#ctor(System.String,System.Exception)">
+      <summary> Initializes a new instance of the exception with the specified message text and inner exception. </summary>
+      <param name="message">The error message that explains the reason for the exception.</param>
+      <param name="inner">The exception that initially caused the current exception to be thrown.</param>
+    </member>
+    <member name="T:Xceed.Compression.Compressor">
+      <summary> Abstract class from which other classes can derive to implement custom compression algorithms. </summary>
+    </member>
+    <member name="M:Xceed.Compression.Compressor.#ctor">
+      <summary> Initializes a new instance of the <see cref="T:Xceed.Compression.Compressor"></see> class. </summary>
+    </member>
+    <member name="M:Xceed.Compression.Compressor.Compress(System.Byte[],System.Int32,System.Int32,System.Boolean,System.Byte[]@)">
+      <summary> Compresses an array of bytes. </summary>
+      <param name="buffer"> An array of bytes to compress. A maximum of <paramref name="count"></paramref> bytes are taken from this array and compressed. </param>
+      <param name="offset"> The byte offset in <paramref name="buffer"></paramref> at which to begin taking the data to compress. </param>
+      <param name="count"> The maximum number of bytes to be taken from <paramref name="buffer"></paramref>. </param>
+      <param name="endOfData"> Indicates if this call ends the stream of data to compress. </param>
+      <param name="compressed"> An array of bytes containing the compressed data. Can be empty. </param>
+    </member>
+    <member name="T:Xceed.Compression.Decompressor">
+      <summary> An abstract class from which other classes can derive to implement custom decompression algorithms. </summary>
+    </member>
+    <member name="M:Xceed.Compression.Decompressor.#ctor">
+      <summary> Initializes a new instance of the <see cref="T:Xceed.Compression.Decompressor"></see> class. </summary>
+    </member>
+    <member name="M:Xceed.Compression.Decompressor.Decompress(System.Byte[],System.Int32,System.Int32,System.Boolean@,System.Byte[]@,System.Int32@)">
+      <summary> Decompresses an array of bytes. </summary>
+      <param name="buffer"> An array of bytes to decompress. A maximum of <paramref name="count"></paramref> bytes are taken from this array and decompressed. </param>
+      <param name="offset"> The byte offset in <paramref name="buffer"></paramref> at which to begin taking the data to decompress. </param>
+      <param name="count">The maximum number of bytes to be taken from <paramref name="buffer"></paramref>.</param>
+      <param name="endOfData">
+        <see langword="true">
+        </see> if the end of the compressed data has been reached; <see langword="false"></see> otherwise.</param>
+      <param name="decompressed">An array of bytes containing the decompressed data. Can be empty if no bytes were decompressed.</param>
+      <param name="remaining">The number of unused bytes read from buffer the for decompression. </param>
+    </member>
+    <member name="T:Xceed.Compression.Licenser">
+      <summary> Class which is used to register the classes located in the Xceed.Compression namespace. </summary>
+    </member>
+    <member name="M:Xceed.Compression.Licenser.#ctor">
+      <summary>Initializes a new instance of the Licenser class.</summary>
+    </member>
+    <member name="P:Xceed.Compression.Licenser.LicenseKey">
+      <summary> Gets or sets the license key used to license this product. </summary>
+    </member>
+    <member name="T:Xceed.Compression.QuickCompression">
+      <summary> Exposes static methods that allow basic byte array compression and decompression operations. </summary>
+    </member>
+    <member name="M:Xceed.Compression.QuickCompression.Compress(System.Byte[])">
+      <summary> Compresses an array of bytes. </summary>
+      <param name="buffer">The array of bytes to compress.</param>
+    </member>
+    <member name="M:Xceed.Compression.QuickCompression.Compress(System.Byte[],Xceed.Compression.CompressionMethod,Xceed.Compression.CompressionLevel)">
+      <summary> Compresses an array of bytes using the specified compression method and level. </summary>
+      <param name="buffer">The array of bytes to compress.</param>
+      <param name="method">A <see cref="T:Xceed.Compression.CompressionMethod"></see> value representing the compression method to use.</param>
+      <param name="level">A <see cref="T:Xceed.Compression.CompressionLevel"></see> value representing the compression level to use.</param>
+    </member>
+    <member name="M:Xceed.Compression.QuickCompression.Compress(System.Byte[],System.Int32,System.Int32,Xceed.Compression.CompressionMethod,Xceed.Compression.CompressionLevel)">
+      <summary> Compresses an array of bytes specifying the amount of bytes to compress as well as the compression method and level. </summary>
+      <param name="buffer">The array of bytes to compress. A maximum of <paramref name="count"></paramref> bytes are taken from this array and compressed</param>
+      <param name="offset">The byte offset in <paramref name="buffer"></paramref> at which to begin taking the data to compress.</param>
+      <param name="count">The maximum number of bytes to be taken from <paramref name="buffer"></paramref>.</param>
+      <param name="method">A <see cref="T:Xceed.Compression.CompressionMethod"></see> value representing the compression method to use.</param>
+      <param name="level">A <see cref="T:Xceed.Compression.CompressionLevel"></see> value representing the compression level to use.</param>
+    </member>
+    <member name="M:Xceed.Compression.QuickCompression.Decompress(System.Byte[])">
+      <summary> Decompresses an array of bytes compressed using the <see cref="F:Xceed.Compression.CompressionMethod.Deflated"></see> compression method. </summary>
+      <param name="buffer">An array of bytes to decompress.</param>
+    </member>
+    <member name="M:Xceed.Compression.QuickCompression.Decompress(System.Byte[],Xceed.Compression.CompressionMethod)">
+      <summary> Decompresses an array of compressed bytes specifying the compression method that was used to compress the byte array. </summary>
+      <param name="buffer">An array of bytes to decompress.</param>
+      <param name="method">A <see cref="T:Xceed.Compression.CompressionMethod"></see> value representing the compression method that was used to compress the byte array.</param>
+    </member>
+    <member name="M:Xceed.Compression.QuickCompression.Decompress(System.Byte[],System.Int32,System.Int32,Xceed.Compression.CompressionMethod)">
+      <summary> Decompresses a compressed byte array specifying the amount of bytes to decompress as well as the compression method that was used to compress the byte array. </summary>
+      <param name="buffer">An array of bytes to decompress.</param>
+      <param name="offset">The byte offset in <paramref name="buffer"></paramref> at which to begin taking the data to compress.</param>
+      <param name="count">The maximum number of bytes to be taken from <paramref name="buffer"></paramref>.</param>
+      <param name="method">A <see cref="T:Xceed.Compression.CompressionMethod"></see> value representing the compression method that was used to compress the byte array.</param>
+    </member>
+    <member name="T:Xceed.Compression.CompressionLevel">
+      <summary> Represents the amount of compression to be applied when compressing data. The greater the amount of compression applied, the greater the time it takes to perform the compression. </summary>
+    </member>
+    <member name="F:Xceed.Compression.CompressionLevel.None">
+      <summary>No compression is applied.</summary>
+    </member>
+    <member name="F:Xceed.Compression.CompressionLevel.Lowest">
+      <summary>Minimum compression. Takes the least amount of time to compress data.</summary>
+    </member>
+    <member name="F:Xceed.Compression.CompressionLevel.Normal">
+      <summary>Normal compression. Best balance between the time it takes to compress data and the compression ratio achieved.</summary>
+    </member>
+    <member name="F:Xceed.Compression.CompressionLevel.Highest">
+      <summary>Maximum compression. Best compression ratio that the compression algorithm is capable of producing. Compared to the Normal compression level, this level significantly increases compression time for only slightly smaller compressed data. It is recommended to use this setting only when you really need to achieve the smallest possible files and when compression time is not important. </summary>
+    </member>
+    <member name="T:Xceed.Compression.CompressionMethod">
+      <summary> Represents the compression algorithm to be used when compressing data. </summary>
+    </member>
+    <member name="F:Xceed.Compression.CompressionMethod.Stored">
+      <summary>No compression is applied.</summary>
+    </member>
+    <member name="F:Xceed.Compression.CompressionMethod.Deflated">
+      <summary>Deflate algorithm. Standard algorithm used by the PKZip 2.04g format.</summary>
+    </member>
+    <member name="F:Xceed.Compression.CompressionMethod.Deflated64">
+      <summary>Deflate64 algorithm also know as Enhanced Deflate. Deflate64 is a variation of the Deflate algorithm that uses a 64K sliding window rather than a 32K window in order to compress a sequence of bits. Deflate64 takes longer to compress data than Deflate, however it provides better compression. <b>The Xceed Self-Extractor Module does not support the Deflated64 compression method.</b></summary>
+    </member>
+  </members>
+</doc>

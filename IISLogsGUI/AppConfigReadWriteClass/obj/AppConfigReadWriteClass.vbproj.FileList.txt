@@ -1,0 +1,13 @@
+bin\AppConfigReadWriteClass.dll
+obj\Debug\ResolveAssemblyReference.cache
+obj\Debug\AppConfigReadWriteClass.ReadWrite.resources
+obj\Debug\AppConfigReadWriteClass.vbproj.GenerateResource.Cache
+obj\Debug\AppConfigReadWriteClass.pdb
+bin\AppConfigReadWriteClass.xml
+obj\Release\ResolveAssemblyReference.cache
+obj\Release\AppConfigReadWriteClass.ReadWrite.resources
+obj\Release\AppConfigReadWriteClass.vbproj.GenerateResource.Cache
+obj\Release\AppConfigReadWriteClass.dll
+obj\Release\AppConfigReadWriteClass.xml
+obj\Debug\AppConfigReadWriteClass.dll
+obj\Debug\AppConfigReadWriteClass.xml

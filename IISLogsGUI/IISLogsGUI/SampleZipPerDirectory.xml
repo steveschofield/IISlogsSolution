@@ -1,0 +1,22 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table1>
+    <DirectoryName>c:\windows\system32\logfiles\httperr\</DirectoryName>
+    <ZipFile>true</ZipFile>
+    <ZipRetentionPeriod>48</ZipRetentionPeriod>
+    <DeleteOriginalFile>true</DeleteOriginalFile>
+    <DeleteFile>true</DeleteFile>
+    <DeleteRetentionPeriod>240</DeleteRetentionPeriod>
+    <Recursive>false</Recursive>
+    <ProcessRootFolderRecursive>false</ProcessRootFolderRecursive>
+    <ZipFilePath>local</ZipFilePath>
+    <IncludeComputerName>false</IncludeComputerName>
+    <ProcessUnknownExtensions>false</ProcessUnknownExtensions>
+    <ProcessTXT>false</ProcessTXT>
+    <ProcessBAK>false</ProcessBAK>
+    <ProcessDAT>false</ProcessDAT>
+    <ProcessXML>false</ProcessXML>
+    <NamingConvention>Default</NamingConvention>
+    <Delimiter>!</Delimiter>
+  </Table1>
+</NewDataSet>

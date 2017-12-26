@@ -1,0 +1,925 @@
+Imports System.xml
+Imports Meijer.Ent
+Imports System.Data.Odbc
+
+Public Class CUtility
+	'*=========================================================================================
+	'* Namespace: Meijer.Merch.Shared
+	'* Class: CUtility
+	'* Author: Nicholas J. McCollum
+	'* Date: August 2003
+	'* Copyright: Meijer 2003
+	'*=========================================================================================
+	'* Description: Public class that provides utility services to merchandising applications.
+	'*=========================================================================================
+	'* Modification History
+	'*
+	'* Name:
+	'* Date:
+	'* Reason:
+	'*=========================================================================================
+	Inherits Meijer.Ent.CMeijerObject
+
+	Public Enum ComponentTypeEnum As Byte
+		Component = 0
+		StoredProcedure = 1
+	End Enum
+
+	Private Enum ErrorParameter As Byte
+		SqlCode = 0
+		SqlState = 1
+		EndingTimestamp = 2
+		StartingTimestamp = 3
+	End Enum
+
+	' Application logging constants
+	Private Const APPNAME As String = "FRAMEWRK"
+	Private Const CLASSNAME As String = "CUtility"
+	Private Const PARAM_START_TS As String = "out_start_ts"
+	Private Const PARAM_END_TS As String = "out_end_ts"
+	Private Const PARAM_SQLSTATE As String = "out_sqlstate"
+	Private Const PARAM_SQLCODE As String = "out_sqlcode"
+	' Non-fatal database error constants
+	Private Const EXCEPTION_RI As String = "This has child records associated with it."
+	Private Const EXCEPTION_DUPLICATE As String = "This is a duplicate record."
+  Private Const EXCEPTION_DEADLOCK As String = "The record requested is deadlocked"
+  Private Const EXCEPTION_CUSTOM As String = "A Meijer defined error has occurred. Please see the application developer for more information."
+  Private Const EXCEPTION_CONCURRENCY As String = "The information you are trying to update has been changed by another user or process. Please refresh the data to see these changes."
+  Private m_strConfigFile As String = String.Empty
+  Private m_colAppSettings As System.Collections.Specialized.NameValueCollection
+  Private m_blnConfigLoaded As Boolean = False
+
+  Private Sub LoadAppSettings()
+    '*=======================================================================================
+    '* Name: LoadAppSettings
+    '* Purpose: If the windows form application was executed via the web, retrieve the
+    '*					application configuration settings from an XML file located on the web server.
+    '* Input:   None.
+    '* Output:  Me.AppSettings (System.Collections.Specialized.NameValueCollection)
+    '*					Me.m_blnConfigLoaded (Boolean)
+    '* Returns: None.
+    '*=======================================================================================
+    Trace.WriteLine("Entered LoadAppSettings")
+
+    If Me.ConfigFileName = String.Empty Then
+      Me.m_colAppSettings = System.Configuration.ConfigurationSettings.AppSettings
+      Me.m_blnConfigLoaded = True
+    Else
+      Dim xrReader As XmlTextReader
+
+      Try
+        Me.m_colAppSettings = New System.Collections.Specialized.NameValueCollection
+
+        xrReader = New XmlTextReader(Me.ConfigFileName)
+        xrReader.WhitespaceHandling = WhitespaceHandling.None
+
+        ' Retrieve the application setting nodes from the configuration file
+        While xrReader.Read()
+          If xrReader.NodeType = XmlNodeType.Element Then
+            If xrReader.Name.ToLower = "add" Then
+              ' Load settings into the application settings collection
+              Me.m_colAppSettings.Add(xrReader.Item(0).ToString, xrReader.Item(1).ToString)
+            End If
+          End If
+        End While
+
+        Me.m_blnConfigLoaded = True
+
+      Catch X As System.Exception
+        Throw X
+      Finally
+        If Not (xrReader Is Nothing) Then
+          xrReader.Close()
+        End If
+      End Try
+
+      Me.Environment = GetEnvironment()
+    End If
+    Trace.WriteLine("Successfully exited LoadAppSettings")
+  End Sub
+
+  Private Function GetEnvironment() As Meijer.Ent.MeijerEnvironmentEnum
+    '*=======================================================================================
+    '* Name: GetEnvironment (MeijerEnvironmentEnum)
+    '* Purpose: Return a value indicating which environment the page is executing in based on the server name.
+    '* Input: None.
+    '* Output: None.
+    '* Returns: MeijerEnvironmentEnum
+    '*=======================================================================================
+    Trace.WriteLine("Entered GetEnvironment")
+
+    Dim strServerName As String
+    Dim strDevServers() As String
+    Dim strIntServers() As String
+    Dim strCertServers() As String
+
+    ' Get the computername
+    strServerName = System.Windows.Forms.SystemInformation.ComputerName.ToLower
+
+    ' Load server lists
+    ' config file must have keys containing the list of development, integration, and certification servers for the app
+    Try
+      strDevServers = Split(Me.AppSettings("devserver").ToLower, ",")
+      strIntServers = Split(Me.AppSettings("intserver").ToLower, ",")
+      strCertServers = Split(Me.AppSettings("certserver").ToLower, ",")
+    Catch X As Exception
+      Throw New System.Exception("Unable to retrieve server lists from config file.", X)
+    End Try
+
+    ' Sort server lists
+    Array.Sort(strDevServers)
+    Array.Sort(strIntServers)
+    Array.Sort(strCertServers)
+
+    ' Determine which environment the server belongs too
+    If Array.BinarySearch(strDevServers, strServerName) >= 0 Then
+      Return Meijer.Ent.MeijerEnvironmentEnum.DEVELOPMENT
+    ElseIf Array.BinarySearch(strIntServers, strServerName) >= 0 Then
+      Return Meijer.Ent.MeijerEnvironmentEnum.INTEGRATION
+    ElseIf Array.BinarySearch(strCertServers, strServerName) >= 0 Then
+      Return Meijer.Ent.MeijerEnvironmentEnum.CERTIFICATION
+    Else
+      Return Meijer.Ent.MeijerEnvironmentEnum.PRODUCTION
+    End If
+    Trace.WriteLine("Successfully exited GetEnvironment")
+  End Function
+
+  Public ReadOnly Property AppSettings() As System.Collections.Specialized.NameValueCollection
+    '*=======================================================================================
+    '* Name: AppSettings
+    '* Purpose: A name value collection that stores the application configuration settings.
+    '*=======================================================================================
+    Get
+      Return m_colAppSettings
+    End Get
+  End Property
+
+  Private Property ConfigFileName() As String
+    Get
+      Return m_strConfigFile
+    End Get
+    Set(ByVal Value As String)
+      m_strConfigFile = Value.Trim
+    End Set
+  End Property
+
+  Public Sub New()
+    Trace.WriteLine("Entered New")
+
+    If AppDomain.CurrentDomain.GetData("APP_CONFIG_FILE").ToString = String.Empty Then
+      ' No client configuration file - use Meijer.Merch.Shared.dll.config located in system directory
+      Dim strConfigFile As String
+
+      strConfigFile = System.Environment.SystemDirectory & System.IO.Path.DirectorySeparatorChar
+      strConfigFile = System.IO.Path.Combine(System.IO.Path.GetDirectoryName(strConfigFile), "meijer.merch.shared.dll.config")
+      Me.ConfigFileName = strConfigFile
+    End If
+    LoadAppSettings()
+
+    Trace.WriteLine("Successfully exited New")
+  End Sub
+
+  Public Overrides Function IsAlive() As Boolean
+    '*=======================================================================================
+    '* Name: IsAlive
+    '* Purpose: Execute some meaningful code to demonstrate that the component is
+    '*          functioning.
+    '* Input:   None.
+    '* Output:  None.
+    '* Returns: True - component is alive
+    '*          False - component is dead
+    '*=======================================================================================
+    Trace.WriteLine("Entered IsAlive")
+
+    Const SQL_COMMAND As String = "CALL #schema#.PRIC146 (?, ?, ?, ?)"
+    Dim objData As CODBCData
+    Dim strView As String
+    Dim strSchema As String
+    Dim strConnect As String
+    Dim strGroupName As String
+    Dim strCommand As String
+    Dim colParameters As New Collection
+    Dim dtMethods As DataTable
+
+    GetDBConfiguration(strView, strSchema, strConnect, strGroupName)  ' Retrieve database configuration information
+    strCommand = SQL_COMMAND.Replace("#schema#", strSchema)  ' Create SQL command string
+
+    ' Load parameter list
+    With colParameters
+      .Add(New OdbcParameter("startts", OdbcType.DateTime, 0, ParameterDirection.Output, True, 0, 0, "startts", DataRowVersion.Current, Convert.DBNull))
+      .Add(New OdbcParameter("endts", OdbcType.DateTime, 0, ParameterDirection.Output, True, 0, 0, "endts", DataRowVersion.Current, Convert.DBNull))
+      .Add(New OdbcParameter("sqlstate", OdbcType.Char, 5, ParameterDirection.Output, False, 0, 0, "sqlstate", DataRowVersion.Current, "00000"))
+      .Add(New OdbcParameter("sqlcode", OdbcType.Int, 0, ParameterDirection.Output, False, 0, 0, "sqlcode", DataRowVersion.Current, 0))
+    End With
+
+    ' Retrieve price methods
+    Try
+      objData = New CODBCData(strConnect)
+      dtMethods = objData.ExecuteDataTable(strCommand, CommandType.StoredProcedure, colParameters)
+    Catch X As System.Exception
+      LogError(APPNAME, CLASSNAME, strGroupName, "SYSTEM", X)
+      Throw X
+    Finally
+      objData.Close()
+    End Try
+
+    Return True
+    Trace.WriteLine("Successfully exited IsAlive")
+  End Function
+
+  Public Sub GetDBConfiguration(ByRef r_strView As String, ByRef r_strSchema As String, ByRef r_strConnect As String, ByRef r_strGroupName As String)
+    '*=======================================================================================
+    '* Name: GetDBConfiguration
+    '* Purpose: Retrieve database configuration settings from the application configuration
+    '*          file.
+    '* Input:   None.
+    '* Output:  View Name (String)
+    '*					Schema Name (String)
+    '*					Connection String (String)
+    '*					Support Group Name (String)
+    '* Returns: None.
+    '*=======================================================================================
+    Trace.WriteLine("Entered GetDBConfiguration")
+
+    Try
+      Select Case Me.Environment
+        Case Meijer.Ent.MeijerEnvironmentEnum.DEVELOPMENT
+          r_strView = Me.AppSettings("devview")
+          r_strSchema = Me.AppSettings("devschema")
+          r_strConnect = Me.AppSettings("devdsn")
+        Case Meijer.Ent.MeijerEnvironmentEnum.INTEGRATION
+          r_strView = Me.AppSettings("intview")
+          r_strSchema = Me.AppSettings("intschema")
+          r_strConnect = Me.AppSettings("intdsn")
+        Case Meijer.Ent.MeijerEnvironmentEnum.CERTIFICATION
+          r_strView = Me.AppSettings("certview")
+          r_strSchema = Me.AppSettings("certschema")
+          r_strConnect = Me.AppSettings("certdsn")
+        Case Meijer.Ent.MeijerEnvironmentEnum.PRODUCTION
+          r_strView = Me.AppSettings("view")
+          r_strSchema = Me.AppSettings("schema")
+          r_strConnect = Me.AppSettings("dsn")
+      End Select
+      r_strGroupName = Me.AppSettings("groupname")
+    Catch X As Exception
+      Throw New System.Exception("Unable to retrieve database connection information from XML configuration file.", X)
+    End Try
+    Trace.WriteLine("Successfully exited GetDBConfiguration")
+  End Sub
+
+  Public Sub GetActuateConfiguration(ByRef r_strActuateConnect As String)
+    '*=======================================================================================
+    '* Name: GetActuateConfiguration
+    '* Purpose: Retrieve Actuate report server connection string.
+    '* Input: None.
+    '* Output: Actuate Connection String (String)
+    '* Returns: None.
+    '*=======================================================================================
+    Trace.WriteLine("Entered GetActuateConfiguration")
+
+    Try
+      Select Case Me.Environment
+        Case MeijerEnvironmentEnum.DEVELOPMENT
+          r_strActuateConnect = Me.AppSettings("devActuate")
+        Case MeijerEnvironmentEnum.INTEGRATION
+          r_strActuateConnect = Me.AppSettings("intActuate")
+        Case MeijerEnvironmentEnum.CERTIFICATION
+          r_strActuateConnect = Me.AppSettings("certActuate")
+        Case MeijerEnvironmentEnum.PRODUCTION
+          r_strActuateConnect = Me.AppSettings("Actuate")
+      End Select
+    Catch X As Exception
+      Throw New System.Exception("Unable to retrieve Actuate connection information from XML configuration file.", X)
+    End Try
+    Trace.WriteLine("Successfully exited GetActuateConfiguration")
+  End Sub
+
+  Public Sub ThrowSQLException(ByVal v_strCommand As String, ByVal v_intSQLCode As Integer, ByVal v_strSQLState As String)
+    '*=======================================================================================
+    '* Name: ThrowSQLException
+    '* Purpose: Throw a custom exception for a non-zero SQL return code.
+    '* Input:   SQL command (String)
+    '*					SQL code (Integer)
+    '*					SQL state (String)
+    '* Output:  None.
+    '* Returns: None.
+    '*=======================================================================================
+    Trace.WriteLine("Entered ThrowSQLException")
+
+    Dim sbError As New System.Text.StringBuilder
+
+    With sbError
+      .Append("The following SQL command has returned an error. ")
+      .Append(v_strCommand)
+      .Append(" SQL Code = ")
+      .Append(CType(v_intSQLCode, String))
+      .Append(" SQL State = ")
+      .Append(v_strSQLState)
+    End With
+    Throw New System.Exception(sbError.ToString())
+    Trace.WriteLine("Successfully exited ThrowSQLException")
+  End Sub
+
+  Public Sub LogError(ByVal v_strAppName As String, ByVal v_strSource As String, ByVal v_strGroupName As String, ByVal v_strUserID As String, ByVal v_objException As System.Exception)
+    '*=======================================================================================
+    '* Name: LogError
+    '* Purpose: Log application error details.  Based on settings in the application
+    '* configuration file error information will be logged to the Meijer application
+    '* logging database or the Windows event log and possibly raised to the HP OpenView
+    '* monitoring system.
+    '* Input: Application name
+    '*        Source of the error
+    '*        Support group name
+    '*        User ID
+    '*        .Net exception
+    '* Output: None.
+    '* Returns: None.
+    '*=======================================================================================
+    Trace.WriteLine("Entered LogError")
+
+    Dim strDestination As String = "eventlog"
+    Dim blnAlertOpenView As Boolean = False
+    Dim objAppLog As Meijer.Ent.CApplicationLog
+    Dim objEventLog As EventLog
+    Dim strMessage As String
+
+    ' Retrieve log destination and HP OpenView indicator from configuration file
+    Try
+      With Me.AppSettings
+        strDestination = CType(.Item("LogDestination"), String).ToLower
+        blnAlertOpenView = CType(.Item("AlertOpenView"), Boolean)
+      End With
+    Catch X As System.Exception
+      ' Do nothing
+    End Try
+
+    ' Determine where to log the error information
+    If strDestination = "applog" Then
+      Try
+        ' Create an instance of the application logging object and log the error information
+        objAppLog = New Meijer.Ent.CApplicationLog
+        ' Determine if we want the error sent to HP OpenView
+        If blnAlertOpenView Then
+          ' OpenView only supports a maximum message length of 128 characters
+          If v_objException.Message.Length > 128 Then
+            strMessage = v_objException.Message.Substring(1, 128)
+          Else
+            strMessage = v_objException.Message
+          End If
+          ' Raise an event in OpenView
+          objAppLog.RaiseError(v_strAppName, v_strGroupName, v_strUserID, v_objException.Message, v_strSource)
+        End If
+        ' Log the complete exception message and stack trace to the application logging database
+        With objAppLog
+          .LogMessage(v_strAppName, v_strGroupName, v_strUserID, v_objException.Message, v_strSource)
+          If v_objException.StackTrace <> String.Empty Then
+            .LogMessage(v_strAppName, v_strGroupName, v_strUserID, v_objException.StackTrace, v_strSource)
+          End If
+        End With
+      Catch X As System.Exception
+        ' Do nothing
+      End Try
+    Else
+      Try
+        ' Register the application with the Application event log
+        If Not EventLog.SourceExists(v_strAppName) Then
+          EventLog.CreateEventSource(v_strAppName, "Application")
+        End If
+
+        ' Create an instance of the event log and log the error information
+        objEventLog = New EventLog
+        With objEventLog
+          If v_objException.Source = String.Empty Then
+            .Source = v_strSource
+          Else
+            .Source = v_objException.Source
+          End If
+          .WriteEntry(v_objException.Message, EventLogEntryType.Error)
+          If v_objException.StackTrace <> String.Empty Then
+            .WriteEntry(v_objException.StackTrace, EventLogEntryType.Error)
+          End If
+        End With
+      Catch X As System.Exception
+        ' Do nothing
+      Finally
+        ' Close the event log
+        If Not (objEventLog Is Nothing) Then
+          objEventLog.Close()
+        End If
+      End Try
+    End If
+
+    Trace.WriteLine("Successfully exited LogError")
+  End Sub
+
+  Public Sub LogMessage(ByVal v_strAppName As String, ByVal v_strSource As String, ByVal v_strGroupName As String, ByVal v_strUserID As String, ByVal v_strMessage As String)
+    '*=======================================================================================
+    '* Name: LogMessage
+    '* Purpose: Log an application message.  Based on settings in the application
+    '* configuration file the message will be logged to the Meijer application
+    '* logging database or the Windows event log.
+    '* Input: Application name
+    '*        Source of the error
+    '*        Support group name
+    '*        User ID
+    '*        Message
+    '* Output: None.
+    '* Returns: None.
+    '*=======================================================================================
+    Trace.WriteLine("Entered LogMessage")
+
+    Dim strDestination As String = "eventlog"
+    Dim objAppLog As Meijer.Ent.CApplicationLog
+    Dim objEventLog As EventLog
+
+    ' Retrieve log destination from configuration file
+    Try
+      strDestination = CType(Me.AppSettings("LogDestination"), String).ToLower
+    Catch X As System.Exception
+      ' Do nothing
+    End Try
+
+    ' Determine where to log the error information
+    If strDestination = "applog" Then
+      Try
+        ' Create an instance of the application logging object and log the message
+        objAppLog = New Meijer.Ent.CApplicationLog
+        ' Log the message to the application logging database
+        objAppLog.LogMessage(v_strAppName, v_strGroupName, v_strUserID, v_strMessage, v_strSource)
+      Catch X As System.Exception
+        ' Do nothing
+      End Try
+    Else
+      Try
+        ' Register the application with the Application event log
+        If Not EventLog.SourceExists(v_strAppName) Then
+          EventLog.CreateEventSource(v_strAppName, "Application")
+        End If
+
+        ' Create an instance of the event log and log the message
+        objEventLog = New EventLog
+        With objEventLog
+          .Source = v_strSource
+          .WriteEntry(v_strMessage, EventLogEntryType.Information)
+        End With
+      Catch X As System.Exception
+        ' Do nothing
+      Finally
+        ' Close the event log
+        If Not (objEventLog Is Nothing) Then
+          objEventLog.Close()
+        End If
+      End Try
+    End If
+    Trace.WriteLine("Successfully exited LogMessage")
+  End Sub
+
+  Public Sub WritePerfCounters(ByVal v_strObject As String, ByVal v_strMethod As String, ByVal v_bytComponentType As ComponentTypeEnum, ByVal v_dteStartTime As DateTime, ByVal v_dteEndTime As DateTime)
+    '*=======================================================================================
+    '* Name: WritePerfCounters
+    '* Purpose: Write a performance counter entry to the performance monitor queue.
+    '* Input: Object name
+    '*        Method name
+    '*        Component type
+    '*        Start Time
+    '*        End Time
+    '* Output: None.
+    '* Returns: None.
+    '*=======================================================================================
+    ' To be completed
+    Trace.WriteLine("Entered WritePerfCounters")
+
+    Trace.WriteLine("Successfully exited WritePerfCounters")
+  End Sub
+
+  Public Function ListUnits() As DataTable
+    '*=======================================================================================
+    '* Name: ListUnits
+    '* Purpose: Retrieve a list of all Meijer units.
+    '* Input: None.
+    '* Output: None.
+    '* Returns: List of Meijer units (System.Data.DataTable)
+    '*=======================================================================================
+    Trace.WriteLine("Entered ListUnits")
+
+    Const SQL_COMMAND As String = "CALL #schema#.PRIC101 (?, ?, ?, ?)"
+    Dim dteStart As DateTime
+    Dim dteEnd As DateTime
+    Dim objData As CODBCData
+    Dim strView As String
+    Dim strSchema As String
+    Dim strConnect As String
+    Dim strGroupName As String
+    Dim strCommand As String
+    Dim colParameters As New Collection
+    Dim dtUnits As DataTable
+
+    dteStart = Now()  ' Get method start time
+    GetDBConfiguration(strView, strSchema, strConnect, strGroupName)  ' Retrieve database configuration information
+    strCommand = SQL_COMMAND.Replace("#schema#", strSchema)  ' Create SQL command string
+
+    ' Load parameter list
+    With colParameters
+      .Add(New OdbcParameter("startts", OdbcType.DateTime, 0, ParameterDirection.Output, True, 0, 0, "startts", DataRowVersion.Current, Convert.DBNull))
+      .Add(New OdbcParameter("endts", OdbcType.DateTime, 0, ParameterDirection.Output, True, 0, 0, "endts", DataRowVersion.Current, Convert.DBNull))
+      .Add(New OdbcParameter("sqlstate", OdbcType.Char, 5, ParameterDirection.Output, False, 0, 0, "sqlstate", DataRowVersion.Current, "00000"))
+      .Add(New OdbcParameter("sqlcode", OdbcType.Int, 0, ParameterDirection.Output, False, 0, 0, "sqlcode", DataRowVersion.Current, 0))
+    End With
+
+    ' Retrieve units
+    Try
+      objData = New CODBCData(strConnect)
+      dtUnits = objData.ExecuteDataTable(strCommand, CommandType.StoredProcedure, colParameters)
+    Catch X As System.Exception
+      LogError(APPNAME, CLASSNAME, strGroupName, "SYSTEM", X)
+      Throw X
+    Finally
+      objData.Close()
+    End Try
+
+    ' Check SQL code for an error
+    If CType(CType(colParameters(4), OdbcParameter).Value, Integer) = 0 Then
+      ' Write performance counters and return datatable
+      dteEnd = Now()
+      WritePerfCounters("PRIC101", String.Empty, ComponentTypeEnum.StoredProcedure, CType(CType(colParameters(1), OdbcParameter).Value, DateTime), CType(CType(colParameters(2), OdbcParameter).Value, DateTime))
+      WritePerfCounters(CLASSNAME, "ListUnits", ComponentTypeEnum.Component, dteStart, dteEnd)
+      Return dtUnits
+    Else
+      ' Throw an exception if a non-zero SQL code was returned
+      ThrowSQLException(strCommand, CType(CType(colParameters(4), OdbcParameter).Value, Integer), CType(CType(colParameters(3), OdbcParameter).Value, String))
+    End If
+    Trace.WriteLine("Successfully exited ListUnits")
+  End Function
+
+  Public Function ListPriceMethods() As DataTable
+    '*=======================================================================================
+    '* Name: ListPriceMethods
+    '* Purpose: Retrieve a list of all pricing methods.
+    '* Input: None.
+    '* Output: None.
+    '* Returns: List of pricing methods (System.Data.DataTable)
+    '*=======================================================================================
+    Trace.WriteLine("Entered ListPriceMethods")
+    Const SQL_COMMAND As String = "CALL #schema#.PRIC146 (?, ?, ?, ?)"
+    Dim dteStart As DateTime
+    Dim dteEnd As DateTime
+    Dim objData As CODBCData
+    Dim strView As String
+    Dim strSchema As String
+    Dim strConnect As String
+    Dim strGroupName As String
+    Dim strCommand As String
+    Dim colParameters As New Collection
+    Dim dtMethods As DataTable
+
+    dteStart = Now()  ' Get method start time
+    GetDBConfiguration(strView, strSchema, strConnect, strGroupName)  ' Retrieve database configuration information
+    strCommand = SQL_COMMAND.Replace("#schema#", strSchema)  ' Create SQL command string
+
+    ' Load parameter list
+    With colParameters
+      .Add(New OdbcParameter("startts", OdbcType.DateTime, 0, ParameterDirection.Output, True, 0, 0, "startts", DataRowVersion.Current, Convert.DBNull))
+      .Add(New OdbcParameter("endts", OdbcType.DateTime, 0, ParameterDirection.Output, True, 0, 0, "endts", DataRowVersion.Current, Convert.DBNull))
+      .Add(New OdbcParameter("sqlstate", OdbcType.Char, 5, ParameterDirection.Output, False, 0, 0, "sqlstate", DataRowVersion.Current, "00000"))
+      .Add(New OdbcParameter("sqlcode", OdbcType.Int, 0, ParameterDirection.Output, False, 0, 0, "sqlcode", DataRowVersion.Current, 0))
+    End With
+
+    ' Retrieve units
+    Try
+      objData = New CODBCData(strConnect)
+      dtMethods = objData.ExecuteDataTable(strCommand, CommandType.StoredProcedure, colParameters)
+    Catch X As System.Exception
+      LogError(APPNAME, CLASSNAME, strGroupName, "SYSTEM", X)
+      Throw X
+    Finally
+      objData.Close()
+    End Try
+
+    ' Check SQL code for an error
+    If CType(CType(colParameters(4), OdbcParameter).Value, Integer) = 0 Then
+      ' Write performance counters and return datatable
+      dteEnd = Now()
+      WritePerfCounters("PRIC146", String.Empty, ComponentTypeEnum.StoredProcedure, CType(CType(colParameters(1), OdbcParameter).Value, DateTime), CType(CType(colParameters(2), OdbcParameter).Value, DateTime))
+      WritePerfCounters(CLASSNAME, "ListMethods", ComponentTypeEnum.Component, dteStart, dteEnd)
+      Return dtMethods
+    Else
+      ' Throw an exception if a non-zero SQL code was returned
+      ThrowSQLException(strCommand, CType(CType(colParameters(4), OdbcParameter).Value, Integer), CType(CType(colParameters(3), OdbcParameter).Value, String))
+    End If
+    Trace.WriteLine("Successfully exited ListPriceMethods")
+  End Function
+
+  Public Sub GetGrpSelPriv(ByVal v_shtGroupCategory As Short, ByRef r_blnAllowHierarchy As Boolean, ByRef r_blnAllowGroup As Boolean, ByRef r_blnAllowElement As Boolean, ByRef r_blnReusable As Boolean)
+    '*=======================================================================================
+    '* Name: GetGrpSelPriv
+    '* Purpose: Retrieve the properties of a given group category.
+    '* Input: Group Category (Short)
+    '* Output: Allow Hierarchy Flag (Boolean)
+    '*				 Allow Groups Flag (Boolean)
+    '*				 Allow Elements Flag (Boolean)
+    '*				 Reusable Flag (Boolean)
+    '* Returns: None.
+    '*=======================================================================================
+    Trace.WriteLine("Entered GetGrpSelPriv")
+
+    Const SQL_COMMAND As String = "CALL #schema#.PRIC213 (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
+    Dim dteStart As DateTime
+    Dim dteEnd As DateTime
+    Dim objData As CODBCData
+    Dim strView As String
+    Dim strSchema As String
+    Dim strConnect As String
+    Dim strGroupName As String
+    Dim strCommand As String
+    Dim colParameters As New Collection
+
+    dteStart = Now()  ' Get method start time
+    GetDBConfiguration(strView, strSchema, strConnect, strGroupName)  ' Retrieve database configuration information
+    strCommand = SQL_COMMAND.Replace("#schema#", strSchema)  ' Create SQL command string
+
+    ' Load parameter list
+    With colParameters
+      .Add(New OdbcParameter("groupcat", OdbcType.SmallInt, 0, ParameterDirection.Input, True, 0, 0, "groupcat", DataRowVersion.Current, v_shtGroupCategory))
+      .Add(New OdbcParameter("productflag", OdbcType.Char, 1, ParameterDirection.Output, True, 0, 0, "productflag", DataRowVersion.Current, "0"))
+      .Add(New OdbcParameter("orgflag", OdbcType.Char, 1, ParameterDirection.Output, True, 0, 0, "orgflag", DataRowVersion.Current, "0"))
+      .Add(New OdbcParameter("description", OdbcType.Char, 50, ParameterDirection.Output, True, 0, 0, "description", DataRowVersion.Current, String.Empty))
+      .Add(New OdbcParameter("reuseflag", OdbcType.Char, 1, ParameterDirection.Output, True, 0, 0, "reuseflag", DataRowVersion.Current, "0"))
+      .Add(New OdbcParameter("hierflag", OdbcType.Char, 1, ParameterDirection.Output, True, 0, 0, "hierflag", DataRowVersion.Current, "0"))
+      .Add(New OdbcParameter("groupflag", OdbcType.Char, 1, ParameterDirection.Output, True, 0, 0, "groupflag", DataRowVersion.Current, "0"))
+      .Add(New OdbcParameter("elementflag", OdbcType.Char, 1, ParameterDirection.Output, True, 0, 0, "elementflag", DataRowVersion.Current, "0"))
+      .Add(New OdbcParameter("startts", OdbcType.DateTime, 0, ParameterDirection.Output, True, 0, 0, "startts", DataRowVersion.Current, Convert.DBNull))
+      .Add(New OdbcParameter("endts", OdbcType.DateTime, 0, ParameterDirection.Output, True, 0, 0, "endts", DataRowVersion.Current, Convert.DBNull))
+      .Add(New OdbcParameter("sqlstate", OdbcType.Char, 5, ParameterDirection.Output, False, 0, 0, "sqlstate", DataRowVersion.Current, "00000"))
+      .Add(New OdbcParameter("sqlcode", OdbcType.Int, 0, ParameterDirection.Output, False, 0, 0, "sqlcode", DataRowVersion.Current, 0))
+    End With
+
+    ' Retrieve group category properties
+    Try
+      objData = New CODBCData(strConnect)
+      objData.Execute(strCommand, CommandType.StoredProcedure, colParameters)
+    Catch X As System.Exception
+      LogError(APPNAME, CLASSNAME, strGroupName, "SYSTEM", X)
+      Throw X
+    Finally
+      objData.Close()
+    End Try
+
+    ' Check SQL code for an error
+    If CType(CType(colParameters(12), OdbcParameter).Value, Integer) = 0 Then
+      ' Return property values
+      r_blnReusable = CType(CType(colParameters(5), OdbcParameter).Value, Boolean)
+      r_blnAllowHierarchy = CType(CType(colParameters(6), OdbcParameter).Value, Boolean)
+      r_blnAllowGroup = CType(CType(colParameters(7), OdbcParameter).Value, Boolean)
+      r_blnAllowElement = CType(CType(colParameters(8), OdbcParameter).Value, Boolean)
+      ' Write performance counters and return datatable
+      dteEnd = Now()
+      WritePerfCounters("PRIC213", String.Empty, ComponentTypeEnum.StoredProcedure, CType(CType(colParameters(9), OdbcParameter).Value, DateTime), CType(CType(colParameters(10), OdbcParameter).Value, DateTime))
+      WritePerfCounters(CLASSNAME, "GetGrpSelPriv", ComponentTypeEnum.Component, dteStart, dteEnd)
+    Else
+      ' Throw an exception if a non-zero SQL code was returned
+      ThrowSQLException(strCommand, CType(CType(colParameters(4), OdbcParameter).Value, Integer), CType(CType(colParameters(3), OdbcParameter).Value, String))
+    End If
+    Trace.WriteLine("Successfully exited GetGrpSelPriv")
+  End Sub
+
+  Public Sub AddErrorHandling(ByRef objParams As Collection)
+    '*=======================================================================================
+    '* Name: AddErrorHandling
+    '* Purpose: Add the command performance counters and error items to the parameter collection.
+    '* Input: None.
+    '* Output: Parameter collection (Collection)
+    '* Returns: None.
+    '*=======================================================================================
+    Trace.WriteLine("Entered AddErrorHandling")
+
+    With objParams
+      .Add(New OdbcParameter(PARAM_START_TS, OdbcType.DateTime, 0, ParameterDirection.Output, False, 0, 0, PARAM_START_TS, DataRowVersion.Current, Convert.DBNull))
+      .Add(New OdbcParameter(PARAM_END_TS, OdbcType.DateTime, 0, ParameterDirection.Output, False, 0, 0, PARAM_END_TS, DataRowVersion.Current, Convert.DBNull))
+      .Add(New OdbcParameter(PARAM_SQLSTATE, OdbcType.Char, 5, ParameterDirection.Output, False, 0, 0, PARAM_SQLSTATE, DataRowVersion.Current, "00000"))
+      .Add(New OdbcParameter(PARAM_SQLCODE, OdbcType.Int, 0, ParameterDirection.Output, False, 0, 0, PARAM_SQLCODE, DataRowVersion.Current, 0))
+    End With
+
+    Trace.WriteLine("Successfully exited AddErrorHandling")
+  End Sub
+
+  Public Sub CheckErrorHandling(ByVal strClassName As String, ByVal strMethodName As String, ByVal strProcName As String, ByVal strCommand As String, ByVal objParams As Collection, ByVal dteStartTime As DateTime, ByVal dteEndTime As DateTime)
+    '*=======================================================================================
+    '* Name: CheckErrorHandling
+    '* Purpose: Check for a database error and take the appropriate action.
+    '* Input: Class Name (String)
+    '*				Method Name (String)
+    '*				Stored Procedure Name (String)
+    '*				SQL Command (String)
+    '*				Parameter collection (Collection)
+    '*				Execution Start Time (DateTime)
+    '*				Execution End Time(DateTime)
+    '* Output: Parameter collection (Collection)
+    '* Returns: None.
+    '*=======================================================================================
+    Trace.WriteLine("Entered CheckErrorHandling")
+
+    Dim intErrorCode As Integer = CType(CType(objParams(objParams.Count), OdbcParameter).Value, Integer)
+    If intErrorCode < 0 Then
+      Select Case intErrorCode
+        Case -438
+          Throw New NonFatalException(EXCEPTION_CONCURRENCY, intErrorCode) ' Concurrency Error
+        Case -532
+          Throw New NonFatalException(EXCEPTION_RI, intErrorCode)      'RI Error
+        Case -803
+          Throw New NonFatalException(EXCEPTION_DUPLICATE, intErrorCode)     'Duplicate Key
+        Case -911, -913
+          Throw New NonFatalException(EXCEPTION_DEADLOCK, intErrorCode)     'Deadlocked Row
+        Case Else
+          ThrowSQLException(strCommand, intErrorCode, CType(CType(objParams(objParams.Count - ErrorParameter.SqlState), OdbcParameter).Value, String))
+      End Select
+    Else
+      WritePerfCounters(strClassName, strProcName, ComponentTypeEnum.StoredProcedure, CType(CType(objParams(objParams.Count - ErrorParameter.StartingTimestamp), OdbcParameter).Value, DateTime), CType(CType(objParams(objParams.Count - ErrorParameter.EndingTimestamp), OdbcParameter).Value, DateTime))
+    End If
+    Trace.WriteLine("Successfully exited CheckErrorHandling")
+  End Sub
+
+  Public Sub CheckSQLCode(ByVal strClassName As String, ByVal strProcName As String, ByVal v_strCommand As String, ByRef r_colParms As Collection, ByRef r_objData As CODBCData, ByRef r_cnnODBC As OdbcConnection, ByRef r_trnODBC As OdbcTransaction, ByVal v_blnIgnoreWarnings As Boolean)
+    '*=======================================================================================
+    '* Name: CheckSQLCode
+    '* Purpose: Check the DB2 SQL code for an error condition and take the appropriate action
+    '*					if an error occurs.
+    '* Input:   Class Name (String)
+    '*				  Stored Procedure Name (String)
+    '*          SQL Command (String)
+    '*  		  	Parameter List (Collection)
+    '*			  	Meijer ODBC Data Object (CODBCData)
+    '*		  		ODBC Connection (OdbcConnection)
+    '*	  			ODBC Transaction (OdbcTransaction)
+    '*          Ignore Warnings Flag (Boolean)
+    '* Output:  None.
+    '* Returns: None.
+    '*=======================================================================================
+    Dim intSQLCode As Integer
+    Dim intParmCount As Integer
+
+    intParmCount = r_colParms.Count
+    intSQLCode = CType(CType(r_colParms(intParmCount), OdbcParameter).Value, Integer)
+
+
+    If intSQLCode < 0 Or (intSQLCode <> 0 And v_blnIgnoreWarnings = False) Then
+      ' Release data object resources
+      If Not (r_objData Is Nothing) Then
+        r_objData.Close()
+      End If
+
+      ' Rollback transaction
+      If Not (r_trnODBC Is Nothing) Then
+        r_trnODBC.Rollback()
+      End If
+
+      ' Close connection
+      If Not (r_cnnODBC Is Nothing) Then
+        If r_cnnODBC.State = ConnectionState.Open Then
+          r_cnnODBC.Close()
+        End If
+        r_cnnODBC.Dispose()
+      End If
+
+      ' Throw exception
+      Select Case intSQLCode
+        Case -438
+          Throw New NonFatalException(EXCEPTION_CUSTOM, intSQLCode) ' DB2 Custom Error
+        Case -532
+          Throw New NonFatalException(EXCEPTION_RI, intSQLCode)      'RI Error
+        Case -803
+          Throw New NonFatalException(EXCEPTION_DUPLICATE, intSQLCode)     'Duplicate Key
+        Case -911, -913
+          Throw New NonFatalException(EXCEPTION_DEADLOCK, intSQLCode)     'Deadlocked Row
+        Case Else
+          ThrowSQLException(v_strCommand, intSQLCode, CType(CType(r_colParms(intParmCount - ErrorParameter.SqlState), OdbcParameter).Value, String))
+      End Select
+    Else
+      WritePerfCounters(strClassName, strProcName, ComponentTypeEnum.StoredProcedure, CType(CType(r_colParms(intParmCount - ErrorParameter.StartingTimestamp), OdbcParameter).Value, DateTime), CType(CType(r_colParms(intParmCount - ErrorParameter.EndingTimestamp), OdbcParameter).Value, DateTime))
+    End If
+  End Sub
+
+  Public Function ValidateUPC(ByVal v_lngUPC As Long, ByVal v_strUPCType As String) As Boolean
+    '*=======================================================================================
+    '* Name: ValidateUPC
+    '* Purpose: Verify that a given UPC exists.
+    '* Input: UPC (Long)
+    '*				UPC Type (String)
+    '* Output: Parameter collection (Collection)
+    '* Returns: True - UPC exists
+    '*          False - UPC is not on file
+    '*=======================================================================================
+    Trace.WriteLine("Entered ValidateUPC")
+    Const SQL_COMMAND As String = "CALL #schema#.PRIC212 (?, ?, ?, ?, ?, ?, ?)"
+    Dim dteStart As DateTime
+    Dim dteEnd As DateTime
+    Dim objData As CODBCData
+    Dim strView As String
+    Dim strSchema As String
+    Dim strConnect As String
+    Dim strGroupName As String
+    Dim strCommand As String
+    Dim colParameters As New Collection
+
+    dteStart = Now()  ' Get method start time
+    GetDBConfiguration(strView, strSchema, strConnect, strGroupName)  ' Retrieve database configuration information
+    strCommand = SQL_COMMAND.Replace("#schema#", strSchema)  ' Create SQL command string
+
+    ' Load parameter list
+    With colParameters
+      .Add(New OdbcParameter("upc", OdbcType.BigInt, 0, ParameterDirection.Input, True, 18, 0, "upc", DataRowVersion.Current, v_lngUPC))
+      .Add(New OdbcParameter("upctype", OdbcType.Char, 4, ParameterDirection.Input, True, 0, 0, "upctype", DataRowVersion.Current, v_strUPCType))
+      .Add(New OdbcParameter("upcvalid", OdbcType.Int, 0, ParameterDirection.Output, True, 0, 0, "upcvalid", DataRowVersion.Current, 0))
+    End With
+
+    ' Append performance timestamp parameters and error handling parameters
+    AddErrorHandling(colParameters)
+
+    ' Retrieve group category properties
+    Try
+      objData = New CODBCData(strConnect)
+      objData.Execute(strCommand, CommandType.StoredProcedure, colParameters)
+    Catch X As System.Exception
+      LogError(APPNAME, CLASSNAME, strGroupName, "SYSTEM", X)
+      Throw X
+    Finally
+      objData.Close()
+    End Try
+
+    dteEnd = Now()
+
+    ' Check SQL code for an error
+    CheckErrorHandling(CLASSNAME, "ValidateUPC", "PRIC212", strCommand, colParameters, dteStart, dteEnd)
+    ' Write performance counters
+    WritePerfCounters(CLASSNAME, "ValidateUPC", ComponentTypeEnum.Component, dteStart, dteEnd)
+
+    Return CType(CType(colParameters(3), OdbcParameter).Value, Boolean)
+    Trace.WriteLine("Successfully exited ValidateUPC")
+  End Function
+
+  Public Function ListUPCTypeCategories() As DataSet
+    '*********************************************
+    'Public ListUPCTypeCategories Function 
+    'Author: Michael J. DeLange
+    'Date: 12/22/2003
+    'Input : none
+    'Output : DataSet
+    'Implementation: PRIC314
+    '*********************************************
+
+    Trace.WriteLine("Entered ListUPCTypeCategories")
+    Const USERID As String = "PriceX"
+    Dim dteMethodStart As Date
+    Dim dteMethodEnd As Date
+    Dim dteSQLStart As Date
+    Dim dteSQLEnd As Date
+    Dim dsUPCTypeCats As New DataSet
+    Dim objUtil As New Meijer.Merch.Shared.CUtility
+    Dim intSQLCode As Integer
+    Dim strSQLState As String
+    Dim strSchema As String
+    Dim strConnect As String
+    Dim strView As String
+    Dim strGroupName As String
+    Dim SQLCOMMAND As String
+    Dim colParameters As New Collection
+    Dim objODBCDATA As Meijer.Ent.CODBCData
+
+    dteMethodStart = Now()
+    objUtil.Environment = Me.Environment
+    objUtil.GetDBConfiguration(strView, strSchema, strConnect, strGroupName)
+
+    '*********************************************
+    'This is a call to PRIC314
+    '*********************************************
+    objODBCDATA = New Meijer.Ent.CODBCData(strConnect)
+    SQLCOMMAND = "CALL " & strSchema & ".PRIC314 (?,?,?,?)"
+    With colParameters
+      .Add(New OdbcParameter("StartTime", OdbcType.DateTime, 0, ParameterDirection.Output, False, 0, 0, "StartTime", DataRowVersion.Current, Convert.DBNull))
+      .Add(New OdbcParameter("EndTime", OdbcType.DateTime, 0, ParameterDirection.Output, False, 0, 0, "EndTime", DataRowVersion.Current, Convert.DBNull))
+      .Add(New OdbcParameter("SQLState", OdbcType.Char, 5, ParameterDirection.Output, False, 0, 0, "SQLState", DataRowVersion.Current, "00000"))
+      .Add(New OdbcParameter("SQLCode", OdbcType.Int, 0, ParameterDirection.Output, False, 0, 0, "SQLCode", DataRowVersion.Current, 0))
+    End With
+    Try
+      dsUPCTypeCats = objODBCDATA.ExecuteDataSet(SQLCOMMAND, CommandType.StoredProcedure, colParameters)
+      strSQLState = CType(CType(colParameters(3), OdbcParameter).Value, String)
+      intSQLCode = CType(CType(colParameters(4), OdbcParameter).Value, Integer)
+      If intSQLCode <> 0 Then
+        objUtil.ThrowSQLException(SQLCOMMAND, intSQLCode, strSQLState)
+      End If
+      dteSQLStart = CType(CType(colParameters(1), OdbcParameter).Value, Date)
+      dteSQLEnd = CType(CType(colParameters(2), OdbcParameter).Value, Date)
+      objUtil.WritePerfCounters("PRIC314", String.Empty, CUtility.ComponentTypeEnum.StoredProcedure, dteSQLStart, dteSQLEnd)
+    Catch e As Exception
+      objUtil.LogError(APPNAME, "cUtility", strGroupName, USERID, e)
+      If Not objODBCDATA Is Nothing Then
+        objODBCDATA.Close()
+      End If
+      Throw e
+    End Try
+    dteMethodEnd = Now
+    objUtil.WritePerfCounters("cUtility", "ListUPCTypeCategories", CUtility.ComponentTypeEnum.Component, dteMethodStart, dteMethodEnd)
+    objODBCDATA.Close()
+    Trace.WriteLine("Exited ListUPCTypeCategories")
+    Return dsUPCTypeCats
+  End Function
+End Class

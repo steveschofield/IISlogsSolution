@@ -1,0 +1,49 @@
+E:\Projects\IISLogs\IISLogsGUI\IISLogsGUI\AppConfigReadWriteClass\bin\AppConfigReadWriteClass.dll
+E:\Projects\IISLogs\IISLogsGUI\IISLogsGUI\AppConfigReadWriteClass\bin\AppConfigReadWriteClass.pdb
+E:\Projects\IISLogs\IISLogsGUI\IISLogsGUI\AppConfigReadWriteClass\bin\AppConfigReadWriteClass.xml
+E:\Projects\IISLogs\IISLogsGUI\IISLogsGUI\AppConfigReadWriteClass\obj\Debug\ResolveAssemblyReference.cache
+E:\Projects\IISLogs\IISLogsGUI\IISLogsGUI\AppConfigReadWriteClass\obj\Debug\AppConfigReadWriteClass.ReadWrite.resources
+E:\Projects\IISLogs\IISLogsGUI\IISLogsGUI\AppConfigReadWriteClass\obj\Debug\AppConfigReadWriteClass.vbproj.GenerateResource.Cache
+E:\Projects\IISLogs\IISLogsGUI\IISLogsGUI\AppConfigReadWriteClass\obj\Debug\AppConfigReadWriteClass.dll
+E:\Projects\IISLogs\IISLogsGUI\IISLogsGUI\AppConfigReadWriteClass\obj\Debug\AppConfigReadWriteClass.xml
+E:\Projects\IISLogs\IISLogsGUI\IISLogsGUI\AppConfigReadWriteClass\obj\Debug\AppConfigReadWriteClass.pdb
+C:\Users\scs\Documents\Visual Studio 2010\Projects\IISLogs40\AppConfigReadWriteClass\bin\AppConfigReadWriteClass.dll
+C:\Users\scs\Documents\Visual Studio 2010\Projects\IISLogs40\AppConfigReadWriteClass\bin\AppConfigReadWriteClass.pdb
+C:\Users\scs\Documents\Visual Studio 2010\Projects\IISLogs40\AppConfigReadWriteClass\bin\AppConfigReadWriteClass.xml
+C:\Users\scs\Documents\Visual Studio 2010\Projects\IISLogs40\AppConfigReadWriteClass\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\scs\Documents\Visual Studio 2010\Projects\IISLogs40\AppConfigReadWriteClass\obj\Debug\AppConfigReadWriteClass.ReadWrite.resources
+C:\Users\scs\Documents\Visual Studio 2010\Projects\IISLogs40\AppConfigReadWriteClass\obj\Debug\GenerateResource.read.1.tlog
+C:\Users\scs\Documents\Visual Studio 2010\Projects\IISLogs40\AppConfigReadWriteClass\obj\Debug\GenerateResource.write.1.tlog
+C:\Users\scs\Documents\Visual Studio 2010\Projects\IISLogs40\AppConfigReadWriteClass\obj\Debug\AppConfigReadWriteClass.dll
+C:\Users\scs\Documents\Visual Studio 2010\Projects\IISLogs40\AppConfigReadWriteClass\obj\Debug\AppConfigReadWriteClass.xml
+C:\Users\scs\Documents\Visual Studio 2010\Projects\IISLogs40\AppConfigReadWriteClass\obj\Debug\AppConfigReadWriteClass.pdb
+\\pc2\C$\Users\Administrator\Documents\Visual Studio 2010\Projects\IISLogs40\AppConfigReadWriteClass\bin\AppConfigReadWriteClass.dll
+\\pc2\C$\Users\Administrator\Documents\Visual Studio 2010\Projects\IISLogs40\AppConfigReadWriteClass\bin\AppConfigReadWriteClass.pdb
+\\pc2\C$\Users\Administrator\Documents\Visual Studio 2010\Projects\IISLogs40\AppConfigReadWriteClass\bin\AppConfigReadWriteClass.xml
+\\pc2\C$\Users\Administrator\Documents\Visual Studio 2010\Projects\IISLogs40\AppConfigReadWriteClass\obj\Debug\ResolveAssemblyReference.cache
+\\pc2\C$\Users\Administrator\Documents\Visual Studio 2010\Projects\IISLogs40\AppConfigReadWriteClass\obj\Debug\AppConfigReadWriteClass.ReadWrite.resources
+\\pc2\C$\Users\Administrator\Documents\Visual Studio 2010\Projects\IISLogs40\AppConfigReadWriteClass\obj\Debug\GenerateResource.read.1.tlog
+\\pc2\C$\Users\Administrator\Documents\Visual Studio 2010\Projects\IISLogs40\AppConfigReadWriteClass\obj\Debug\GenerateResource.write.1.tlog
+\\pc2\C$\Users\Administrator\Documents\Visual Studio 2010\Projects\IISLogs40\AppConfigReadWriteClass\obj\Debug\AppConfigReadWriteClass.dll
+\\pc2\C$\Users\Administrator\Documents\Visual Studio 2010\Projects\IISLogs40\AppConfigReadWriteClass\obj\Debug\AppConfigReadWriteClass.xml
+\\pc2\C$\Users\Administrator\Documents\Visual Studio 2010\Projects\IISLogs40\AppConfigReadWriteClass\obj\Debug\AppConfigReadWriteClass.pdb
+C:\Users\Administrator\Documents\Visual Studio 2010\Projects\IISLogs40\AppConfigReadWriteClass\bin\AppConfigReadWriteClass.dll
+C:\Users\Administrator\Documents\Visual Studio 2010\Projects\IISLogs40\AppConfigReadWriteClass\bin\AppConfigReadWriteClass.pdb
+C:\Users\Administrator\Documents\Visual Studio 2010\Projects\IISLogs40\AppConfigReadWriteClass\bin\AppConfigReadWriteClass.xml
+C:\Users\Administrator\Documents\Visual Studio 2010\Projects\IISLogs40\AppConfigReadWriteClass\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Administrator\Documents\Visual Studio 2010\Projects\IISLogs40\AppConfigReadWriteClass\obj\Debug\AppConfigReadWriteClass.ReadWrite.resources
+C:\Users\Administrator\Documents\Visual Studio 2010\Projects\IISLogs40\AppConfigReadWriteClass\obj\Debug\GenerateResource.read.1.tlog
+C:\Users\Administrator\Documents\Visual Studio 2010\Projects\IISLogs40\AppConfigReadWriteClass\obj\Debug\GenerateResource.write.1.tlog
+C:\Users\Administrator\Documents\Visual Studio 2010\Projects\IISLogs40\AppConfigReadWriteClass\obj\Debug\AppConfigReadWriteClass.dll
+C:\Users\Administrator\Documents\Visual Studio 2010\Projects\IISLogs40\AppConfigReadWriteClass\obj\Debug\AppConfigReadWriteClass.xml
+C:\Users\Administrator\Documents\Visual Studio 2010\Projects\IISLogs40\AppConfigReadWriteClass\obj\Debug\AppConfigReadWriteClass.pdb
+C:\Users\Administrator\Documents\Visual Studio 2010\Projects\IISLogs41\AppConfigReadWriteClass\bin\AppConfigReadWriteClass.dll
+C:\Users\Administrator\Documents\Visual Studio 2010\Projects\IISLogs41\AppConfigReadWriteClass\bin\AppConfigReadWriteClass.pdb
+C:\Users\Administrator\Documents\Visual Studio 2010\Projects\IISLogs41\AppConfigReadWriteClass\bin\AppConfigReadWriteClass.xml
+C:\Users\Administrator\Documents\Visual Studio 2010\Projects\IISLogs41\AppConfigReadWriteClass\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Administrator\Documents\Visual Studio 2010\Projects\IISLogs41\AppConfigReadWriteClass\obj\Debug\AppConfigReadWriteClass.ReadWrite.resources
+C:\Users\Administrator\Documents\Visual Studio 2010\Projects\IISLogs41\AppConfigReadWriteClass\obj\Debug\GenerateResource.read.1.tlog
+C:\Users\Administrator\Documents\Visual Studio 2010\Projects\IISLogs41\AppConfigReadWriteClass\obj\Debug\GenerateResource.write.1.tlog
+C:\Users\Administrator\Documents\Visual Studio 2010\Projects\IISLogs41\AppConfigReadWriteClass\obj\Debug\AppConfigReadWriteClass.dll
+C:\Users\Administrator\Documents\Visual Studio 2010\Projects\IISLogs41\AppConfigReadWriteClass\obj\Debug\AppConfigReadWriteClass.xml
+C:\Users\Administrator\Documents\Visual Studio 2010\Projects\IISLogs41\AppConfigReadWriteClass\obj\Debug\AppConfigReadWriteClass.pdb

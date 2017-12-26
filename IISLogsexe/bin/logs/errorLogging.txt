@@ -1,0 +1,6 @@
+#Software: IISLogs Log Component
+#Version: 1.0
+#Date:9/21/2012 6:01:47 PM9/21/2012 6:01:48 PM
+LogPrimaryKey!dateTime!functionName!errMessage!errSource!errStackTrace!ComputerName
+9!9/21/2012!VerifyFileCompressionPolicyAgreement!The File Compression Policy Agreement isn't signed, files can't be compressed until the IISLogs file compression policy agreement is read and agreed upon and signed and/or typed name in agreement.  Please refer to IISLogs Help in IISLogsGUI for further details!N/A!N/A!PC2
+9!9/21/2012!VerifyDeletePolicyAgreement!The Delete Policy Agreement isn't signed, files can't be deleted until the the IISLogs Delete Policy Agreement is read and agreed upon and signed and/or typed name in agreement and/or DeleteOriginalFile is also turned on.  Please refer to IISLogs Help in IISLogsGUI for further details!N/A!N/A!PC2

@@ -1,0 +1,1988 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>Xceed.Ftp</name>
+  </assembly>
+  <members>
+    <member name="T:Xceed.Ftp.FtpException">
+      <summary> The exception that is thrown by the FTP client when a FTP-specific error occurs. </summary>
+    </member>
+    <member name="M:Xceed.Ftp.FtpException.#ctor(System.String)">
+      <summary> Initializes a new instance of the FtpException class with a specified error message. </summary>
+      <param name="message">A message that describes the error.</param>
+    </member>
+    <member name="M:Xceed.Ftp.FtpException.#ctor(System.String,System.Exception)">
+      <summary> Initializes a new instance of the FtpException class with a specified error message and a reference to the inner exception that is the cause of this exception. </summary>
+      <param name="message">A message that describes the error.</param>
+      <param name="inner">The exception that is the cause of the current exception.</param>
+    </member>
+    <member name="T:Xceed.Ftp.FtpAbortException">
+      <summary> The exception that is thrown by the FTP client when the current operation is aborted. </summary>
+    </member>
+    <member name="M:Xceed.Ftp.FtpAbortException.#ctor">
+      <summary> Initializes a new instance of the FtpAbortException class. </summary>
+    </member>
+    <member name="M:Xceed.Ftp.FtpAbortException.#ctor(System.Exception)">
+      <summary> Initializes a new instance of the FtpAbortException class with a reference to the inner exception that is the cause of this exception. </summary>
+      <param name="inner">The exception that is the cause of the current exception.</param>
+    </member>
+    <member name="T:Xceed.Ftp.FtpInternalException">
+      <summary> The exception that is thrown by the FTP client when an unexpected error occurs. </summary>
+    </member>
+    <member name="M:Xceed.Ftp.FtpInternalException.#ctor">
+      <summary> Initializes a new instance of the FtpInternalException class. </summary>
+    </member>
+    <member name="M:Xceed.Ftp.FtpInternalException.#ctor(System.String)">
+      <summary> Initializes a new instance of the FtpInternalException class with a specified error message. </summary>
+      <param name="message">A message that describes the error.</param>
+    </member>
+    <member name="M:Xceed.Ftp.FtpInternalException.#ctor(System.Exception)">
+      <summary> Initializes a new instance of the FtpInternalException class with a reference to the inner exception that is the cause of this exception. </summary>
+      <param name="inner">The exception that is the cause of the current exception.</param>
+    </member>
+    <member name="M:Xceed.Ftp.FtpInternalException.#ctor(System.String,System.Exception)">
+      <summary> Initializes a new instance of the FtpInternalException class with a specified error message and a reference to the inner exception that is the cause of this exception. </summary>
+      <param name="message">A message that describes the error.</param>
+      <param name="inner">The exception that is the cause of the current exception.</param>
+    </member>
+    <member name="T:Xceed.Ftp.FtpInvalidStateException">
+      <summary> The exception that is thrown by the FTP client when it is not in a valid state to perform the requested FTP operation. </summary>
+    </member>
+    <member name="M:Xceed.Ftp.FtpInvalidStateException.#ctor">
+      <summary> Initializes a new instance of the FtpInvalidStateException class. </summary>
+    </member>
+    <member name="M:Xceed.Ftp.FtpInvalidStateException.#ctor(System.String)">
+      <summary> Initializes a new instance of the FtpInvalidStateException class with a specified error message. </summary>
+      <param name="message">A message that describes the error.</param>
+    </member>
+    <member name="T:Xceed.Ftp.FtpIOException">
+      <summary> The exception that is thrown by the FTP client when an I/O error occurs. </summary>
+    </member>
+    <member name="M:Xceed.Ftp.FtpIOException.#ctor(System.String)">
+      <summary> Initializes a new instance of the FtpIOException class with a specified error message. </summary>
+      <param name="message">A message that describes the error.</param>
+    </member>
+    <member name="M:Xceed.Ftp.FtpIOException.#ctor(System.Exception)">
+      <summary> Initializes a new instance of the FtpIOException class with a reference to the inner exception that is the cause of this exception. </summary>
+      <param name="inner">The exception that is the cause of the current exception.</param>
+    </member>
+    <member name="M:Xceed.Ftp.FtpIOException.#ctor(System.String,System.Exception)">
+      <summary> Initializes a new instance of the FtpIOException class with a specified error message and a reference to the inner exception that is the cause of this exception. </summary>
+      <param name="message">A message that describes the error.</param>
+      <param name="inner">The exception that is the cause of the current exception.</param>
+    </member>
+    <member name="T:Xceed.Ftp.FtpReplyException">
+      <summary> The exception that is thrown by the FTP client when an error reply is received from an FTP server. </summary>
+    </member>
+    <member name="M:Xceed.Ftp.FtpReplyException.#ctor(Xceed.Ftp.FtpReply,System.String)">
+      <summary> Initializes a new instance of the FtpReplyException class with a specified <see cref="T:Xceed.Ftp.FtpReply"></see> and error message. </summary>
+      <param name="reply">The <see cref="T:Xceed.Ftp.FtpReply"></see> received from the FTP server.</param>
+      <param name="message">A message that describes the error.</param>
+    </member>
+    <member name="M:Xceed.Ftp.FtpReplyException.#ctor(Xceed.Ftp.FtpReply)">
+      <summary> Initializes a new instance of the FtpReplyException class with a specified <see cref="T:Xceed.Ftp.FtpReply"></see>. </summary>
+      <param name="reply">The <see cref="T:Xceed.Ftp.FtpReply"></see> received from the FTP server.</param>
+    </member>
+    <member name="P:Xceed.Ftp.FtpReplyException.Reply">
+      <summary> Gets the <see cref="T:Xceed.Ftp.FtpReply"></see> received from the FTP server. </summary>
+    </member>
+    <member name="M:Xceed.Ftp.FtpReplyException.ToString">
+      <summary> Returns a string representation of the current exception including the reply that was received from the FTP server. </summary>
+    </member>
+    <member name="T:Xceed.Ftp.FtpSslException">
+      <summary> The exception that is thrown when a problem occurs with SSL handshake, encryption, or certificate manipulation. </summary>
+    </member>
+    <member name="T:Xceed.Ftp.FtpTimeoutException">
+      <summary> The exception that is thrown by the FTP client when an operation times-out. </summary>
+    </member>
+    <member name="M:Xceed.Ftp.FtpTimeoutException.#ctor">
+      <summary> Initializes a new instance of the FtpTimeoutException class. </summary>
+    </member>
+    <member name="M:Xceed.Ftp.FtpTimeoutException.#ctor(System.String)">
+      <summary> Initializes a new instance of the FtpTimeoutException class with a specified error message. </summary>
+      <param name="message">A message that describes the error.</param>
+    </member>
+    <member name="T:Xceed.Ftp.FtpClient">
+      <summary> This class provides you with quick and easy access to FTP functionalities in the same style as the ActiveX version of the Xceed FTP Library. </summary>
+    </member>
+    <member name="M:Xceed.Ftp.FtpClient.#ctor">
+      <summary> Initializes a new instance of the FtpClient class. </summary>
+    </member>
+    <member name="P:Xceed.Ftp.FtpClient.PassiveTransfer">
+      <summary> Gets or sets a boolean value indicating if the FTP client should initiate the data connection rather than the FTP server. </summary>
+    </member>
+    <member name="P:Xceed.Ftp.FtpClient.RepresentationType">
+      <summary> Gets or sets a value indicating how the data is transferred to and from the FTP server. </summary>
+    </member>
+    <member name="P:Xceed.Ftp.FtpClient.PreAllocateStorage">
+      <summary> Gets or sets a boolean value indicating if the FTP server must reserve enough space <b>before</b> a file is sent. </summary>
+    </member>
+    <member name="P:Xceed.Ftp.FtpClient.ListingParsers">
+      <summary> Gets a collection of <see cref="T:Xceed.Ftp.FtpListingParser"></see> objects that are used to parse the lines returned by calls to various methods. </summary>
+    </member>
+    <member name="P:Xceed.Ftp.FtpClient.TraceWriter">
+      <summary> Gets or sets the <see cref="T:System.IO.TextWriter"></see> which will trace the connection/deconnection process as well as the commands and replies sent to and received from the FTP server. </summary>
+    </member>
+    <member name="P:Xceed.Ftp.FtpClient.State">
+      <summary> Gets a value indicating the current state of the FTP client. </summary>
+    </member>
+    <member name="P:Xceed.Ftp.FtpClient.Connected">
+      <summary> Gets a boolean value indicating if the FTP client is connected to an FTP server. For detailed state information, consult the <see cref="P:Xceed.Ftp.FtpClient.State"></see> property. </summary>
+    </member>
+    <member name="P:Xceed.Ftp.FtpClient.Busy">
+      <summary> Gets a boolean value indicating if the FTP client is currently performing an FTP operation. For detailed state information, consult the <see cref="P:Xceed.Ftp.FtpClient.State"></see> property. </summary>
+    </member>
+    <member name="P:Xceed.Ftp.FtpClient.ServerAddress">
+      <summary> Gets the IP address and port to which the FTP client is connected. </summary>
+    </member>
+    <member name="P:Xceed.Ftp.FtpClient.HostName">
+      <summary> Gets the host name used to connect, or an empty string if not connected. </summary>
+    </member>
+    <member name="P:Xceed.Ftp.FtpClient.SendTypeCommand">
+      <summary> Gets or sets a boolean value indicating if the TYPE command should be sent before initiating a file transfer. </summary>
+    </member>
+    <member name="P:Xceed.Ftp.FtpClient.Timeout">
+      <summary> Gets or sets a value, in seconds, indicating after what period of time an FTP operation should timeout. </summary>
+    </member>
+    <member name="P:Xceed.Ftp.FtpClient.LocalAddress">
+      <summary> Gets or sets the local IP address and port from which the FTP client is connected. </summary>
+    </member>
+    <member name="P:Xceed.Ftp.FtpClient.LocalDataAddress">
+      <summary> Gets or sets the IP address and port of the client-side data connection to use in <b>subsequent</b> data connections. If <see cref="P:Xceed.Ftp.FtpClient.PassiveTransfer"></see> is <see langword="false"></see>, this property represents the address of the client-side listening socket waiting for the server’s data connection request. </summary>
+    </member>
+    <member name="P:Xceed.Ftp.FtpClient.ServerFolderSeparator">
+      <summary> Gets or sets the FTP server's folder separator character. </summary>
+    </member>
+    <member name="P:Xceed.Ftp.FtpClient.Encoding">
+      <summary> Gets or sets the <see cref="T:System.Text.Encoding"></see> that is used to encode commands sent to the server, and decode replies and folder listings received from the server. </summary>
+    </member>
+    <member name="M:Xceed.Ftp.FtpClient.Connect(System.String)">
+      <summary> Connects the FTP client to an FTP server on port 21. </summary>
+      <param name="hostName">The hostname of the FTP server to connect to. An IP address can also be used.</param>
+      <exception cref="T:Xceed.Ftp.FtpInvalidStateException">Cannot perform the requested operation because the FTP client is in an invalid state.</exception>
+      <exception cref="T:Xceed.Ftp.FtpReplyException">An error reply was returned by the FTP server.</exception>
+      <exception cref="T:Xceed.Ftp.FtpIOException">An I/O error has occurred.</exception>
+      <exception cref="T:Xceed.Ftp.FtpInternalException">A fatal FTP-specific error has occurred..</exception>
+    </member>
+    <member name="M:Xceed.Ftp.FtpClient.Connect(System.String,Xceed.Ftp.AuthenticationMethod,Xceed.Ftp.VerificationFlags,Xceed.Ftp.Certificate)">
+      <summary> Connects the FTP client to a <b>secure</b> FTP server on port 21. </summary>
+      <param name="hostName">The hostname of the FTP server to connect to. An IP address can also be used.</param>
+      <param name="authenticationMethod">The authentication method used to connect to the FTP server.</param>
+      <param name="verificationFlags">The verification flags used to verify the FTP server's certificate.</param>
+      <param name="clientCertificate">The FTP client's certificate.</param>
+      <exception cref="T:Xceed.Ftp.FtpInvalidStateException">Cannot perform the requested operation because the FTP client is in an invalid state.</exception>
+      <exception cref="T:Xceed.Ftp.FtpReplyException">An error reply was returned by the FTP server.</exception>
+      <exception cref="T:Xceed.Ftp.FtpIOException">An I/O error has occurred.</exception>
+      <exception cref="T:Xceed.Ftp.FtpInternalException">A fatal FTP-specific error has occurred..</exception>
+    </member>
+    <member name="M:Xceed.Ftp.FtpClient.Connect(System.String,System.Int32)">
+      <summary> Connects the FTP client to an FTP server using the specified hostname and port. </summary>
+      <param name="hostName">The hostname of the FTP server to connect to. An IP address can also be used.</param>
+      <param name="port">The port of the FTP server to which to connect to. If 0 is specified for the port, 21 will be used.</param>
+      <exception cref="T:Xceed.Ftp.FtpInvalidStateException">Cannot perform the requested operation because the FTP client is in an invalid state.</exception>
+      <exception cref="T:Xceed.Ftp.FtpReplyException">An error reply was returned by the FTP server.</exception>
+      <exception cref="T:Xceed.Ftp.FtpIOException">An I/O error has occurred.</exception>
+      <exception cref="T:Xceed.Ftp.FtpInternalException">A fatal FTP-specific error has occurred..</exception>
+    </member>
+    <member name="M:Xceed.Ftp.FtpClient.Connect(System.String,System.Int32,Xceed.Ftp.AuthenticationMethod,Xceed.Ftp.VerificationFlags,Xceed.Ftp.Certificate)">
+      <summary> Connects the FTP client to a <b>secure</b> FTP server using the specified hostname and port. </summary>
+      <param name="hostName">The hostname of the FTP server to connect to. An IP address can also be used.</param>
+      <param name="port">The port of the FTP server to which to connect to. If 0 is specified for the port, 21 will be used.</param>
+      <param name="authenticationMethod">The authentication method used to connect to the FTP server.</param>
+      <param name="verificationFlags">The verification flags used to verify the FTP server's certificate.</param>
+      <param name="clientCertificate">The FTP client's certificate.</param>
+      <exception cref="T:Xceed.Ftp.FtpInvalidStateException">Cannot perform the requested operation because the FTP client is in an invalid state.</exception>
+      <exception cref="T:Xceed.Ftp.FtpReplyException">An error reply was returned by the FTP server.</exception>
+      <exception cref="T:Xceed.Ftp.FtpIOException">An I/O error has occurred.</exception>
+      <exception cref="T:Xceed.Ftp.FtpInternalException">A fatal FTP-specific error has occurred..</exception>
+    </member>
+    <member name="M:Xceed.Ftp.FtpClient.Connect(System.Net.IPEndPoint)">
+      <summary> Connects the FTP client to an FTP server using the specified <see cref="T:System.Net.IPEndPoint"></see> (IP address and port). </summary>
+      <param name="serverAddress">An <see cref="T:System.Net.IPEndPoint"></see> representing the IP address and port of the FTP server to connect to. If 0 is specified for the port, 21 will be used.</param>
+      <exception cref="T:Xceed.Ftp.FtpInvalidStateException">Cannot perform the requested operation because the FTP client is in an invalid state.</exception>
+      <exception cref="T:Xceed.Ftp.FtpReplyException">An error reply was returned by the FTP server.</exception>
+      <exception cref="T:Xceed.Ftp.FtpIOException">An I/O error has occurred.</exception>
+      <exception cref="T:Xceed.Ftp.FtpInternalException">A fatal FTP-specific error has occurred..</exception>
+    </member>
+    <member name="M:Xceed.Ftp.FtpClient.Authenticate(Xceed.Ftp.AuthenticationMethod,Xceed.Ftp.VerificationFlags,Xceed.Ftp.Certificate,Xceed.Ftp.DataChannelProtection)">
+      <summary> Authenticates and encrypts the current FTP connection. </summary>
+      <param name="authenticationMethod">The authentication method used to connect to the FTP server.</param>
+      <param name="verificationFlags">The verification flags used to verify the FTP server's certificate.</param>
+      <param name="clientCertificate">The FTP client's certificate.</param>
+      <param name="dataProtection">How the data channels will be protected.</param>
+    </member>
+    <member name="M:Xceed.Ftp.FtpClient.Authenticate(Xceed.Ftp.AuthenticationMethod,Xceed.Ftp.VerificationFlags,Xceed.Ftp.Certificate)">
+      <summary> Authenticates and encrypts the current FTP connection. </summary>
+      <param name="authenticationMethod">The authentication method used to connect to the FTP server.</param>
+      <param name="verificationFlags">The verification flags used to verify the FTP server's certificate.</param>
+      <param name="clientCertificate">The FTP client's certificate.</param>
+    </member>
+    <member name="M:Xceed.Ftp.FtpClient.Login">
+      <summary> Login the FTP client <b>anonymously</b> to the FTP server to which it is connected. </summary>
+      <exception cref="T:Xceed.Ftp.FtpInvalidStateException">Cannot perform the requested operation because the FTP client is in an invalid state.</exception>
+      <exception cref="T:Xceed.Ftp.FtpReplyException">An error reply was returned by the FTP server.</exception>
+      <exception cref="T:Xceed.Ftp.FtpIOException">An I/O error has occurred.</exception>
+      <exception cref="T:Xceed.Ftp.FtpInternalException">A fatal FTP-specific error has occurred..</exception>
+    </member>
+    <member name="M:Xceed.Ftp.FtpClient.Login(System.String,System.String)">
+      <summary> Login the FTP client to the FTP server to which it is connected using the specified username and password. </summary>
+      <param name="userName">The username with which to login into the FTP server.</param>
+      <param name="password">The password with which to login into the FTP server.</param>
+      <exception cref="T:Xceed.Ftp.FtpInvalidStateException">Cannot perform the requested operation because the FTP client is in an invalid state.</exception>
+      <exception cref="T:Xceed.Ftp.FtpReplyException">An error reply was returned by the FTP server.</exception>
+      <exception cref="T:Xceed.Ftp.FtpIOException">An I/O error has occurred.</exception>
+      <exception cref="T:Xceed.Ftp.FtpInternalException">A fatal FTP-specific error has occurred..</exception>
+    </member>
+    <member name="M:Xceed.Ftp.FtpClient.Login(System.String,System.String,System.String)">
+      <summary> Login the FTP client to the FTP server to which it is connected using the specified username and password. </summary>
+      <param name="userName">The username with which to login into the FTP server.</param>
+      <param name="password">The password with which to login into the FTP server.</param>
+      <param name="accountName">The name of the account on the FTP server.</param>
+      <exception cref="T:Xceed.Ftp.FtpInvalidStateException">Cannot perform the requested operation because the FTP client is in an invalid state.</exception>
+      <exception cref="T:Xceed.Ftp.FtpReplyException">An error reply was returned by the FTP server.</exception>
+      <exception cref="T:Xceed.Ftp.FtpIOException">An I/O error has occurred.</exception>
+      <exception cref="T:Xceed.Ftp.FtpInternalException">A fatal FTP-specific error has occurred..</exception>
+    </member>
+    <member name="M:Xceed.Ftp.FtpClient.ChangeUser">
+      <summary> Changes the currently logged-in user to the anonymous user without disconnecting from the FTP server. </summary>
+      <exception cref="T:Xceed.Ftp.FtpInvalidStateException">Cannot perform the requested operation because the FTP client is in an invalid state.</exception>
+      <exception cref="T:Xceed.Ftp.FtpReplyException">An error reply was returned by the FTP server.</exception>
+      <exception cref="T:Xceed.Ftp.FtpIOException">An I/O error has occurred.</exception>
+      <exception cref="T:Xceed.Ftp.FtpInternalException">A fatal FTP-specific error has occurred..</exception>
+    </member>
+    <member name="M:Xceed.Ftp.FtpClient.ChangeUser(System.String,System.String)">
+      <summary> Changes the currently logged-in user to the specified user without disconnecting from the FTP server. </summary>
+      <param name="userName">The username with which to relogin into the FTP server.</param>
+      <param name="password">The password with which to relogin into the FTP server.</param>
+      <exception cref="T:Xceed.Ftp.FtpInvalidStateException">Cannot perform the requested operation because the FTP client is in an invalid state.</exception>
+      <exception cref="T:Xceed.Ftp.FtpReplyException">An error reply was returned by the FTP server.</exception>
+      <exception cref="T:Xceed.Ftp.FtpIOException">An I/O error has occurred.</exception>
+      <exception cref="T:Xceed.Ftp.FtpInternalException">A fatal FTP-specific error has occurred..</exception>
+    </member>
+    <member name="M:Xceed.Ftp.FtpClient.ChangeUser(System.String,System.String,System.String)">
+      <summary> Changes the currently logged-in user to the specified user and account without disconnecting from the FTP server. </summary>
+      <param name="userName">The username with which to relogin into the FTP server.</param>
+      <param name="password">The password with which to relogin into the FTP server.</param>
+      <param name="accountName">The name of the account on the FTP server.</param>
+      <exception cref="T:Xceed.Ftp.FtpInvalidStateException">Cannot perform the requested operation because the FTP client is in an invalid state.</exception>
+      <exception cref="T:Xceed.Ftp.FtpReplyException">An error reply was returned by the FTP server.</exception>
+      <exception cref="T:Xceed.Ftp.FtpIOException">An I/O error has occurred.</exception>
+      <exception cref="T:Xceed.Ftp.FtpInternalException">A fatal FTP-specific error has occurred..</exception>
+    </member>
+    <member name="M:Xceed.Ftp.FtpClient.Disconnect">
+      <summary> Disconnects the FTP client from the FTP server to which it is connected. </summary>
+      <exception cref="T:Xceed.Ftp.FtpInvalidStateException">Cannot perform the requested operation because the FTP client is in an invalid state.</exception>
+      <exception cref="T:Xceed.Ftp.FtpReplyException">An error reply was returned by the FTP server.</exception>
+      <exception cref="T:Xceed.Ftp.FtpIOException">An I/O error has occurred.</exception>
+      <exception cref="T:Xceed.Ftp.FtpInternalException">A fatal FTP-specific error has occurred..</exception>
+    </member>
+    <member name="M:Xceed.Ftp.FtpClient.GetCurrentFolder">
+      <summary> Retrieves the current working folder of the FTP server. </summary>
+      <exception cref="T:Xceed.Ftp.FtpInvalidStateException">Cannot perform the requested operation because the FTP client is in an invalid state.</exception>
+      <exception cref="T:Xceed.Ftp.FtpReplyException">An error reply was returned by the FTP server.</exception>
+      <exception cref="T:Xceed.Ftp.FtpIOException">An I/O error has occurred.</exception>
+      <exception cref="T:Xceed.Ftp.FtpInternalException">A fatal FTP-specific error has occurred..</exception>
+    </member>
+    <member name="M:Xceed.Ftp.FtpClient.ChangeCurrentFolder(System.String)">
+      <summary> Changes the current working folder of the FTP server. </summary>
+      <param name="folder">The new current working folder. <b>Some FTP servers may be case-sensitive!</b></param>
+      <exception cref="T:Xceed.Ftp.FtpInvalidStateException">Cannot perform the requested operation because the FTP client is in an invalid state.</exception>
+      <exception cref="T:Xceed.Ftp.FtpReplyException">An error reply was returned by the FTP server.</exception>
+      <exception cref="T:Xceed.Ftp.FtpIOException">An I/O error has occurred.</exception>
+      <exception cref="T:Xceed.Ftp.FtpInternalException">A fatal FTP-specific error has occurred..</exception>
+    </member>
+    <member name="M:Xceed.Ftp.FtpClient.ChangeToParentFolder">
+      <summary> Changes the current working folder of the FTP server to the parent folder. </summary>
+      <exception cref="T:Xceed.Ftp.FtpInvalidStateException">Cannot perform the requested operation because the FTP client is in an invalid state.</exception>
+      <exception cref="T:Xceed.Ftp.FtpReplyException">An error reply was returned by the FTP server.</exception>
+      <exception cref="T:Xceed.Ftp.FtpIOException">An I/O error has occurred.</exception>
+      <exception cref="T:Xceed.Ftp.FtpInternalException">A fatal FTP-specific error has occurred..</exception>
+    </member>
+    <member name="M:Xceed.Ftp.FtpClient.CreateFolder(System.String)">
+      <summary> Create a folder on the FTP server. </summary>
+      <param name="folder">The name of the folder to create. <b>Some FTP servers may be case-sensitive!</b></param>
+      <exception cref="T:Xceed.Ftp.FtpInvalidStateException">Cannot perform the requested operation because the FTP client is in an invalid state.</exception>
+      <exception cref="T:Xceed.Ftp.FtpReplyException">An error reply was returned by the FTP server.</exception>
+      <exception cref="T:Xceed.Ftp.FtpIOException">An I/O error has occurred.</exception>
+      <exception cref="T:Xceed.Ftp.FtpInternalException">A fatal FTP-specific error has occurred..</exception>
+    </member>
+    <member name="M:Xceed.Ftp.FtpClient.DeleteFolder(System.String)">
+      <summary> Deletes a folder from the FTP server. </summary>
+      <param name="folder">The name of the folder to delete. <b>Some FTP servers may be case-sensitive!</b></param>
+      <exception cref="T:Xceed.Ftp.FtpInvalidStateException">Cannot perform the requested operation because the FTP client is in an invalid state.</exception>
+      <exception cref="T:Xceed.Ftp.FtpReplyException">An error reply was returned by the FTP server.</exception>
+      <exception cref="T:Xceed.Ftp.FtpIOException">An I/O error has occurred.</exception>
+      <exception cref="T:Xceed.Ftp.FtpInternalException">A fatal FTP-specific error has occurred..</exception>
+    </member>
+    <member name="M:Xceed.Ftp.FtpClient.DeleteFolder(System.String,System.Boolean)">
+      <summary> Deletes a folder, and optionally each item in the folder, from the FTP server. </summary>
+      <param name="folder">The name of the folder to delete. <b>Some FTP servers may be case-sensitive!</b></param>
+      <param name="recursive">
+        <see langword="true">
+        </see> if each item in the folder should also be deleted; <see langword="false"></see> otherwise.</param>
+      <exception cref="T:Xceed.Ftp.FtpInvalidStateException">Cannot perform the requested operation because the FTP client is in an invalid state.</exception>
+      <exception cref="T:Xceed.Ftp.FtpReplyException">The format of the reply received from the FTP server was not recognized..</exception>
+      <exception cref="T:Xceed.Ftp.FtpIOException">An I/O error has occurred.</exception>
+      <exception cref="T:Xceed.Ftp.FtpInternalException">A fatal FTP-specific error has occurred..</exception>
+    </member>
+    <member name="M:Xceed.Ftp.FtpClient.DeleteFile(System.String)">
+      <summary> Deletes a file from the FTP server. </summary>
+      <param name="file">The name of the file to delete. <b>Some FTP servers may be case-sensitive!</b></param>
+      <exception cref="T:Xceed.Ftp.FtpInvalidStateException">Cannot perform the requested operation because the FTP client is in an invalid state.</exception>
+      <exception cref="T:Xceed.Ftp.FtpReplyException">An error reply was returned by the FTP server.</exception>
+      <exception cref="T:Xceed.Ftp.FtpIOException">An I/O error has occurred.</exception>
+      <exception cref="T:Xceed.Ftp.FtpInternalException">A fatal FTP-specific error has occurred..</exception>
+    </member>
+    <member name="M:Xceed.Ftp.FtpClient.RenameFile(System.String,System.String)">
+      <summary> Renames a file on the FTP server. </summary>
+      <param name="currentFilename">The filename of the file to rename. <b>Some FTP servers may be case-sensitive!</b></param>
+      <param name="newFilename">The new filename. <b>Some FTP servers may be case-sensitive!</b></param>
+      <exception cref="T:Xceed.Ftp.FtpInvalidStateException">Cannot perform the requested operation because the FTP client is in an invalid state.</exception>
+      <exception cref="T:Xceed.Ftp.FtpReplyException">An error reply was returned by the FTP server.</exception>
+      <exception cref="T:Xceed.Ftp.FtpIOException">An I/O error has occurred.</exception>
+      <exception cref="T:Xceed.Ftp.FtpInternalException">A fatal FTP-specific error has occurred..</exception>
+    </member>
+    <member name="M:Xceed.Ftp.FtpClient.GetFolderContents(System.String)">
+      <summary> Retrieves the contents of the current working folder. </summary>
+      <param name="remoteFileMask">The file mask of the remote files to retrieve. This parameter can include a filtering mask to limit the files that are retrieved. For example, if <see cref="F:System.String.Empty"></see> is specified, the entire contents of the current working folder will be retrieved. If "*.txt" is used, all the files in the current working folder that have the TXT extension will be retrieved. <b>Some FTP servers may be case-sensitive!</b></param>
+      <exception cref="T:Xceed.Ftp.FtpInvalidStateException">Cannot perform the requested operation because the FTP client is in an invalid state.</exception>
+      <exception cref="T:Xceed.Ftp.FtpReplyException">An error reply was returned by the FTP server.</exception>
+      <exception cref="T:Xceed.Ftp.FtpIOException">An I/O error has occurred.</exception>
+      <exception cref="T:Xceed.Ftp.FtpInternalException">A fatal FTP-specific error has occurred..</exception>
+    </member>
+    <member name="M:Xceed.Ftp.FtpClient.GetFolderContents">
+      <summary> Retrieves the entire contents of the current working folder. </summary>
+      <exception cref="T:Xceed.Ftp.FtpInvalidStateException">Cannot perform the requested operation because the FTP client is in an invalid state.</exception>
+      <exception cref="T:Xceed.Ftp.FtpReplyException">An error reply was returned by the FTP server.</exception>
+      <exception cref="T:Xceed.Ftp.FtpIOException">An I/O error has occurred.</exception>
+      <exception cref="T:Xceed.Ftp.FtpInternalException">A fatal FTP-specific error has occurred..</exception>
+    </member>
+    <member name="M:Xceed.Ftp.FtpClient.GetRawFolderContents(System.String,System.Boolean)">
+      <summary> Retrieves an <b>unprocessed</b>, clear text list representing the contents of the current working folder as sent by the FTP server and indicates if the entire listing or only filenames should be retrieved. </summary>
+      <param name="remoteFileMask">The file mask of the remote files to retrieve. This parameter can can include a filtering mask to limit the files that are retrieved. For example, if <see cref="F:System.String.Empty"></see> is specified, the entire contents of the current working folder will be retrieved. If "*.txt" is used, all the files in the current working folder that have the TXT extension will be retrieved. <b>Some FTP servers may be case-sensitive!</b></param>
+      <param name="namesOnly">
+        <see langword="true">
+        </see> if only filenames should be retrieved; <see langword="false"></see> otherwise.</param>
+      <exception cref="T:Xceed.Ftp.FtpInvalidStateException">Cannot perform the requested operation because the FTP client is in an invalid state.</exception>
+      <exception cref="T:Xceed.Ftp.FtpReplyException">An error reply was returned by the FTP server.</exception>
+      <exception cref="T:Xceed.Ftp.FtpIOException">An I/O error has occurred.</exception>
+      <exception cref="T:Xceed.Ftp.FtpInternalException">A fatal FTP-specific error has occurred..</exception>
+    </member>
+    <member name="M:Xceed.Ftp.FtpClient.GetRawFolderContents(System.String)">
+      <summary> Retrieves an <b>unprocessed</b>, clear text list representing the contents of the current working folder as sent by the FTP server. </summary>
+      <param name="remoteFileMask">The file mask of the remote files to retrieve. This parameter can can include a filtering mask to limit the files that are retrieved. For example, if <see cref="F:System.String.Empty"></see> is specified, the entire contents of the current working folder will be retrieved. If "*.txt" is used, all the files in the current working folder that have the TXT extension will be retrieved. <b>Some FTP servers may be case-sensitive!</b></param>
+      <exception cref="T:Xceed.Ftp.FtpInvalidStateException">Cannot perform the requested operation because the FTP client is in an invalid state.</exception>
+      <exception cref="T:Xceed.Ftp.FtpReplyException">An error reply was returned by the FTP server.</exception>
+      <exception cref="T:Xceed.Ftp.FtpIOException">An I/O error has occurred.</exception>
+      <exception cref="T:Xceed.Ftp.FtpInternalException">A fatal FTP-specific error has occurred..</exception>
+    </member>
+    <member name="M:Xceed.Ftp.FtpClient.GetRawFolderContents(System.Boolean)">
+      <summary> Retrieves an <b>unprocessed</b>, clear text list representing the entire contents of current working folder as sent by the FTP server and indicates if the entire listing or only filenames should be retrieved. </summary>
+      <param name="namesOnly">
+        <see langword="true">
+        </see> if only filenames should be retrieved; <see langword="false"></see> otherwise.</param>
+      <exception cref="T:Xceed.Ftp.FtpInvalidStateException">Cannot perform the requested operation because the FTP client is in an invalid state.</exception>
+      <exception cref="T:Xceed.Ftp.FtpReplyException">An error reply was returned by the FTP server.</exception>
+      <exception cref="T:Xceed.Ftp.FtpIOException">An I/O error has occurred.</exception>
+      <exception cref="T:Xceed.Ftp.FtpInternalException">A fatal FTP-specific error has occurred..</exception>
+    </member>
+    <member name="M:Xceed.Ftp.FtpClient.GetRawFolderContents">
+      <summary> Retrieves an <b>unprocessed</b>, clear text list representing the entire contents of current working folder as sent by the FTP server. </summary>
+      <exception cref="T:Xceed.Ftp.FtpInvalidStateException">Cannot perform the requested operation because the FTP client is in an invalid state.</exception>
+      <exception cref="T:Xceed.Ftp.FtpReplyException">An error reply was returned by the FTP server.</exception>
+      <exception cref="T:Xceed.Ftp.FtpIOException">An I/O error has occurred.</exception>
+      <exception cref="T:Xceed.Ftp.FtpInternalException">A fatal FTP-specific error has occurred.</exception>
+    </member>
+    <member name="M:Xceed.Ftp.FtpClient.ReceiveFile(System.String,System.String)">
+      <summary> Receives the specified file from the current working folder and stores it on the local system using the specified path and filename. </summary>
+      <param name="remoteFilename">The filename of the file to retrieve. <b>Some FTP servers may be case-sensitive!</b></param>
+      <param name="localFilename">The path and filename of the file as it will be stored on the local system.</param>
+      <exception cref="T:Xceed.Ftp.FtpInvalidStateException">Cannot perform the requested operation because the FTP client is in an invalid state.</exception>
+      <exception cref="T:Xceed.Ftp.FtpReplyException">An error reply was returned by the FTP server.</exception>
+      <exception cref="T:Xceed.Ftp.FtpIOException">An I/O error has occurred.</exception>
+      <exception cref="T:Xceed.Ftp.FtpInternalException">A fatal FTP-specific error has occurred..</exception>
+    </member>
+    <member name="M:Xceed.Ftp.FtpClient.ReceiveFile(System.String,System.String,System.Boolean)">
+      <summary> Receives the specified file from the current working folder and stores it on the local system using the specified path and filename and indicates if the file should append itself to the local file if it already exists. </summary>
+      <param name="remoteFilename">The filename of the file to retrieve. <b>Some FTP servers may be case-sensitive!</b></param>
+      <param name="localFilename">The path and filename of the file as it will be stored on the local system.</param>
+      <param name="append">
+        <see langword="true">
+        </see> if the file should append itself to the local file if it already exists; <see langword="false"></see> if the local file should be overwritten.</param>
+      <exception cref="T:Xceed.Ftp.FtpInvalidStateException">Cannot perform the requested operation because the FTP client is in an invalid state.</exception>
+      <exception cref="T:Xceed.Ftp.FtpReplyException">An error reply was returned by the FTP server.</exception>
+      <exception cref="T:Xceed.Ftp.FtpIOException">An I/O error has occurred.</exception>
+      <exception cref="T:Xceed.Ftp.FtpInternalException">A fatal FTP-specific error has occurred..</exception>
+    </member>
+    <member name="M:Xceed.Ftp.FtpClient.ReceiveFile(System.String,System.Int64,System.String)">
+      <summary> Receives the specified file from the current working folder starting from the specified offset and stores it on the local system using the specified path and filename. </summary>
+      <param name="remoteFilename">The filename of the file to retrieve. <b>Some FTP servers may be case-sensitive!</b></param>
+      <param name="offset">The byte offset (of the remote file) at which to start receiving data from the remote file.</param>
+      <param name="localFilename">The path and filename of the file as it will be stored on the local system.</param>
+      <exception cref="T:Xceed.Ftp.FtpInvalidStateException">Cannot perform the requested operation because the FTP client is in an invalid state.</exception>
+      <exception cref="T:Xceed.Ftp.FtpReplyException">An error reply was returned by the FTP server.</exception>
+      <exception cref="T:Xceed.Ftp.FtpIOException">An I/O error has occurred.</exception>
+      <exception cref="T:Xceed.Ftp.FtpInternalException">A fatal FTP-specific error has occurred..</exception>
+    </member>
+    <member name="M:Xceed.Ftp.FtpClient.ReceiveFile(System.String,System.Int64,System.String,System.Boolean)">
+      <summary> Receives the specified file from the current working folder starting from the specified offset and stores it on the local system using the specified path and filename indicating if the file should append itself to the local file if it already exists. </summary>
+      <param name="remoteFilename">The filename of the file to retrieve. <b>Some FTP servers may be case-sensitive!</b></param>
+      <param name="offset">The byte offset (of the remote file) at which to start receiving data from the remote file. If <paramref name="append"></paramref> is <see langword="true"></see>, the remote file will be appended to the end of the local file no matter what the value of <paramref name="offset"></paramref>. Therefore, to implement a real resume procedure, the size of the local file must be specified in <paramref name="offset"></paramref> and <paramref name="append"></paramref> must be set to <see langword="true"></see>.</param>
+      <param name="localFilename">The path and filename of the file as it will be stored on the local system.</param>
+      <param name="append">
+        <see langword="true">
+        </see> if the file should append itself to the local file if it already exists; <see langword="false"></see> if the local file should be overwritten.</param>
+      <exception cref="T:Xceed.Ftp.FtpInvalidStateException">Cannot perform the requested operation because the FTP client is in an invalid state.</exception>
+      <exception cref="T:Xceed.Ftp.FtpReplyException">An error reply was returned by the FTP server.</exception>
+      <exception cref="T:Xceed.Ftp.FtpIOException">An I/O error has occurred.</exception>
+      <exception cref="T:Xceed.Ftp.FtpInternalException">A fatal FTP-specific error has occurred..</exception>
+    </member>
+    <member name="M:Xceed.Ftp.FtpClient.ReceiveFile(System.String,System.IO.Stream)">
+      <summary> Receives the specified file from the current working folder to the specified <see cref="T:System.IO.Stream"></see>. </summary>
+      <param name="remoteFilename">The filename of the file to retrieve. <b>Some FTP servers may be case-sensitive!</b></param>
+      <param name="destination">A reference to the <see cref="T:System.IO.Stream"></see> to which to receive the file.</param>
+      <exception cref="T:Xceed.Ftp.FtpInvalidStateException">Cannot perform the requested operation because the FTP client is in an invalid state.</exception>
+      <exception cref="T:Xceed.Ftp.FtpReplyException">An error reply was returned by the FTP server.</exception>
+      <exception cref="T:Xceed.Ftp.FtpIOException">An I/O error has occurred.</exception>
+      <exception cref="T:Xceed.Ftp.FtpInternalException">A fatal FTP-specific error has occurred..</exception>
+    </member>
+    <member name="M:Xceed.Ftp.FtpClient.ReceiveFile(System.String,System.Int64,System.IO.Stream)">
+      <summary> Receives the specified file from the FTP server's current working folder into the specified <see cref="T:System.IO.Stream"></see>, starting from the specified offset. </summary>
+      <param name="remoteFilename">The filename of the file to retrieve. <b>Some FTP servers may be case-sensitive!</b></param>
+      <param name="offset">The byte offset (of the remote file) at which to start receiving data from the remote file.</param>
+      <param name="destination">A reference to the <see cref="T:System.IO.Stream"></see> to which to receive the file.</param>
+      <exception cref="T:Xceed.Ftp.FtpInvalidStateException">Cannot perform the requested operation because the FTP client is in an invalid state.</exception>
+      <exception cref="T:Xceed.Ftp.FtpReplyException">An error reply was returned by the FTP server.</exception>
+      <exception cref="T:Xceed.Ftp.FtpIOException">An I/O error has occurred.</exception>
+      <exception cref="T:Xceed.Ftp.FtpInternalException">A fatal FTP-specific error has occurred..</exception>
+    </member>
+    <member name="M:Xceed.Ftp.FtpClient.ReceiveMultipleFiles(System.String,System.String,System.Boolean,System.Boolean)">
+      <summary> Receives the files that match the provided file mask from the current working folder and stores them on the local system in the specified folder. </summary>
+      <param name="remoteFileMask">The file mask of the remote files to receive. This parameter can include a filtering mask to limit the files that are received. For example, if <see cref="F:System.String.Empty"></see> is specified, the entire contents of the current working folder will be received. If "*.txt" is used, all the files in the current working folder that have the TXT extension will be received. <b>Some FTP servers may be case-sensitive!</b></param>
+      <param name="localFolder">The path and name of the local folder where the files will be stored.</param>
+      <param name="recursive">
+        <see langword="true">
+        </see> if the files in child folders should also be received; <see langword="false"></see> otherwise.</param>
+      <param name="recreateFolderStructure">
+        <see langword="true">
+        </see> if the remote directory structure should be recreated on the local machine; <see langword="false"></see> otherwise.</param>
+      <exception cref="T:Xceed.Ftp.FtpInvalidStateException">Cannot perform the requested operation because the FTP client is in an invalid state.</exception>
+      <exception cref="T:Xceed.Ftp.FtpReplyException">An error reply was returned by the FTP server.</exception>
+      <exception cref="T:Xceed.Ftp.FtpIOException">An I/O error has occurred.</exception>
+      <exception cref="T:Xceed.Ftp.FtpInternalException">A fatal FTP-specific error has occurred.</exception>
+    </member>
+    <member name="M:Xceed.Ftp.FtpClient.SendFile(System.String)">
+      <summary> Sends the specified file to the FTP server's current working folder and stores it using the same filename. </summary>
+      <param name="localFilename">The path and filename of the local file to send.</param>
+      <exception cref="T:Xceed.Ftp.FtpInvalidStateException">Cannot perform the requested operation because the FTP client is in an invalid state.</exception>
+      <exception cref="T:Xceed.Ftp.FtpReplyException">An error reply was returned by the FTP server.</exception>
+      <exception cref="T:Xceed.Ftp.FtpIOException">An I/O error has occurred.</exception>
+      <exception cref="T:Xceed.Ftp.FtpInternalException">A fatal FTP-specific error has occurred..</exception>
+    </member>
+    <member name="M:Xceed.Ftp.FtpClient.SendFile(System.String,System.Boolean)">
+      <summary> Sends the specified file to the FTP server's current working folder using the same filename and indicating if it should append itself to the remote file if it already exists. </summary>
+      <param name="localFilename">The path and filename of the local file to send.</param>
+      <param name="append">
+        <see langword="true">
+        </see> if the file should append itself to the remote file if it already exists; <see langword="false"></see> if the remote file should be overwritten.</param>
+      <exception cref="T:Xceed.Ftp.FtpInvalidStateException">Cannot perform the requested operation because the FTP client is in an invalid state.</exception>
+      <exception cref="T:Xceed.Ftp.FtpReplyException">An error reply was returned by the FTP server.</exception>
+      <exception cref="T:Xceed.Ftp.FtpIOException">An I/O error has occurred.</exception>
+      <exception cref="T:Xceed.Ftp.FtpInternalException">A fatal FTP-specific error has occurred..</exception>
+    </member>
+    <member name="M:Xceed.Ftp.FtpClient.SendFile(System.String,System.String)">
+      <summary> Sends the specified file to the FTP server's current working folder and stores it using the specified filename. </summary>
+      <param name="localFilename">The path and filename of the local file to send.</param>
+      <param name="remoteFilename">The filename as it will be stored on the FTP server. <b>Some FTP servers may be case-sensitive!</b></param>
+      <exception cref="T:Xceed.Ftp.FtpInvalidStateException">Cannot perform the requested operation because the FTP client is in an invalid state.</exception>
+      <exception cref="T:Xceed.Ftp.FtpReplyException">An error reply was returned by the FTP server.</exception>
+      <exception cref="T:Xceed.Ftp.FtpIOException">An I/O error has occurred.</exception>
+      <exception cref="T:Xceed.Ftp.FtpInternalException">A fatal FTP-specific error has occurred..</exception>
+    </member>
+    <member name="M:Xceed.Ftp.FtpClient.SendFile(System.String,System.String,System.Boolean)">
+      <summary> Sends the specified file to the FTP server's current working folder, indicating if it should append itself to the remote file if it already exists, and stores it using the specified filename. </summary>
+      <param name="localFilename">The path and filename of the local file to send.</param>
+      <param name="remoteFilename">The filename as it will be stored on the FTP server. <b>Some FTP servers may be case-sensitive!</b></param>
+      <param name="append">
+        <see langword="true">
+        </see> if the file should append itself to the remote file if it already exists; <see langword="false"></see> if the remote file should be overwritten.</param>
+      <exception cref="T:Xceed.Ftp.FtpInvalidStateException">Cannot perform the requested operation because the FTP client is in an invalid state.</exception>
+      <exception cref="T:Xceed.Ftp.FtpReplyException">An error reply was returned by the FTP server.</exception>
+      <exception cref="T:Xceed.Ftp.FtpIOException">An I/O error has occurred.</exception>
+      <exception cref="T:Xceed.Ftp.FtpInternalException">A fatal FTP-specific error has occurred..</exception>
+    </member>
+    <member name="M:Xceed.Ftp.FtpClient.SendFile(System.IO.Stream,System.String,System.Boolean)">
+      <summary> Sends the data from the specified <see cref="T:System.IO.Stream"></see> to the FTP server's current working folder, indicating if it should append itself to the remote file if it already exists, and stores it using the specified filename. </summary>
+      <param name="source">A <see cref="T:System.IO.Stream"></see> whose data is to be sent to the FTP server.</param>
+      <param name="remoteFilename">The filename as it will be stored on the FTP server. <b>Some FTP servers may be case-sensitive!</b></param>
+      <param name="append">
+        <see langword="true">
+        </see> if the file should append itself to the remote file if it already exists; <see langword="false"></see> if the remote file should be overwritten.</param>
+      <exception cref="T:Xceed.Ftp.FtpInvalidStateException">Cannot perform the requested operation because the FTP client is in an invalid state.</exception>
+      <exception cref="T:Xceed.Ftp.FtpReplyException">An error reply was returned by the FTP server.</exception>
+      <exception cref="T:Xceed.Ftp.FtpIOException">An I/O error has occurred.</exception>
+      <exception cref="T:Xceed.Ftp.FtpInternalException">A fatal FTP-specific error has occurred.</exception>
+    </member>
+    <member name="M:Xceed.Ftp.FtpClient.SendFile(System.IO.Stream,System.String)">
+      <summary> Sends the data from the specified <see cref="T:System.IO.Stream"></see> to the FTP server's current working folder. </summary>
+      <param name="source">A <see cref="T:System.IO.Stream"></see> whose data is to be sent to the FTP server.</param>
+      <param name="remoteFilename">The filename as it will be stored on the FTP server. <b>Some FTP servers may be case-sensitive!</b></param>
+      <exception cref="T:Xceed.Ftp.FtpInvalidStateException">Cannot perform the requested operation because the FTP client is in an invalid state.</exception>
+      <exception cref="T:Xceed.Ftp.FtpReplyException">An error reply was returned by the FTP server.</exception>
+      <exception cref="T:Xceed.Ftp.FtpIOException">An I/O error has occurred.</exception>
+      <exception cref="T:Xceed.Ftp.FtpInternalException">A fatal FTP-specific error has occurred.</exception>
+    </member>
+    <member name="M:Xceed.Ftp.FtpClient.SendFileToUniqueName(System.String)">
+      <summary> Sends the specified file to the FTP server's current working folder and stores it using a unique filename. </summary>
+      <param name="localFilename">The path and filename of the local file to send.</param>
+      <exception cref="T:Xceed.Ftp.FtpInvalidStateException">Cannot perform the requested operation because the FTP client is in an invalid state.</exception>
+      <exception cref="T:Xceed.Ftp.FtpReplyException">An error reply was returned by the FTP server.</exception>
+      <exception cref="T:Xceed.Ftp.FtpIOException">An I/O error has occurred.</exception>
+      <exception cref="T:Xceed.Ftp.FtpInternalException">A fatal FTP-specific error has occurred..</exception>
+    </member>
+    <member name="M:Xceed.Ftp.FtpClient.SendFileToUniqueName(System.IO.Stream)">
+      <summary> Sends the data from the specified <see cref="T:System.IO.Stream"></see> to the FTP server's current working folder and stores it using a unique filename. </summary>
+      <param name="source">A <see cref="T:System.IO.Stream"></see> whose data is to be sent to the FTP server.</param>
+      <exception cref="T:Xceed.Ftp.FtpInvalidStateException">Cannot perform the requested operation because the FTP client is in an invalid state.</exception>
+      <exception cref="T:Xceed.Ftp.FtpReplyException">An error reply was returned by the FTP server.</exception>
+      <exception cref="T:Xceed.Ftp.FtpIOException">An I/O error has occurred.</exception>
+      <exception cref="T:Xceed.Ftp.FtpInternalException">A fatal FTP-specific error has occurred..</exception>
+    </member>
+    <member name="M:Xceed.Ftp.FtpClient.SendMultipleFiles(System.String,System.Boolean,System.Boolean)">
+      <summary> Sends the files that match the provided file mask to the FTP server's current working folder. </summary>
+      <param name="localFileMask">The full path and file mask of the local files to send. This parameter can include a filtering mask to limit the files that are sent. For example, if "c:\temp\*" is specified, the entire contents of the "c:\temp" will be sent. If "c:\temp\*.txt" is used, all the files in the "c:\temp" folder that have the TXT extension will be sent. The "temp" folder will not be recreated on the FTP server.</param>
+      <param name="recursive">
+        <see langword="true">
+        </see> if the files in child folders should also be sent; <see langword="false"></see> otherwise.</param>
+      <param name="recreateFolderStructure">
+        <see langword="true">
+        </see> if the local directory structure should be recreated on the FTP server; <see langword="false"></see> otherwise.</param>
+      <exception cref="T:Xceed.Ftp.FtpInvalidStateException">Cannot perform the requested operation because the FTP client is in an invalid state.</exception>
+      <exception cref="T:Xceed.Ftp.FtpReplyException">An error reply was returned by the FTP server.</exception>
+      <exception cref="T:Xceed.Ftp.FtpIOException">An I/O error has occurred.</exception>
+      <exception cref="T:Xceed.Ftp.FtpInternalException">A fatal FTP-specific error has occurred..</exception>
+    </member>
+    <member name="M:Xceed.Ftp.FtpClient.GetDownloadStream(System.String)">
+      <summary> Retrieves a direct access to the <b>readonly</b> data stream being received. </summary>
+      <param name="remoteFilename">The filename of the file to retrieve. <b>Some FTP servers may be case-sensitive!</b></param>
+    </member>
+    <member name="M:Xceed.Ftp.FtpClient.GetDownloadStream(System.String,System.Int64)">
+      <summary> Retrieves a direct access to the <b>readonly</b> data stream being received, beginning at the specified offset. </summary>
+      <param name="remoteFilename">The filename of the file to retrieve. <b>Some FTP servers may be case-sensitive!</b></param>
+      <param name="offset">The byte offset (of the remote file) at which to start receiving data from the remote file.</param>
+    </member>
+    <member name="M:Xceed.Ftp.FtpClient.GetUploadStream(System.String)">
+      <summary> Retrieves a direct access to the <b>write-only</b> data stream to send to. </summary>
+      <param name="remoteFilename">The filename of the file to write to. <b>Some FTP servers may be case-sensitive!</b></param>
+    </member>
+    <member name="M:Xceed.Ftp.FtpClient.GetUploadStream(System.String,System.Boolean)">
+      <summary> Retrieves a direct access to the <b>write-only</b> data stream to send to, indicating if existing data should be overwritten or appended to. </summary>
+      <param name="remoteFilename">The filename of the file to write to. <b>Some FTP servers may be case-sensitive!</b></param>
+      <param name="append">
+        <see langword="true">
+        </see> if existing data should be appended to; <see langword="false"></see> otherwise.</param>
+    </member>
+    <member name="M:Xceed.Ftp.FtpClient.SendCustomCommand(System.String)">
+      <summary> Sends a <b>custom</b> command to the FTP server. </summary>
+      <param name="command">The command to send to the FTP server.</param>
+      <exception cref="T:Xceed.Ftp.FtpInvalidStateException">Cannot perform the requested operation because the FTP client is in an invalid state.</exception>
+      <exception cref="T:Xceed.Ftp.FtpReplyException">An error reply was returned by the FTP server.</exception>
+      <exception cref="T:Xceed.Ftp.FtpIOException">An I/O error has occurred.</exception>
+      <exception cref="T:Xceed.Ftp.FtpInternalException">A fatal FTP-specific error has occurred..</exception>
+    </member>
+    <member name="M:Xceed.Ftp.FtpClient.Abort">
+      <summary> Aborts the current FTP command. </summary>
+      <exception cref="T:Xceed.Ftp.FtpInvalidStateException">Cannot perform the requested operation because the FTP client is in an invalid state.</exception>
+      <exception cref="T:Xceed.Ftp.FtpIOException">An I/O error has occurred.</exception>
+      <exception cref="T:Xceed.Ftp.FtpInternalException">A fatal FTP-specific error has occurred..</exception>
+    </member>
+    <member name="E:Xceed.Ftp.FtpClient.ParsingListingLine">
+      <summary> Raised when a listing line is received from the FTP server. </summary>
+    </member>
+    <member name="E:Xceed.Ftp.FtpClient.CommandSent">
+      <summary> Raised once for every command sent to the FTP server. </summary>
+    </member>
+    <member name="E:Xceed.Ftp.FtpClient.ReplyReceived">
+      <summary> Raised once for each reply received from the FTP server. If a reply contains multiple lines, they will be received as a group. </summary>
+    </member>
+    <member name="E:Xceed.Ftp.FtpClient.Disconnected">
+      <summary> Raised when the <see cref="M:Xceed.Ftp.FtpClient.Disconnect"></see> method is called as well as when the connection is terminated by the FTP server. </summary>
+    </member>
+    <member name="E:Xceed.Ftp.FtpClient.FileTransferStatus">
+      <summary> Raised for every 4Kb sent or received during a file transfer. </summary>
+    </member>
+    <member name="E:Xceed.Ftp.FtpClient.SendingFile">
+      <summary> Raised for each file being sent to the FTP server. </summary>
+    </member>
+    <member name="E:Xceed.Ftp.FtpClient.ReceivingFile">
+      <summary> Raised for each file being received from the FTP server. </summary>
+    </member>
+    <member name="E:Xceed.Ftp.FtpClient.StateChanged">
+      <summary> Raised when the <see cref="P:Xceed.Ftp.FtpClient.State"></see> of the FTP client changes. </summary>
+    </member>
+    <member name="E:Xceed.Ftp.FtpClient.MultipleFileTransferError">
+      <summary> Raised when an error occurs while transferring <b>multiple</b> files to or from the FTP server to determine what action should be taken. </summary>
+    </member>
+    <member name="E:Xceed.Ftp.FtpClient.CertificateRequired">
+      <summary> Raised when a client certificate is required by the FTP server, or the one provided (if e.Certificate is not <see langword="null"></see>) was rejected. </summary>
+    </member>
+    <member name="E:Xceed.Ftp.FtpClient.CertificateReceived">
+      <summary> Raised when an FTP server's certificate was received and verified. </summary>
+    </member>
+    <member name="T:Xceed.Ftp.AsyncFtpClient">
+      <summary> This class provides you with access to asynchronous FTP functionalities. GUI applications should always use the AsyncFtpClient class since the library uses multiple threads. When using the <see cref="T:Xceed.Ftp.FtpClient"></see> class, the user is prone to encounter timeout errors since the library may be trying to generate events on the main UI thread through a message, but the application is blocked in a method call and not pumping messages. </summary>
+    </member>
+    <member name="M:Xceed.Ftp.AsyncFtpClient.#ctor">
+      <summary> Initializes a new instance of the AsyncFtpClient class. </summary>
+    </member>
+    <member name="P:Xceed.Ftp.AsyncFtpClient.SynchronizingObject">
+      <summary> Gets or sets the object used to automatically redirect events on the main UI thread. </summary>
+    </member>
+    <member name="M:Xceed.Ftp.AsyncFtpClient.BeginAbort(System.AsyncCallback,System.Object)">
+      <summary> Begins the process of aborting the current FTP command. Don't forget to call <see cref="M:Xceed.Ftp.AsyncFtpClient.EndAbort(System.IAsyncResult)"></see>! </summary>
+      <param name="callback">Callback method to be called when the asynchronous operation is completed.</param>
+      <param name="state">An object containing state information for this operation.</param>
+    </member>
+    <member name="M:Xceed.Ftp.AsyncFtpClient.EndAbort(System.IAsyncResult)">
+      <summary> Ends the process of aborting the current FTP command </summary>
+      <param name="asyncResult">An <see cref="T:System.IAsyncResult"></see> representing the status of the asynchronous operation.</param>
+    </member>
+    <member name="M:Xceed.Ftp.AsyncFtpClient.BeginConnect(System.String,System.AsyncCallback,System.Object)">
+      <summary> Begins the connection process of the FTP client to an FTP server on port 21. Don't forget to call <see cref="M:Xceed.Ftp.AsyncFtpClient.EndConnect(System.IAsyncResult)"></see>! </summary>
+      <param name="hostName">The hostname of the FTP server to connect to. An IP address can also be used.</param>
+      <param name="callback">Callback method to be called when the asynchronous operation is completed.</param>
+      <param name="state">An object containing state information for this operation.</param>
+    </member>
+    <member name="M:Xceed.Ftp.AsyncFtpClient.BeginConnect(System.String,Xceed.Ftp.AuthenticationMethod,Xceed.Ftp.VerificationFlags,Xceed.Ftp.Certificate,System.AsyncCallback,System.Object)">
+      <summary> Begins the connection process of the FTP client to a <b>secure</b> FTP server on port 21. Don't forget to call <see cref="M:Xceed.Ftp.AsyncFtpClient.EndConnect(System.IAsyncResult)"></see>! </summary>
+      <param name="hostName">The hostname of the FTP server to connect to. An IP address can also be used.</param>
+      <param name="authenticationMethod">The authentication method used to connect to the FTP server.</param>
+      <param name="verificationFlags">The verification flags used to verify the FTP server's certificate.</param>
+      <param name="clientCertificate">The FTP client's certificate.</param>
+      <param name="callback">Callback method to be called when the asynchronous operation is completed.</param>
+      <param name="state">An object containing state information for this operation.</param>
+    </member>
+    <member name="M:Xceed.Ftp.AsyncFtpClient.BeginConnect(System.String,System.Int32,System.AsyncCallback,System.Object)">
+      <summary> Begins the connection process of the FTP client to an FTP server using the specified hostname and port. Don't forget to call <see cref="M:Xceed.Ftp.AsyncFtpClient.EndConnect(System.IAsyncResult)"></see>! </summary>
+      <param name="hostName">The hostname of the FTP server to connect to. An IP address can also be used.</param>
+      <param name="port">The port of the FTP server to which to connect to. If 0 is specified for the port, 21 will be used.</param>
+      <param name="callback">Callback method to be called when the asynchronous operation is completed.</param>
+      <param name="state">An object containing state information for this operation.</param>
+    </member>
+    <member name="M:Xceed.Ftp.AsyncFtpClient.BeginConnect(System.String,System.Int32,Xceed.Ftp.AuthenticationMethod,Xceed.Ftp.VerificationFlags,Xceed.Ftp.Certificate,System.AsyncCallback,System.Object)">
+      <summary> Begins the connection process of the FTP client to a <b>secure</b> FTP server using the specified hostname and port. Don't forget to call <see cref="M:Xceed.Ftp.AsyncFtpClient.EndConnect(System.IAsyncResult)"></see>! </summary>
+      <param name="hostName">The hostname of the FTP server to connect to. An IP address can also be used.</param>
+      <param name="port">The port of the FTP server to which to connect to. If 0 is specified for the port, 21 will be used.</param>
+      <param name="authenticationMethod">The authentication method used to connect to the FTP server.</param>
+      <param name="verificationFlags">The verification flags used to verify the FTP server's certificate.</param>
+      <param name="clientCertificate">The FTP client's certificate.</param>
+      <param name="callback">Callback method to be called when the asynchronous operation is completed.</param>
+      <param name="state">An object containing state information for this operation.</param>
+    </member>
+    <member name="M:Xceed.Ftp.AsyncFtpClient.BeginConnect(System.Net.IPEndPoint,System.AsyncCallback,System.Object)">
+      <summary> Begins the connection of the FTP client to an FTP server using the specified <see cref="T:System.Net.IPEndPoint"></see> (IP address and port). Don't forget to call <see cref="M:Xceed.Ftp.AsyncFtpClient.EndConnect(System.IAsyncResult)"></see>! </summary>
+      <param name="serverAddress">An <see cref="T:System.Net.IPEndPoint"></see> representing the IP address and port of the FTP server to connect to. If 0 is specified for the port, 21 will be used.</param>
+      <param name="callback">Callback method to be called when the asynchronous operation is completed.</param>
+      <param name="state">An object containing state information for this operation.</param>
+    </member>
+    <member name="M:Xceed.Ftp.AsyncFtpClient.EndConnect(System.IAsyncResult)">
+      <summary> Ends the connection process of the FTP client to an FTP server. </summary>
+      <param name="asyncResult">An <see cref="T:System.IAsyncResult"></see> representing the status of the asynchronous operation.</param>
+    </member>
+    <member name="M:Xceed.Ftp.AsyncFtpClient.BeginAuthenticate(Xceed.Ftp.AuthenticationMethod,Xceed.Ftp.VerificationFlags,Xceed.Ftp.Certificate,Xceed.Ftp.DataChannelProtection,System.AsyncCallback,System.Object)">
+      <summary> Begins the authentification and encryption of the current FTP connection. Don't forget to call <see cref="M:Xceed.Ftp.AsyncFtpClient.EndAuthenticate(System.IAsyncResult)"></see>! </summary>
+      <param name="authenticationMethod">The authentication method used to connect to the FTP server.</param>
+      <param name="verificationFlags">The verification flags used to verify the FTP server's certificate.</param>
+      <param name="clientCertificate">The FTP client's certificate.</param>
+      <param name="dataProtection">How the data channels will be protected.</param>
+      <param name="callback">Callback method to be called when the asynchronous operation is completed.</param>
+      <param name="state">An object containing state information for this operation.</param>
+    </member>
+    <member name="M:Xceed.Ftp.AsyncFtpClient.BeginAuthenticate(Xceed.Ftp.AuthenticationMethod,Xceed.Ftp.VerificationFlags,Xceed.Ftp.Certificate,System.AsyncCallback,System.Object)">
+      <summary> Begins the authentification and encryption of the current FTP connection. Don't forget to call <see cref="M:Xceed.Ftp.AsyncFtpClient.EndAuthenticate(System.IAsyncResult)"></see>! </summary>
+      <param name="authenticationMethod">The authentication method used to connect to the FTP server.</param>
+      <param name="verificationFlags">The verification flags used to verify the FTP server's certificate.</param>
+      <param name="clientCertificate">The FTP client's certificate.</param>
+      <param name="callback">Callback method to be called when the asynchronous operation is completed.</param>
+      <param name="state">An object containing state information for this operation.</param>
+    </member>
+    <member name="M:Xceed.Ftp.AsyncFtpClient.EndAuthenticate(System.IAsyncResult)">
+      <summary> Ends the authentification and encryption of the current FTP connection. </summary>
+      <param name="asyncResult">An <see cref="T:System.IAsyncResult"></see> representing the status of the asynchronous operation.</param>
+    </member>
+    <member name="M:Xceed.Ftp.AsyncFtpClient.BeginLogin(System.AsyncCallback,System.Object)">
+      <summary> Begins the <b>anonymous</b> login process of the FTP client to the FTP server to which it is connected. Don't forget to call <see cref="M:Xceed.Ftp.AsyncFtpClient.EndLogin(System.IAsyncResult)"></see>! </summary>
+      <param name="callback">Callback method to be called when the asynchronous operation is completed.</param>
+      <param name="state">An object containing state information for this operation.</param>
+    </member>
+    <member name="M:Xceed.Ftp.AsyncFtpClient.BeginLogin(System.String,System.String,System.AsyncCallback,System.Object)">
+      <summary> Begins the login process of the FTP client to the FTP server to which it is connected using the specified username and password. Don't forget to call <see cref="M:Xceed.Ftp.AsyncFtpClient.EndLogin(System.IAsyncResult)"></see>! </summary>
+      <param name="userName">The username with which to login into the FTP server.</param>
+      <param name="password">The password with which to login into the FTP server.</param>
+      <param name="callback">Callback method to be called when the asynchronous operation is completed.</param>
+      <param name="state">An object containing state information for this operation.</param>
+    </member>
+    <member name="M:Xceed.Ftp.AsyncFtpClient.BeginLogin(System.String,System.String,System.String,System.AsyncCallback,System.Object)">
+      <summary> Begins the login process of the FTP client to the FTP server to which it is connected using the specified username and password. Don't forget to call <see cref="M:Xceed.Ftp.AsyncFtpClient.EndLogin(System.IAsyncResult)"></see>! </summary>
+      <param name="userName">The username with which to login into the FTP server.</param>
+      <param name="password">The password with which to login into the FTP server.</param>
+      <param name="accountName">The name of the account on the FTP server.</param>
+      <param name="callback">Callback method to be called when the asynchronous operation is completed.</param>
+      <param name="state">An object containing state information for this operation.</param>
+    </member>
+    <member name="M:Xceed.Ftp.AsyncFtpClient.EndLogin(System.IAsyncResult)">
+      <summary> Ends the login process of the FTP client to the FTP server to which it is connected. </summary>
+      <param name="asyncResult">An <see cref="T:System.IAsyncResult"></see> representing the status of the asynchronous operation.</param>
+    </member>
+    <member name="M:Xceed.Ftp.AsyncFtpClient.BeginChangeUser(System.AsyncCallback,System.Object)">
+      <summary> Begins the process of changing the currently logged-in user to the anonymous user without disconnecting from the FTP server. Don't forget to call <see cref="M:Xceed.Ftp.AsyncFtpClient.EndChangeUser(System.IAsyncResult)"></see>! </summary>
+      <param name="callback">Callback method to be called when the asynchronous operation is completed.</param>
+      <param name="state">An object containing state information for this operation.</param>
+    </member>
+    <member name="M:Xceed.Ftp.AsyncFtpClient.BeginChangeUser(System.String,System.String,System.AsyncCallback,System.Object)">
+      <summary> Begins the process of changing the currently logged-in user to the specified user without disconnecting from the FTP server. Don't forget to call <see cref="M:Xceed.Ftp.AsyncFtpClient.EndChangeUser(System.IAsyncResult)"></see>! </summary>
+      <param name="userName">The username with which to relogin into the FTP server.</param>
+      <param name="password">The password with which to relogin into the FTP server.</param>
+      <param name="callback">Callback method to be called when the asynchronous operation is completed.</param>
+      <param name="state">An object containing state information for this operation.</param>
+    </member>
+    <member name="M:Xceed.Ftp.AsyncFtpClient.BeginChangeUser(System.String,System.String,System.String,System.AsyncCallback,System.Object)">
+      <summary> Begins the process of changing the currently logged-in user to the specified user and account without disconnecting from the FTP server. Don't forget to call <see cref="M:Xceed.Ftp.AsyncFtpClient.EndChangeUser(System.IAsyncResult)"></see>! </summary>
+      <param name="userName">The username with which to relogin into the FTP server.</param>
+      <param name="password">The password with which to relogin into the FTP server.</param>
+      <param name="accountName">The name of the account on the FTP server.</param>
+      <param name="callback">Callback method to be called when the asynchronous operation is completed.</param>
+      <param name="state">An object containing state information for this operation.</param>
+    </member>
+    <member name="M:Xceed.Ftp.AsyncFtpClient.EndChangeUser(System.IAsyncResult)">
+      <summary> Ends the process of changing the currently logged-in user. </summary>
+      <param name="asyncResult">An <see cref="T:System.IAsyncResult"></see> representing the status of the asynchronous operation.</param>
+    </member>
+    <member name="M:Xceed.Ftp.AsyncFtpClient.BeginDisconnect(System.AsyncCallback,System.Object)">
+      <summary> Begins the process of disconnecting the FTP client from the FTP server to which it is connected. Don't forget to call <see cref="M:Xceed.Ftp.AsyncFtpClient.EndDisconnect(System.IAsyncResult)"></see>! </summary>
+      <param name="callback">Callback method to be called when the asynchronous operation is completed.</param>
+      <param name="state">An object containing state information for this operation.</param>
+    </member>
+    <member name="M:Xceed.Ftp.AsyncFtpClient.EndDisconnect(System.IAsyncResult)">
+      <summary> Ends the process of disconnecting the FTP client from the FTP server to which it is connected. </summary>
+      <param name="asyncResult">An <see cref="T:System.IAsyncResult"></see> representing the status of the asynchronous operation.</param>
+    </member>
+    <member name="M:Xceed.Ftp.AsyncFtpClient.BeginGetCurrentFolder(System.AsyncCallback,System.Object)">
+      <summary> Begins the process of retrieving the current working folder of the FTP server. Don't forget to call <see cref="M:Xceed.Ftp.AsyncFtpClient.EndGetCurrentFolder(System.IAsyncResult)"></see>! </summary>
+      <param name="callback">Callback method to be called when the asynchronous operation is completed.</param>
+      <param name="state">An object containing state information for this operation.</param>
+    </member>
+    <member name="M:Xceed.Ftp.AsyncFtpClient.EndGetCurrentFolder(System.IAsyncResult)">
+      <summary> Ends the process of retrieving the current working folder of the FTP server. </summary>
+      <param name="asyncResult">An <see cref="T:System.IAsyncResult"></see> representing the status of the asynchronous operation.</param>
+    </member>
+    <member name="M:Xceed.Ftp.AsyncFtpClient.BeginChangeCurrentFolder(System.String,System.AsyncCallback,System.Object)">
+      <summary> Begins the process of changing the current working folder of the FTP server. Don't forget to call <see cref="M:Xceed.Ftp.AsyncFtpClient.EndChangeCurrentFolder(System.IAsyncResult)"></see>! </summary>
+      <param name="folder">The new current working folder. <b>Some FTP servers may be case-sensitive!</b></param>
+      <param name="callback">Callback method to be called when the asynchronous operation is completed.</param>
+      <param name="state">An object containing state information for this operation.</param>
+    </member>
+    <member name="M:Xceed.Ftp.AsyncFtpClient.EndChangeCurrentFolder(System.IAsyncResult)">
+      <summary> Ends the process of changing the current working folder of the FTP server. </summary>
+      <param name="asyncResult">An <see cref="T:System.IAsyncResult"></see> representing the status of the asynchronous operation.</param>
+    </member>
+    <member name="M:Xceed.Ftp.AsyncFtpClient.BeginChangeToParentFolder(System.AsyncCallback,System.Object)">
+      <summary> Begins the process of changing the current working folder of the FTP server to the parent folder. Don't forget to call <see cref="M:Xceed.Ftp.AsyncFtpClient.EndChangeToParentFolder(System.IAsyncResult)"></see>! </summary>
+      <param name="callback">Callback method to be called when the asynchronous operation is completed.</param>
+      <param name="state">An object containing state information for this operation.</param>
+    </member>
+    <member name="M:Xceed.Ftp.AsyncFtpClient.EndChangeToParentFolder(System.IAsyncResult)">
+      <summary> Ends the process of changing the current working folder of the FTP server to the parent folder. </summary>
+      <param name="asyncResult">An <see cref="T:System.IAsyncResult"></see> representing the status of the asynchronous operation.</param>
+    </member>
+    <member name="M:Xceed.Ftp.AsyncFtpClient.BeginCreateFolder(System.String,System.AsyncCallback,System.Object)">
+      <summary> Begins the process of creating a folder on the FTP server. Don't forget to call <see cref="M:Xceed.Ftp.AsyncFtpClient.EndCreateFolder(System.IAsyncResult)"></see>! </summary>
+      <param name="folder">The name of the folder to create. <b>Some FTP servers may be case-sensitive!</b></param>
+      <param name="callback">Callback method to be called when the asynchronous operation is completed.</param>
+      <param name="state">An object containing state information for this operation.</param>
+    </member>
+    <member name="M:Xceed.Ftp.AsyncFtpClient.EndCreateFolder(System.IAsyncResult)">
+      <summary> Ends the process of creating a folder on the FTP server. </summary>
+      <param name="asyncResult">An <see cref="T:System.IAsyncResult"></see> representing the status of the asynchronous operation.</param>
+    </member>
+    <member name="M:Xceed.Ftp.AsyncFtpClient.BeginDeleteFolder(System.String,System.AsyncCallback,System.Object)">
+      <summary> Begins the processing of deleting a folder from the FTP server. Don't forget to call <see cref="M:Xceed.Ftp.AsyncFtpClient.EndDeleteFolder(System.IAsyncResult)"></see>! </summary>
+      <param name="folder">The name of the folder to delete. <b>Some FTP servers may be case-sensitive!</b></param>
+      <param name="callback">Callback method to be called when the asynchronous operation is completed.</param>
+      <param name="state">An object containing state information for this operation.</param>
+    </member>
+    <member name="M:Xceed.Ftp.AsyncFtpClient.BeginDeleteFolder(System.String,System.Boolean,System.AsyncCallback,System.Object)">
+      <summary> Begins the process of deleting a folder, and optionally each item in the folder, from the FTP server. Don't forget to call <see cref="M:Xceed.Ftp.AsyncFtpClient.EndDeleteFolder(System.IAsyncResult)"></see>! </summary>
+      <param name="folder">The name of the folder to delete. <b>Some FTP servers may be case-sensitive!</b></param>
+      <param name="recursive">
+        <see langword="true">
+        </see> if each item in the folder should also be deleted; <see langword="false"></see> otherwise.</param>
+      <param name="callback">Callback method to be called when the asynchronous operation is completed.</param>
+      <param name="state">An object containing state information for this operation.</param>
+    </member>
+    <member name="M:Xceed.Ftp.AsyncFtpClient.EndDeleteFolder(System.IAsyncResult)">
+      <summary> Ends the process of deleting a folder from the FTP server. </summary>
+      <param name="asyncResult">An <see cref="T:System.IAsyncResult"></see> representing the status of the asynchronous operation.</param>
+    </member>
+    <member name="M:Xceed.Ftp.AsyncFtpClient.BeginDeleteFile(System.String,System.AsyncCallback,System.Object)">
+      <summary> Begins the process of deleting a file from the FTP server. Don't forget to call <see cref="M:Xceed.Ftp.AsyncFtpClient.EndDeleteFile(System.IAsyncResult)"></see>! </summary>
+      <param name="file">The name of the file to delete. <b>Some FTP servers may be case-sensitive!</b></param>
+      <param name="callback">Callback method to be called when the asynchronous operation is completed.</param>
+      <param name="state">An object containing state information for this operation.</param>
+    </member>
+    <member name="M:Xceed.Ftp.AsyncFtpClient.EndDeleteFile(System.IAsyncResult)">
+      <summary> Ends the process of deleting a file from the FTP server. </summary>
+      <param name="asyncResult">An <see cref="T:System.IAsyncResult"></see> representing the status of the asynchronous operation.</param>
+    </member>
+    <member name="M:Xceed.Ftp.AsyncFtpClient.BeginRenameFile(System.String,System.String,System.AsyncCallback,System.Object)">
+      <summary> Begins the process of renaming a file on the FTP server. Don't forget to call <see cref="M:Xceed.Ftp.AsyncFtpClient.EndRenameFile(System.IAsyncResult)"></see>! </summary>
+      <param name="currentFilename">The filename of the file to rename. <b>Some FTP servers may be case-sensitive!</b></param>
+      <param name="newFilename">The new filename. <b>Some FTP servers may be case-sensitive!</b></param>
+      <param name="callback">Callback method to be called when the asynchronous operation is completed.</param>
+      <param name="state">An object containing state information for this operation.</param>
+    </member>
+    <member name="M:Xceed.Ftp.AsyncFtpClient.EndRenameFile(System.IAsyncResult)">
+      <summary> Ends the process of renaming a file on the FTP server. </summary>
+      <param name="asyncResult">An <see cref="T:System.IAsyncResult"></see> representing the status of the asynchronous operation.</param>
+    </member>
+    <member name="M:Xceed.Ftp.AsyncFtpClient.BeginGetFolderContents(System.String,System.AsyncCallback,System.Object)">
+      <summary> Begins the process of retrieving the contents of the current working folder. Don't forget to call <see cref="M:Xceed.Ftp.AsyncFtpClient.EndGetFolderContents(System.IAsyncResult)"></see>! </summary>
+      <param name="remoteFileMask">The file mask of the remote files to retrieve. This parameter can include a filtering mask to limit the files that are retrieved. For example, if <see cref="F:System.String.Empty"></see> is specified, the entire contents of the current working folder will be retrieved. If "*.txt" is used, all the files in the current working folder that have the TXT extension will be retrieved. <b>Some FTP servers may be case-sensitive!</b></param>
+      <param name="callback">Callback method to be called when the asynchronous operation is completed.</param>
+      <param name="state">An object containing state information for this operation.</param>
+    </member>
+    <member name="M:Xceed.Ftp.AsyncFtpClient.BeginGetFolderContents(System.AsyncCallback,System.Object)">
+      <summary> Begins the process of retrieving the entire contents of the current working folder. Don't forget to call <see cref="M:Xceed.Ftp.AsyncFtpClient.EndGetFolderContents(System.IAsyncResult)"></see>! </summary>
+      <param name="callback">Callback method to be called when the asynchronous operation is completed.</param>
+      <param name="state">An object containing state information for this operation.</param>
+    </member>
+    <member name="M:Xceed.Ftp.AsyncFtpClient.EndGetFolderContents(System.IAsyncResult)">
+      <summary> Ends the process of retrieving the contents of the current working folder. </summary>
+      <param name="asyncResult">An <see cref="T:System.IAsyncResult"></see> representing the status of the asynchronous operation.</param>
+    </member>
+    <member name="M:Xceed.Ftp.AsyncFtpClient.BeginGetRawFolderContents(System.String,System.Boolean,System.AsyncCallback,System.Object)">
+      <summary> Begins the process of retrieving an <b>unprocessed</b>, clear text list representing the contents of the current working folder as sent by the FTP server and indicates if the entire listing or only filenames should be retrieved. Don't forget to call <see cref="M:Xceed.Ftp.AsyncFtpClient.EndGetRawFolderContents(System.IAsyncResult)"></see>! </summary>
+      <param name="remoteFileMask">The file mask of the remote files to retrieve. This parameter can can include a filtering mask to limit the files that are retrieved. For example, if <see cref="F:System.String.Empty"></see> is specified, the entire contents of the current working folder will be retrieved. If "*.txt" is used, all the files in the current working folder that have the TXT extension will be retrieved. <b>Some FTP servers may be case-sensitive!</b></param>
+      <param name="namesOnly">
+        <see langword="true">
+        </see> if only filenames should be retrieved; <see langword="false"></see> otherwise.</param>
+      <param name="callback">Callback method to be called when the asynchronous operation is completed.</param>
+      <param name="state">An object containing state information for this operation.</param>
+    </member>
+    <member name="M:Xceed.Ftp.AsyncFtpClient.BeginGetRawFolderContents(System.String,System.AsyncCallback,System.Object)">
+      <summary> Begins the process of retrieving an <b>unprocessed</b>, clear text list representing the contents of the current working folder as sent by the FTP server. Don't forget to call <see cref="M:Xceed.Ftp.AsyncFtpClient.EndGetRawFolderContents(System.IAsyncResult)"></see>! </summary>
+      <param name="remoteFileMask">The file mask of the remote files to retrieve. This parameter can can include a filtering mask to limit the files that are retrieved. For example, if <see cref="F:System.String.Empty"></see> is specified, the entire contents of the current working folder will be retrieved. If "*.txt" is used, all the files in the current working folder that have the TXT extension will be retrieved. <b>Some FTP servers may be case-sensitive!</b></param>
+      <param name="callback">Callback method to be called when the asynchronous operation is completed.</param>
+      <param name="state">An object containing state information for this operation.</param>
+    </member>
+    <member name="M:Xceed.Ftp.AsyncFtpClient.BeginGetRawFolderContents(System.Boolean,System.AsyncCallback,System.Object)">
+      <summary> Begins the process of retrieving an <b>unprocessed</b>, clear text list representing the entire contents of current working folder as sent by the FTP server and indicates if the entire listing or only filenames should be retrieved. Don't forget to call <see cref="M:Xceed.Ftp.AsyncFtpClient.EndGetRawFolderContents(System.IAsyncResult)"></see>! </summary>
+      <param name="namesOnly">
+        <see langword="true">
+        </see> if only filenames should be retrieved; <see langword="false"></see> otherwise.</param>
+      <param name="callback">Callback method to be called when the asynchronous operation is completed.</param>
+      <param name="state">An object containing state information for this operation.</param>
+    </member>
+    <member name="M:Xceed.Ftp.AsyncFtpClient.BeginGetRawFolderContents(System.AsyncCallback,System.Object)">
+      <summary> Begins the process of retrieving an <b>unprocessed</b>, clear text list representing the entire contents of current working folder as sent by the FTP server. Don't forget to call <see cref="M:Xceed.Ftp.AsyncFtpClient.EndGetRawFolderContents(System.IAsyncResult)"></see>! </summary>
+      <param name="callback">Callback method to be called when the asynchronous operation is completed.</param>
+      <param name="state">An object containing state information for this operation.</param>
+    </member>
+    <member name="M:Xceed.Ftp.AsyncFtpClient.EndGetRawFolderContents(System.IAsyncResult)">
+      <summary> Ends the process of retrieving an <b>unprocessed</b>, clear text list representing the contents of the current working folder </summary>
+      <param name="asyncResult">An <see cref="T:System.IAsyncResult"></see> representing the status of the asynchronous operation.</param>
+    </member>
+    <member name="M:Xceed.Ftp.AsyncFtpClient.BeginReceiveFile(System.String,System.String,System.AsyncCallback,System.Object)">
+      <summary> Begins the process of receiving the specified file from the current working folder and stores it on the local system using the specified path and filename. Don't forget to call <see cref="M:Xceed.Ftp.AsyncFtpClient.EndReceiveFile(System.IAsyncResult)"></see>! </summary>
+      <param name="remoteFilename">The filename of the file to retrieve. <b>Some FTP servers may be case-sensitive!</b></param>
+      <param name="localFilename">The path and filename of the file as it will be stored on the local system.</param>
+      <param name="callback">Callback method to be called when the asynchronous operation is completed.</param>
+      <param name="state">An object containing state information for this operation.</param>
+    </member>
+    <member name="M:Xceed.Ftp.AsyncFtpClient.BeginReceiveFile(System.String,System.String,System.Boolean,System.AsyncCallback,System.Object)">
+      <summary> Begins the process of receiving the specified file from the current working folder and stores it on the local system using the specified path and filename and indicates if the file should append itself to the local file if it already exists. Don't forget to call <see cref="M:Xceed.Ftp.AsyncFtpClient.EndReceiveFile(System.IAsyncResult)"></see>! </summary>
+      <param name="remoteFilename">The filename of the file to retrieve. <b>Some FTP servers may be case-sensitive!</b></param>
+      <param name="localFilename">The path and filename of the file as it will be stored on the local system.</param>
+      <param name="append">
+        <see langword="true">
+        </see> if the file should append itself to the local file if it already exists; <see langword="false"></see> if the local file should be overwritten.</param>
+      <param name="callback">Callback method to be called when the asynchronous operation is completed.</param>
+      <param name="state">An object containing state information for this operation.</param>
+    </member>
+    <member name="M:Xceed.Ftp.AsyncFtpClient.BeginReceiveFile(System.String,System.Int64,System.String,System.AsyncCallback,System.Object)">
+      <summary> Begins the process of receiving the specified file from the current working folder starting from the specified offset and stores it on the local system using the specified path and filename. Don't forget to call <see cref="M:Xceed.Ftp.AsyncFtpClient.EndReceiveFile(System.IAsyncResult)"></see>! </summary>
+      <param name="remoteFilename">The filename of the file to retrieve. <b>Some FTP servers may be case-sensitive!</b></param>
+      <param name="offset">The byte offset (of the remote file) at which to start receiving data from the remote file. If <paramref name="append"></paramref> is <see langword="true"></see>, the remote file will be appended to the end of the local file no matter what the value of <paramref name="offset"></paramref>. Therefore, to implement a real resume procedure, the size of the local file must be specified in <paramref name="offset"></paramref> and <paramref name="append"></paramref> must be set to <see langword="true"></see>.</param>
+      <param name="localFilename">The path and filename of the file as it will be stored on the local system.</param>
+      <param name="callback">Callback method to be called when the asynchronous operation is completed.</param>
+      <param name="state">An object containing state information for this operation.</param>
+    </member>
+    <member name="M:Xceed.Ftp.AsyncFtpClient.BeginReceiveFile(System.String,System.Int64,System.String,System.Boolean,System.AsyncCallback,System.Object)">
+      <summary> Begins the process of receiving the specified file from the current working folder starting from the specified offset and stores it on the local system using the specified path and filename indicating if the file should append itself to the local file if it already exists. Don't forget to call <see cref="M:Xceed.Ftp.AsyncFtpClient.EndReceiveFile(System.IAsyncResult)"></see>! </summary>
+      <param name="remoteFilename">The filename of the file to retrieve. <b>Some FTP servers may be case-sensitive!</b></param>
+      <param name="offset">The byte offset (of the remote file) at which to start receiving data from the remote file. If <paramref name="append"></paramref> is <see langword="true"></see>, the remote file will be appended to the end of the local file no matter what the value of <paramref name="offset"></paramref>. Therefore, to implement a real resume procedure, the size of the local file must be specified in <paramref name="offset"></paramref> and <paramref name="append"></paramref> must be set to <see langword="true"></see>.</param>
+      <param name="localFilename">The path and filename of the file as it will be stored on the local system.</param>
+      <param name="append">
+        <see langword="true">
+        </see> if the file should append itself to the local file if it already exists; <see langword="false"></see> if the local file should be overwritten.</param>
+      <param name="callback">Callback method to be called when the asynchronous operation is completed.</param>
+      <param name="state">An object containing state information for this operation.</param>
+    </member>
+    <member name="M:Xceed.Ftp.AsyncFtpClient.BeginReceiveFile(System.String,System.IO.Stream,System.AsyncCallback,System.Object)">
+      <summary> Begins the process of receiving the specified file from the current working folder to the specified <see cref="T:System.IO.Stream"></see>. Don't forget to call <see cref="M:Xceed.Ftp.AsyncFtpClient.EndReceiveFile(System.IAsyncResult)"></see>! </summary>
+      <param name="remoteFilename">The filename of the file to retrieve. <b>Some FTP servers may be case-sensitive!</b></param>
+      <param name="destination">A reference to the <see cref="T:System.IO.Stream"></see> to which to receive the file.</param>
+      <param name="callback">Callback method to be called when the asynchronous operation is completed.</param>
+      <param name="state">An object containing state information for this operation.</param>
+    </member>
+    <member name="M:Xceed.Ftp.AsyncFtpClient.BeginReceiveFile(System.String,System.Int64,System.IO.Stream,System.AsyncCallback,System.Object)">
+      <summary> Begins the process of receiving the specified file from the FTP server's current working folder into the specified <see cref="T:System.IO.Stream"></see>, starting from the specified offset. Don't forget to call <see cref="M:Xceed.Ftp.AsyncFtpClient.EndReceiveFile(System.IAsyncResult)"></see>! </summary>
+      <param name="remoteFilename">The filename of the file to retrieve. <b>Some FTP servers may be case-sensitive!</b></param>
+      <param name="offset">The byte offset (of the remote file) at which to start receiving data from the remote file. If <paramref name="append"></paramref> is <see langword="true"></see>, the remote file will be appended to the end of the local file no matter what the value of <paramref name="offset"></paramref>. Therefore, to implement a real resume procedure, the size of the local file must be specified in <paramref name="offset"></paramref> and <paramref name="append"></paramref> must be set to <see langword="true"></see>.</param>
+      <param name="destination">A reference to the <see cref="T:System.IO.Stream"></see> to which to receive the file.</param>
+      <param name="callback">Callback method to be called when the asynchronous operation is completed.</param>
+      <param name="state">An object containing state information for this operation.</param>
+    </member>
+    <member name="M:Xceed.Ftp.AsyncFtpClient.EndReceiveFile(System.IAsyncResult)">
+      <summary> Ends the process of receiving a file from the FTP server. </summary>
+      <param name="asyncResult">An <see cref="T:System.IAsyncResult"></see> representing the status of the asynchronous operation.</param>
+    </member>
+    <member name="M:Xceed.Ftp.AsyncFtpClient.BeginReceiveMultipleFiles(System.String,System.String,System.Boolean,System.Boolean,System.AsyncCallback,System.Object)">
+      <summary> Begins the process of retreiving the files that match the provided file mask from the current working folder and stores them on the local system in the specified folder. Don't forget to call <see cref="M:Xceed.Ftp.AsyncFtpClient.EndReceiveMultipleFiles(System.IAsyncResult)"></see>! </summary>
+      <param name="remoteFileMask">The file mask of the remote files to receive. This parameter can include a filtering mask to limit the files that are received. For example, if <see cref="F:System.String.Empty"></see> is specified, the entire contents of the current working folder will be received. If "*.txt" is used, all the files in the current working folder that have the TXT extension will be received. <b>Some FTP servers may be case-sensitive!</b></param>
+      <param name="localFolder">The path and name of the local folder where the files will be stored.</param>
+      <param name="recursive">
+        <see langword="true">
+        </see> if the files in child folders should also be received; <see langword="false"></see> otherwise.</param>
+      <param name="recreateFolderStructure">
+        <see langword="true">
+        </see> if the remote directory structure should be recreated on the local machine; <see langword="false"></see> otherwise.</param>
+      <param name="callback">Callback method to be called when the asynchronous operation is completed.</param>
+      <param name="state">An object containing state information for this operation.</param>
+    </member>
+    <member name="M:Xceed.Ftp.AsyncFtpClient.EndReceiveMultipleFiles(System.IAsyncResult)">
+      <summary> Ends the process of retreiving the files that match the provided file mask from the current working folder and stores them on the local system in the specified folder. </summary>
+      <param name="asyncResult">An <see cref="T:System.IAsyncResult"></see> representing the status of the asynchronous operation.</param>
+    </member>
+    <member name="M:Xceed.Ftp.AsyncFtpClient.BeginSendFile(System.String,System.AsyncCallback,System.Object)">
+      <summary> Begins the process of sending the specified file to the FTP server's current working folder and stores it using the same filename. Don't forget to call <see cref="M:Xceed.Ftp.AsyncFtpClient.EndSendFile(System.IAsyncResult)"></see>! </summary>
+      <param name="localFilename">The path and filename of the local file to send.</param>
+      <param name="callback">Callback method to be called when the asynchronous operation is completed.</param>
+      <param name="state">An object containing state information for this operation.</param>
+    </member>
+    <member name="M:Xceed.Ftp.AsyncFtpClient.BeginSendFile(System.String,System.Boolean,System.AsyncCallback,System.Object)">
+      <summary> Begins the process of sending the specified file to the FTP server's current working folder using the same filename and indicating if it should append itself to the remote file if it already exists. Don't forget to call <see cref="M:Xceed.Ftp.AsyncFtpClient.EndSendFile(System.IAsyncResult)"></see>! </summary>
+      <param name="localFilename">The path and filename of the local file to send.</param>
+      <param name="append">
+        <see langword="true">
+        </see> if the file should append itself to the remote file if it already exists; <see langword="false"></see> if the remote file should be overwritten.</param>
+      <param name="callback">Callback method to be called when the asynchronous operation is completed.</param>
+      <param name="state">An object containing state information for this operation.</param>
+    </member>
+    <member name="M:Xceed.Ftp.AsyncFtpClient.BeginSendFile(System.String,System.String,System.AsyncCallback,System.Object)">
+      <summary> Begins the process of sending the specified file to the FTP server's current working folder and stores it using the specified filename. Don't forget to call <see cref="M:Xceed.Ftp.AsyncFtpClient.EndSendFile(System.IAsyncResult)"></see>! </summary>
+      <param name="localFilename">The path and filename of the local file to send.</param>
+      <param name="remoteFilename">The filename as it will be stored on the FTP server. <b>Some FTP servers may be case-sensitive!</b></param>
+      <param name="callback">Callback method to be called when the asynchronous operation is completed.</param>
+      <param name="state">An object containing state information for this operation.</param>
+    </member>
+    <member name="M:Xceed.Ftp.AsyncFtpClient.BeginSendFile(System.String,System.String,System.Boolean,System.AsyncCallback,System.Object)">
+      <summary> Begins the process of sending the specified file to the FTP server's current working folder, indicating if it should append itself to the remote file if it already exists, and stores it using the specified filename. Don't forget to call <see cref="M:Xceed.Ftp.AsyncFtpClient.EndSendFile(System.IAsyncResult)"></see>! </summary>
+      <param name="localFilename">The path and filename of the local file to send.</param>
+      <param name="remoteFilename">The filename as it will be stored on the FTP server. <b>Some FTP servers may be case-sensitive!</b></param>
+      <param name="append">
+        <see langword="true">
+        </see> if the file should append itself to the remote file if it already exists; <see langword="false"></see> if the remote file should be overwritten.</param>
+      <param name="callback">Callback method to be called when the asynchronous operation is completed.</param>
+      <param name="state">An object containing state information for this operation.</param>
+    </member>
+    <member name="M:Xceed.Ftp.AsyncFtpClient.BeginSendFile(System.IO.Stream,System.String,System.Boolean,System.AsyncCallback,System.Object)">
+      <summary> Begins the process of sending the data from the specified <see cref="T:System.IO.Stream"></see> to the FTP server's current working folder, indicating if it should append itself to the remote file if it already exists, and stores it using the specified filename. Don't forget to call <see cref="M:Xceed.Ftp.AsyncFtpClient.EndSendFile(System.IAsyncResult)"></see>! </summary>
+      <param name="source">A <see cref="T:System.IO.Stream"></see> whose data is to be sent to the FTP server.</param>
+      <param name="remoteFilename">The filename as it will be stored on the FTP server. <b>Some FTP servers may be case-sensitive!</b></param>
+      <param name="append">
+        <see langword="true">
+        </see> if the file should append itself to the remote file if it already exists; <see langword="false"></see> if the remote file should be overwritten.</param>
+      <param name="callback">Callback method to be called when the asynchronous operation is completed.</param>
+      <param name="state">An object containing state information for this operation.</param>
+    </member>
+    <member name="M:Xceed.Ftp.AsyncFtpClient.BeginSendFile(System.IO.Stream,System.String,System.AsyncCallback,System.Object)">
+      <summary> Begins the process of sending the data from the specified <see cref="T:System.IO.Stream"></see> to the FTP server's current working folder. Don't forget to call <see cref="M:Xceed.Ftp.AsyncFtpClient.EndSendFile(System.IAsyncResult)"></see>! </summary>
+      <param name="source">A <see cref="T:System.IO.Stream"></see> whose data is to be sent to the FTP server.</param>
+      <param name="remoteFilename">The filename as it will be stored on the FTP server. <b>Some FTP servers may be case-sensitive!</b></param>
+      <param name="callback">Callback method to be called when the asynchronous operation is completed.</param>
+      <param name="state">An object containing state information for this operation.</param>
+    </member>
+    <member name="M:Xceed.Ftp.AsyncFtpClient.EndSendFile(System.IAsyncResult)">
+      <summary> Ends the process of sending a file to the FTP server. </summary>
+      <param name="asyncResult">An <see cref="T:System.IAsyncResult"></see> representing the status of the asynchronous operation.</param>
+    </member>
+    <member name="M:Xceed.Ftp.AsyncFtpClient.BeginSendFileToUniqueName(System.String,System.AsyncCallback,System.Object)">
+      <summary> Begins the process of sending the specified file to the FTP server's current working folder and stores it using a unique filename. Don't forget to call <see cref="M:Xceed.Ftp.AsyncFtpClient.EndSendFileToUniqueName(System.IAsyncResult)"></see>! </summary>
+      <param name="localFilename">The path and filename of the local file to send.</param>
+      <param name="callback">Callback method to be called when the asynchronous operation is completed.</param>
+      <param name="state">An object containing state information for this operation.</param>
+    </member>
+    <member name="M:Xceed.Ftp.AsyncFtpClient.BeginSendFileToUniqueName(System.IO.Stream,System.AsyncCallback,System.Object)">
+      <summary> Begins the process of sending the data from the specified <see cref="T:System.IO.Stream"></see> to the FTP server's current working folder and stores it using a unique filename. Don't forget to call <see cref="M:Xceed.Ftp.AsyncFtpClient.EndSendFileToUniqueName(System.IAsyncResult)"></see>! </summary>
+      <param name="source">A <see cref="T:System.IO.Stream"></see> whose data is to be sent to the FTP server.</param>
+      <param name="callback">Callback method to be called when the asynchronous operation is completed.</param>
+      <param name="state">An object containing state information for this operation.</param>
+    </member>
+    <member name="M:Xceed.Ftp.AsyncFtpClient.EndSendFileToUniqueName(System.IAsyncResult)">
+      <summary> Ends the process of sending a file to the FTP server's current working folder and storing it using a unique filename. </summary>
+      <param name="asyncResult">An <see cref="T:System.IAsyncResult"></see> representing the status of the asynchronous operation.</param>
+    </member>
+    <member name="M:Xceed.Ftp.AsyncFtpClient.BeginSendMultipleFiles(System.String,System.Boolean,System.Boolean,System.AsyncCallback,System.Object)">
+      <summary> Begins the process of sending the files that match the provided file mask to the FTP server's current working folder. Don't forget to call <see cref="M:Xceed.Ftp.AsyncFtpClient.EndSendMultipleFiles(System.IAsyncResult)"></see>! </summary>
+      <param name="localFileMask">The full path and file mask of the local files to send. This parameter can include a filtering mask to limit the files that are sent. For example, if "c:\temp\*" is specified, the entire contents of the "c:\temp" will be sent. If "c:\temp\*.txt" is used, all the files in the "c:\temp" folder that have the TXT extension will be sent. The "temp" folder will not be recreated on the FTP server.</param>
+      <param name="recursive">
+        <see langword="true">
+        </see> if the files in child folders should also be sent; <see langword="false"></see> otherwise.</param>
+      <param name="recreateFolderStructure">
+        <see langword="true">
+        </see> if the local directory structure should be recreated on the FTP server; <see langword="false"></see> otherwise.</param>
+      <param name="callback">Callback method to be called when the asynchronous operation is completed.</param>
+      <param name="state">An object containing state information for this operation.</param>
+    </member>
+    <member name="M:Xceed.Ftp.AsyncFtpClient.EndSendMultipleFiles(System.IAsyncResult)">
+      <summary> Ends the process of sending the files that match the provided file mask to the FTP server's current working folder. </summary>
+      <param name="asyncResult">An <see cref="T:System.IAsyncResult"></see> representing the status of the asynchronous operation.</param>
+    </member>
+    <member name="M:Xceed.Ftp.AsyncFtpClient.BeginSendCustomCommand(System.String,System.AsyncCallback,System.Object)">
+      <summary> Begins the process of sending a <b>custom</b> command to the FTP server. Don't forget to call <see cref="M:Xceed.Ftp.AsyncFtpClient.EndSendCustomCommand(System.IAsyncResult)"></see>! </summary>
+      <param name="command">The command to send to the FTP server.</param>
+      <param name="callback">Callback method to be called when the asynchronous operation is completed.</param>
+      <param name="state">An object containing state information for this operation.</param>
+    </member>
+    <member name="M:Xceed.Ftp.AsyncFtpClient.EndSendCustomCommand(System.IAsyncResult)">
+      <summary> Ends the process of sending a <b>custom</b> command to the FTP server. </summary>
+      <param name="asyncResult">An <see cref="T:System.IAsyncResult"></see> representing the status of the asynchronous operation.</param>
+    </member>
+    <member name="M:Xceed.Ftp.AsyncFtpClient.BeginGetDownloadStream(System.String,System.AsyncCallback,System.Object)">
+      <summary> Begins the process of retrieving a direct access to the <b>readonly</b> data stream being received. Don't forget to call <see cref="M:Xceed.Ftp.AsyncFtpClient.EndGetDownloadStream(System.IAsyncResult)"></see>! </summary>
+      <param name="remoteFilename">The filename of the file to retrieve. <b>Some FTP servers may be case-sensitive!</b></param>
+      <param name="callback">Callback method to be called when the asynchronous operation is completed.</param>
+      <param name="state">An object containing state information for this operation.</param>
+    </member>
+    <member name="M:Xceed.Ftp.AsyncFtpClient.BeginGetDownloadStream(System.String,System.Int64,System.AsyncCallback,System.Object)">
+      <summary> Begins the process of retrieving a direct access to the <b>readonly</b> data stream being received, beginning at the specified offset. Don't forget to call <see cref="M:Xceed.Ftp.AsyncFtpClient.EndGetDownloadStream(System.IAsyncResult)"></see>! </summary>
+      <param name="remoteFilename">The filename of the file to retrieve. <b>Some FTP servers may be case-sensitive!</b></param>
+      <param name="offset">The byte offset (of the remote file) at which to start receiving data from the remote file.</param>
+      <param name="callback">Callback method to be called when the asynchronous operation is completed.</param>
+      <param name="state">An object containing state information for this operation.</param>
+    </member>
+    <member name="M:Xceed.Ftp.AsyncFtpClient.EndGetDownloadStream(System.IAsyncResult)">
+      <summary> Ends the process of retrieving a direct access to the <b>readonly</b> data stream being received. </summary>
+      <param name="asyncResult">An <see cref="T:System.IAsyncResult"></see> representing the status of the asynchronous operation.</param>
+    </member>
+    <member name="M:Xceed.Ftp.AsyncFtpClient.BeginGetUploadStream(System.String,System.AsyncCallback,System.Object)">
+      <summary> Begins the process of retrieving a direct access to the <b>write-only</b> data stream to send to. </summary>
+      <param name="remoteFilename">The filename of the file to write to. <b>Some FTP servers may be case-sensitive!</b></param>
+      <param name="callback">Callback method to be called when the asynchronous operation is completed.</param>
+      <param name="state">An object containing state information for this operation.</param>
+    </member>
+    <member name="M:Xceed.Ftp.AsyncFtpClient.BeginGetUploadStream(System.String,System.Boolean,System.AsyncCallback,System.Object)">
+      <summary> Begins the process of retrieving a direct access to the <b>write-only</b> data stream to send to, indicating if existing data should be overwritten or appended to. </summary>
+      <param name="remoteFilename">The filename of the file to write to. <b>Some FTP servers may be case-sensitive!</b></param>
+      <param name="append">
+        <see langword="true">
+        </see> if existing data should be appended to; <see langword="false"></see> otherwise.</param>
+      <param name="callback">Callback method to be called when the asynchronous operation is completed.</param>
+      <param name="state">An object containing state information for this operation.</param>
+    </member>
+    <member name="M:Xceed.Ftp.AsyncFtpClient.EndGetUploadStream(System.IAsyncResult)">
+      <summary> Ends the process of retrieving a direct access to the <b>write-only</b> data stream to send to. </summary>
+      <param name="asyncResult">An <see cref="T:System.IAsyncResult"></see> representing the status of the asynchronous operation.</param>
+    </member>
+    <member name="T:Xceed.Ftp.Certificate">
+      <summary> Class which represents a X509 v3 encoded certificate. </summary>
+    </member>
+    <member name="P:Xceed.Ftp.Certificate.EffectiveDate">
+      <summary> Gets the effective date of the X.509v3 certificate. </summary>
+    </member>
+    <member name="P:Xceed.Ftp.Certificate.ExpirationDate">
+      <summary> Gets the expiration date of the X.509v3 certificate. </summary>
+    </member>
+    <member name="P:Xceed.Ftp.Certificate.IssuerName">
+      <summary> Gets the name of the certification authority that issued the X.509v3 certificate. </summary>
+    </member>
+    <member name="P:Xceed.Ftp.Certificate.Name">
+      <summary> Gets the name of the current principal. </summary>
+    </member>
+    <member name="M:Xceed.Ftp.Certificate.ToString">
+      <summary> Gets a verbose information output about the certificate. </summary>
+    </member>
+    <member name="M:Xceed.Ftp.Certificate.CreateFromPfxFile(System.String,System.String)">
+      <summary> Creates a new instance of the <see cref="T:Xceed.Ftp.Certificate"></see> class by opening a PFX file and retrieving the <b>first</b> certificate from it. </summary>
+      <param name="filename">The full path to the PFX file.</param>
+      <param name="password">The password used to encrypt the private key.</param>
+    </member>
+    <member name="M:Xceed.Ftp.Certificate.CreateFromPfxFile(System.String,System.String,System.Boolean)">
+      <summary> Creates a new instance of the <see cref="T:Xceed.Ftp.Certificate"></see> class by opening a PFX file and retrieving the <b>first</b> certificate from it. </summary>
+      <param name="filename">The full path to the PFX file.</param>
+      <param name="password">The password used to encrypt the private key.</param>
+      <param name="exportable">
+        <see langword="true">
+        </see> if the private keys associated with the certificates should be marked as exportable; <see langword="false"></see> otherwise.</param>
+    </member>
+    <member name="M:Xceed.Ftp.Certificate.CreateFromPfxFile(System.Byte[],System.String)">
+      <summary> Creates a new instance of the <see cref="T:Xceed.Ftp.Certificate"></see> class by opening a PFX file and retrieving the <b>first</b> certificate from it. </summary>
+      <param name="fileData">The contents of a PFX file.</param>
+      <param name="password">The password used to encrypt the private key.</param>
+    </member>
+    <member name="M:Xceed.Ftp.Certificate.CreateFromPfxFile(System.Byte[],System.String,System.Boolean)">
+      <summary> Creates a new instance of the <see cref="T:Xceed.Ftp.Certificate"></see> class by opening a PFX file and retrieving the <b>first</b> certificate from it. </summary>
+      <param name="fileData">The contents of a PFX file.</param>
+      <param name="password">The password used to encrypt the private key.</param>
+      <param name="exportable">
+        <see langword="true">
+        </see> if the private keys associated with the certificates should be marked as exportable; <see langword="false"></see> otherwise.</param>
+    </member>
+    <member name="M:Xceed.Ftp.Certificate.CreateFromBase64String(System.String)">
+      <summary> Creates a new certificate from a string representation. </summary>
+      <param name="certificate">A Base64-encoded representation of the certificate.</param>
+    </member>
+    <member name="M:Xceed.Ftp.Certificate.CreateFromCerFile(System.String)">
+      <summary> Creates a new instance of the <see cref="T:Xceed.Ftp.Certificate"></see> class by opening a certificate file and retrieving the <b>first</b> certificate from it. </summary>
+      <param name="filename">The full path to the certificate file to open.</param>
+    </member>
+    <member name="M:Xceed.Ftp.Certificate.CreateFromCerFile(System.Byte[])">
+      <summary> Creates a new instance of the <see cref="T:Xceed.Ftp.Certificate"></see> class by reading a certificate from a certificate blob. </summary>
+      <param name="fileData">The contents of the certificate file.</param>
+    </member>
+    <member name="M:Xceed.Ftp.Certificate.CreateFromCerFile(System.Byte[],System.Int32,System.Int32)">
+      <summary> Creates a new instance of the <see cref="T:Xceed.Ftp.Certificate"></see> class by reading a certificate from a certificate blob. </summary>
+      <param name="fileData">The contents of the certificate file.</param>
+      <param name="offset">The offset from which to start reading.</param>
+      <param name="count">The length of the certificate.</param>
+    </member>
+    <member name="M:Xceed.Ftp.Certificate.CreateFromPemFile(System.String)">
+      <summary> Creates a new instance of the <see cref="T:Xceed.Ftp.Certificate"></see> class by reading a certificate from a PEM encoded file. </summary>
+      <param name="filename">The path to the PEM file.</param>
+    </member>
+    <member name="M:Xceed.Ftp.Certificate.CreateFromPemFile(System.Byte[])">
+      <summary> Creates a new instance of the <see cref="T:Xceed.Ftp.Certificate"></see> class by reading a certificate from a PEM encoded file. </summary>
+      <param name="fileData">The contents of the PEM file.</param>
+    </member>
+    <member name="M:Xceed.Ftp.Certificate.CreateFromX509Certificate(System.Security.Cryptography.X509Certificates.X509Certificate)">
+      <summary> Creates a new instance of the <see cref="T:Xceed.Ftp.Certificate"></see> class by duplicating an existing <see cref="T:System.Security.Cryptography.X509Certificates.X509Certificate"></see> instance. </summary>
+      <param name="certificate">The X509Certificate instance to duplicate.</param>
+    </member>
+    <member name="T:Xceed.Ftp.CertificateReceivedEventArgs">
+      <summary> Provides information on the certificate that is received from the FTP server. </summary>
+    </member>
+    <member name="P:Xceed.Ftp.CertificateReceivedEventArgs.ServerCertificate">
+      <summary> Gets the certificate received from the FTP server. </summary>
+    </member>
+    <member name="P:Xceed.Ftp.CertificateReceivedEventArgs.Flags">
+      <summary> Gets or sets the verification flags used to verify the FTP server's certificate. </summary>
+    </member>
+    <member name="P:Xceed.Ftp.CertificateReceivedEventArgs.Status">
+      <summary> Gets the verification status of the certificate received from the FTP server. </summary>
+    </member>
+    <member name="P:Xceed.Ftp.CertificateReceivedEventArgs.Action">
+      <summary> Gets or sets the verification action to take when a certificate is received from an FTP server. </summary>
+    </member>
+    <member name="T:Xceed.Ftp.CertificateRequiredEventArgs">
+      <summary> Provides information on the certificate that the FTP server requires a certificate from the FTP client. </summary>
+    </member>
+    <member name="P:Xceed.Ftp.CertificateRequiredEventArgs.Certificate">
+      <summary> Gets or sets the FTP client's certificate that is required by the FTP server. </summary>
+    </member>
+    <member name="T:Xceed.Ftp.CertificateStore">
+      <summary> Class which represents a certificate store. </summary>
+    </member>
+    <member name="M:Xceed.Ftp.CertificateStore.#ctor(System.String)">
+      <summary> Initializes a new instance of a <see cref="T:Xceed.Ftp.CertificateStore"></see> from a given store name. </summary>
+      <param name="storeName">The name of the system store to open.</param>
+    </member>
+    <member name="M:Xceed.Ftp.CertificateStore.#ctor(Xceed.Ftp.CertificateStoreLocation,System.String)">
+      <summary> Initializes a new instance of a <see cref="T:Xceed.Ftp.CertificateStore"></see> from a given name and store location. </summary>
+      <param name="location">The location of the store.</param>
+      <param name="storeName">The name of the store to open.</param>
+    </member>
+    <member name="M:Xceed.Ftp.CertificateStore.#ctor">
+      <summary> Initializes a new temporary instance of a <see cref="T:Xceed.Ftp.CertificateStore"></see> in memory. </summary>
+    </member>
+    <member name="M:Xceed.Ftp.CertificateStore.CreateFromPfxFile(System.String,System.String)">
+      <summary> Creates a new certificate store from a PFX/P12 encoded file. </summary>
+      <param name="filename">The full path to the PFX file.</param>
+      <param name="password">The password used to encrypt the private key.</param>
+    </member>
+    <member name="M:Xceed.Ftp.CertificateStore.CreateFromPfxFile(System.String,System.String,System.Boolean)">
+      <summary> Creates a new certificate store from a PFX/P12 encoded file. </summary>
+      <param name="filename">The full path to the PFX file.</param>
+      <param name="password">The password used to encrypt the private key.</param>
+      <param name="exportable">
+        <see langword="true">
+        </see> if the private keys associated with the certificates should be marked as exportable; <see langword="false"></see> otherwise.</param>
+    </member>
+    <member name="M:Xceed.Ftp.CertificateStore.CreateFromPfxFile(System.Byte[],System.String)">
+      <summary> Creates a new certificate store from a PFX/P12 encoded byte array. </summary>
+      <param name="fileData">The contents of a PFX encoded byte array.</param>
+      <param name="password">The password used to encrypt the private key.</param>
+    </member>
+    <member name="M:Xceed.Ftp.CertificateStore.CreateFromPfxFile(System.Byte[],System.String,System.Boolean)">
+      <summary> Creates a new certificate store from a PFX/P12 encoded byte array. </summary>
+      <param name="fileData">The contents of a PFX file.</param>
+      <param name="password">The password used to encrypt the private key.</param>
+      <param name="exportable">
+        <see langword="true">
+        </see> if the private keys associated with the certificates should be marked as exportable; <see langword="false"></see> otherwise.</param>
+    </member>
+    <member name="M:Xceed.Ftp.CertificateStore.CreateFromCerFile(System.String)">
+      <summary> Creates a new certificate store from a certificate file. </summary>
+      <param name="filename">The certificate file.</param>
+    </member>
+    <member name="M:Xceed.Ftp.CertificateStore.GetCertificates">
+      <summary> Enumerates all the certificates in the store. </summary>
+    </member>
+    <member name="M:Xceed.Ftp.CertificateStore.GetCertificatesByKeyUsage(System.String[])">
+      <summary> Enumerates all the certificates in the store. </summary>
+      <param name="keyUsages">The list of enhanced key usages to search for.</param>
+    </member>
+    <member name="M:Xceed.Ftp.CertificateStore.GetCertificateByHash(System.Byte[])">
+      <summary> Retrieves a certificate with a matching hash. </summary>
+      <param name="hash">The hash to search for.</param>
+    </member>
+    <member name="M:Xceed.Ftp.CertificateStore.GetCertificateByKeyIdentifier(System.Byte[])">
+      <summary> Retrieves a certificate with a matching key identifier. </summary>
+      <param name="keyID">The key identifier to search for.</param>
+    </member>
+    <member name="M:Xceed.Ftp.CertificateStore.GetCertificatesBySubjectName(System.String)">
+      <summary> Retrieves a certificate with a matching subject name. </summary>
+      <param name="name">The X500 string to search for.</param>
+    </member>
+    <member name="M:Xceed.Ftp.CertificateStore.GetCertificatesBySubjectString(System.String)">
+      <summary> Finds a certificate with a subject that contains a specified string. </summary>
+      <param name="subject">The string to search for.</param>
+    </member>
+    <member name="T:Xceed.Ftp.CertificateStoreName">
+      <summary> Class which contains static predefined system certificates. </summary>
+    </member>
+    <member name="P:Xceed.Ftp.CertificateStoreName.CAStore">
+      <summary> Represents the predefined system certificate store "CA". </summary>
+    </member>
+    <member name="P:Xceed.Ftp.CertificateStoreName.MyStore">
+      <summary> Represents the predefined system certificate store "My". </summary>
+    </member>
+    <member name="P:Xceed.Ftp.CertificateStoreName.RootStore">
+      <summary> Represents the predefined system certificate store "Root". </summary>
+    </member>
+    <member name="P:Xceed.Ftp.CertificateStoreName.TrustStore">
+      <summary> Represents the predefined system certificate store "Trust". </summary>
+    </member>
+    <member name="P:Xceed.Ftp.CertificateStoreName.UntrustedStore">
+      <summary> Represents the untrusted certificate store. </summary>
+    </member>
+    <member name="P:Xceed.Ftp.CertificateStoreName.SoftwarePublisherStore">
+      <summary> Represents the software publisher certificate store. </summary>
+    </member>
+    <member name="T:Xceed.Ftp.CommandSentEventArgs">
+      <summary> Provides information on the command that has been sent to the FTP server. </summary>
+    </member>
+    <member name="P:Xceed.Ftp.CommandSentEventArgs.Command">
+      <summary> Gets the command that was sent to the FTP server. </summary>
+    </member>
+    <member name="T:Xceed.Ftp.FileTransferStatusEventArgs">
+      <summary> Provides progress information while sending or receiving one or more files. </summary>
+    </member>
+    <member name="P:Xceed.Ftp.FileTransferStatusEventArgs.LocalFilename">
+      <summary> Gets the path and filename of the local file. </summary>
+    </member>
+    <member name="P:Xceed.Ftp.FileTransferStatusEventArgs.RemoteFilename">
+      <summary> Gets the filename of the remote file. </summary>
+    </member>
+    <member name="P:Xceed.Ftp.FileTransferStatusEventArgs.BytesTransferred">
+      <summary> Gets the amount of bytes transferred for the current file. </summary>
+    </member>
+    <member name="P:Xceed.Ftp.FileTransferStatusEventArgs.BytesSkipped">
+      <summary> Gets the amount of bytes that were skipped for the current file. </summary>
+    </member>
+    <member name="P:Xceed.Ftp.FileTransferStatusEventArgs.BytesTotal">
+      <summary> Gets the total amount of bytes for the current file. </summary>
+    </member>
+    <member name="P:Xceed.Ftp.FileTransferStatusEventArgs.BytesPercent">
+      <summary> Gets the percentage of bytes transferred for the current file. </summary>
+    </member>
+    <member name="P:Xceed.Ftp.FileTransferStatusEventArgs.BytesPerSecond">
+      <summary> Gets the current file's average throughput in bytes per second. </summary>
+    </member>
+    <member name="P:Xceed.Ftp.FileTransferStatusEventArgs.AllBytesTransferred">
+      <summary> Gets the total amount of bytes transferred so far for the group of files being transferred. </summary>
+    </member>
+    <member name="P:Xceed.Ftp.FileTransferStatusEventArgs.AllBytesSkipped">
+      <summary> Gets the total amount of bytes that were skipped so far for the group of files being transferred. </summary>
+    </member>
+    <member name="P:Xceed.Ftp.FileTransferStatusEventArgs.AllBytesTotal">
+      <summary> Gets the total amount of bytes of all files that will be transferred. </summary>
+    </member>
+    <member name="P:Xceed.Ftp.FileTransferStatusEventArgs.AllBytesPercent">
+      <summary> Gets the percentage of the bytes that have been transferred for the entire group of files to transfer. </summary>
+    </member>
+    <member name="P:Xceed.Ftp.FileTransferStatusEventArgs.AllBytesPerSecond">
+      <summary> Gets the average throughput for the entire group of files being transferred, in bytes per second. </summary>
+    </member>
+    <member name="P:Xceed.Ftp.FileTransferStatusEventArgs.FilesTransferred">
+      <summary> Gets the total number of files transferred so far. </summary>
+    </member>
+    <member name="P:Xceed.Ftp.FileTransferStatusEventArgs.FilesSkipped">
+      <summary> Gets the total number of files skipped so far. </summary>
+    </member>
+    <member name="P:Xceed.Ftp.FileTransferStatusEventArgs.FilesTotal">
+      <summary> Gets the total number of files to transfer. </summary>
+    </member>
+    <member name="P:Xceed.Ftp.FileTransferStatusEventArgs.FilesPercent">
+      <summary> Gets the percentage of files that have been transferred so far. </summary>
+    </member>
+    <member name="T:Xceed.Ftp.FtpListingParser">
+      <summary> Class which represents a parser that is used to parse listing lines received from an FTP server. </summary>
+    </member>
+    <member name="M:Xceed.Ftp.FtpListingParser.#ctor">
+      <summary>Initializes a new instance of the FtpListingParser class.</summary>
+    </member>
+    <member name="M:Xceed.Ftp.FtpListingParser.CreateItem">
+      <summary> Creates a new <see cref="T:Xceed.Ftp.FtpItemInfo"></see> object. </summary>
+    </member>
+    <member name="M:Xceed.Ftp.FtpListingParser.ParseLine(System.String)">
+      <summary> Parses the specified listing line received from the FTP server. </summary>
+      <param name="line">The listing line received from the FTP server.</param>
+    </member>
+    <member name="T:Xceed.Ftp.FtpAS400ListingParser">
+      <summary> Class which represents a parser that is used to parse lines received from an AS400 FTP server. </summary>
+    </member>
+    <member name="M:Xceed.Ftp.FtpAS400ListingParser.#ctor">
+      <summary> Initializes a new instance of the FtpAS400ListingParser class. </summary>
+    </member>
+    <member name="M:Xceed.Ftp.FtpAS400ListingParser.ParseLine(System.String)">
+      <summary> Parses the specified listing line received from the FTP server. </summary>
+      <param name="line">The listing line received from the FTP server.</param>
+    </member>
+    <member name="T:Xceed.Ftp.FtpDosListingParser">
+      <summary> Class which represents a parser that is used to parse lines received from a Windows or DOS FTP server. </summary>
+    </member>
+    <member name="M:Xceed.Ftp.FtpDosListingParser.#ctor">
+      <summary> Initializes a new instance of the FtpDosListingParser class. </summary>
+    </member>
+    <member name="M:Xceed.Ftp.FtpDosListingParser.ParseLine(System.String)">
+      <summary> Parses the specified listing line received from the FTP server. </summary>
+      <param name="line">The listing line received from the FTP server.</param>
+    </member>
+    <member name="T:Xceed.Ftp.FtpItemInfo">
+      <summary> Represents an item on an FTP server and contains information relevant to that item. </summary>
+    </member>
+    <member name="P:Xceed.Ftp.FtpItemInfo.Name">
+      <summary> Gets or sets the name of the item. </summary>
+    </member>
+    <member name="P:Xceed.Ftp.FtpItemInfo.DateTime">
+      <summary> Gets or sets the date and time of the item, or DateTime.MinDate if the date is unknown or not applicable. </summary>
+    </member>
+    <member name="P:Xceed.Ftp.FtpItemInfo.Size">
+      <summary> Gets or sets the size of the item, or -1 if the size is unknown or not applicable. </summary>
+    </member>
+    <member name="P:Xceed.Ftp.FtpItemInfo.Type">
+      <summary> Gets or sets the type of the item. </summary>
+    </member>
+    <member name="P:Xceed.Ftp.FtpItemInfo.Empty">
+      <summary> Gets an empty FtpItemInfo object. </summary>
+    </member>
+    <member name="P:Xceed.Ftp.FtpItemInfo.IsEmpty">
+      <summary> Gets a boolean value indicating if the FtpItemInfo object is uninitialized. </summary>
+    </member>
+    <member name="T:Xceed.Ftp.FtpItemInfoList">
+      <summary> Contains a list of <see cref="T:Xceed.Ftp.FtpItemInfo"></see> objects. </summary>
+    </member>
+    <member name="P:Xceed.Ftp.FtpItemInfoList.IsFixedSize">
+      <summary> Gets a value indicating whether the FtpItemInfoList has a fixed size. </summary>
+    </member>
+    <member name="P:Xceed.Ftp.FtpItemInfoList.IsReadOnly">
+      <summary> Gets a boolean value indicating if the FtpItemInfoList is readonly. </summary>
+    </member>
+    <member name="P:Xceed.Ftp.FtpItemInfoList.Item(System.Int32)">
+      <summary> Gets or sets the <see cref="T:Xceed.Ftp.FtpItemInfo"></see> object at the specified index. </summary>
+      <param name="index">The zero-based index at which to get the <see cref="T:Xceed.Ftp.FtpItemInfo"></see> object.</param>
+    </member>
+    <member name="M:Xceed.Ftp.FtpItemInfoList.OnValidate(System.Object)">
+      <summary> Performs additional custom processes when validating a value. </summary>
+      <param name="value">The object to validate.</param>
+    </member>
+    <member name="M:Xceed.Ftp.FtpItemInfoList.Contains(Xceed.Ftp.FtpItemInfo)">
+      <summary> Retrieves a boolean value indicating if a specific <see cref="T:Xceed.Ftp.FtpItemInfo"></see> object exists in the list. </summary>
+      <param name="value">The <see cref="T:Xceed.Ftp.FtpItemInfo"></see> object to locate.</param>
+    </member>
+    <member name="M:Xceed.Ftp.FtpItemInfoList.IndexOf(Xceed.Ftp.FtpItemInfo)">
+      <summary> Searches for the specified <see cref="T:Xceed.Ftp.FtpItemInfo"></see> object and returns the zero-based index of the first occurrence within the list. </summary>
+      <param name="value">The <see cref="T:Xceed.Ftp.FtpItemInfo"></see> object to locate.</param>
+    </member>
+    <member name="M:Xceed.Ftp.FtpItemInfoList.RemoveAt(System.Int32)">
+      <summary> Removes the <see cref="T:Xceed.Ftp.FtpItemInfo"></see> object from the list at the specified index. </summary>
+      <param name="index">The zero-based index at which to remove the <see cref="T:Xceed.Ftp.FtpItemInfo"></see> object.</param>
+    </member>
+    <member name="M:Xceed.Ftp.FtpItemInfoList.Insert(System.Int32,Xceed.Ftp.FtpItemInfo)">
+      <summary> Inserts a <see cref="T:Xceed.Ftp.FtpItemInfo"></see> object into the list at the specified index </summary>
+      <param name="index">The zero-based index at which to insert the <see cref="T:Xceed.Ftp.FtpItemInfo"></see> object.</param>
+      <param name="value">The <see cref="T:Xceed.Ftp.FtpItemInfo"></see> object to insert.</param>
+    </member>
+    <member name="M:Xceed.Ftp.FtpItemInfoList.Remove(Xceed.Ftp.FtpItemInfo)">
+      <summary> Removes the <see cref="T:Xceed.Ftp.FtpItemInfo"></see> object from the list. </summary>
+      <param name="value">The <see cref="T:Xceed.Ftp.FtpItemInfo"></see> object to remove.</param>
+    </member>
+    <member name="M:Xceed.Ftp.FtpItemInfoList.Clear">
+      <summary> Removes all <see cref="T:Xceed.Ftp.FtpItemInfo"></see> objects from the list. </summary>
+    </member>
+    <member name="M:Xceed.Ftp.FtpItemInfoList.Add(Xceed.Ftp.FtpItemInfo)">
+      <summary> Adds a <see cref="T:Xceed.Ftp.FtpItemInfo"></see> object to the list. </summary>
+      <param name="value">The <see cref="T:Xceed.Ftp.FtpItemInfo"></see> object to add.</param>
+    </member>
+    <member name="M:Xceed.Ftp.FtpItemInfoList.AddRange(Xceed.Ftp.FtpItemInfo[])">
+      <summary> Adds the elements of a <see cref="T:Xceed.Ftp.FtpItemInfo"></see> array to the end of the FtpItemInfoList collection. </summary>
+      <param name="values">An array of <see cref="T:Xceed.Ftp.FtpItemInfo"></see> objects representing the <see cref="T:Xceed.Ftp.FtpItemInfo" nolink="true"></see> objects to add to the end of the FtpItemInfoList collection</param>
+    </member>
+    <member name="T:Xceed.Ftp.FtpListingParserList">
+      <summary> Contains a list of <see cref="T:Xceed.Ftp.FtpListingParser"></see> objects. </summary>
+    </member>
+    <member name="P:Xceed.Ftp.FtpListingParserList.IsFixedSize">
+      <summary> Gets a value indicating whether the FtpListingParserList has a fixed size. </summary>
+    </member>
+    <member name="P:Xceed.Ftp.FtpListingParserList.IsReadOnly">
+      <summary> Gets a boolean value indicating if the FtpListingParserList is readonly. </summary>
+    </member>
+    <member name="P:Xceed.Ftp.FtpListingParserList.Item(System.Int32)">
+      <summary> Gets or sets the <see cref="T:Xceed.Ftp.FtpListingParser"></see> object at the specified index. </summary>
+      <param name="index">The zero-based index at which to get the <see cref="T:Xceed.Ftp.FtpListingParser"></see> object.</param>
+    </member>
+    <member name="M:Xceed.Ftp.FtpListingParserList.OnParsingListingLine(Xceed.Ftp.FtpItemInfo,System.String,System.Boolean@)">
+      <summary> Raises the <see cref="E:Xceed.Ftp.FtpListingParserList.ParsingListingLine"></see> event. </summary>
+      <param name="item">An <see cref="T:Xceed.Ftp.FtpItemInfo"></see> object containing the information relative to an item (file, folder or link) on an FTP server.</param>
+      <param name="line">The line from which the <see cref="T:Xceed.Ftp.FtpItemInfo"></see> was created.</param>
+      <param name="valid">
+        <see langword="true">
+        </see> if the line represents a valid item; <see langword="false"></see> otherwise.</param>
+    </member>
+    <member name="M:Xceed.Ftp.FtpListingParserList.OnValidate(System.Object)">
+      <summary> Performs additional custom processes when validating a value. </summary>
+      <param name="value">The object to validate.</param>
+    </member>
+    <member name="M:Xceed.Ftp.FtpListingParserList.Contains(Xceed.Ftp.FtpListingParser)">
+      <summary> Retrieves a boolean value indicating if a specific <see cref="T:Xceed.Ftp.FtpListingParser"></see> object exists in the list.</summary>
+      <param name="value">The <see cref="T:Xceed.Ftp.FtpListingParser"></see> object to locate.</param>
+    </member>
+    <member name="M:Xceed.Ftp.FtpListingParserList.IndexOf(Xceed.Ftp.FtpListingParser)">
+      <summary> Searches for the specified <see cref="T:Xceed.Ftp.FtpListingParser"></see> object and returns the zero-based index of the first occurrence within the list. </summary>
+      <param name="value">The <see cref="T:Xceed.Ftp.FtpListingParser"></see> object to locate.</param>
+    </member>
+    <member name="M:Xceed.Ftp.FtpListingParserList.RemoveAt(System.Int32)">
+      <summary> Removes the <see cref="T:Xceed.Ftp.FtpListingParser"></see> object from the list at the specified index. </summary>
+      <param name="index">The zero-based index at which to remove the <see cref="T:Xceed.Ftp.FtpListingParser"></see> object.</param>
+    </member>
+    <member name="M:Xceed.Ftp.FtpListingParserList.Insert(System.Int32,Xceed.Ftp.FtpListingParser)">
+      <summary> Inserts a <see cref="T:Xceed.Ftp.FtpListingParser"></see> object into the list at the specified index </summary>
+      <param name="index">The zero-based index at which to insert the <see cref="T:Xceed.Ftp.FtpListingParser"></see> object.</param>
+      <param name="value">The <see cref="T:Xceed.Ftp.FtpListingParser"></see> object to insert.</param>
+    </member>
+    <member name="M:Xceed.Ftp.FtpListingParserList.Remove(Xceed.Ftp.FtpListingParser)">
+      <summary> Removes the <see cref="T:Xceed.Ftp.FtpListingParser"></see> object from the list. </summary>
+      <param name="value">The <see cref="T:Xceed.Ftp.FtpListingParser"></see> object to remove.</param>
+    </member>
+    <member name="M:Xceed.Ftp.FtpListingParserList.Clear">
+      <summary> Removes all <see cref="T:Xceed.Ftp.FtpListingParser"></see> objects from the list. </summary>
+    </member>
+    <member name="M:Xceed.Ftp.FtpListingParserList.Add(Xceed.Ftp.FtpListingParser)">
+      <summary> Adds a <see cref="T:Xceed.Ftp.FtpListingParser"></see> object to the list. </summary>
+      <param name="value">The <see cref="T:Xceed.Ftp.FtpListingParser"></see> object to add.</param>
+    </member>
+    <member name="M:Xceed.Ftp.FtpListingParserList.AddRange(Xceed.Ftp.FtpListingParser[])">
+      <summary> Adds the elements of a <see cref="T:Xceed.Ftp.FtpListingParser"></see> object array to the end of the FtpListingParserList collection. </summary>
+      <param name="values">An array of <see cref="T:Xceed.Ftp.FtpListingParser"></see> objects representing the <see cref="T:Xceed.Ftp.FtpListingParser" nolink="true"></see> objects to add to the end of the FtpListingParserList collection.</param>
+    </member>
+    <member name="M:Xceed.Ftp.FtpListingParserList.ParseListing(Xceed.Ftp.StringList)">
+      <summary> Parses a raw (unprocessed) folder listing, querying if each <see cref="T:Xceed.Ftp.FtpListingParser"></see> can retrieve relevant information from each line. </summary>
+      <param name="lines">The raw (unprocessed) folder listing lines to parse.</param>
+    </member>
+    <member name="E:Xceed.Ftp.FtpListingParserList.ParsingListingLine">
+      <summary> Raised for each folder listing line sent by the FTP server and allows you to manually parse the lines. </summary>
+    </member>
+    <member name="T:Xceed.Ftp.FtpReply">
+      <summary> Represents a reply received from the FTP server. </summary>
+    </member>
+    <member name="P:Xceed.Ftp.FtpReply.Lines">
+      <summary> Gets the lines returned by the FTP server as a reply to a command. </summary>
+    </member>
+    <member name="P:Xceed.Ftp.FtpReply.Message">
+      <summary> Gets the text following the last line of the full text returned by the FTP server <b>without</b> the reply code. </summary>
+    </member>
+    <member name="P:Xceed.Ftp.FtpReply.ReplyCode">
+      <summary> Gets the reply code returned by the FTP server. </summary>
+    </member>
+    <member name="P:Xceed.Ftp.FtpReply.Type">
+      <summary> Gets a value representing the type of reply received from the FTP server. </summary>
+    </member>
+    <member name="M:Xceed.Ftp.FtpReply.ToString">
+      <summary> Returns a string representing the reply received from the FTP server. </summary>
+    </member>
+    <member name="T:Xceed.Ftp.FtpUnixListingParser">
+      <summary> Class which represents a parser that is used to parse lines received from a UNIX FTP server. </summary>
+    </member>
+    <member name="M:Xceed.Ftp.FtpUnixListingParser.#ctor">
+      <summary> Initializes a new instance of the FtpUnixListingParser class. </summary>
+    </member>
+    <member name="M:Xceed.Ftp.FtpUnixListingParser.ParseLine(System.String)">
+      <summary> Parses the specified listing line received from the FTP server. </summary>
+      <param name="line">The listing line received from the FTP server.</param>
+    </member>
+    <member name="T:Xceed.Ftp.FtpVmsListingParser">
+      <summary> Class which represents a parser that is used to parse lines received from a VMS FTP server. </summary>
+    </member>
+    <member name="M:Xceed.Ftp.FtpVmsListingParser.#ctor">
+      <summary> Initializes a new instance of the FtpVmsListingParser class. </summary>
+    </member>
+    <member name="M:Xceed.Ftp.FtpVmsListingParser.ParseLine(System.String)">
+      <summary> Parses the specified listing line received from the FTP server. </summary>
+      <param name="line">The listing line received from the FTP server.</param>
+    </member>
+    <member name="T:Xceed.Ftp.Licenser">
+      <summary> Class which is used to register the classes located in the Xceed.Ftp namespace. </summary>
+    </member>
+    <member name="P:Xceed.Ftp.Licenser.LicenseKey">
+      <summary> Gets or sets the license key used to license this product. </summary>
+    </member>
+    <member name="T:Xceed.Ftp.MultipleFileTransferErrorEventArgs">
+      <summary> Provides information for files that fail to be transferred during a multiple-file transfer. </summary>
+    </member>
+    <member name="P:Xceed.Ftp.MultipleFileTransferErrorEventArgs.Action">
+      <summary> Gets or sets a value indicating the action to take for the file failed to be transferred during a multiple-file transfer. </summary>
+    </member>
+    <member name="P:Xceed.Ftp.MultipleFileTransferErrorEventArgs.LocalItemName">
+      <summary> Gets the local path and name of the item that failed to be transferred during a multiple-file transfer. </summary>
+    </member>
+    <member name="P:Xceed.Ftp.MultipleFileTransferErrorEventArgs.RemoteItemName">
+      <summary> Gets the remote name of the item that failed to be transferred during a multiple-file transfer. </summary>
+    </member>
+    <member name="P:Xceed.Ftp.MultipleFileTransferErrorEventArgs.RemoteItemType">
+      <summary> Gets or sets the type of the remote item which failed to be transferred during a multiple-file transfer. </summary>
+    </member>
+    <member name="P:Xceed.Ftp.MultipleFileTransferErrorEventArgs.Exception">
+      <summary> Gets the exception that was thrown while attempting to transfer a file during a multiple-file transfer. </summary>
+    </member>
+    <member name="T:Xceed.Ftp.ParsingListingLineEventArgs">
+      <summary> Provides information on the FTP item whose listing information was retrieved. </summary>
+    </member>
+    <member name="P:Xceed.Ftp.ParsingListingLineEventArgs.Item">
+      <summary> Gets an FtpItemInfo object representing the listing information of an FTP item. </summary>
+    </member>
+    <member name="P:Xceed.Ftp.ParsingListingLineEventArgs.Line">
+      <summary> Gets the listing line which was returned by the FTP server and used to create the Item. </summary>
+    </member>
+    <member name="P:Xceed.Ftp.ParsingListingLineEventArgs.Valid">
+      <summary> Gets or sets a boolean value indicating if the listing line returned by the FTP server was valid. </summary>
+    </member>
+    <member name="T:Xceed.Ftp.ReplyReceivedEventArgs">
+      <summary> Provides information on the reply that has been received from the FTP server. </summary>
+    </member>
+    <member name="P:Xceed.Ftp.ReplyReceivedEventArgs.Reply">
+      <summary> Gets the reply that was received from the FTP server. </summary>
+    </member>
+    <member name="T:Xceed.Ftp.StringList">
+      <summary> Contains a list of strings. </summary>
+    </member>
+    <member name="P:Xceed.Ftp.StringList.IsFixedSize">
+      <summary> Gets a value indicating whether the StringList has a fixed size. </summary>
+    </member>
+    <member name="P:Xceed.Ftp.StringList.IsReadOnly">
+      <summary> Gets a boolean value indicating if the StringList is readonly. </summary>
+    </member>
+    <member name="P:Xceed.Ftp.StringList.Item(System.Int32)">
+      <summary> Gets or sets the string at the specified index. </summary>
+      <param name="index">The zero-based index at which to get the string.</param>
+    </member>
+    <member name="M:Xceed.Ftp.StringList.OnValidate(System.Object)">
+      <summary> Performs additional custom processes when validating a value. </summary>
+      <param name="value">The object to validate.</param>
+    </member>
+    <member name="M:Xceed.Ftp.StringList.ToString">
+      <summary> Returns a string representing the entire contents the string list. Each item in the string list is separated by a carriage-return/line-feed (CRLF). </summary>
+    </member>
+    <member name="M:Xceed.Ftp.StringList.Contains(System.String)">
+      <summary> Retrieves a boolean value indicating if a specific string exists in the list. </summary>
+      <param name="value">The string to locate.</param>
+    </member>
+    <member name="M:Xceed.Ftp.StringList.IndexOf(System.String)">
+      <summary> Searches for the specified string and returns the zero-based index of the first occurrence within the list. </summary>
+      <param name="value">The string to locate.</param>
+    </member>
+    <member name="M:Xceed.Ftp.StringList.RemoveAt(System.Int32)">
+      <summary> Removes the string from the list at the specified index. </summary>
+      <param name="index">The zero-based index at which to remove the string.</param>
+    </member>
+    <member name="M:Xceed.Ftp.StringList.Insert(System.Int32,System.String)">
+      <summary> Inserts a string into the list at the specified index </summary>
+      <param name="index">The zero-based index at which to insert the string.</param>
+      <param name="value">The string to insert.</param>
+    </member>
+    <member name="M:Xceed.Ftp.StringList.Remove(System.String)">
+      <summary> Removes the string from the list. </summary>
+      <param name="value">The string to remove.</param>
+    </member>
+    <member name="M:Xceed.Ftp.StringList.Clear">
+      <summary> Removes all strings from the list. </summary>
+    </member>
+    <member name="M:Xceed.Ftp.StringList.Add(System.String)">
+      <summary> Adds a string to the list. </summary>
+      <param name="value">The string to add.</param>
+    </member>
+    <member name="M:Xceed.Ftp.StringList.AddRange(System.String[])">
+      <summary> Adds the elements of a string array to the end of the StringList collection. </summary>
+      <param name="values">An array of strings representing the strings to add to the end of the StringList collection</param>
+    </member>
+    <member name="T:Xceed.Ftp.TransferringFileEventArgs">
+      <summary> Provides information on the file being sent or received. </summary>
+    </member>
+    <member name="P:Xceed.Ftp.TransferringFileEventArgs.LocalFilename">
+      <summary> Gets the path and filename of the local file. </summary>
+    </member>
+    <member name="P:Xceed.Ftp.TransferringFileEventArgs.RemoteFilename">
+      <summary> Gets the filename of the remote file. </summary>
+    </member>
+    <member name="T:Xceed.Ftp.CertificateReceivedEventHandler">
+      <summary> Represents that method that will handle the <see cref="E:Xceed.Ftp.FtpClient.CertificateReceived"></see> event. </summary>
+      <param name="sender">The object on which the method was called.</param>
+      <param name="e">A <see cref="T:Xceed.Ftp.CertificateReceivedEventArgs"></see> that contains the event data.</param>
+    </member>
+    <member name="T:Xceed.Ftp.CertificateRequiredEventHandler">
+      <summary> Represents that method that will handle the <see cref="E:Xceed.Ftp.FtpClient.CertificateRequired"></see> event. </summary>
+      <param name="sender">The object on which the method was called.</param>
+      <param name="e">A <see cref="T:Xceed.Ftp.CertificateRequiredEventArgs"></see> that contains the event data.</param>
+    </member>
+    <member name="T:Xceed.Ftp.CommandSentEventHandler">
+      <summary> Represents the method that will handle the <see cref="E:Xceed.Ftp.FtpClient.CommandSent"></see> event. </summary>
+      <param name="sender">The object on which the method was called.</param>
+      <param name="e">A <see cref="T:Xceed.Ftp.CommandSentEventArgs"></see> that contains the event data.</param>
+    </member>
+    <member name="T:Xceed.Ftp.FileTransferStatusEventHandler">
+      <summary> Represents the method that will handle the <see cref="E:Xceed.Ftp.FtpClient.FileTransferStatus"></see> event. </summary>
+      <param name="sender">The object on which the method was called.</param>
+      <param name="e">A <see cref="T:Xceed.Ftp.FileTransferStatusEventArgs"></see> that contains the event data.</param>
+    </member>
+    <member name="T:Xceed.Ftp.MultipleFileTransferErrorEventHandler">
+      <summary> Represents the method that will handle the <see cref="E:Xceed.Ftp.FtpClient.MultipleFileTransferError"></see> event. </summary>
+      <param name="sender">The object on which the method was called.</param>
+      <param name="e">A <see cref="T:Xceed.Ftp.MultipleFileTransferErrorEventArgs"></see> that contains the event data.</param>
+    </member>
+    <member name="T:Xceed.Ftp.ParsingListingLineEventHandler">
+      <summary> Represents the method that will handle the <see cref="E:Xceed.Ftp.FtpClient.ParsingListingLine"></see> event. </summary>
+      <param name="sender">The object on which the method was called.</param>
+      <param name="e">A <see cref="T:Xceed.Ftp.ParsingListingLineEventArgs"></see> that contains the event data.</param>
+    </member>
+    <member name="T:Xceed.Ftp.ReplyReceivedEventHandler">
+      <summary> Represents the method that will handle the <see cref="E:Xceed.Ftp.FtpClient.ReplyReceived"></see> event. </summary>
+      <param name="sender">The object on which the method was called.</param>
+      <param name="e">A <see cref="T:Xceed.Ftp.ReplyReceivedEventArgs"></see> that contains the event data.</param>
+    </member>
+    <member name="T:Xceed.Ftp.TransferringFileEventHandler">
+      <summary> Represents the method that will handle the <see cref="E:Xceed.Ftp.FtpClient.SendingFile"></see> and <see cref="E:Xceed.Ftp.FtpClient.ReceivingFile"></see> events. </summary>
+      <param name="sender">The object on which the method was called.</param>
+      <param name="e">A <see cref="T:Xceed.Ftp.TransferringFileEventArgs"></see> that contains the event data.</param>
+    </member>
+    <member name="T:Xceed.Ftp.AuthenticationMethod">
+      <summary> Value representing the authentication method to use when connecting to an FTP server. </summary>
+    </member>
+    <member name="F:Xceed.Ftp.AuthenticationMethod.None">
+      <summary>No authentication method will be used.</summary>
+    </member>
+    <member name="F:Xceed.Ftp.AuthenticationMethod.Ssl">
+      <summary>SSL authentication will be used. AUTH SSL is sent and only SSL 3.0 is accepted.</summary>
+    </member>
+    <member name="F:Xceed.Ftp.AuthenticationMethod.Tls">
+      <summary>TLS (SSL 3.1) authentication will be used. AUTH TLS is sent, but both TLS and SSL 3.0 are accepted.</summary>
+    </member>
+    <member name="T:Xceed.Ftp.CertificateStoreLocation">
+      <summary> Value representing a certificate's store location. </summary>
+    </member>
+    <member name="F:Xceed.Ftp.CertificateStoreLocation.CurrentService">
+      <summary>The certificate store for the current service.</summary>
+    </member>
+    <member name="F:Xceed.Ftp.CertificateStoreLocation.CurrentUser">
+      <summary>The certificate store for the currently logged-on user.</summary>
+    </member>
+    <member name="F:Xceed.Ftp.CertificateStoreLocation.CurrentUserGroupPolicy">
+      <summary>The certificate store for the currently logged-on group.</summary>
+    </member>
+    <member name="F:Xceed.Ftp.CertificateStoreLocation.LocalMachine">
+      <summary>The certificate store for the local computer.</summary>
+    </member>
+    <member name="F:Xceed.Ftp.CertificateStoreLocation.LocalMachineEnterprise">
+      <summary>The certificate store for the local machine enterprise downloaded from a network setting.</summary>
+    </member>
+    <member name="F:Xceed.Ftp.CertificateStoreLocation.LocalMachineGroupPolicy">
+      <summary>The certificate store for the local machine group policy downloaded from a network setting.</summary>
+    </member>
+    <member name="F:Xceed.Ftp.CertificateStoreLocation.Services">
+      <summary>The certificate store for a specified service account; for example, an Alerter or the Event Log.</summary>
+    </member>
+    <member name="F:Xceed.Ftp.CertificateStoreLocation.Unknown">
+      <summary>The location is unknown.</summary>
+    </member>
+    <member name="F:Xceed.Ftp.CertificateStoreLocation.Users">
+      <summary>The certificate store for the users group of this computer.</summary>
+    </member>
+    <member name="T:Xceed.Ftp.DataChannelProtection">
+      <summary> Value representing how a data channel is protected. </summary>
+    </member>
+    <member name="F:Xceed.Ftp.DataChannelProtection.Clear">
+      <summary> Do not secure the data channel. Data is sent out in clear. </summary>
+    </member>
+    <member name="F:Xceed.Ftp.DataChannelProtection.Integrity">
+      <summary> The data won't be encrypted, but a checksum will be performed. </summary>
+    </member>
+    <member name="F:Xceed.Ftp.DataChannelProtection.Confidential">
+      <summary> The data will be encrypted, but no checksum will be made. </summary>
+    </member>
+    <member name="F:Xceed.Ftp.DataChannelProtection.Private">
+      <summary> The data will be encrypted and a checksum will be performed. </summary>
+    </member>
+    <member name="T:Xceed.Ftp.FtpClientState">
+      <summary> Value representing the state of the <see cref="T:Xceed.Ftp.FtpClient"></see>. </summary>
+    </member>
+    <member name="F:Xceed.Ftp.FtpClientState.NotConnected">
+      <summary>The FTP client is not connected to an FTP server.</summary>
+    </member>
+    <member name="F:Xceed.Ftp.FtpClientState.Connecting">
+      <summary>The FTP client is in the process of connecting to the FTP server.</summary>
+    </member>
+    <member name="F:Xceed.Ftp.FtpClientState.Connected">
+      <summary>The FTP client is connected to the FTP server.</summary>
+    </member>
+    <member name="F:Xceed.Ftp.FtpClientState.Authenticating">
+      <summary>The FTP client is authenticating with the FTP server.</summary>
+    </member>
+    <member name="F:Xceed.Ftp.FtpClientState.LoggingIn">
+      <summary>The FTP client is logging in.</summary>
+    </member>
+    <member name="F:Xceed.Ftp.FtpClientState.ChangingUser">
+      <summary>The FTP client is changing the current user.</summary>
+    </member>
+    <member name="F:Xceed.Ftp.FtpClientState.ChangingCurrentFolder">
+      <summary>The FTP cient is changing the FTP server's current working folder.</summary>
+    </member>
+    <member name="F:Xceed.Ftp.FtpClientState.ChangingToParentFolder">
+      <summary>The FTP client is changing to the current working folder's parent folder.</summary>
+    </member>
+    <member name="F:Xceed.Ftp.FtpClientState.CreatingFolder">
+      <summary>The FTP client is creating a new folder in the FTP server's current working folder.</summary>
+    </member>
+    <member name="F:Xceed.Ftp.FtpClientState.DeletingFile">
+      <summary>The FTP client is deleting a file in the FTP server's current working folder.</summary>
+    </member>
+    <member name="F:Xceed.Ftp.FtpClientState.DeletingFolder">
+      <summary>The FTP client is deleting a folder in the FTP server's current working folder.</summary>
+    </member>
+    <member name="F:Xceed.Ftp.FtpClientState.GettingCurrentFolder">
+      <summary>The FTP client is retrieving the FTP server's current working folder.</summary>
+    </member>
+    <member name="F:Xceed.Ftp.FtpClientState.GettingFolderContents">
+      <summary>The FTP client is retrieving the contents of the FTP server's current working folder.</summary>
+    </member>
+    <member name="F:Xceed.Ftp.FtpClientState.ReceivingFile">
+      <summary>The FTP client is receiving a file from the FTP server's current working folder.</summary>
+    </member>
+    <member name="F:Xceed.Ftp.FtpClientState.ReceivingMultipleFiles">
+      <summary>The FTP client is receiving multiple files from the FTP server's current working folder.</summary>
+    </member>
+    <member name="F:Xceed.Ftp.FtpClientState.RenamingFile">
+      <summary>The FTP client is renaming a file in the FTP server's current working folder.</summary>
+    </member>
+    <member name="F:Xceed.Ftp.FtpClientState.SendingCustomCommand">
+      <summary>The FTP client is sending a custom command to the FTP server.</summary>
+    </member>
+    <member name="F:Xceed.Ftp.FtpClientState.SendingFile">
+      <summary>The FTP client is sending a file to the FTP server's current working folder.</summary>
+    </member>
+    <member name="F:Xceed.Ftp.FtpClientState.SendingMultipleFiles">
+      <summary>The FTP client is sending multiple files to FTP server's current working folder.</summary>
+    </member>
+    <member name="F:Xceed.Ftp.FtpClientState.Disconnecting">
+      <summary>The FTP client is disconnecting from the FTP server.</summary>
+    </member>
+    <member name="T:Xceed.Ftp.FtpItemType">
+      <summary> Value representing the type of the item on the FTP server. </summary>
+    </member>
+    <member name="F:Xceed.Ftp.FtpItemType.Unknown">
+      <summary>The type of the item is unknown.</summary>
+    </member>
+    <member name="F:Xceed.Ftp.FtpItemType.File">
+      <summary>The item is a file.</summary>
+    </member>
+    <member name="F:Xceed.Ftp.FtpItemType.Folder">
+      <summary>The item is a folder.</summary>
+    </member>
+    <member name="F:Xceed.Ftp.FtpItemType.Link">
+      <summary>The item is a link. A link is a shortcut to a folder or file, that can be located elsewhere than on the FTP server to which the FTP client is connected.</summary>
+    </member>
+    <member name="T:Xceed.Ftp.FtpReplyType">
+      <summary> Value representing the type of reply received from the FTP server in response to a command. </summary>
+    </member>
+    <member name="F:Xceed.Ftp.FtpReplyType.Incomplete">
+      <summary>More lines are expected therefore this reply is still incomplete. You should never receive such a reply, as this value is used internally.</summary>
+    </member>
+    <member name="F:Xceed.Ftp.FtpReplyType.PositivePreliminary">
+      <summary>The requested action is being initiated and another reply should be expected before proceeding with a new command. Any reply between 100 and 159 inclusively is a positive preliminary reply.</summary>
+    </member>
+    <member name="F:Xceed.Ftp.FtpReplyType.PositiveCompletion">
+      <summary>The requested action has successfully completed and a new request may be initiated. Any reply between 200 and 259 inclusively is a positive completion reply.</summary>
+    </member>
+    <member name="F:Xceed.Ftp.FtpReplyType.PositiveIntermediate">
+      <summary>The command was accepted, but the requested action is being held in abeyance, pending receipt of further information. Another command specifying this information is expected by the FTP server. Any reply between 300 and 359 inclusively is a positive intermediate reply.</summary>
+    </member>
+    <member name="F:Xceed.Ftp.FtpReplyType.TransientNegativeCompletion">
+      <summary>The command was not accepted and the requested action did not take place, but the error condition is not permanent and the action may be requested again once the problem is addressed. Any reply between 400 and 459 inclusively is a transient negative completion reply.</summary>
+    </member>
+    <member name="F:Xceed.Ftp.FtpReplyType.PermanentNegativeCompletion">
+      <summary>The command was not accepted and the requested action did not take place. Any reply between 500 and 559 inclusively is a permanent negative completion reply.</summary>
+    </member>
+    <member name="F:Xceed.Ftp.FtpReplyType.Invalid">
+      <summary>The format of the reply received from the FTP server was not recognized.</summary>
+    </member>
+    <member name="T:Xceed.Ftp.MultipleFileTransferErrorAction">
+      <summary> Value representing the action to take when an error occurs while transferring <b>multiple</b> files. </summary>
+    </member>
+    <member name="F:Xceed.Ftp.MultipleFileTransferErrorAction.Abort">
+      <summary> The entire process should be aborted. </summary>
+    </member>
+    <member name="F:Xceed.Ftp.MultipleFileTransferErrorAction.Retry">
+      <summary> Attempt to retransfer the file. </summary>
+    </member>
+    <member name="F:Xceed.Ftp.MultipleFileTransferErrorAction.Ignore">
+      <summary> Skip the file and continue with the next file to transfer. </summary>
+    </member>
+    <member name="T:Xceed.Ftp.RepresentationType">
+      <summary> Value representing the representation type to use when sending or receiving files.</summary>
+    </member>
+    <member name="F:Xceed.Ftp.RepresentationType.Ascii">
+      <summary>The data will be sent/received using the standard 8-bit NVT-ASCII representation. This representation type is intended primarily for the transfer of text files.</summary>
+    </member>
+    <member name="F:Xceed.Ftp.RepresentationType.Binary">
+      <summary>The data will be sent/received as contiguous bits which are packed into the 8-bit transfer bytes. This representation type is intended for the efficient storage and retrieval of files and for the transfer of binary data.</summary>
+    </member>
+    <member name="T:Xceed.Ftp.VerificationAction">
+      <summary> Value representing the verification action to take in the <see cref="E:Xceed.Ftp.FtpClient.CertificateReceived"></see> event when a certificate is received from an FTP server.. </summary>
+    </member>
+    <member name="F:Xceed.Ftp.VerificationAction.Accept">
+      <summary>Accept the FTP server's certificate.</summary>
+    </member>
+    <member name="F:Xceed.Ftp.VerificationAction.Reject">
+      <summary>Reject the FTP server's certificate and make the connection or authentication fail.</summary>
+    </member>
+    <member name="F:Xceed.Ftp.VerificationAction.VerifyAgain">
+      <summary> Verify the certificate again. The Flags property should have been updated to now accept the current reject reason. The <see cref="E:Xceed.Ftp.FtpClient.CertificateReceived"></see> event will be raised again with the new status.</summary>
+    </member>
+    <member name="T:Xceed.Ftp.VerificationFlags">
+      <summary> Value representing the different verification flags used to verify an FTP server's certificate. </summary>
+    </member>
+    <member name="F:Xceed.Ftp.VerificationFlags.None">
+      <summary>No flags. This is the most severe form of validation: No certificate anomalies will be accepted.</summary>
+    </member>
+    <member name="F:Xceed.Ftp.VerificationFlags.IgnoreTimeNotValid">
+      <summary>Ignore an invalid time.</summary>
+    </member>
+    <member name="F:Xceed.Ftp.VerificationFlags.IgnoreCtlTimeNotValid">
+      <summary>Ignore an invalid time of the certificate trust list.</summary>
+    </member>
+    <member name="F:Xceed.Ftp.VerificationFlags.IgnoreTimeNotNested">
+      <summary>Ignore an invalid time nesting.</summary>
+    </member>
+    <member name="F:Xceed.Ftp.VerificationFlags.IgnoreInvalidBasicConstraints">
+      <summary>Ignore invalid basic constraints.</summary>
+    </member>
+    <member name="F:Xceed.Ftp.VerificationFlags.IgnoreAllTimeChecks">
+      <summary>Ignore all time checks.</summary>
+    </member>
+    <member name="F:Xceed.Ftp.VerificationFlags.AllowUnknownCA">
+      <summary>Allow an unknown certificate authority.</summary>
+    </member>
+    <member name="F:Xceed.Ftp.VerificationFlags.IgnoreWrongUsage">
+      <summary>Ignore the wrong usage of a certificate.</summary>
+    </member>
+    <member name="F:Xceed.Ftp.VerificationFlags.IgnoreInvalidName">
+      <summary>Ignore an invalid name.</summary>
+    </member>
+    <member name="F:Xceed.Ftp.VerificationFlags.IgnoreInvalidPolicy">
+      <summary>Ignore an invalid policy.</summary>
+    </member>
+    <member name="F:Xceed.Ftp.VerificationFlags.IgnoreEndRevUnknown">
+      <summary>Ignore an unknown revocation status of the end certificate.</summary>
+    </member>
+    <member name="F:Xceed.Ftp.VerificationFlags.IgnoreSignerRevUnknown">
+      <summary>Ignore an unknown revocation status of the signer certificate.</summary>
+    </member>
+    <member name="F:Xceed.Ftp.VerificationFlags.IgnoreCARevUnknown">
+      <summary>Ignore an unknown revocation status of the certificate authority.</summary>
+    </member>
+    <member name="F:Xceed.Ftp.VerificationFlags.IgnoreRootRevUnknown">
+      <summary>Ignore an unknown revocation status of the root certificate.</summary>
+    </member>
+    <member name="F:Xceed.Ftp.VerificationFlags.IgnoreAllRevUnknown">
+      <summary>Ignore an unknown revocation status of any of the certificates.</summary>
+    </member>
+    <member name="F:Xceed.Ftp.VerificationFlags.AllowTestRoot">
+      <summary>Allow a test root.</summary>
+    </member>
+    <member name="F:Xceed.Ftp.VerificationFlags.TrustTestRoot">
+      <summary>Trust a test root.</summary>
+    </member>
+    <member name="T:Xceed.Ftp.VerificationStatus">
+      <summary> Value representing the different certificate status values. </summary>
+    </member>
+    <member name="F:Xceed.Ftp.VerificationStatus.ValidCertificate">
+      <summary>The certificate is valid.</summary>
+    </member>
+    <member name="F:Xceed.Ftp.VerificationStatus.Expired">
+      <summary>A required certificate is not within its validity period.</summary>
+    </member>
+    <member name="F:Xceed.Ftp.VerificationStatus.InvalidBasicConstraints">
+      <summary>The certificate's basic constraints are invalid or missing.</summary>
+    </member>
+    <member name="F:Xceed.Ftp.VerificationStatus.InvalidChain">
+      <summary>A chain of certificates was not correctly created.</summary>
+    </member>
+    <member name="F:Xceed.Ftp.VerificationStatus.InvalidNesting">
+      <summary>The validity periods of the certification chain do not nest correctly.</summary>
+    </member>
+    <member name="F:Xceed.Ftp.VerificationStatus.InvalidPurpose">
+      <summary>A certificate is being used for a non-permitted purpose.</summary>
+    </member>
+    <member name="F:Xceed.Ftp.VerificationStatus.InvalidRole">
+      <summary>A certificate that can only be used as an end-entity is being used as a CA or visa-versa.</summary>
+    </member>
+    <member name="F:Xceed.Ftp.VerificationStatus.InvalidSignature">
+      <summary>The signature of the certificate cannot be verified.</summary>
+    </member>
+    <member name="F:Xceed.Ftp.VerificationStatus.NoCNMatch">
+      <summary>The certificate's CN name does not match the passed value.</summary>
+    </member>
+    <member name="F:Xceed.Ftp.VerificationStatus.ParentRevoked">
+      <summary>A certificate in the chain has been explicitly revoked by its issuer.</summary>
+    </member>
+    <member name="F:Xceed.Ftp.VerificationStatus.RevocationFailure">
+      <summary>The revocation process could not continue. The certificates could not be checked.</summary>
+    </member>
+    <member name="F:Xceed.Ftp.VerificationStatus.RevocationServerOffline">
+      <summary>Since the revocation server was offline, the called function was not able to complete the revocation check.</summary>
+    </member>
+    <member name="F:Xceed.Ftp.VerificationStatus.Revoked">
+      <summary>The certificate or signature has been revoked.</summary>
+    </member>
+    <member name="F:Xceed.Ftp.VerificationStatus.UntrustedRoot">
+      <summary>A certification chain processed correctly but terminated in a root certificate not trusted by the trust provider.</summary>
+    </member>
+    <member name="F:Xceed.Ftp.VerificationStatus.UntrustedTestRoot">
+      <summary>The root certificate is a testing certificate and policy settings disallow test certificates.</summary>
+    </member>
+    <member name="F:Xceed.Ftp.VerificationStatus.WrongUsage">
+      <summary>The certificate is not valid for the requested usage.</summary>
+    </member>
+    <member name="F:Xceed.Ftp.VerificationStatus.OtherError">
+      <summary>The certificate is invalid.</summary>
+    </member>
+  </members>
+</doc>

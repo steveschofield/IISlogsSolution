@@ -1,0 +1,38 @@
+﻿
+Running a transacted installation.
+
+Beginning the Install phase of the installation.
+See the contents of the log file for the c:\documents and settings\steve\my documents\visual studio projects\iislogs\iislogssvc\bin\iislogssvc.exe assembly's progress.
+The file is located at c:\documents and settings\steve\my documents\visual studio projects\iislogs\iislogssvc\bin\iislogssvc.InstallLog.
+
+An exception occurred during the Install phase.
+System.ArgumentException: Must specify value for source.
+
+The Rollback phase of the installation is beginning.
+See the contents of the log file for the c:\documents and settings\steve\my documents\visual studio projects\iislogs\iislogssvc\bin\iislogssvc.exe assembly's progress.
+The file is located at c:\documents and settings\steve\my documents\visual studio projects\iislogs\iislogssvc\bin\iislogssvc.InstallLog.
+
+The Rollback phase completed successfully.
+
+The transacted install has completed.
+
+Running a transacted installation.
+
+Beginning the Install phase of the installation.
+See the contents of the log file for the c:\documents and settings\steve\my documents\visual studio projects\iislogs\iislogssvc\bin\iislogssvc.exe assembly's progress.
+The file is located at c:\documents and settings\steve\my documents\visual studio projects\iislogs\iislogssvc\bin\iislogssvc.InstallLog.
+
+The Install phase completed successfully, and the Commit phase is beginning.
+See the contents of the log file for the c:\documents and settings\steve\my documents\visual studio projects\iislogs\iislogssvc\bin\iislogssvc.exe assembly's progress.
+The file is located at c:\documents and settings\steve\my documents\visual studio projects\iislogs\iislogssvc\bin\iislogssvc.InstallLog.
+
+The Commit phase completed successfully.
+
+The transacted install has completed.
+
+
+The uninstall is beginning.
+See the contents of the log file for the c:\documents and settings\steve\my documents\visual studio projects\iislogs\iislogssvc\bin\iislogssvc.exe assembly's progress.
+The file is located at c:\documents and settings\steve\my documents\visual studio projects\iislogs\iislogssvc\bin\iislogssvc.InstallLog.
+
+The uninstall has completed.

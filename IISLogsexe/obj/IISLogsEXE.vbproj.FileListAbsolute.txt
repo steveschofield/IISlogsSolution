@@ -1,0 +1,34 @@
+C:\Users\Administrator\Documents\Visual Studio 2005\Projects\IISLogs20\IISLogsexe\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Administrator\Documents\Visual Studio 2005\Projects\IISLogs20\IISLogsexe\obj\Debug\IISLogsEXE.exe
+C:\Users\Administrator\Documents\Visual Studio 2005\Projects\IISLogs20\IISLogsexe\obj\Debug\IISLogsEXE.xml
+C:\Users\Administrator\Documents\Visual Studio 2005\Projects\IISLogs20\IISLogsexe\obj\Debug\IISLogsEXE.pdb
+C:\Users\Administrator\Documents\Visual Studio 2005\Projects\IISLogs20\IISLogsexe\bin\IISLogsEXE.exe.config
+C:\Users\Administrator\Documents\Visual Studio 2005\Projects\IISLogs20\IISLogsexe\bin\IISLogsEXE.exe
+C:\Users\Administrator\Documents\Visual Studio 2005\Projects\IISLogs20\IISLogsexe\bin\IISLogsEXE.xml
+C:\Users\Administrator\Documents\Visual Studio 2005\Projects\IISLogs20\IISLogsexe\bin\IISLogsd.dll
+C:\Users\Administrator\Documents\Visual Studio 2005\Projects\IISLogs20\IISLogsexe\bin\AppConfigReadWriteClass.dll
+C:\Users\Administrator\Documents\Visual Studio 2005\Projects\IISLogs20\IISLogsexe\bin\IISLogsQuickZip.dll
+C:\Users\Administrator\Documents\Visual Studio 2005\Projects\IISLogs20\IISLogsexe\bin\OpenSmtp.dll
+C:\Users\Administrator\Documents\Visual Studio 2005\Projects\IISLogs20\IISLogsexe\bin\AppConfigReadWriteClass.xml
+C:\Users\Administrator\Documents\Visual Studio 2005\Projects\IISLogs20\IISLogsexe\bin\IISLogsd.xml
+C:\Users\Administrator\Documents\Visual Studio 2005\Projects\IISLogs20\IISLogsexe\bin\IISLogsQuickZip.xml
+C:\Users\Administrator\Documents\Visual Studio 2005\Projects\IISLogs20\IISLogsexe\obj\Release\ResolveAssemblyReference.cache
+C:\Users\Administrator\Documents\Visual Studio 2005\Projects\IISLogs20\IISLogsexe\obj\Release\IISLogsEXE.exe
+C:\Users\Administrator\Documents\Visual Studio 2005\Projects\IISLogs20\IISLogsexe\obj\Release\IISLogsEXE.xml
+C:\Documents and Settings\scs\My Documents\Visual Studio 2005\Projects\IISLogs20\IISLogsexe\obj\Release\ResolveAssemblyReference.cache
+C:\Documents and Settings\scs\My Documents\Visual Studio 2005\Projects\IISLogs20\IISLogsexe\obj\Release\IISLogsEXE.exe
+C:\Documents and Settings\scs\My Documents\Visual Studio 2005\Projects\IISLogs20\IISLogsexe\obj\Release\IISLogsEXE.xml
+C:\Documents and Settings\scs\My Documents\Visual Studio 2005\Projects\IISLogs20\IISLogsexe\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\scs\My Documents\Visual Studio 2005\Projects\IISLogs20\IISLogsexe\bin\IISLogsEXE.exe.config
+C:\Documents and Settings\scs\My Documents\Visual Studio 2005\Projects\IISLogs20\IISLogsexe\bin\IISLogsEXE.exe
+C:\Documents and Settings\scs\My Documents\Visual Studio 2005\Projects\IISLogs20\IISLogsexe\bin\IISLogsEXE.xml
+C:\Documents and Settings\scs\My Documents\Visual Studio 2005\Projects\IISLogs20\IISLogsexe\bin\IISLogsd.dll
+C:\Documents and Settings\scs\My Documents\Visual Studio 2005\Projects\IISLogs20\IISLogsexe\bin\AppConfigReadWriteClass.dll
+C:\Documents and Settings\scs\My Documents\Visual Studio 2005\Projects\IISLogs20\IISLogsexe\bin\IISLogsQuickZip.dll
+C:\Documents and Settings\scs\My Documents\Visual Studio 2005\Projects\IISLogs20\IISLogsexe\bin\OpenSmtp.dll
+C:\Documents and Settings\scs\My Documents\Visual Studio 2005\Projects\IISLogs20\IISLogsexe\bin\AppConfigReadWriteClass.xml
+C:\Documents and Settings\scs\My Documents\Visual Studio 2005\Projects\IISLogs20\IISLogsexe\bin\IISLogsd.xml
+C:\Documents and Settings\scs\My Documents\Visual Studio 2005\Projects\IISLogs20\IISLogsexe\bin\IISLogsQuickZip.xml
+C:\Documents and Settings\scs\My Documents\Visual Studio 2005\Projects\IISLogs20\IISLogsexe\obj\Debug\IISLogsEXE.exe
+C:\Documents and Settings\scs\My Documents\Visual Studio 2005\Projects\IISLogs20\IISLogsexe\obj\Debug\IISLogsEXE.xml
+C:\Documents and Settings\scs\My Documents\Visual Studio 2005\Projects\IISLogs20\IISLogsexe\obj\Debug\IISLogsEXE.pdb

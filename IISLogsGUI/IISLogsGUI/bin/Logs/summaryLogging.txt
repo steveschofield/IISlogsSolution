@@ -1,0 +1,14 @@
+#Software: IISLogs Log Component
+#Version: 1.0
+#Date:9/14/2012 2:35:45 AM9/14/2012 2:35:45 AM
+LogPrimaryKey!dateTime!directoryName!TotalNumberFiles!TotalNumberFilesChanged!SizeBeforeProcessing!SizeAfterProcesing!TimeStarted!TimeFinished!ComputerName
+1!9/14/2012!c:\temp\w3svc2!2!0!1002!1002!9/14/2012 2:35:45 AM!9/14/2012 2:35:45 AM!PC2
+1!9/14/2012!c:\inetpub\logs\logfiles\w3svc3!3!0!188924!188924!9/14/2012 2:35:45 AM!9/14/2012 2:35:45 AM!PC2
+1!9/14/2012!c:\inetpub\logs\logfiles\w3svc4!3!0!183053!183053!9/14/2012 2:35:45 AM!9/14/2012 2:35:45 AM!PC2
+1!9/14/2012!c:\inetpub\logs\logfiles\w3svc1!3!0!188924!188924!9/14/2012 2:35:45 AM!9/14/2012 2:35:45 AM!PC2
+1!9/14/2012!c:\inetpub\logs\logfiles\w3svc5!1!0!552!552!9/14/2012 2:35:45 AM!9/14/2012 2:35:45 AM!PC2
+2!9/14/2012!c:\temp\w3svc2!2!0!1002!1002!9/14/2012 2:40:02 AM!9/14/2012 2:40:02 AM!PC2
+2!9/14/2012!c:\inetpub\logs\logfiles\w3svc3!3!0!188924!188924!9/14/2012 2:40:02 AM!9/14/2012 2:40:02 AM!PC2
+2!9/14/2012!c:\inetpub\logs\logfiles\w3svc4!3!0!183053!183053!9/14/2012 2:40:02 AM!9/14/2012 2:40:02 AM!PC2
+2!9/14/2012!c:\inetpub\logs\logfiles\w3svc1!3!0!188924!188924!9/14/2012 2:40:02 AM!9/14/2012 2:40:02 AM!PC2
+2!9/14/2012!c:\inetpub\logs\logfiles\w3svc5!1!0!552!552!9/14/2012 2:40:02 AM!9/14/2012 2:40:02 AM!PC2

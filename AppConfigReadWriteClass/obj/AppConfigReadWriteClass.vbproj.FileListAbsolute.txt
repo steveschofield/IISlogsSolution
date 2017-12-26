@@ -1,0 +1,26 @@
+C:\Users\Administrator\Documents\Visual Studio 2005\Projects\IISLogs20\IISLogsGUI\AppConfigReadWriteClass\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Administrator\Documents\Visual Studio 2005\Projects\IISLogs20\IISLogsGUI\AppConfigReadWriteClass\obj\Debug\AppConfigReadWriteClass.ReadWrite.resources
+C:\Users\Administrator\Documents\Visual Studio 2005\Projects\IISLogs20\IISLogsGUI\AppConfigReadWriteClass\obj\Debug\AppConfigReadWriteClass.vbproj.GenerateResource.Cache
+C:\Users\Administrator\Documents\Visual Studio 2005\Projects\IISLogs20\IISLogsGUI\AppConfigReadWriteClass\obj\Debug\AppConfigReadWriteClass.dll
+C:\Users\Administrator\Documents\Visual Studio 2005\Projects\IISLogs20\IISLogsGUI\AppConfigReadWriteClass\obj\Debug\AppConfigReadWriteClass.xml
+C:\Users\Administrator\Documents\Visual Studio 2005\Projects\IISLogs20\IISLogsGUI\AppConfigReadWriteClass\obj\Debug\AppConfigReadWriteClass.pdb
+C:\Users\Administrator\Documents\Visual Studio 2005\Projects\IISLogs20\IISLogsGUI\AppConfigReadWriteClass\bin\AppConfigReadWriteClass.dll
+C:\Users\Administrator\Documents\Visual Studio 2005\Projects\IISLogs20\IISLogsGUI\AppConfigReadWriteClass\bin\AppConfigReadWriteClass.xml
+C:\Users\Administrator\Documents\Visual Studio 2005\Projects\IISLogs20\IISLogsGUI\AppConfigReadWriteClass\obj\Release\ResolveAssemblyReference.cache
+C:\Users\Administrator\Documents\Visual Studio 2005\Projects\IISLogs20\IISLogsGUI\AppConfigReadWriteClass\obj\Release\AppConfigReadWriteClass.ReadWrite.resources
+C:\Users\Administrator\Documents\Visual Studio 2005\Projects\IISLogs20\IISLogsGUI\AppConfigReadWriteClass\obj\Release\AppConfigReadWriteClass.vbproj.GenerateResource.Cache
+C:\Users\Administrator\Documents\Visual Studio 2005\Projects\IISLogs20\IISLogsGUI\AppConfigReadWriteClass\obj\Release\AppConfigReadWriteClass.dll
+C:\Users\Administrator\Documents\Visual Studio 2005\Projects\IISLogs20\IISLogsGUI\AppConfigReadWriteClass\obj\Release\AppConfigReadWriteClass.xml
+C:\Documents and Settings\scs\My Documents\Visual Studio 2005\Projects\IISLogs20\IISLogsGUI\AppConfigReadWriteClass\obj\Release\ResolveAssemblyReference.cache
+C:\Documents and Settings\scs\My Documents\Visual Studio 2005\Projects\IISLogs20\IISLogsGUI\AppConfigReadWriteClass\obj\Release\AppConfigReadWriteClass.ReadWrite.resources
+C:\Documents and Settings\scs\My Documents\Visual Studio 2005\Projects\IISLogs20\IISLogsGUI\AppConfigReadWriteClass\obj\Release\AppConfigReadWriteClass.vbproj.GenerateResource.Cache
+C:\Documents and Settings\scs\My Documents\Visual Studio 2005\Projects\IISLogs20\IISLogsGUI\AppConfigReadWriteClass\obj\Release\AppConfigReadWriteClass.dll
+C:\Documents and Settings\scs\My Documents\Visual Studio 2005\Projects\IISLogs20\IISLogsGUI\AppConfigReadWriteClass\obj\Release\AppConfigReadWriteClass.xml
+C:\Documents and Settings\scs\My Documents\Visual Studio 2005\Projects\IISLogs20\IISLogsGUI\AppConfigReadWriteClass\bin\AppConfigReadWriteClass.dll
+C:\Documents and Settings\scs\My Documents\Visual Studio 2005\Projects\IISLogs20\IISLogsGUI\AppConfigReadWriteClass\bin\AppConfigReadWriteClass.xml
+C:\Documents and Settings\scs\My Documents\Visual Studio 2005\Projects\IISLogs20\IISLogsGUI\AppConfigReadWriteClass\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\scs\My Documents\Visual Studio 2005\Projects\IISLogs20\IISLogsGUI\AppConfigReadWriteClass\obj\Debug\AppConfigReadWriteClass.ReadWrite.resources
+C:\Documents and Settings\scs\My Documents\Visual Studio 2005\Projects\IISLogs20\IISLogsGUI\AppConfigReadWriteClass\obj\Debug\AppConfigReadWriteClass.vbproj.GenerateResource.Cache
+C:\Documents and Settings\scs\My Documents\Visual Studio 2005\Projects\IISLogs20\IISLogsGUI\AppConfigReadWriteClass\obj\Debug\AppConfigReadWriteClass.dll
+C:\Documents and Settings\scs\My Documents\Visual Studio 2005\Projects\IISLogs20\IISLogsGUI\AppConfigReadWriteClass\obj\Debug\AppConfigReadWriteClass.xml
+C:\Documents and Settings\scs\My Documents\Visual Studio 2005\Projects\IISLogs20\IISLogsGUI\AppConfigReadWriteClass\obj\Debug\AppConfigReadWriteClass.pdb
