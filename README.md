@@ -76,8 +76,4 @@ http://www.iislogs.com/iislogsuac40/
 IISLogs 2.0
 http://www.iislogs.com/iislogsuac20/
 
-Any questions, please post on github or contact at info@iislogs.com
-If you decide to download, run locally and want assistance
-Please contact us at info@iislogs.com and we can send a quote
-
-IISLogs team.
+IISLogs team
